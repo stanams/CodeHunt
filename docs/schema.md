@@ -44,3 +44,10 @@ column name | data type | details
 id          | integer   | not null, primary key
 name        | string    | not null
 product_id  | integer   | not null, foreign key (references products), indexed
+
+## tagging
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+tag_id      | integer   | not null, foreign key (references tags), indexed
+product_id  | integer   | not null, foreign key (references products), indexed
