@@ -21,7 +21,6 @@
 
 - `GET /api/products`
     - index/search
-    - accepts tag_name query param to list notes by tag
 - `POST /api/products`
 - `GET /api/products/:id`
 - `PATCH /api/products/:id`
@@ -43,17 +42,17 @@
 
 ### Comments
 
-- `POST /api/product_id`
-- `GET /api/product_id/comment_id`
+- `POST /api/product_id/comments`
+- `GET /api/product_id/comments`
 - `PATCH /api/product_id/comment_id`
 - `DELETE /api/product_id/comment_id`
 
 
 ### Bonus: Tags/collections
 
-- `GET /api/tags`
+- `GET /api/tag_id/products`
     - includes query param
-- `POST /api/products/:product_id:`
+- `POST /api/products/:product_id`
     - add tag to product by name
-- `DELETE /api/products/:product_id/tags/:tag_name:`
+- `DELETE /api/products/:product_id/tags/:tag_name`
     - remove tag from product by name
