@@ -79,7 +79,7 @@ user interface.
 **Objective:** Votes belongs user and product has many votes. Product list is ranked by votes
 
 - [ ] create `Vote` model
-- [ ] build out API, Flux loop, and component for:
+- build out API, Flux loop, and component for:
   - [ ] Vote CRUD
   - [ ] Products are ranked by Votes on index (DESC order)
   - [ ] Votes can be viewed on user profile
