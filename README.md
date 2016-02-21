@@ -79,10 +79,10 @@ user interface.
 **Objective:** Votes belongs user and product has many votes. Product list is ranked by votes
 
 - [ ] create `Vote` model
-- build out API, Flux loop, and component for:
-  [ ] Vote CRUD
-  [ ] Products are ranked by Votes on index (DESC order)
-  [ ] Votes can be viewed on user profile
+- [ ] build out API, Flux loop, and component for:
+  - [ ] Vote CRUD
+  - [ ] Products are ranked by Votes on index (DESC order)
+  - [ ] Votes can be viewed on user profile
 
 ### Phase 5: Start styling (check scss) (1 day)
 
@@ -97,7 +97,7 @@ user interface.
 **Objective:** Comments belongs to a product and a user and product has many comments
 
 - [ ] create `Comment` model
-- build out API, Flux loop, and components for:
+- build out API, Flux loop, and components for comments:
   - [ ] `Comment` CRUD
   - [ ] Comments are seen on product page
 - [ ] Style new elements
@@ -115,11 +115,13 @@ user interface.
 **objective:** Tag has many products through tagging and product has many tags through tagging
 
 - create join table
-- CRUD for tags
-- [ ] User can tag a product
-- [ ] User followers are viewed on user profile
-- [ ] Products can be searched by tag and by name
-- [ ] Tags search is viewed as a product list
+- build out API, Flux loop, and components for comments:
+  - `Tag` CRUD
+  - [ ] User can tag a product
+  - [ ] User followers are viewed on user profile
+  - [ ] Products can be searched by tag and by name
+  - [ ] Tags search is viewed as a product list
+- Style tag
 
 
 ### Phase 9: Styling Cleanup and Seeding (1 day)
@@ -128,10 +130,9 @@ user interface.
 
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals (product modal on index), transitions, and other styling flourishes.
+- [ ] Add modals (product modal on index), transitions, popover, tooltips and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Front end finition (popovers, tooltips)
 - [ ] Infinite scroll
 - [ ] SubComments-replies
 - [ ] Collections
