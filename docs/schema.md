@@ -45,7 +45,7 @@ id          | integer   | not null, primary key
 name        | string    | not null
 product_id  | integer   | not null, foreign key (references products), indexed
 
-## tagging
+## taggings
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
