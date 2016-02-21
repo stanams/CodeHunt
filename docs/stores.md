@@ -1,49 +1,55 @@
 # Flux Stores
 
-### NoteStore
+### ProductStores
 
 Holds all persisted note data.
 
 ##### Actions:
-- `receiveAllNotes`
-- `receiveSingleNote`
-- `removeNote`
+- `receiveAllProducts`
+- `receiveSingleProduct`
+- `editProduct`
+- `removeProduct`
 
 ##### Listeners:
-- `NotesIndex` (passes to `NoteIndexItem` via props)
-- `NoteDetail`
+- `ProductList`
+- `ProductItem`
 
-### NoteFormStore
+### ProductFormStore
 
-Holds un-persisted note data to send to the API.
+Holds un-persisted product data to send to the API.
 
 ##### Actions:
-- `receiveNoteFormParams`
+- `receiveProductFormParams`
 
 ##### Listeners:
-- `NoteForm`
+- `ProductForm`
 
-### NotebookStore
-
-Holds all persisted notebook data.
+### SearchStore
 
 ##### Actions:
-- `receiveAllNotebooks`
-- `receiveSingleNotebook`
-- `removeNotebook`
+- `receiveSearchParams`
 
-##### Listeners:
-- `NotebookIndex`
+##### Listener:
+- `Search`
 
-### NotebookFormStore
 
-Holds un-persisted notebook data to send to the API.
+### CommentsStore
 
 ##### Actions:
-- `receiveNotebookFormParams`
+- `receiveAllComments`
 
 ##### Listeners:
-- `NotebookForm`
+- `CommentsList`
+
+### CommentFormStore
+
+Holds un-persisted comment data to send to the API.
+
+##### Actions:
+- `receiveNewCommentParams`
+
+##### Listeners:
+- `NewCommentForm`
 
 ### SearchStore
 
@@ -53,14 +59,15 @@ Holds search parameters to send to the API.
 - `receiveSearchParams`
 
 ##### Listeners:
-- `SearchIndex`
+- `Search`
 
-### SearchSuggestionStore
 
-Holds typeahead suggestions for search.
+### TagsStore
+
+Holds un-persisted tag data to send to the API.
 
 ##### Actions:
-- `receiveSearchSuggestions`
+- `receiveTaggedProduct`
 
 ##### Listeners:
-- `SearchSuggestions`
+- `Search`

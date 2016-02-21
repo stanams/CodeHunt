@@ -1,23 +1,26 @@
-# FresherNote
+# CodeHunt
 
-[Heroku link][heroku] **NB:** This should be a link to your production site
+[Heroku link][heroku] soon
 
 [heroku]: http://www.herokuapp.com
 
 ## Minimum Viable Product
 
-FresherNote is a web application inspired by Evernote built using Ruby on Rails
-and React.js. FresherNote allows users to:
+CodeHunt is a web application inspired by Product Hunt built using Ruby on Rails
+and React.js. CodeHunt allows users to:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account
-- [ ] Log in / Log out
-- [ ] Create, read, edit, and delete notes
-- [ ] Organize notes within Notebooks
-- [ ] Tag notes with multiple tags
-- [ ] Apply complex styling to notes while editing
+- [ ] Create an account and fill a profile
+- [ ] Create/distroy session
+- [ ] Create, read, edit, and delete product
+- [ ] Vote/unvote for product (no downvote)
+- [ ] Comment on a product
+- [ ] View product list
+- [ ] View product page
+- [ ] Follow/be followed by other users
+- [ ] Search for products by name/tag
 
 ## Design Docs
 * [View Wireframes][views]
@@ -26,7 +29,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 * [API endpoints][api-endpoints]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
+[views]: https://invis.io/7D64NUL6W
 [components]: ./docs/components.md
 [stores]: ./docs/stores.md
 [api-endpoints]: ./docs/api-endpoints.md
@@ -44,90 +47,95 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Notes Model, API, and basic APIUtil (1.5 days)
+### Phase 2: Product Model, API and basic APIUtil (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed through
+**Objective:** Products can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Note` model
+- [ ] create `Product` model
 - [ ] seed the database with a small amount of test data
-- [ ] CRUD API for notes (`NotesController`)
-- [ ] jBuilder views for notes
+- [ ] CRUD API for products (`ProductController`)
+- [ ] jBuilder views for product
 - [ ] setup Webpack & Flux scaffold
 - [ ] setup `APIUtil` to interact with the API
 - [ ] test out API interaction in the console.
 
-### Phase 3: Flux Architecture and Router (1.5 days)
+### Phase 3: Flux architecture and router (1.5 days)
 
-**Objective:** Notes can be created, read, edited and destroyed with the
+**Objective:** Products can be created, read, edited and destroyed with the
 user interface.
 
 - [ ] setup the flux loop with skeleton files
 - [ ] setup React Router
-- implement each note component, building out the flux loop as needed.
-  - [ ] `NotesIndex`
-  - [ ] `NoteIndexItem`
-  - [ ] `NoteForm`
-- [ ] save Notes to the DB when the form loses focus or is left idle
+- implement each product component, building out the flux loop as needed:
+  - [ ] `ProductIndex`
+  - [ ] `ProductIndexItem`
+  - [ ] `NewProductForm`
+- [ ] save Products to the DB when the form loses focus or is left idle
   after editing.
 
-### Phase 4: Start Styling (0.5 days)
+### Phase 4: Vote up and rank (1 day)
 
-**Objective:** Existing pages (including singup/signin) will look good.
+**Objective:** Votes belongs user and product has many votes. Product list is ranked by votes
+
+- [ ] create `Vote` model
+- build out API, Flux loop, and component for:
+  [ ] Vote CRUD
+  [ ] Products are ranked by Votes on index (DESC order)
+  [ ] Votes can be viewed on user profile
+
+### Phase 5: Start styling (check scss) (1 day)
+
+**Objective:** Existing pages (including singup/signin) will look sexy.
 
 - [ ] create a basic style guide
 - [ ] position elements on the page
-- [ ] add basic colors & styles
+- [ ] add colors & styles
 
-### Phase 5: Notebooks (1 day)
+### Phase 6: Comments (1 day)
 
-**Objective:** Notes belong to Notebooks, and can be viewed by notebook.
+**Objective:** Comments belongs to a product and a user and product has many comments
 
-- [ ] create `Notebook` model
+- [ ] create `Comment` model
 - build out API, Flux loop, and components for:
-  - [ ] Notebook CRUD
-  - [ ] adding notes requires a notebook
-  - [ ] moving notes to a different notebook
-  - [ ] viewing notes by notebook
-- Use CSS to style new views
-
-Phase 3 adds organization to the Notes. Notes belong to a Notebook,
-which has its own `Index` view.
-
-### Phase 6: Tags (1.5 days)
-
-**Objective:** Notes can be tagged with multiple tags, and tags are searchable.
-
-- [ ] create `Tag` model and join table
-- build out API, Flux loop, and components for:
-  - [ ] fetching tags for notebook
-  - [ ] adding tags to notebook
-  - [ ] creating tags while adding to notebooks
-  - [ ] searching notebooks by tag
+  - [ ] `Comment` CRUD
+  - [ ] Comments are seen on product page
 - [ ] Style new elements
 
-### Phase 7: Allow Complex Styling in Notes (0.5 days)
+### Phase 7: Follow (0.5 days)
 
-**objective:** Enable complex styling of notes.
+**objective:** Users can follow each other
 
-- [ ] Integrate `react-quill` (based on Quill.js).
-- [ ] Use Rails helpers to sanitize HTML before rendering.
-- [ ] Style the new Quill elements.
+- [ ] Users followers are viewed on user profile
+- [ ] Users followees are viewed on user profile
+- [ ] Users can be searched by name
 
-### Phase 8: Styling Cleanup and Seeding (1 day)
+### Phase 8: Tags (1 day)
+
+**objective:** Tag has many products through tagging and product has many tags through tagging
+
+- create join table
+- CRUD for tags
+- [ ] User can tag a product
+- [ ] User followers are viewed on user profile
+- [ ] Products can be searched by tag and by name
+- [ ] Tags search is viewed as a product list
+
+
+### Phase 9: Styling Cleanup and Seeding (1 day)
 
 **objective:** Make the site feel more cohesive and awesome.
 
 - [ ] Get feedback on my UI from others
 - [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals, transitions, and other styling flourishes.
+- [ ] Add modals (product modal on index), transitions, and other styling flourishes.
 
 ### Bonus Features (TBD)
-- [ ] Search through notes for blocks of text
-- [ ] Pagination / infinite scroll for Notes Index
-- [ ] Set reminders on notes
-- [ ] Changelogs for Notes
-- [ ] Multiple sessions
+- [ ] Front end finition (popovers, tooltips)
+- [ ] Infinite scroll
+- [ ] SubComments-replies
+- [ ] Collections
+- [ ] Bookmarklet
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md

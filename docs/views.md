@@ -6,10 +6,10 @@
 ## New Session
 ![new-session]
 
-## NotesIndex / NoteIndexItem / NoteForm
+## ProductList / ProductListItem / ProductForm
 ![notes]
 
-## NotebooksIndex / NotebookIndexItem
+## CommentList / CommentListItem
 ![notebooks]
 
 ## NotebookForm

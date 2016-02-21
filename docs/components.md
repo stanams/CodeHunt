@@ -1,13 +1,22 @@
 ## Component Hierarchy
 
 * `App`
-  * `SearchIndex`
-  * `NotebooksIndex`
-    * `NotebookIndexItem`
-  * `NotebookForm`
-  * `NotesIndex`
-    * `NoteForm`
-    * `NoteIndexItem`
-  * `NoteDetail`
-    * `NoteTags`
-    * `NoteEditArea`
+    * `Header`
+        * `Search`
+            * `ProductListFiltered`
+        * `NewProductForm`
+        * `Signup`
+        * `Profile`
+            * `ProfileHeader`
+            * `ProfileTabs`
+                * `Votes`
+                * `PostList`
+                * `FollowerList`
+        * `(Notifications)`
+    * `ProductList`
+        * `ProductListItem`
+            * `ProductPage`
+                * `ProductPageHeader`
+                * `ProductPageBody`
+                    * `Votes`
+                    * `Comments`
