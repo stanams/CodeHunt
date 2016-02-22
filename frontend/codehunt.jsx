@@ -9,7 +9,7 @@ var ReactDOM = require('react-dom');
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render(
-    <div />,
+    <App/>,
     document.getElementById('root')
   );
 });

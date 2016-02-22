@@ -1,13 +1,13 @@
 var React = require('react');
 
-var ProductList = React.createClass({
+var ProductsList = React.createClass({
   render: function(){
     return(
       <div>
-        {productList}
+        {productsList}
       </div>
     );
   }
 });
 
-module.exports = ProductList;
+module.exports = ProductsList;
