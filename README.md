@@ -91,7 +91,7 @@ the API.
 - [ ] Display filtered products list under appropriate tabs (voted vs. posted)
 - [ ] Update the new user form and the user edit form
 - [ ] Seed database with fake profiles (or ask other students)
-- Style and utilize profiles:
+- Style and utilize profile data:
   - [ ] Make profile page sexy
   - [ ] Display rounded profil pic of voters on `ProductListItem` and `ProductPage`
 - [ ] Bonus: popovers when overing on profile pictures (same components as above)
@@ -106,7 +106,7 @@ the API.
 - Build out API, Flux loop, and components for comments:
   - [ ] `Comment` CRUD
   - [ ] Comments are seen on product page
-- Style and utilize profiles:
+- Style and utilize comments data:
   - [ ] Make comments sexy
   - [ ] Display number of comments on `ProductListItem` and full `Comment` component on `ProductPage`
 
