@@ -1,4 +1,4 @@
-# Phase 5: Reminders and Garbage Collection
+# Phase 5: Comments (1.5 days)
 
 ## Rails
 ### Models

@@ -1,4 +1,4 @@
-# Phase 3: Flux architecture and router (1.5 days)
+# Phase 3: Vote up and ranked list (1.5 days)
 
 Make the router, db connections and test the whole loop.
 

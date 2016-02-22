@@ -43,9 +43,11 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [ ] create new project
 - [ ] create `User` model
+- [ ] create simple `Product` model and controller index to generate an index page (same for logged in/non logged in)
+  - the goal is to make the homepage the same for logged in and non logged in users. Non logged in users who try to take action will see a signin/up modal (the `before_action: require_sign_in` thing in will be implemented in next phase)
 - [ ] authentication
-- [ ] user signup/signin pages
-- [ ] blank landing page after signin
+- [ ] user signup/signin modal
+- [ ] simple header navbar (logo + sign in button)
 
 ### Phase 2: Products (2 days)
 

@@ -1,4 +1,4 @@
-# Phase 2: Flux Architecture and Product CRUD (2 days)
+# Phase 2: Products (2 days)
 
 ## Rails
 ### Models
@@ -7,10 +7,13 @@
 * Api::ProductsController (create, destroy, index, show, update)
 
 ### Views
-* jbuilder views
+* products/index.json.jbuilder
+* product/show.json.jbuilder
 
 ## Flux
 ### Views (React Components)
+* ProductList
+* ProductListItem
 
 ### Stores
 * UserStore

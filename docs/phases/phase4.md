@@ -1,8 +1,8 @@
-# Phase 4: Allow Complex Styling in Notes (1 day)
+# Phase 4: Profile (1.5 days)
 
 ## Rails
 ### Models
-  * VoteUp
+
 
 ### Controllers
 
