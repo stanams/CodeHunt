@@ -1,37 +1,36 @@
-# Phase 2: Flux Architecture and Note CRUD (2 days)
+# Phase 2: Flux Architecture and Product CRUD (2 days)
 
 ## Rails
 ### Models
 
 ### Controllers
+* Api::ProductsController (create, destroy, index, show, update)
 
 ### Views
+* jbuilder views
 
 ## Flux
 ### Views (React Components)
-* NotesIndex
-  - NotesIndexItem
-* NoteForm
 
 ### Stores
-* Note
+* UserStore
+* ProductStore
 
 ### Actions
-* ApiActions.receiveAllNotes -> triggered by ApiUtil
-* ApiActions.receiveSingleNote
-* ApiActions.deleteNote
-* NoteActions.fetchAllNotes -> triggers ApiUtil
-* NoteActions.fetchSingleNote 
-* NoteActions.createNote
-* NoteActions.editNote 
-* NoteActions.destroyNote
+* ApiActions.receiveAllProduct -> triggered by ApiUtil
+* ApiActions.receiveSingleProduct
+* ProductActions.fetchAllProducts -> triggers ApiUtil
+* ProductActions.fetchSingleProduct
+* ProductActions.createProduct
+* ProductActions.editProduct
+* ProductActions.destroyProduct
 
 ### ApiUtil
-* ApiUtil.fetchAllNotes
-* ApiUtil.fetchSingleNote
-* ApiUtil.createNote
-* ApiUtil.editNote
-* ApiUtil.destroyNote
+* ApiUtil.fetchAllProducts
+* ApiUtil.fetchSingleProduct
+* ApiUtil.createProduct
+* ApiUtil.editProduct
+* ApiUtil.destroyProduct
 
 ## Gems/Libraries
 * Flux Dispatcher (npm)

@@ -1,44 +1,38 @@
-# Phase 3: Notebooks and Tags (2 days)
+# Phase 3: Flux architecture and router (1.5 days)
 
-## Rails
-### Models
-* Notebook
-* Tag
-* Tagging
+Make the router, db connections and test the whole loop.
 
 ### Controllers
-* Api::NotebooksController (create, destroy, index, show, update)
+* Api::ProductsController (create, destroy, index, show, update)
 
 ### Views
-* notebooks/index.json.jbuilder
-* notebooks/show.json.jbuilder
-* tags/show.json.jbuilder
+* jbuilder views
 
 ## Flux
 ### Views (React Components)
-* NotebooksIndex
-  - NotebookIndexItem
-* NotebookForm
-* SearchIndex
+* ProductsList
+  - NotesListItem
+* ProductForm
 
 ### Stores
-* Notebook
+* ProductStore
 
 ### Actions
-* ApiActions.receiveAllNotebooks -> triggered by ApiUtil
-* ApiActions.receiveSingleNotebook
-* ApiActions.deleteNotebook
-* NotebookActions.fetchAllNotebooks -> triggers ApiUtil
-* NotebookActions.fetchSingleNotebook
-* NotebookActions.createNotebook
-* NotebookActions.editNotebook
-* NotebookActions.destroyNotebook
+* ApiActions.receiveAllProduct -> triggered by ApiUtil
+* ApiActions.receiveSingleProduct
+* ProductActions.fetchAllProducts -> triggers ApiUtil
+* ProductActions.fetchSingleProduct
+* ProductActions.createProduct
+* ProductActions.editProduct
+* ProductActions.destroyProduct
 
 ### ApiUtil
-* ApiUtil.fetchAllNotebooks
-* ApiUtil.fetchSingleNotebook
-* ApiUtil.createNotebook
-* ApiUtil.editNotebook
-* ApiUtil.destroyNotebook
+* ApiUtil.fetchAllProducts
+* ApiUtil.fetchSingleProduct
+* ApiUtil.createProduct
+* ApiUtil.editProduct
+* ApiUtil.destroyProduct
 
 ## Gems/Libraries
+* Flux Dispatcher (npm)
+* Twitter Bootstrap

@@ -1,14 +1,14 @@
-# Phase 1: User Authentication, Note Model and JSON API
+# Phase 1: User Authentication, Product Model and JSON API
 
 ## Rails
 ### Models
 * User
-* Note
+* Product
 
 ### Controllers
 * UsersController (create, new)
 * SessionsController (create, new, destroy)
-* Api::NotesController (create, destroy, index, show, update)
+* Api::ProductsController (create, destroy, index, show, update)
 
 ### Views
 * users/new.html.erb

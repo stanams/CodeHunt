@@ -2,6 +2,7 @@
 
 ## Rails
 ### Models
+  * VoteUp
 
 ### Controllers
 
@@ -15,4 +16,4 @@
 ### Actions
 
 ## Gems/Libraries
-* react-quill (npm)
+* VoteUp/ThumbsUp/Votable/Make_voteable or home made
