@@ -52,18 +52,20 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Products can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Product` model
+- [ ] create `Product` model (require sign in)
 - [ ] CRUD API for products (`ProductController`)
 - [ ] jBuilder views for product
-- [ ] setup Webpack & Flux scaffold
-- [ ] ProductActions
-- [ ] setup API and basic `APIUtil` to interact with it
-- [ ] Make the `ProcuctStore`
+- setup Webpack & Flux scaffold:
+  - [ ] ProductActions
+  - [ ] setup API and basic `APIUtil` to interact with it
+  - [ ] Make the `ProcuctStore`
+  - [ ] make `ProductList` and `ProductListItem` components
 - [ ] seed the database with a small amount of test data
-- [ ] test out API interaction in the console.
-- [ ] display a `ProductList` composed of `ProductListItem`s on index
-- [ ] style the list
-- [ ] make product page (data and style)
+- [ ] test out API interaction in the console
+- [ ] start setting up the router
+- [ ] have `/products` & `/products/:id` working
+- [ ] style product list
+- [ ] style product page
 - [ ] Bonus: product modal on home page (cf wireframes)
 
 
@@ -71,14 +73,14 @@ the API.
 
 **Objective:** Ability to vote up for a product and get a list of ranked product from the most upvoted to the least ones
 
-- Votes belongs user and product has many votes. Product list is ranked by votes
-- [ ] create `Vote` model and associations
+- Votes belongs to user and a Product has many votes:
+- [ ] create `Vote` model (require sign in)
 - Build out API, Flux loop, and component for:
   - [ ] Vote CRUD
   - [ ] Products are ranked by Votes on index (DESC order)
   - [ ] Votes can be viewed on user profile
-- [ ] Start setting up the router
-- [ ] Style & utilize the new components: vote button, voters picture on `ProductItemList`, display votes data on products page
+- [ ] Make the ranked list the default list
+- [ ] Style & utilize the new components: vote button, voters picture on `ProductItemList`, display votes data on products page/modal
 
 ### Phase 4: Profile (1.5 days)
 
@@ -89,8 +91,10 @@ the API.
 - [ ] Display filtered products list under appropriate tabs (voted vs. posted)
 - [ ] Update the new user form and the user edit form
 - [ ] Seed database with fake profiles (or ask other students)
-- [ ] Make the profile sexy
-- [ ] Bonus: popovers when overing on profile pictures
+- Style and utilize profiles:
+  - [ ] Make profile page sexy
+  - [ ] Display rounded profil pic of voters on `ProductListItem` and `ProductPage`
+- [ ] Bonus: popovers when overing on profile pictures (same components as above)
 
 
 ### Phase 5: Comments (1.5 days)
@@ -99,10 +103,13 @@ the API.
 
 - Comments belongs to a product and a user and product has many comments:
 - [ ] create `Comment` model (require sign in)
-- build out API, Flux loop, and components for comments:
+- Build out API, Flux loop, and components for comments:
   - [ ] `Comment` CRUD
   - [ ] Comments are seen on product page
-- [ ] Style and utilize comments on the appropriate pages
+- Style and utilize profiles:
+  - [ ] Make comments sexy
+  - [ ] Display number of comments on `ProductListItem` and full `Comment` component on `ProductPage`
+
 
 
 ### Bonus Features (TBD)
