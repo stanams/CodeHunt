@@ -2,7 +2,7 @@ var path = require("path");
 
 module.exports = {
   context: __dirname,
-  entry: "./codehunt.jsx",
+  entry: "./frontend/codehunt.jsx",
   output: {
     path: "./",
     filename: "bundle.js"
