@@ -19,8 +19,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] Comment on a product
 - [ ] View product list
 - [ ] View product page
-- [ ] Follow/be followed by other users
-- [ ] Search for products by name/tag
+
 
 ## Design Docs
 * [View Wireframes][views]
@@ -36,6 +35,7 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 [schema]: ./docs/schema.md
 
 ## Implementation Timeline
+- styling, testing and refactoring are continuous tasks
 
 ### Phase 1: Backend setup and User Authentication (0.5 days)
 
@@ -47,92 +47,67 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [ ] user signup/signin pages
 - [ ] blank landing page after signin
 
-### Phase 2: Product Model, API and basic APIUtil (1.5 days)
+### Phase 2: Products (2 days)
 
 **Objective:** Products can be created, read, edited and destroyed through
 the API.
 
 - [ ] create `Product` model
-- [ ] seed the database with a small amount of test data
 - [ ] CRUD API for products (`ProductController`)
 - [ ] jBuilder views for product
 - [ ] setup Webpack & Flux scaffold
-- [ ] setup `APIUtil` to interact with the API
+- [ ] ProductActions
+- [ ] setup API and basic `APIUtil` to interact with it
+- [ ] Make the `ProcuctStore`
+- [ ] seed the database with a small amount of test data
 - [ ] test out API interaction in the console.
+- [ ] display a `ProductList` composed of `ProductListItem`s on index
+- [ ] style the list
+- [ ] make product page (data and style)
+- [ ] Bonus: product modal on home page (cf wireframes)
 
-### Phase 3: Flux architecture and router (1.5 days)
 
-**Objective:** Products can be created, read, edited and destroyed with the
-user interface.
+### Phase 3: Vote up and ranked list (1.5 days)
 
-- [ ] setup the flux loop with skeleton files
-- [ ] setup React Router
-- implement each product component, building out the flux loop as needed:
-  - [ ] `ProductIndex`
-  - [ ] `ProductIndexItem`
-  - [ ] `NewProductForm`
-- [ ] save Products to the DB when the form loses focus or is left idle
-  after editing.
+**Objective:** Ability to vote up for a product and get a list of ranked product from the most upvoted to the least ones
 
-### Phase 4: Vote up and rank (1 day)
-
-**Objective:** Votes belongs user and product has many votes. Product list is ranked by votes
-
-- [ ] create `Vote` model
-- build out API, Flux loop, and component for:
+- Votes belongs user and product has many votes. Product list is ranked by votes
+- [ ] create `Vote` model and associations
+- Build out API, Flux loop, and component for:
   - [ ] Vote CRUD
   - [ ] Products are ranked by Votes on index (DESC order)
   - [ ] Votes can be viewed on user profile
+- [ ] Start setting up the router
+- [ ] Style & utilize the new components: vote button, voters picture on `ProductItemList`, display votes data on products page
 
-### Phase 5: Start styling (check scss) (1 day)
+### Phase 4: Profile (1.5 days)
 
-**Objective:** Existing pages (including singup/signin) will look sexy.
+**Objective:** Make user profiles with basic infos and tabs that display the appropriate content
 
-- [ ] create a basic style guide
-- [ ] position elements on the page
-- [ ] add colors & styles
+- [ ] Make the router for the tabs displayed on profile page (products voted, products posted)
+- [ ] jBuilder views for profile
+- [ ] Display filtered products list under appropriate tabs (voted vs. posted)
+- [ ] Update the new user form and the user edit form
+- [ ] Seed database with fake profiles (or ask other students)
+- [ ] Make the profile sexy
+- [ ] Bonus: popovers when overing on profile pictures
 
-### Phase 6: Comments (1 day)
 
-**Objective:** Comments belongs to a product and a user and product has many comments
+### Phase 5: Comments (1.5 days)
 
-- [ ] create `Comment` model
+**Objective:** Allow users to make comments on product pages
+
+- Comments belongs to a product and a user and product has many comments:
+- [ ] create `Comment` model (require sign in)
 - build out API, Flux loop, and components for comments:
   - [ ] `Comment` CRUD
   - [ ] Comments are seen on product page
-- [ ] Style new elements
+- [ ] Style and utilize comments on the appropriate pages
 
-### Phase 7: Follow (0.5 days)
-
-**objective:** Users can follow each other
-
-- [ ] Users followers are viewed on user profile
-- [ ] Users followees are viewed on user profile
-- [ ] Users can be searched by name
-
-### Phase 8: Tags (1 day)
-
-**objective:** Tag has many products through tagging and product has many tags through tagging
-
-- create join table
-- build out API, Flux loop, and components for comments:
-  - `Tag` CRUD
-  - [ ] User can tag a product
-  - [ ] User followers are viewed on user profile
-  - [ ] Products can be searched by tag and by name
-  - [ ] Tags search is viewed as a product list
-- Style tag
-
-
-### Phase 9: Styling Cleanup and Seeding (1 day)
-
-**objective:** Make the site feel more cohesive and awesome.
-
-- [ ] Get feedback on my UI from others
-- [ ] Refactor HTML classes & CSS rules
-- [ ] Add modals (product modal on index), transitions, popover, tooltips and other styling flourishes.
 
 ### Bonus Features (TBD)
+- [ ] tags
+- [ ] follow
 - [ ] Infinite scroll
 - [ ] SubComments-replies
 - [ ] Collections
