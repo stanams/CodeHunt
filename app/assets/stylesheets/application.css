@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+
+ .main-header {
+   border-bottom: 1px, solid, red;
+ }

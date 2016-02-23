@@ -47,6 +47,8 @@
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
 	
+	var App = __webpack_require__(159);
+	
 	// var Router = require('react-router').Router;
 	// var Route = require('react-router').Route;
 	// var IndexRoute = require('react-router').IndexRoute;
@@ -19655,6 +19657,123 @@
 	
 	module.exports = __webpack_require__(3);
 
+
+/***/ },
+/* 159 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var Header = __webpack_require__(160);
+	var ProductsList = __webpack_require__(162);
+	
+	var App = React.createClass({
+	  displayName: 'App',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(Header, null),
+	      React.createElement(ProductsList, null)
+	    );
+	  }
+	});
+	
+	module.exports = App;
+
+/***/ },
+/* 160 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var Auth = __webpack_require__(161);
+	
+	var Header = React.createClass({
+	  displayName: 'Header',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'p',
+	        null,
+	        'Code Hunt'
+	      ),
+	      React.createElement(Auth, null)
+	    );
+	  }
+	});
+	
+	module.exports = Header;
+
+/***/ },
+/* 161 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Auth = React.createClass({
+	  displayName: 'Auth',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'h1',
+	        null,
+	        'CodeHunt'
+	      ),
+	      React.createElement(
+	        'h3',
+	        null,
+	        'Discover and vote for the best prodcuts'
+	      ),
+	      React.createElement(
+	        'ul',
+	        null,
+	        React.createElement(
+	          'li',
+	          null,
+	          'Sign Up'
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          'Sign In'
+	        ),
+	        React.createElement(
+	          'li',
+	          null,
+	          'Demo'
+	        )
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Auth;
+
+/***/ },
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ProductsList = React.createClass({
+	  displayName: 'ProductsList',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'This is a product list'
+	    );
+	  }
+	});
+	
+	module.exports = ProductsList;
 
 /***/ }
 /******/ ]);

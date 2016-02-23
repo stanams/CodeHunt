@@ -1,6 +1,8 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 
+var App = require('./components/app');
+
 // var Router = require('react-router').Router;
 // var Route = require('react-router').Route;
 // var IndexRoute = require('react-router').IndexRoute;
@@ -9,7 +11,7 @@ var ReactDOM = require('react-dom');
 
 document.addEventListener("DOMContentLoaded", function () {
   ReactDOM.render(
-    <App/>,
+    <App />,
     document.getElementById('root')
   );
 });

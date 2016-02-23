@@ -1,4 +1,5 @@
 var React = require('react');
+var Auth = require('./auth');
 
 var Header = React.createClass({
   render: function(){
