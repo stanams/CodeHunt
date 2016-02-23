@@ -1,4 +1,4 @@
-class SessionController < ApplicationController
+class SessionsController < ApplicationController
 
   def new
     @user = User.new
@@ -12,7 +12,7 @@ class SessionController < ApplicationController
 
     if @user
       sign_in(@user)
-      render :json
+      redirect_to url_root
     else
       flash.now[:errors] = ["Invalid username or password."]
       render :new
@@ -22,6 +22,7 @@ class SessionController < ApplicationController
 
   def destroy
     sign_out
+    redirect_to new_session_url
   end
 
 end
