@@ -19663,7 +19663,6 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var AuthPage = __webpack_require__(163);
 	
 	var App = React.createClass({
 	  displayName: 'App',
@@ -19672,66 +19671,12 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(AuthPage, null)
+	      'products list'
 	    );
 	  }
 	});
 	
 	module.exports = App;
-
-/***/ },
-/* 160 */,
-/* 161 */,
-/* 162 */,
-/* 163 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var LinkedStateMixin = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-addons-linked-state-mixin\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-	
-	var AuthPage = React.createClass({
-	  displayName: 'AuthPage',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      { className: 'auth-bloc' },
-	      React.createElement(
-	        'h1',
-	        null,
-	        'Code Hunt'
-	      ),
-	      React.createElement(
-	        'h3',
-	        null,
-	        'Discover and vote for the best prodcuts'
-	      ),
-	      React.createElement(
-	        'form',
-	        { onSubmit: this.loginClick },
-	        React.createElement(
-	          'label',
-	          null,
-	          'Username: '
-	        ),
-	        React.createElement('input', { type: 'text', valueLink: this.linkState('username') }),
-	        React.createElement(
-	          'label',
-	          null,
-	          'Username: '
-	        ),
-	        React.createElement('input', { type: 'text', valueLink: this.linkState('username') })
-	      ),
-	      React.createElement(
-	        'button',
-	        null,
-	        'Demo'
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = AuthPage;
 
 /***/ }
 /******/ ]);
