@@ -19687,38 +19687,45 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var LinkedStateMixin = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"react-addons-linked-state-mixin\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var AuthPage = React.createClass({
-	  displayName: "AuthPage",
+	  displayName: 'AuthPage',
 	
 	  render: function () {
 	    return React.createElement(
-	      "div",
-	      { className: "auth-bloc" },
+	      'div',
+	      { className: 'auth-bloc' },
 	      React.createElement(
-	        "h1",
+	        'h1',
 	        null,
-	        "Code Hunt"
+	        'Code Hunt'
 	      ),
 	      React.createElement(
-	        "h3",
+	        'h3',
 	        null,
-	        "Discover and vote for the best prodcuts"
+	        'Discover and vote for the best prodcuts'
 	      ),
 	      React.createElement(
-	        "button",
-	        null,
-	        "Sign In"
+	        'form',
+	        { onSubmit: this.loginClick },
+	        React.createElement(
+	          'label',
+	          null,
+	          'Username: '
+	        ),
+	        React.createElement('input', { type: 'text', valueLink: this.linkState('username') }),
+	        React.createElement(
+	          'label',
+	          null,
+	          'Username: '
+	        ),
+	        React.createElement('input', { type: 'text', valueLink: this.linkState('username') })
 	      ),
 	      React.createElement(
-	        "button",
+	        'button',
 	        null,
-	        "Sign Up"
-	      ),
-	      React.createElement(
-	        "button",
-	        null,
-	        "Demo"
+	        'Demo'
 	      )
 	    );
 	  }
