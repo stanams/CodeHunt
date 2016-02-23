@@ -10,8 +10,9 @@ var App = require('./components/app');
 
 
 document.addEventListener("DOMContentLoaded", function () {
-  ReactDOM.render(
-    <App />,
-    document.getElementById('root')
-  );
+  if (document.getElementById('root')) {
+    ReactDOM.render(
+      <App />,
+      document.getElementById('root'));
+  }
 });

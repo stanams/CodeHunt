@@ -2,7 +2,7 @@
 <form action="/users" method="post">
   <%= auth_token %>
   <label for="Username">Username</label>
-  <input type="text" name="user[username]" id="Username" value=" <%= @user.username %>">
+  <input type="text" name="user[username]" id="Username" value="<%= @user.username %>">
   <br>
   <label for="Password">Password</label>
   <input type="password" name="user[password]" id="Password" value="">

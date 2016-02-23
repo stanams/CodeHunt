@@ -22,4 +22,5 @@
    transform: translateY(50%);
    text-align: center;
    border: 1px red solid;
+   z-index: -1;
  }

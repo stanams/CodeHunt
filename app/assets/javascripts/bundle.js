@@ -54,7 +54,9 @@
 	// var IndexRoute = require('react-router').IndexRoute;
 	
 	document.addEventListener("DOMContentLoaded", function () {
-	  ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
+	  if (document.getElementById('root')) {
+	    ReactDOM.render(React.createElement(App, null), document.getElementById('root'));
+	  }
 	});
 
 /***/ },
