@@ -45,15 +45,6 @@ input:focus {
   border-bottom: 2px #a9a9a9 solid;
 }
 
-.righted-box {
-  position: relative;
-  top: 50%;
-  transform: translateY(20%);
-  text-align: center;
-  background-color: #eee;
-  text-align: center;
-}
-
 .auth-title {
   text-align: center;
   font-family: 'Open Sans', sans-serif;
