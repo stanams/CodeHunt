@@ -5,7 +5,7 @@ var ProductsList = React.createClass({
     return(
 
       <div>
-        {productsList}
+        This is a product list
       </div>
     );
   }
