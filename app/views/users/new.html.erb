@@ -1,11 +1,20 @@
-<h1>Sign Up</h1>
-<form action="/users" method="post">
-  <%= auth_token %>
-  <label for="Username">Username</label>
-  <input type="text" name="user[username]" id="Username" value="<%= @user.username %>">
-  <br>
-  <label for="Password">Password</label>
-  <input type="password" name="user[password]" id="Password" value="">
-  <br>
-  <input type="submit" value="Sign Up">
-</form>
+<div class="auth-title">
+  <h1>Code Hunt</h1>
+  <p>Discover the best developer-friendly products.</p>
+</div>
+
+<div class="centered-box">
+  <h3 class="auth-header">Sign Up</h3>
+  <form class="auth_form" action="/users" method="post">
+    <%= auth_token %>
+    <input type="text" name="user[username]" id="Username" placeholder="Username" <%= @user.username.nil? ? '' : "value='#{@user.username}'"%>>
+    <br>
+    <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
+    <br>
+    <br>
+    <input class="btn btn-primary" type="submit" value="Sign Up">
+  </form>
+  <p class="auth-footer">
+    Already have an account ? <%= link_to "Sign In!", new_session_url %>
+  </p>
+</div>

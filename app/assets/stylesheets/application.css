@@ -12,15 +12,47 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap.min
+ *= require bootstrap-theme.min
  */
 
- .auth-bloc {
-   height: 400px;
-   width: 400px;
-   position: relative;
-   top: 50%;
-   transform: translateY(50%);
-   text-align: center;
-   border: 1px red solid;
-   z-index: -1;
- }
+
+.centered-box {
+  height: 250px;
+  width: 400px;
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+  text-align: center;
+  background-color: #eee;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Open Sans', sans-serif;
+  border-radius: 10px;
+  border-bottom: 2px #a9a9a9 solid;
+}
+
+.auth-title {
+  text-align: center;
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  bottom: 20px;
+}
+
+.auth-footer {
+  font-size: 10px;
+  position: relative;
+  top: 60px;
+}
+
+.auth-header {
+  position: relative;
+  top: 10px;
+}
+
+.auth_form {
+  text-align: center;
+  position: relative;
+  top: 30px;
+}
