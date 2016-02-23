@@ -4,7 +4,7 @@ module.exports = {
   context: __dirname,
   entry: "./frontend/codehunt.jsx",
   output: {
-    path: "./",
+    path: path.join(__dirname, 'app', 'assets', 'javascripts'),
     filename: "bundle.js"
   },
   module: {
