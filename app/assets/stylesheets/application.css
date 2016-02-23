@@ -30,11 +30,11 @@ input:focus {
 }
 
 .centered-box {
-  height: 250px;
-  width: 400px;
-  position: relative;
-  top: 50%;
-  transform: translateY(20%);
+  height:1000px;
+  width: 35%;
+  /*position: relative;*/
+  top: 50px;
+  transform: translateY(-15%);
   text-align: center;
   background-color: #eee;
   text-align: center;
@@ -43,15 +43,23 @@ input:focus {
   font-family: 'Open Sans', sans-serif;
   border-radius: 10px;
   border-bottom: 2px #a9a9a9 solid;
+  float: right;
+}
+
+.auth-wrapper {
+  position: relative;
+  top: 350px;
 }
 
 .auth-title {
-  text-align: center;
+  position: relative;
+  top: 250px;
+  left: 100px;
   font-family: 'Open Sans', sans-serif;
   position: relative;
-  bottom: 20px;
   color: white;
   font-size: 30px;
+
 }
 
 .auth-footer {

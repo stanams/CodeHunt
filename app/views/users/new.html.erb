@@ -4,18 +4,20 @@
 </div>
 
 <div class="centered-box">
-  <h3 class="auth-header">Sign Up</h3>
-  <form class="auth_form" action="/users" method="post">
-    <%= auth_token %>
-    <input type="text" name="user[username]" id="Username" placeholder="Username" value="<%= @user.username.nil? ? '' : "#{@user.username}"%>">
-    <br>
-    <br>
-    <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
-    <br>
-    <br>
-    <input class="btn btn-primary" type="submit" value="Sign Up">
-  </form>
-  <p class="auth-footer">
-    Already have an account ? <%= link_to "Sign In!", new_session_url %>
-  </p>
+  <div class="auth-wrapper">
+    <h3 class="auth-header">Sign Up</h3>
+    <form class="auth_form" action="/users" method="post">
+      <%= auth_token %>
+      <input type="text" name="user[username]" id="Username" placeholder="Username" value="<%= @user.username.nil? ? '' : "#{@user.username}"%>">
+      <br>
+      <br>
+      <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
+      <br>
+      <br>
+      <input class="btn btn-primary" type="submit" value="Sign Up">
+    </form>
+    <p class="auth-footer">
+      Already have an account ? <%= link_to "Sign In!", new_session_url %>
+    </p>
+  </div>
 </div>
