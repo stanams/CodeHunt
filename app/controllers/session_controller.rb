@@ -12,7 +12,7 @@ class SessionController < ApplicationController
 
     if @user
       sign_in(@user)
-      redirect_to
+      render :json
   end
 
   def destroy
