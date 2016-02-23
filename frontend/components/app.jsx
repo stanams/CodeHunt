@@ -1,13 +1,11 @@
 var React = require('react');
-var Header = require('./header/header');
-var ProductsList = require('./products/products_list');
+var AuthPage = require('./auth/auth_page');
 
 var App = React.createClass({
   render: function(){
     return(
       <div>
-        <Header />
-        <ProductsList />
+        <AuthPage />
       </div>
     );
   }

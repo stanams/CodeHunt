@@ -14,6 +14,7 @@
  *= require_self
  */
 
- .main-header {
-   border-bottom: 1px, solid, red;
+ .auth-bloc {
+   text-align: center;
+   background: red;
  }

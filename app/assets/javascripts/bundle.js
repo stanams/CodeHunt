@@ -19663,8 +19663,7 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var Header = __webpack_require__(160);
-	var ProductsList = __webpack_require__(162);
+	var AuthPage = __webpack_require__(163);
 	
 	var App = React.createClass({
 	  displayName: 'App',
@@ -19673,8 +19672,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(Header, null),
-	      React.createElement(ProductsList, null)
+	      React.createElement(AuthPage, null)
 	    );
 	  }
 	});
@@ -19682,98 +19680,51 @@
 	module.exports = App;
 
 /***/ },
-/* 160 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	var Auth = __webpack_require__(161);
-	
-	var Header = React.createClass({
-	  displayName: 'Header',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      React.createElement(
-	        'p',
-	        null,
-	        'Code Hunt'
-	      ),
-	      React.createElement(Auth, null)
-	    );
-	  }
-	});
-	
-	module.exports = Header;
-
-/***/ },
-/* 161 */
+/* 160 */,
+/* 161 */,
+/* 162 */,
+/* 163 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	
-	var Auth = React.createClass({
-	  displayName: 'Auth',
+	var AuthPage = React.createClass({
+	  displayName: "AuthPage",
 	
 	  render: function () {
 	    return React.createElement(
-	      'div',
-	      null,
+	      "div",
+	      { className: "auth-bloc" },
 	      React.createElement(
-	        'h1',
+	        "h1",
 	        null,
-	        'CodeHunt'
+	        "Code Hunt"
 	      ),
 	      React.createElement(
-	        'h3',
+	        "h3",
 	        null,
-	        'Discover and vote for the best prodcuts'
+	        "Discover and vote for the best prodcuts"
 	      ),
 	      React.createElement(
-	        'ul',
+	        "button",
 	        null,
-	        React.createElement(
-	          'li',
-	          null,
-	          'Sign Up'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          'Sign In'
-	        ),
-	        React.createElement(
-	          'li',
-	          null,
-	          'Demo'
-	        )
+	        "Sign In"
+	      ),
+	      React.createElement(
+	        "button",
+	        null,
+	        "Sign Up"
+	      ),
+	      React.createElement(
+	        "button",
+	        null,
+	        "Demo"
 	      )
 	    );
 	  }
 	});
 	
-	module.exports = Auth;
-
-/***/ },
-/* 162 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var ProductsList = React.createClass({
-	  displayName: 'ProductsList',
-	
-	  render: function () {
-	    return React.createElement(
-	      'div',
-	      null,
-	      'This is a product list'
-	    );
-	  }
-	});
-	
-	module.exports = ProductsList;
+	module.exports = AuthPage;
 
 /***/ }
 /******/ ]);
