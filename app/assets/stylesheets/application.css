@@ -17,6 +17,18 @@
  */
 
 
+input {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  background-color: #EEEEEE;
+  border-bottom: 1px #a9a9a9 solid;
+}
+
+input:focus {
+  outline:none;
+}
+
 .centered-box {
   height: 250px;
   width: 400px;
@@ -31,6 +43,15 @@
   font-family: 'Open Sans', sans-serif;
   border-radius: 10px;
   border-bottom: 2px #a9a9a9 solid;
+}
+
+.righted-box {
+  position: relative;
+  top: 50%;
+  transform: translateY(20%);
+  text-align: center;
+  background-color: #eee;
+  text-align: center;
 }
 
 .auth-title {
