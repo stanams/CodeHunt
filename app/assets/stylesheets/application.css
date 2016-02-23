@@ -38,6 +38,8 @@
   font-family: 'Open Sans', sans-serif;
   position: relative;
   bottom: 20px;
+  color: white;
+  font-size: 30px;
 }
 
 .auth-footer {

@@ -5,9 +5,9 @@
 
 <div class="centered-box">
   <h3 class="auth-header">Sign In</h3>
-  <form class="auth_form" action="/users" method="post">
+  <form class="auth_form" action="/session" method="post">
     <%= auth_token %>
-    <input type="text" placeholder="Username" name="user[username]" id="Username" <%= @user.username.nil? ? '' : "value='#{@user.username}'"%>>
+    <input type="text" placeholder="Username" name="user[username]" id="Username" value="<%= @user.username.nil? ? '' : "#{@user.username}"%>">
     <br>
     <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
     <br>
