@@ -16,6 +16,7 @@
  *= require bootstrap-theme.min
  */
 
+/*Landing page stuff*/
 
 input {
   border-top: none;
@@ -106,15 +107,47 @@ body, html {
 background-image: image_path("logo_canva.jpg");
 }​*/
 
+/*Header stuff*/
+
+.navbar {
+  display: inline;
+}
+
+#logo-page {
+  display: inline;
+  position: relative;
+  left: 30px;
+  font-size: 30px;
+}
+
+.header-new-product-button {
+  float: right;
+  border-radius: 100px;
+  margin: 10px;
+  position: relative;
+  right: 20px;
+  display: inline-block;
+}
+
+.header-profile-button {
+  float: right;
+}
+
+
+
+
+/*Index page stuff*/
+
 .index-products-list-item {
   list-style: none;
-  border: 1px solid black;
   display: block;
   padding: 30px;
   cursor: pointer;
   width: 900px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  top: 80px;
 }
 
 .list-item-title {
@@ -123,6 +156,8 @@ background-image: image_path("logo_canva.jpg");
   bottom: 10px;
   font-size: 20px;
   font-weight: bold;
+  display: inline;
+  border-radius: 3px;
 }
 
 .list-item-description {
@@ -137,4 +172,13 @@ li.index-products-list-item:hover {
   background-color: brown;
   opacity: 0.2;
   color: black;
+  border-radius: 3px;
+}
+
+li.list-item-title:hover {
+  color: black;
+}
+
+li.list-item-description:hover {
+  color: #ccc;
 }

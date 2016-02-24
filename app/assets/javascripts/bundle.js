@@ -19695,21 +19695,21 @@
 	  render: function () {
 	    return React.createElement(
 	      "nav",
-	      { className: "navbar navbar-default" },
+	      { className: "navbar" },
 	      React.createElement(
 	        "p",
-	        null,
+	        { id: "logo-page" },
 	        "Code Hunt"
 	      ),
 	      React.createElement(
 	        "button",
-	        null,
-	        "Add a new product"
+	        { className: "header-profile-button" },
+	        "Sign Out"
 	      ),
 	      React.createElement(
 	        "button",
-	        null,
-	        "Sign Out"
+	        { className: "header-new-product-button" },
+	        "+"
 	      )
 	    );
 	  }

@@ -45,8 +45,8 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 - [x] create `User` model
 - [ ] create simple `Product` model and controller index to generate an index page (same for logged in/non logged in)
   - the goal is to make the homepage the same for logged in and non logged in users. Non logged in users who try to take action will see a signin/up modal (the `before_action: require_sign_in` thing in will be implemented in next phase)
-- [ ] authentication
-- [ ] user signup/signin modal
+- [x] authentication
+- [x] user signup/signin modal
 - [ ] simple header navbar (logo + sign in button)
 
 ### Phase 2: Products (2 days)
@@ -54,16 +54,16 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 **Objective:** Products can be created, read, edited and destroyed through
 the API.
 
-- [ ] create `Product` model (require sign in)
-- [ ] CRUD API for products (`ProductController`)
-- [ ] jBuilder views for product
+- [x] create `Product` model (require sign in)
+- [x] CRUD API for products (`ProductController`)
+- [x] jBuilder views for product
 - setup Webpack & Flux scaffold:
-  - [ ] ProductActions
-  - [ ] setup API and basic `APIUtil` to interact with it
-  - [ ] Make the `ProcuctStore`
-  - [ ] make `ProductList` and `ProductListItem` components
-- [ ] seed the database with a small amount of test data
-- [ ] test out API interaction in the console
+  - [x] ProductActions
+  - [x] setup API and basic `APIUtil` to interact with it
+  - [x] Make the `ProcuctStore`
+  - [x] make `ProductList` and `ProductListItem` components
+- [x] seed the database with a small amount of test data
+- [x] test out API interaction in the console
 - [ ] start setting up the router
 - [ ] have `/products` & `/products/:id` working
 - [ ] style product list

@@ -3,10 +3,10 @@ var React = require('react');
 var Header = React.createClass({
   render: function(){
     return(
-      <nav className="navbar navbar-default">
-        <p>Code Hunt</p>
-        <button>Add a new product</button>
-        <button>Sign Out</button>
+      <nav className="navbar">
+        <p id="logo-page">Code Hunt</p>
+        <button className="header-profile-button">Sign Out</button>
+        <button className="header-new-product-button">+</button>
       </nav>
     );
   }
