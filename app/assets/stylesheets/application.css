@@ -171,7 +171,7 @@ background-image: image_path("logo_canva.jpg");
   font-size: 20px;
   font-weight: bold;
   display: inline;
-  border-radius: 3px;
+  border-radius: 5px;
   color: #293244;
 }
 
@@ -191,7 +191,7 @@ li.index-products-list-item:hover {
   background-color: rgba(255, 215, 3, 0.1);;
   color: black;
   /*opacity: 0.2;*/
-  border-radius: 3px;
+  border-radius: 5px;
 }
 
 /*Below does not work*/
