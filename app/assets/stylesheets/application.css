@@ -172,6 +172,11 @@ background-image: image_path("logo_canva.jpg");
   font-weight: bold;
   display: inline;
   border-radius: 3px;
+  color: #293244;
+}
+
+.list-item-title:hover {
+  text-decoration: underline;
 }
 
 .list-item-description {
