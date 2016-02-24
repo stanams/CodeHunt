@@ -42,21 +42,21 @@ var ProductForm = React.createClass({
           <div className="form-box-container">
 
             <div className="form-box-item-line">
-              <label className="label-form">Product name: </label>
+              <label className="label-form">Product name *</label>
               <input className="new-product-form-input" type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}/>
             </div>
 
               <br/>
 
             <div className="form-box-item-line">
-              <label className="label-form">Product description: </label>
-              <input className="new-product-form-input" type="textarea" name="product[description]" placeholder="Handle authentication with rails" valueLink={this.linkState('description')}/>
+              <label className="label-form">Product description * </label>
+              <input className="new-product-form-input" type="textarea" name="product[description]" placeholder="Rails authentication made simple" valueLink={this.linkState('description')}/>
             </div>
 
             <br/>
 
             <div className="form-box-item-line">
-              <label className="label-form">Product URL: </label>
+              <label className="label-form">Product URL </label>
               <input className="new-product-form-input" type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}/>
             </div>
 

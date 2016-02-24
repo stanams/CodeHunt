@@ -1,6 +1,8 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ReactRouter = require('react-router');
+var Search = require('./search.jsx');
+
 var Header = React.createClass({
 
   mixins: [ReactRouter.History],
@@ -15,7 +17,7 @@ var Header = React.createClass({
       <nav className="navbar">
         <p id="logo-page">Code Hunt</p>
         <button className="header-profile-button">Sign Out</button>
-        <button className="header-new-product-button" onClick={this.handleClickNewProduct}>+</button>
+        <p className="header-new-product-button" onClick={this.handleClickNewProduct}>+</p>
       </nav>
     );
   }

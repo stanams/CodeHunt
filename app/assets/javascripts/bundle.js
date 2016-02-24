@@ -24780,7 +24780,7 @@
 	            React.createElement(
 	              'label',
 	              { className: 'label-form' },
-	              'Product name: '
+	              'Product name *'
 	            ),
 	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[name]', placeholder: 'Devise, React, Boostrapp... ', valueLink: this.linkState('name') })
 	          ),
@@ -24791,9 +24791,9 @@
 	            React.createElement(
 	              'label',
 	              { className: 'label-form' },
-	              'Product description: '
+	              'Product description * '
 	            ),
-	            React.createElement('input', { className: 'new-product-form-input', type: 'textarea', name: 'product[description]', placeholder: 'Handle authentication with rails', valueLink: this.linkState('description') })
+	            React.createElement('input', { className: 'new-product-form-input', type: 'textarea', name: 'product[description]', placeholder: 'Rails authentication made simple', valueLink: this.linkState('description') })
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
@@ -24802,7 +24802,7 @@
 	            React.createElement(
 	              'label',
 	              { className: 'label-form' },
-	              'Product URL: '
+	              'Product URL '
 	            ),
 	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[link]', placeholder: 'https://webpack.github.io/docs/', valueLink: this.linkState('link') })
 	          ),
@@ -25113,6 +25113,8 @@
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(219);
 	var ReactRouter = __webpack_require__(160);
+	var Search = __webpack_require__(251);
+	
 	var Header = React.createClass({
 	  displayName: 'Header',
 	
@@ -25139,7 +25141,7 @@
 	        'Sign Out'
 	      ),
 	      React.createElement(
-	        'button',
+	        'p',
 	        { className: 'header-new-product-button', onClick: this.handleClickNewProduct },
 	        '+'
 	      )
@@ -32042,6 +32044,31 @@
 	});
 	
 	module.exports = ProductPreview;
+
+/***/ },
+/* 251 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Search = React.createClass({
+	  displayName: "Search",
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      { id: "wrap" },
+	      React.createElement(
+	        "form",
+	        { action: "", autocomplete: "on" },
+	        React.createElement("input", { className: "search-bar", id: "search", name: "search", type: "text", placeholder: "What're we looking for ?" }),
+	        React.createElement("input", { className: "search-bar", id: "search_submit", value: "Rechercher", type: "submit" })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = Search;
 
 /***/ }
 /******/ ]);
