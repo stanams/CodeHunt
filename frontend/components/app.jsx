@@ -1,10 +1,13 @@
 var React = require('react');
+var Header = require('./header');
+var ProductsList = require('./products/products_list');
 
 var App = React.createClass({
   render: function(){
     return(
       <div>
-        products list
+        <Header />
+        <ProductsList />
       </div>
     );
   }

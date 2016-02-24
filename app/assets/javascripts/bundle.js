@@ -19665,6 +19665,8 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var Header = __webpack_require__(168);
+	var ProductsList = __webpack_require__(162);
 	
 	var App = React.createClass({
 	  displayName: 'App',
@@ -19673,12 +19675,60 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      'products list'
+	      React.createElement(Header, null),
+	      React.createElement(ProductsList, null)
 	    );
 	  }
 	});
 	
 	module.exports = App;
+
+/***/ },
+/* 160 */,
+/* 161 */,
+/* 162 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ProductsList = React.createClass({
+	  displayName: 'ProductsList',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'This is a product list'
+	    );
+	  }
+	});
+	
+	module.exports = ProductsList;
+
+/***/ },
+/* 163 */,
+/* 164 */,
+/* 165 */,
+/* 166 */,
+/* 167 */,
+/* 168 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var Header = React.createClass({
+	  displayName: 'Header',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'I\'m the header'
+	    );
+	  }
+	});
+	
+	module.exports = Header;
 
 /***/ }
 /******/ ]);
