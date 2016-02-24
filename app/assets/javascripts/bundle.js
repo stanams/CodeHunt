@@ -26574,7 +26574,7 @@
 	  render: function () {
 	    return React.createElement(
 	      "li",
-	      { className: "index-products-list" },
+	      { className: "index-products-list-item" },
 	      React.createElement(
 	        "p",
 	        { className: "list-item-title" },

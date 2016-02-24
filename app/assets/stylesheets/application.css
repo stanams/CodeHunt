@@ -106,11 +106,15 @@ body, html {
 background-image: image_path("logo_canva.jpg");
 }​*/
 
-.index-products-list {
+.index-products-list-item {
   list-style: none;
   border: 1px solid black;
   display: block;
   padding: 30px;
+  cursor: pointer;
+  width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .list-item-title {
@@ -118,8 +122,19 @@ background-image: image_path("logo_canva.jpg");
   position: relative;
   bottom: 10px;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .list-item-description {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 18px;
+  color: #ccc;
+  position: relative;
+  bottom: 10px;
+}
 
+li.index-products-list-item:hover {
+  background-color: brown;
+  opacity: 0.2;
+  color: black;
 }
