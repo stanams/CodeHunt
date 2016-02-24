@@ -26270,3 +26270,98 @@ ActionController::RoutingError (No route matches [GET] "/assets/bootstrap-theme.
   Rendered /Users/stanams/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.4ms)
   Rendered /Users/stanams/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.5ms)
   Rendered /Users/stanams/.rbenv/versions/2.1.2/lib/ruby/gems/2.1.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (60.3ms)
+
+
+Started GET "/" for ::1 at 2016-02-24 10:20:29 +0100
+Processing by StaticPagesController#root as HTML
+  Rendered static_pages/root.html.erb within layouts/application (0.1ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "ihQKOTUc2ywx9-tk0tmfSQ"]]
+Completed 200 OK in 332ms (Views: 322.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/api/products.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/bootstrap.min.self-66fe84b79c6d5db31355296a8c9627d232721fe3ac3c31f3554ccc7e999279b6.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/static_pages.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/application.self-eee1ce308bc74d73620acd239b60fd1f48d6404ed1ae377fc84c2d2ab3e8f52e.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/bootstrap-theme.min.self-6f2f4ae8073eeed25f7f4c1fe221c20b00fe8aea594a38fa55e240d6d6a2e51d.css?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/jquery.self-c64a74367bda6ef8b860f19e74df08927ca99d2be2ac934e9e92d5fd361e0da4.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/api/products.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/jquery_ujs.self-d602bdfe68ffc63b9f9cc512872aa3cfff046228a0a36e90dd476e8ef54c1b09.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/bundle.self-f1bd506b20d8222f6688e369c25e10a4650f9b587d8e40a4b1b219bae6e4e996.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/session.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/static_pages.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/user.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for ::1 at 2016-02-24 10:20:30 +0100
+
+
+Started DELETE "/session" for ::1 at 2016-02-24 10:20:31 +0100
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"doygh7oFMI6uCZbVSWEBlkap6jIs9evX05q/u5KHJ6adqq/bCW9Zm71W1Rc8ABtVmOX7pIaQEDblnHLogquOTg=="}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1  [["session_token", "ihQKOTUc2ywx9-tk0tmfSQ"]]
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."session_token" = 'nU6-g4rMw2AGzO0J9ORb2A' AND "users"."id" != 1) LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."username" = 'aze' AND "users"."id" != 1) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3  [["session_token", "nU6-g4rMw2AGzO0J9ORb2A"], ["updated_at", "2016-02-24 09:20:31.935606"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mCOMMIT[0m
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 12ms (ActiveRecord: 2.8ms)
+
+
+Started GET "/session/new" for ::1 at 2016-02-24 10:20:31 +0100
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (0.5ms)
+  [1m[35mUser Load (0.7ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT 1
+Completed 200 OK in 41ms (Views: 38.9ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/session" for ::1 at 2016-02-24 10:20:39 +0100
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"rGy25D7e4RXiIsYFl177WHnOdqGF4PQoChzrUajdZ4ZHSrm4jbSIAPF9hcfiP+Gbp4JnNy+FD8k8GiYCuPHObg==", "user"=>{"username"=>"stan", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."username" = $1 LIMIT 1[0m  [["username", "stan"]]
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (7.4ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE ("users"."session_token" = 'frhFcOdyPAr1_bz2M0MbbA' AND "users"."id" != 3) LIMIT 1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM "users" WHERE ("users"."username" = 'stan' AND "users"."id" != 3) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "frhFcOdyPAr1_bz2M0MbbA"], ["updated_at", "2016-02-24 09:20:40.119534"], ["id", 3]]
+  [1m[35m (0.6ms)[0m  COMMIT
+Redirected to http://localhost:3000/
+Completed 302 Found in 125ms (ActiveRecord: 9.8ms)
+
+
+Started GET "/" for ::1 at 2016-02-24 10:20:40 +0100
+Processing by StaticPagesController#root as HTML
+  Rendered static_pages/root.html.erb within layouts/application (0.0ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT 1[0m  [["session_token", "frhFcOdyPAr1_bz2M0MbbA"]]
+Completed 200 OK in 65ms (Views: 63.7ms | ActiveRecord: 0.3ms)
