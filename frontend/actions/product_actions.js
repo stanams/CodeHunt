@@ -17,18 +17,18 @@ module.exports = {
     });
   },
 
-  createProduct: function(){
-    Dispatcher.dispatch({
-      actionType: ProductConstants.PRODUCT_CREATED,
-      product: product
-    });
-  },
-
-  updateProduct: function(){
-    Dispatcher.dispatch({
-      actionType: ProductConstants.PRODUCT_UPDATED,
-      product: product
-    });
-  },
+  // createProduct: function(){
+  //   Dispatcher.dispatch({
+  //     actionType: ProductConstants.PRODUCT_CREATED,
+  //     product: product
+  //   });
+  // },
+  //
+  // updateProduct: function(){
+  //   Dispatcher.dispatch({
+  //     actionType: ProductConstants.PRODUCT_UPDATED,
+  //     product: product
+  //   });
+  // },
 
 }

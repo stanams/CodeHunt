@@ -32,11 +32,11 @@ ProductStore.find = function (id) {
 
 ProductStore.__onDispatch = function (payload) {
   switch(payload.actionType) {
-    case ProductConstants.POKEMONS_RECEIVED:
+    case ProductConstants.PRODUCTS_RECEIVED:
       resetProducts(payload.products);
       ProductStore.__emitChange();
       break;
-    case ProductConstants.POKEMON_RECEIVED:
+    case ProductConstants.PRODUCT_RECEIVED:
       resetProduct(payload.product);
       ProductStore.__emitChange();
       break;
