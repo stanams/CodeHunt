@@ -24727,6 +24727,7 @@
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(219);
 	var ReactRouter = __webpack_require__(160);
+	var ApiUtil = __webpack_require__(247);
 	
 	var blankAttributes = {
 	  product: {
@@ -24760,35 +24761,55 @@
 	
 	  render: function () {
 	    return React.createElement(
-	      'form',
-	      { onSubmit: this.handleSubmit },
+	      'div',
+	      { className: 'new-product-form-box' },
 	      React.createElement(
-	        'h2',
-	        null,
-	        'Post a new product'
-	      ),
-	      React.createElement(
-	        'label',
-	        null,
-	        'Product name:'
-	      ),
-	      React.createElement('input', { type: 'text', name: 'product[name]', placeholder: 'Devise, React, Boostrapp... ', valueLink: this.linkState('name') }),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'label',
-	        null,
-	        'Product description:'
-	      ),
-	      React.createElement('input', { type: 'textarea', name: 'product[description]', placeholder: '1 sentence product description', valueLink: this.linkState('description') }),
-	      React.createElement('br', null),
-	      React.createElement(
-	        'label',
-	        null,
-	        'Product URL:'
-	      ),
-	      React.createElement('input', { type: 'text', name: 'product[link]', placeholder: 'https://webpack.github.io/docs/', valueLink: this.linkState('link') }),
-	      React.createElement('br', null),
-	      React.createElement('input', { type: 'submit', value: 'Submit' })
+	        'form',
+	        { className: 'form-container', onSubmit: this.handleSubmit },
+	        React.createElement(
+	          'h2',
+	          { className: 'form-title' },
+	          'Submit a new product'
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'form-box-container' },
+	          React.createElement(
+	            'div',
+	            { className: 'form-box-item-line' },
+	            React.createElement(
+	              'label',
+	              { className: 'label-form' },
+	              'Product name: '
+	            ),
+	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[name]', placeholder: 'Devise, React, Boostrapp... ', valueLink: this.linkState('name') })
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'div',
+	            { className: 'form-box-item-line' },
+	            React.createElement(
+	              'label',
+	              { className: 'label-form' },
+	              'Product description: '
+	            ),
+	            React.createElement('input', { className: 'new-product-form-input', type: 'textarea', name: 'product[description]', placeholder: 'Handle authentication with rails', valueLink: this.linkState('description') })
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'div',
+	            { className: 'form-box-item-line' },
+	            React.createElement(
+	              'label',
+	              { className: 'label-form' },
+	              'Product URL: '
+	            ),
+	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[link]', placeholder: 'https://webpack.github.io/docs/', valueLink: this.linkState('link') })
+	          ),
+	          React.createElement('br', null)
+	        ),
+	        React.createElement('input', { className: 'btn btn-primary form-submit-button', type: 'submit', value: 'Submit' })
+	      )
 	    );
 	  }
 	});
@@ -25144,13 +25165,13 @@
 	    return { products: ProductStore.all() };
 	  },
 	
-	  _onChange: function () {
-	    this.setState({ products: ProductStore.all() });
-	  },
-	
 	  componentDidMount: function () {
 	    this.productListener = ProductStore.addListener(this._onChange);
 	    ApiUtil.fetchAllProducts();
+	  },
+	
+	  _onChange: function () {
+	    this.setState({ products: ProductStore.all() });
 	  },
 	
 	  render: function () {
@@ -31926,7 +31947,7 @@
 	      data: { product: product },
 	      success: function () {
 	        ApiActions.receiveSingleProduct(product);
-	
+	        // this.navigateToIndex();
 	        callback && callback(product.id);
 	      }
 	    });

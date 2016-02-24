@@ -8,13 +8,13 @@ var ProductsList = React.createClass({
     return {products: ProductStore.all()};
   },
 
-  _onChange: function(){
-    this.setState({products: ProductStore.all()});
-  },
-
   componentDidMount: function(){
     this.productListener = ProductStore.addListener(this._onChange);
     ApiUtil.fetchAllProducts();
+  },
+
+  _onChange: function(){
+    this.setState({products: ProductStore.all()});
   },
 
   render: function(){

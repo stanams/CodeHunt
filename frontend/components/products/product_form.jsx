@@ -1,6 +1,7 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ReactRouter = require('react-router');
+var ApiUtil = require('../../util/api_util');
 
 
 var blankAttributes = ({
@@ -34,19 +35,38 @@ var ProductForm = React.createClass({
 
   render: function(){
     return(
-      <form onSubmit={this.handleSubmit}>
-        <h2>Post a new product</h2>
-        <label>Product name:</label>
-        <input type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}/>
-        <br/>
-        <label>Product description:</label>
-        <input type="textarea" name="product[description]" placeholder="1 sentence product description" valueLink={this.linkState('description')}/>
-        <br/>
-        <label>Product URL:</label>
-        <input type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}/>
-        <br/>
-        <input type="submit" value="Submit"/>
-      </form>
+      <div className="new-product-form-box">
+        <form className="form-container" onSubmit={this.handleSubmit}>
+          <h2 className="form-title">Submit a new product</h2>
+
+          <div className="form-box-container">
+
+            <div className="form-box-item-line">
+              <label className="label-form">Product name: </label>
+              <input className="new-product-form-input" type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}/>
+            </div>
+
+              <br/>
+
+            <div className="form-box-item-line">
+              <label className="label-form">Product description: </label>
+              <input className="new-product-form-input" type="textarea" name="product[description]" placeholder="Handle authentication with rails" valueLink={this.linkState('description')}/>
+            </div>
+
+            <br/>
+
+            <div className="form-box-item-line">
+              <label className="label-form">Product URL: </label>
+              <input className="new-product-form-input" type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}/>
+            </div>
+
+            <br/>
+
+
+          </div>
+          <input className="btn btn-primary form-submit-button" type="submit" value="Submit"/>
+        </form>
+      </div>
     );
   }
 })

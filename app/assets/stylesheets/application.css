@@ -182,3 +182,77 @@ li.list-item-title:hover {
 li.list-item-description:hover {
   color: #ccc;
 }
+
+/*New product form*/
+
+
+.new-product-form-box {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  transform: translateY(50%);
+  text-align: center;
+}
+
+.form-container {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  bottom: 100px;
+  height: 400px;
+  width: 500px;
+}
+
+.form-title {
+  font-size: 30px;
+}
+
+.form-box-container {
+  margin: 30px;
+  width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  top: 15px;
+}
+
+  .form-box-item-line {
+    margin-bottom: 20px;
+    float: left;
+    width: 500px;
+  }
+
+    .label-form {
+      font-size: 16px;
+      float: left;
+    }
+
+    input.new-product-form-input {
+      background-color: white;
+      width: 500px;
+      margin: 5px 15px 15px 0;
+      float: left;
+    }
+
+  .form-submit-button {
+    border: none;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    top: 50px;
+    width: 350px;
+  }
+
+/*height:100%;
+width: 35%;
+position: relative;
+transform: translateY(-20%);
+text-align: center;
+background-color: #eee;
+text-align: center;
+margin-left: auto;
+margin-right: auto;
+font-family: 'Open Sans', sans-serif;
+border-bottom: 2px #a9a9a9 solid;
+float: right;
+box-shadow: 0 0 15px #000000;*/
