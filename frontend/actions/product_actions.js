@@ -31,11 +31,4 @@ module.exports = {
     });
   },
 
-  destroyProduct: function(){
-    Dispatcher.dispatch({
-      actionType: ProductConstants.PRODUCT_DESTROYED,
-      product: ''
-    });
-  },
-
 }
