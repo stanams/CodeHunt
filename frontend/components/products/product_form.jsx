@@ -1,4 +1,5 @@
 var React = require('react');
+var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 
 var blankAttributes = ({
@@ -13,21 +14,36 @@ var blankAttributes = ({
 
 var ProductForm = react.createClass({
 
+  mixins: [LinkedStateMixin],
+
   getInitialState: function(){
     return blankAttributes;
   },
 
-  saveProduct: function(){
-    var params =
+  handleSubmit: function(e){
+    e.preventDefault();
+    var product = Object.assign({}, this.state);
+    ApiUtil.createProduct(product);
+    this.navigateToIndex();
+  },
+
+  navigateToIndex: function(){
+    this.props.history.pushState(null, "/");
   },
 
   render: function(){
     return(
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <h2>Post a new product</h2>
-        <input type="text" name="product[name]" placeholder="Devise, React, Boostrapp... ">
-        <input type="textarea" name="product[description]" placeholder="1 sentence product description">
-        <input type="text" name="product[link]" placeholder="https://webpack.github.io/docs/">
+        <label>Product name:</label>
+        <input type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}>
+        <br>
+        <label>Product description:</label>
+        <input type="textarea" name="product[description]" placeholder="1 sentence product description" valueLink={this.linkState('description')}>
+        <br>
+        <label>Product URL:</label>
+        <input type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}>
+        <br>
         <input type="submit" value="Submit">
       </form>
     );
