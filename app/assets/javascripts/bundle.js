@@ -19724,6 +19724,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(162);
 	var ApiUtil = __webpack_require__(183);
+	var ProductsListItem = __webpack_require__(186);
 	
 	var ProductsList = React.createClass({
 	  displayName: 'ProductsList',
@@ -19743,13 +19744,7 @@
 	
 	  render: function () {
 	    var productList = this.state.products.map(function (product, idx) {
-	      return React.createElement(
-	        'li',
-	        { className: 'index-products-list', key: idx },
-	        product.name,
-	        ': ',
-	        product.description
-	      );
+	      return React.createElement(ProductsListItem, { key: idx, product: product });
 	    });
 	    return React.createElement(
 	      'ul',
@@ -26565,6 +26560,36 @@
 	  // },
 	
 	};
+
+/***/ },
+/* 185 */,
+/* 186 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ProductsListItem = React.createClass({
+	  displayName: "ProductsListItem",
+	
+	  render: function () {
+	    return React.createElement(
+	      "li",
+	      { className: "index-products-list" },
+	      React.createElement(
+	        "p",
+	        { className: "list-item-title" },
+	        this.props.product.name
+	      ),
+	      React.createElement(
+	        "p",
+	        { className: "list-item-description" },
+	        this.props.product.description
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProductsListItem;
 
 /***/ }
 /******/ ]);

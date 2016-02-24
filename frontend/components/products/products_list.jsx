@@ -1,6 +1,7 @@
 var React = require('react');
 var ProductStore = require('../../stores/product_store');
 var ApiUtil = require('../../util/api_util');
+var ProductsListItem = require('./products_list_item');
 
 var ProductsList = React.createClass({
   getInitialState: function(){
@@ -18,7 +19,7 @@ var ProductsList = React.createClass({
 
   render: function(){
     var productList = this.state.products.map(function(product, idx){
-      return (<li className="index-products-list" key={idx}>{product.name}: {product.description}</li>);
+      return <ProductsListItem key={idx} product={product} />;
     })
     return(
 
