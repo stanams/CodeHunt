@@ -29,37 +29,40 @@ input:focus {
   outline:none;
 }
 
+body, html {
+  height: 100%;
+}
+
 .centered-box {
-  height:1000px;
+  height:100%;
   width: 35%;
-  /*position: relative;*/
-  top: 50px;
-  transform: translateY(-15%);
+  position: relative;
+  transform: translateY(-20%);
   text-align: center;
   background-color: #eee;
   text-align: center;
   margin-left: auto;
   margin-right: auto;
   font-family: 'Open Sans', sans-serif;
-  border-radius: 10px;
   border-bottom: 2px #a9a9a9 solid;
   float: right;
+  box-shadow: 0 0 15px #000000;
 }
 
 .auth-wrapper {
   position: relative;
-  top: 350px;
+  top: 300px;
 }
 
 .auth-title {
   position: relative;
   top: 250px;
-  left: 100px;
+  margin-left: 100px;
   font-family: 'Open Sans', sans-serif;
   position: relative;
   color: white;
   font-size: 30px;
-
+  text-shadow: 0px 3px 4px #555;
 }
 
 .auth-footer {
@@ -81,4 +84,10 @@ input:focus {
 
 .tagline {
   font-size: 24px;
+  text-shadow: 0px 4px 6px #555;
 }
+
+/*TODO: logo-landing*/
+/*.logo-landing {
+background-image: image_path("logo_canva.jpg");
+}​*/
