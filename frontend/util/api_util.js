@@ -26,6 +26,7 @@ module.exports = {
       data: {product: product},
       success: function(){
         ApiActions.receiveSingleProduct(product);
+        
         callback && callback(product.id);
       }
     })

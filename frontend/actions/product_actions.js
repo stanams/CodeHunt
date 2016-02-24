@@ -15,14 +15,16 @@ module.exports = {
       actionType: ProductConstants.PRODUCT_RECEIVED,
       product: product
     });
-  }
+  },
 
-  // createProduct: function(){
-  //   Dispatcher.dispatch({
-  //     actionType: ProductConstants.PRODUCT_CREATED,
-  //     product: product
-  //   });
-  // },
+  createProduct: function(){
+    Dispatcher.dispatch({
+      actionType: ProductConstants.PRODUCT_CREATED,
+      product: product
+    });
+  }
+}
+
   //
   // updateProduct: function(){
   //   Dispatcher.dispatch({
@@ -30,5 +32,3 @@ module.exports = {
   //     product: product
   //   });
   // },
-
-}

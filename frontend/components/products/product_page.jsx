@@ -4,7 +4,16 @@ var ProductPage = React.createClass({
   render: function(){
     return(
       <div>
-        A product Page!
+        <section>
+          {this.props.product.name}
+          {this.props.product.description}
+        </section>
+        <section>
+          votes
+        </section>
+        <section>
+          Comments
+        </section>
       </div>
     );
   }

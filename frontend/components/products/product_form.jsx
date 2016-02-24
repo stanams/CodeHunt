@@ -1,5 +1,6 @@
 var React = require('react');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var ReactRouter = require('react-router');
 
 
 var blankAttributes = ({
@@ -12,9 +13,9 @@ var blankAttributes = ({
 });
 
 
-var ProductForm = react.createClass({
+var ProductForm = React.createClass({
 
-  mixins: [LinkedStateMixin],
+  mixins: [LinkedStateMixin, ReactRouter.History],
 
   getInitialState: function(){
     return blankAttributes;
@@ -28,7 +29,7 @@ var ProductForm = react.createClass({
   },
 
   navigateToIndex: function(){
-    this.props.history.pushState(null, "/");
+    this.history.push("/");
   },
 
   render: function(){
@@ -36,15 +37,15 @@ var ProductForm = react.createClass({
       <form onSubmit={this.handleSubmit}>
         <h2>Post a new product</h2>
         <label>Product name:</label>
-        <input type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}>
-        <br>
+        <input type="text" name="product[name]" placeholder="Devise, React, Boostrapp... " valueLink={this.linkState('name')}/>
+        <br/>
         <label>Product description:</label>
-        <input type="textarea" name="product[description]" placeholder="1 sentence product description" valueLink={this.linkState('description')}>
-        <br>
+        <input type="textarea" name="product[description]" placeholder="1 sentence product description" valueLink={this.linkState('description')}/>
+        <br/>
         <label>Product URL:</label>
-        <input type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}>
-        <br>
-        <input type="submit" value="Submit">
+        <input type="text" name="product[link]" placeholder="https://webpack.github.io/docs/" valueLink={this.linkState('link')}/>
+        <br/>
+        <input type="submit" value="Submit"/>
       </form>
     );
   }
