@@ -1,9 +1,9 @@
-var Dipsatcher = require('../dispatcher/dispatcher');
+var Dispatcher = require('../dispatcher/dispatcher');
 var ProductConstants = require('../constants/product_constants');
 
 module.exports = {
 
-  receiveAllProducts: function(){
+  receiveAllProducts: function(products){
     Dispatcher.dispatch({
       actionType: ProductConstants.PRODUCTS_RECEIVED,
       products: products
@@ -15,7 +15,7 @@ module.exports = {
       actionType: ProductConstants.PRODUCT_RECEIVED,
       product: product
     });
-  },
+  }
 
   // createProduct: function(){
   //   Dispatcher.dispatch({

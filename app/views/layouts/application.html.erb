@@ -5,16 +5,12 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <%= csrf_meta_tags %>
-  
+
 </head>
 
 <body>
 
-<% if signed_in? %>
-  <%= button_to "Sign Out", session_url, method: :delete %>
-<% end %>
 
-<br>
 <%= yield %>
 </div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>

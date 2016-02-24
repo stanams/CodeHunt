@@ -1,9 +1,12 @@
 var React = require('react');
 
 var Store = require('flux/utils').Store;
-var Dispatcher = require('../dispatcher/dispatcher.js');
-var ProductConstants = require('../constants/productConstants.js');
-var ProductStore = new Store(AppDispatcher);
+var Dispatcher = require('../dispatcher/dispatcher');
+var ProductConstants = require('../constants/product_constants');
+var ProductStore = new Store(Dispatcher);
+var ApiUtil = require('../util/api_util');
+
+
 
 var _products = {};
 

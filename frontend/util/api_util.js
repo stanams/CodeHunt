@@ -12,7 +12,7 @@ module.exports = {
 
   fetchSingleProduct: function(id){
     $.ajax({
-      url: 'api/products' + id,
+      url: 'api/products/' + id,
       success: function(){
         ApiActions.receiveSingleProduct(product)
       }
