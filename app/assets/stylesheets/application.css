@@ -110,5 +110,16 @@ background-image: image_path("logo_canva.jpg");
   list-style: none;
   border: 1px solid black;
   display: block;
-  padding: 40px;
+  padding: 30px;
+}
+
+.list-item-title {
+  font-family: 'Open Sans', sans-serif;
+  position: relative;
+  bottom: 10px;
+  font-size: 20px;
+}
+
+.list-item-description {
+
 }
