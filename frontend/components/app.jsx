@@ -1,14 +1,10 @@
 var React = require('react');
-var Header = require('./header');
-var ProductsList = require('./products/products_list');
+var IndexView = require('./index_view');
 
 var App = React.createClass({
   render: function(){
     return(
-      <div>
-        <Header />
-        <ProductsList />
-      </div>
+      <IndexView />
     );
   }
 });
