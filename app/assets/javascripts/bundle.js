@@ -19745,7 +19745,7 @@
 	    var productList = this.state.products.map(function (product, idx) {
 	      return React.createElement(
 	        'li',
-	        { key: idx },
+	        { className: 'index-products-list', key: idx },
 	        product.name,
 	        ': ',
 	        product.description

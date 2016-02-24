@@ -18,7 +18,7 @@ var ProductsList = React.createClass({
 
   render: function(){
     var productList = this.state.products.map(function(product, idx){
-      return (<li key={idx}>{product.name}: {product.description}</li>);
+      return (<li className="index-products-list" key={idx}>{product.name}: {product.description}</li>);
     })
     return(
 

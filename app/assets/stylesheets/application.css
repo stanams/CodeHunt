@@ -105,3 +105,11 @@ body, html {
 /*.logo-landing {
 background-image: image_path("logo_canva.jpg");
 }​*/
+
+.index-products-list {
+  list-style: none;
+  border: 1px solid black;
+  display: block;
+  padding: 40px;
+  
+}
