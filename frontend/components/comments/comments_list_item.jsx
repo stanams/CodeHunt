@@ -10,7 +10,7 @@ var CommentListItem = React.createClass ({
 
   renderDelete: function(){
     return <button onClick={this.delete}>Delete</button>
-  }
+  },
 
   render: function(){
     return(

@@ -2,9 +2,9 @@ var React = require('react');
 var ProductStore = require('../../stores/product_store');
 var Header = require('../header');
 var ApiUtil = require('../../util/api_util');
+var CommentList = require('../comments/comments_list');
 
 var ProductPage = React.createClass({
-
 
   render: function(){
     var productId = parseInt(this.props.params.productId);
@@ -41,9 +41,8 @@ var ProductPage = React.createClass({
             </ul>
           </section>
 
-          <section className="product-page-comments-box">
-            Comments
-          </section>
+          <CommentList productId={productId} className="product-page-comments-box"/>
+
         </div>
       </div>
     );

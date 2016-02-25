@@ -15,7 +15,7 @@ var resetComments = function (comments) {
   });
 };
 
-var postComment = function (comment) {
+var resetComment = function (comment) {
   _comments[comment.id] = comment;
 };
 
@@ -42,7 +42,7 @@ CommentStore.__onDispatch = function (payload) {
       CommentStore.__emitChange();
       break;
     case CommentConstants.COMMENT_POSTED:
-      postComment(payload.comment);
+      resetComment(payload.comment);
       CommentStore.__emitChange();
       break;
     case CommentConstants.COMMENT_DELETED:

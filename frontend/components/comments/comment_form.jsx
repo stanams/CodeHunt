@@ -6,24 +6,24 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 
 var CommentForm = React.createClass({
 
-  blankAttrs: {
-    rating: 0,
-    review: ''
-  },
+  mixins: [LinkedStateMixin],
 
   getInitialState: function () {
-    return this.blankAttrs;
+    return {};
+  },
+
+  makeUrl: function(){
+    var path = "/products/" + this.props.productId;
+    return path;
   },
 
   createComment: function(e){
     e.preventDefault();
     var comment = {};
-    Object.keys(this.state).forEach(function(key){
-      {comment[key] = this.state[key];}
-    }.bind.(this))
-    comment["product_id"] = this.props.productId;
-    ApiUtil.createComment(comment);
-    this.setState(this.blankAttrs)
+    $.extend(comment, this.state);
+    ApiUtil.createComment(comment, function(id){
+      browserHistory.push(makeUrl());
+    });
   },
 
   render: function(){
@@ -35,7 +35,7 @@ var CommentForm = React.createClass({
       </form>
     );
   }
-
-
-
 })
+
+
+module.exports = CommentForm;
