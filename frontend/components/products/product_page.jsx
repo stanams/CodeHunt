@@ -5,8 +5,7 @@ var ProductPage = React.createClass({
     return(
       <div>
         <section>
-          {this.props.product.name}
-          {this.props.product.description}
+        
         </section>
         <section>
           votes

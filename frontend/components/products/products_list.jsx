@@ -22,13 +22,16 @@ var ProductsList = React.createClass({
   },
 
   render: function(){
+    // var productPreview =
+    // TODO: if statement: si this.props.product.id est undefined, on renvoit une empty div,
+    // sinon, on génère le ProductPreview component avec les right data: rajouter {productPreview} après l'ul
     var productList = this.state.products.map(function(product, idx){
       return <ProductsListItem key={idx} product={product} />;
     })
     return(
-      <ul>
-        {productList}
-      </ul>
+        <ul>
+          {productList}
+        </ul>
     );
   }
 });

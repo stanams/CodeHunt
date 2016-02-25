@@ -1,12 +1,19 @@
 var React = require('react');
-var Link = require('react-router');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var ProductsListItem = React.createClass({
+
+  makeUrl: function(){
+    var path = "products/" + this.props.product.id;
+    return path;
+  },
+
   render: function(){
+    debugger
     return(
-      
         <li className="index-products-list-item">
-          <p className="list-item-title">{this.props.product.name}</p>
+          <Link to={this.makeUrl()}><p className="list-item-title">{this.props.product.name}</p></Link>
           <p className="list-item-description">{this.props.product.description}</p>
         </li>
 

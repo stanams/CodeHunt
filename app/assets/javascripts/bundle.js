@@ -24741,7 +24741,6 @@
 	  },
 	
 	  handleSubmit: function (e) {
-	    debugger;
 	    e.preventDefault();
 	    var product = {};
 	    $.extend(product, this.state);
@@ -24842,12 +24841,7 @@
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement(
-	        'section',
-	        null,
-	        this.props.product.name,
-	        this.props.product.description
-	      ),
+	      React.createElement('section', null),
 	      React.createElement(
 	        'section',
 	        null,
@@ -25194,6 +25188,9 @@
 	  },
 	
 	  render: function () {
+	    // var productPreview =
+	    // TODO: if statement: si this.props.product.id est undefined, on renvoit une empty div,
+	    // sinon, on génère le ProductPreview component avec les right data: rajouter {productPreview} après l'ul
 	    var productList = this.state.products.map(function (product, idx) {
 	      return React.createElement(ProductsListItem, { key: idx, product: product });
 	    });
@@ -32018,19 +32015,31 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var Link = __webpack_require__(160);
+	var ReactRouter = __webpack_require__(160);
+	var Link = ReactRouter.Link;
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
 	
+	
+	  makeUrl: function () {
+	    var path = "products/" + this.props.product.id;
+	    return path;
+	  },
+	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
 	      React.createElement(
-	        'p',
-	        { className: 'list-item-title' },
-	        this.props.product.name
+	        Link,
+	        { to: this.makeUrl() },
+	        React.createElement(
+	          'p',
+	          { className: 'list-item-title' },
+	          this.props.product.name
+	        )
 	      ),
 	      React.createElement(
 	        'p',

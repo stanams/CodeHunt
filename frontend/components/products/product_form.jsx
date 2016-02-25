@@ -14,7 +14,6 @@ var ProductForm = React.createClass({
   },
 
   handleSubmit: function(e){
-    debugger
     e.preventDefault();
     var product = {};
     $.extend(product, this.state);
