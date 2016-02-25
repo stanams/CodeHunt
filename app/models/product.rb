@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
     class_name: 'User'
 
   has_many :comments,
-    foreign_key: :user_id,
+    foreign_key: :product_id,
     primary_key: :id,
     class_name: 'Comment'
   # dependant: :destroy

@@ -30,11 +30,10 @@ module.exports = {
       data: {product: product},
       success: function(){
         ApiActions.receiveSingleProduct(product);
-        // this.navigateToIndex();
         callback && callback(product.id);
       }
     })
-  }
+  },
 
   // ------------ Comment requets -------------------
 
@@ -46,7 +45,7 @@ module.exports = {
         CommentActions.receiveComments(comments);
       }
     });
-  }
+  },
 
   createComment: function(comment){
     $.ajax({
@@ -56,14 +55,14 @@ module.exports = {
         CommentActions.postComment(comment);
       }
     });
-  }
+  },
 
   destroyComment: function(id){
     $.ajax({
       url: "api/comments/" + id,
       type: "DELETE",
-      success: function(comments) {
-        CommentActions.deleteComment(comments);
+      success: function(comment) {
+        CommentActions.deleteComment(comment);
       }
     });
   }
