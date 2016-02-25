@@ -117,7 +117,7 @@ background-image: image_path("logo_canva.jpg");
   /*TODO: border don't work!*/
 }
 
-#logo-page {
+.logo-page {
   display: inline;
   position: relative;
   margin: 0;
@@ -126,9 +126,11 @@ background-image: image_path("logo_canva.jpg");
   font-size: 30px;
   cursor: pointer;
   color: black;
+  text-decoration: none !important;
 }
 
-#logo-page:hover {
+.logo-page:hover {
+  margin: 0;
   text-decoration: none !important;
 }
 

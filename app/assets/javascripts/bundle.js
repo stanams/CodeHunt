@@ -25195,10 +25195,10 @@
 	      { className: 'navbar' },
 	      React.createElement(
 	        Link,
-	        { to: '/' },
+	        { to: '/', className: 'logo-page' },
 	        React.createElement(
 	          'p',
-	          { id: 'logo-page' },
+	          { className: 'logo-page' },
 	          'Code Hunt'
 	        )
 	      ),
