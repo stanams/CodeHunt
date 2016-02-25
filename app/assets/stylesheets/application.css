@@ -175,7 +175,7 @@ background-image: image_path("logo_canva.jpg");
   color: #293244;
 }
 
-.list-item-title:hover {
+.index-products-list-item .list-item-title:hover {
   text-decoration: underline;
 }
 
@@ -276,6 +276,29 @@ li.list-item-description:hover {
     width: 350px;
   }
 
+  .leave-form-button {
+    float: left;
+    background-color: #FFF;
+    border: 1px grey solid;
+    border-radius: 50%;
+  	width: 50px;
+  	height: 50px;
+    /*margin: 10px;*/
+    position: relative;
+    left: 200px;
+    display: inline-block;
+    transform: translateY(-220%);
+    padding: 1px;
+    font-size: 30px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .leave-form-button:hover {
+    background-color: #eee;
+    text-decoration: none;
+  }
+
 /*TODO Search bar: A inclure plus tard dans le header.jsx*/
 
 /*
@@ -348,3 +371,12 @@ input[type="submit"] {
 input[type="submit"]:hover {
   opacity: 0.8;
 }*/
+
+
+/*Product preview*/
+
+.product-preview-page {
+  width: 700px;
+  height: 770px;
+  float: right;
+}

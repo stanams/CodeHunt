@@ -13,6 +13,10 @@ var ProductsList = React.createClass({
     ApiUtil.fetchAllProducts();
   },
 
+  componentWillUnmout: function(){
+    this.productListener = ProductStore.removeListener(this._onChange);
+  },
+
   _onChange: function(){
     this.setState({products: ProductStore.all()});
   },
@@ -22,7 +26,6 @@ var ProductsList = React.createClass({
       return <ProductsListItem key={idx} product={product} />;
     })
     return(
-
       <ul>
         {productList}
       </ul>

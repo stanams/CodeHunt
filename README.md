@@ -64,9 +64,9 @@ the API.
   - [x] make `ProductList` and `ProductListItem` components
 - [x] seed the database with a small amount of test data
 - [x] test out API interaction in the console
-- [ ] start setting up the router
+- [x] start setting up the router
 - [ ] have `/products` & `/products/:id` working
-- [ ] style product list
+- [x] style product list
 - [ ] style product page
 - [ ] Bonus: product modal on home page (cf wireframes)
 

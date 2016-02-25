@@ -10,14 +10,14 @@ module.exports = {
     });
   },
 
-  receiveSingleProduct: function(){
+  receiveSingleProduct: function(product){
     Dispatcher.dispatch({
       actionType: ProductConstants.PRODUCT_RECEIVED,
       product: product
     });
   },
 
-  createProduct: function(){
+  createProduct: function(product){
     Dispatcher.dispatch({
       actionType: ProductConstants.PRODUCT_CREATED,
       product: product

@@ -24728,15 +24728,7 @@
 	var LinkedStateMixin = __webpack_require__(219);
 	var ReactRouter = __webpack_require__(160);
 	var ApiUtil = __webpack_require__(247);
-	
-	var blankAttributes = {
-	  product: {
-	    name: '',
-	    description: '',
-	    link: '',
-	    author_id: ''
-	  }
-	};
+	var Link = ReactRouter.Link;
 	
 	var ProductForm = React.createClass({
 	  displayName: 'ProductForm',
@@ -24745,24 +24737,33 @@
 	  mixins: [LinkedStateMixin, ReactRouter.History],
 	
 	  getInitialState: function () {
-	    return blankAttributes;
+	    return {};
 	  },
 	
 	  handleSubmit: function (e) {
+	    debugger;
 	    e.preventDefault();
-	    var product = Object.assign({}, this.state);
-	    ApiUtil.createProduct(product);
-	    this.navigateToIndex();
-	  },
-	
-	  navigateToIndex: function () {
-	    this.history.push("/");
+	    var product = {};
+	    $.extend(product, this.state);
+	    ApiUtil.createProduct(product, function (id) {
+	      this.history.push("/");
+	    }.bind(this));
+	    this.setState(this.blankAttrs);
 	  },
 	
 	  render: function () {
 	    return React.createElement(
 	      'div',
 	      { className: 'new-product-form-box' },
+	      React.createElement(
+	        Link,
+	        { to: '/' },
+	        React.createElement(
+	          'p',
+	          { className: 'leave-form-button' },
+	          'x'
+	        )
+	      ),
 	      React.createElement(
 	        'form',
 	        { className: 'form-container', onSubmit: this.handleSubmit },
@@ -24782,7 +24783,10 @@
 	              { className: 'label-form' },
 	              'Product name *'
 	            ),
-	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[name]', placeholder: 'Devise, React, Boostrapp... ', valueLink: this.linkState('name') })
+	            React.createElement('input', { className: 'new-product-form-input',
+	              type: 'text', name: 'product[name]',
+	              placeholder: 'Devise, React, Boostrapp... ',
+	              valueLink: this.linkState('name') })
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
@@ -24793,7 +24797,11 @@
 	              { className: 'label-form' },
 	              'Product description * '
 	            ),
-	            React.createElement('input', { className: 'new-product-form-input', type: 'textarea', name: 'product[description]', placeholder: 'Rails authentication made simple', valueLink: this.linkState('description') })
+	            React.createElement('input', { className: 'new-product-form-input',
+	              type: 'textarea',
+	              name: 'product[description]',
+	              placeholder: 'Rails authentication made simple',
+	              valueLink: this.linkState('description') })
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
@@ -24804,11 +24812,16 @@
 	              { className: 'label-form' },
 	              'Product URL '
 	            ),
-	            React.createElement('input', { className: 'new-product-form-input', type: 'text', name: 'product[link]', placeholder: 'https://webpack.github.io/docs/', valueLink: this.linkState('link') })
+	            React.createElement('input', { className: 'new-product-form-input',
+	              type: 'text', name: 'product[link]',
+	              placeholder: 'https://webpack.github.io/docs/',
+	              valueLink: this.linkState('link') })
 	          ),
 	          React.createElement('br', null)
 	        ),
-	        React.createElement('input', { className: 'btn btn-primary form-submit-button', type: 'submit', value: 'Submit' })
+	        React.createElement('input', { className: 'btn btn-primary form-submit-button',
+	          type: 'submit',
+	          value: 'Submit' })
 	      )
 	    );
 	  }
@@ -25170,6 +25183,10 @@
 	  componentDidMount: function () {
 	    this.productListener = ProductStore.addListener(this._onChange);
 	    ApiUtil.fetchAllProducts();
+	  },
+	
+	  componentWillUnmout: function () {
+	    this.productListener = ProductStore.removeListener(this._onChange);
 	  },
 	
 	  _onChange: function () {
@@ -31973,14 +31990,14 @@
 	    });
 	  },
 	
-	  receiveSingleProduct: function () {
+	  receiveSingleProduct: function (product) {
 	    Dispatcher.dispatch({
 	      actionType: ProductConstants.PRODUCT_RECEIVED,
 	      product: product
 	    });
 	  },
 	
-	  createProduct: function () {
+	  createProduct: function (product) {
 	    Dispatcher.dispatch({
 	      actionType: ProductConstants.PRODUCT_CREATED,
 	      product: product
@@ -32001,22 +32018,23 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var Link = __webpack_require__(160);
 	
 	var ProductsListItem = React.createClass({
-	  displayName: "ProductsListItem",
+	  displayName: 'ProductsListItem',
 	
 	  render: function () {
 	    return React.createElement(
-	      "li",
-	      { className: "index-products-list-item" },
+	      'li',
+	      { className: 'index-products-list-item' },
 	      React.createElement(
-	        "p",
-	        { className: "list-item-title" },
+	        'p',
+	        { className: 'list-item-title' },
 	        this.props.product.name
 	      ),
 	      React.createElement(
-	        "p",
-	        { className: "list-item-description" },
+	        'p',
+	        { className: 'list-item-description' },
 	        this.props.product.description
 	      )
 	    );
@@ -32032,13 +32050,13 @@
 	var React = __webpack_require__(1);
 	
 	var ProductPreview = React.createClass({
-	  displayName: 'ProductPreview',
+	  displayName: "ProductPreview",
 	
 	  render: function () {
 	    return React.createElement(
-	      'div',
-	      null,
-	      'I\'m a product preview'
+	      "div",
+	      { className: "product-preview-page" },
+	      "I'm a product preview"
 	    );
 	  }
 	});
