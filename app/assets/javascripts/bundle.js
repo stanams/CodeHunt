@@ -24728,7 +24728,7 @@
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(219);
 	var ReactRouter = __webpack_require__(160);
-	var ApiUtil = __webpack_require__(247);
+	var ApiUtil = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../util/api_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(160).browserHistory;
 	
@@ -24837,7 +24837,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(226);
 	var Header = __webpack_require__(224);
-	var ApiUtil = __webpack_require__(247);
+	var ApiUtil = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../util/api_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -25224,7 +25224,7 @@
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(226);
-	var ApiUtil = __webpack_require__(247);
+	var ApiUtil = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../../util/api_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	var ProductsListItem = __webpack_require__(249);
 	
 	var ProductsList = React.createClass({
@@ -25274,7 +25274,7 @@
 	var Dispatcher = __webpack_require__(243);
 	var ProductConstants = __webpack_require__(246);
 	var ProductStore = new Store(Dispatcher);
-	var ApiUtil = __webpack_require__(247);
+	var ApiUtil = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../util/api_util\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var _products = {};
 	
@@ -31992,85 +31992,8 @@
 	};
 
 /***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var ApiActions = __webpack_require__(248);
-	
-	module.exports = {
-	  fetchAllProducts: function () {
-	    $.ajax({
-	      url: '/api/products',
-	      success: function (products) {
-	        ApiActions.receiveAllProducts(products);
-	      }
-	    });
-	  },
-	
-	  fetchSingleProduct: function (id) {
-	    $.ajax({
-	      url: '/api/products/' + id,
-	      success: function () {
-	        ApiActions.receiveSingleProduct(product);
-	      }
-	    });
-	  },
-	
-	  createProduct: function (product, callback) {
-	    $.ajax({
-	      url: '/api/products',
-	      method: "POST",
-	      data: { product: product },
-	      success: function () {
-	        ApiActions.receiveSingleProduct(product);
-	        // this.navigateToIndex();
-	        callback && callback(product.id);
-	      }
-	    });
-	  }
-	  // TODO: update story
-	};
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(243);
-	var ProductConstants = __webpack_require__(246);
-	
-	module.exports = {
-	
-	  receiveAllProducts: function (products) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCTS_RECEIVED,
-	      products: products
-	    });
-	  },
-	
-	  receiveSingleProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_RECEIVED,
-	      product: product
-	    });
-	  },
-	
-	  createProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_CREATED,
-	      product: product
-	    });
-	  }
-	};
-	
-	//
-	// updateProduct: function(){
-	//   Dispatcher.dispatch({
-	//     actionType: ProductConstants.PRODUCT_UPDATED,
-	//     product: product
-	//   });
-	// },
-
-/***/ },
+/* 247 */,
+/* 248 */,
 /* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
