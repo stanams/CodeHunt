@@ -32388,7 +32388,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        this.props.comment.comment
+	        this.props.comment.body
 	      ),
 	      this.renderDelete()
 	    );

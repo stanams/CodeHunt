@@ -16,7 +16,7 @@ var CommentListItem = React.createClass ({
     return(
       <li>
         <div>{this.props.comment.user.username}</div>
-        <div>{this.props.comment.comment}</div>
+        <div>{this.props.comment.body}</div>
         {this.renderDelete()}
       </li>
     );
