@@ -12,13 +12,14 @@ and React.js. CodeHunt allows users to:
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [ ] Create an account and fill a profile
-- [ ] Create/distroy session
-- [ ] Create, read, edit, and delete product
+- [x] Create an account
+- [x] Create/distroy session
+- [x] Create, read, (edit, and delete) product
+- [x] View product list
+- [x] View product page
 - [ ] Vote/unvote for product (no downvote)
 - [ ] Comment on a product
-- [ ] View product list
-- [ ] View product page
+- [ ] Create, read, edit, destroy a profile
 
 
 ## Design Docs
@@ -43,11 +44,9 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 - [x] create new project
 - [x] create `User` model
-- [ ] create simple `Product` model and controller index to generate an index page (same for logged in/non logged in)
-  - the goal is to make the homepage the same for logged in and non logged in users. Non logged in users who try to take action will see a signin/up modal (the `before_action: require_sign_in` thing in will be implemented in next phase)
 - [x] authentication
 - [x] user signup/signin modal
-- [ ] simple header navbar (logo + sign in button)
+- [x] simple header navbar (logo + sign in button)
 
 ### Phase 2: Products (2 days)
 
@@ -65,9 +64,9 @@ the API.
 - [x] seed the database with a small amount of test data
 - [x] test out API interaction in the console
 - [x] start setting up the router
-- [ ] have `/products` & `/products/:id` working
+- [x] have `/products` & `/products/:id` working
 - [x] style product list
-- [ ] style product page
+- [x] style product page
 - [ ] Bonus: product modal on home page (cf wireframes)
 
 
