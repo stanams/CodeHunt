@@ -28,9 +28,8 @@ var CommentForm = React.createClass({
 
   render: function(){
     return(
-      <form>
+      <form className="comment-form">
         <input type="text" valueLink={this.linkState("comment")}/>
-        <br/>
         <button onClick={this.createComment}>Comment</button>
       </form>
     );

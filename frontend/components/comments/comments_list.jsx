@@ -41,8 +41,8 @@ var CommentList = React.createClass({
   render: function(){
     var renderForm = <CommentForm productId={this.props.productId} />;
     return(
-      <div>
-        <h3>Comments</h3>
+      <div className="comments-container">
+        <h3 className="discussion-title">DISCUSSION</h3>
         {renderForm}
         <ul>
           {this.renderComments()}

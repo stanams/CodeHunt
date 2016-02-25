@@ -1,9 +1,9 @@
 var React = require('react');
 var ProductStore = require('../../stores/product_store');
-var Header = require('../header');
 var ApiUtil = require('../../util/api_util');
 var CommentList = require('../comments/comments_list');
-
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 var ProductPage = React.createClass({
 
   render: function(){
@@ -18,10 +18,20 @@ var ProductPage = React.createClass({
     //
     // }
 
+    // Later for the votes (will float: left;):
+    // <section className="product-page-votes-box">
+    //   21 upvotes
+    //   <ul>
+    //     <li className='product-page-upvotes'></li>
+    //     <li className='product-page-upvotes'></li>
+    //     <li className='product-page-upvotes'></li>
+    //   </ul>
+    // </section>
+
 
     return(
-      <div>
-        <Header/>
+      <div className="big-div-product-page">
+        <Link to="/"><p className="leave-product-page-button">x</p></Link>
         <div className="product-page-container">
           <section className="product-page-info">
             <div className="product-info-wrapper">
@@ -29,16 +39,6 @@ var ProductPage = React.createClass({
               <div className="product-description-product-page">{theProduct.description}</div>
               <a className="try-it-btn" href={theProduct.link}><div className="product-link-product-page" >Try It</div></a>
             </div>
-          </section>
-
-
-          <section className="product-page-votes-box">
-            21 upvotes
-            <ul>
-              <li className='product-page-upvotes'></li>
-              <li className='product-page-upvotes'></li>
-              <li className='product-page-upvotes'></li>
-            </ul>
           </section>
 
           <CommentList productId={productId} className="product-page-comments-box"/>

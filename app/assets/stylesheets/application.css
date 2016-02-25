@@ -312,6 +312,7 @@ li.list-item-description:hover {
     cursor: pointer;
   }
 
+
   .leave-form-button:hover {
     background-color: #eee;
     text-decoration: none;
@@ -405,12 +406,14 @@ input[type="submit"]:hover {
 
 .product-page-container {
   margin: 0;
+  height: 600px;
 }
 
 .product-page-info {
   background-color: #eee;
   height: 300px;
   text-align: center;
+  margin: 0;
 }
 
 .product-info-wrapper {
@@ -480,4 +483,48 @@ input[type="submit"]:hover {
   font-size: 30px;
   text-align: center;
   cursor: pointer;
+}
+
+.big-div-product-page {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+.leave-product-page-button {
+  /*float: left;*/
+  background-color: #eee;
+  border: 1px grey solid;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  /*margin: 10px;*/
+  position: relative;
+  left: 100px;
+  display: inline-block;
+  transform: translateY(150%);
+  padding: 1px;
+  font-size: 30px;
+  text-align: center;
+  cursor: pointer;
+  color: grey;
+}
+
+.comments-container {
+  position: relative;
+  border-right: 1px #F2F2F2 solid;
+  width: 70%;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  left: 100px;
+}
+
+.comment-form {
+  margin-top: 50px;
+}
+
+.discussion-title {
+  font-size: 14px;
+  color: #999999;
 }

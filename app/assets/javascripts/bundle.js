@@ -32140,10 +32140,10 @@
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
-	var Header = __webpack_require__(161);
 	var ApiUtil = __webpack_require__(246);
 	var CommentList = __webpack_require__(253);
-	
+	var ReactRouter = __webpack_require__(166);
+	var Link = ReactRouter.Link;
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
 	
@@ -32160,10 +32160,28 @@
 	    //
 	    // }
 	
+	    // Later for the votes (will float: left;):
+	    // <section className="product-page-votes-box">
+	    //   21 upvotes
+	    //   <ul>
+	    //     <li className='product-page-upvotes'></li>
+	    //     <li className='product-page-upvotes'></li>
+	    //     <li className='product-page-upvotes'></li>
+	    //   </ul>
+	    // </section>
+	
 	    return React.createElement(
 	      'div',
-	      null,
-	      React.createElement(Header, null),
+	      { className: 'big-div-product-page' },
+	      React.createElement(
+	        Link,
+	        { to: '/' },
+	        React.createElement(
+	          'p',
+	          { className: 'leave-product-page-button' },
+	          'x'
+	        )
+	      ),
 	      React.createElement(
 	        'div',
 	        { className: 'product-page-container' },
@@ -32192,18 +32210,6 @@
 	                'Try It'
 	              )
 	            )
-	          )
-	        ),
-	        React.createElement(
-	          'section',
-	          { className: 'product-page-votes-box' },
-	          '21 upvotes',
-	          React.createElement(
-	            'ul',
-	            null,
-	            React.createElement('li', { className: 'product-page-upvotes' }),
-	            React.createElement('li', { className: 'product-page-upvotes' }),
-	            React.createElement('li', { className: 'product-page-upvotes' })
 	          )
 	        ),
 	        React.createElement(CommentList, { productId: productId, className: 'product-page-comments-box' })
@@ -32262,11 +32268,11 @@
 	    var renderForm = React.createElement(CommentForm, { productId: this.props.productId });
 	    return React.createElement(
 	      'div',
-	      null,
+	      { className: 'comments-container' },
 	      React.createElement(
 	        'h3',
-	        null,
-	        'Comments'
+	        { className: 'discussion-title' },
+	        'DISCUSSION'
 	      ),
 	      renderForm,
 	      React.createElement(
@@ -32449,9 +32455,8 @@
 	  render: function () {
 	    return React.createElement(
 	      'form',
-	      null,
+	      { className: 'comment-form' },
 	      React.createElement('input', { type: 'text', valueLink: this.linkState("comment") }),
-	      React.createElement('br', null),
 	      React.createElement(
 	        'button',
 	        { onClick: this.createComment },
