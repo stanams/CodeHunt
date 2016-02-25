@@ -24839,6 +24839,7 @@
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
 	
+	
 	  render: function () {
 	    var productId = parseInt(this.props.params.productId);
 	    var theProduct = ProductStore.find(productId);
@@ -24849,13 +24850,25 @@
 	      React.createElement(Header, null),
 	      React.createElement(
 	        'div',
-	        null,
+	        { className: 'product-page-container' },
 	        React.createElement(
 	          'section',
-	          { 'class': 'product-page-info' },
-	          theProduct.name,
-	          theProduct.description,
-	          theProduct.link
+	          { className: 'product-page-info' },
+	          React.createElement(
+	            'div',
+	            null,
+	            theProduct.name
+	          ),
+	          React.createElement(
+	            'div',
+	            null,
+	            theProduct.description
+	          ),
+	          React.createElement(
+	            'div',
+	            null,
+	            theProduct.link
+	          )
 	        ),
 	        React.createElement(
 	          'section',
@@ -25219,7 +25232,7 @@
 	    });
 	    return React.createElement(
 	      'ul',
-	      null,
+	      { className: 'index-list' },
 	      productList
 	    );
 	  }

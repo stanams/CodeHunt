@@ -29,7 +29,7 @@ var ProductsList = React.createClass({
       return <ProductsListItem key={idx} product={product} />;
     })
     return(
-        <ul>
+        <ul className="index-list">
           {productList}
         </ul>
     );

@@ -3,6 +3,7 @@ var ProductStore = require('../../stores/product_store');
 var Header = require('../header');
 
 var ProductPage = React.createClass({
+
   render: function(){
     var productId = parseInt(this.props.params.productId);
     var theProduct = ProductStore.find(productId);
@@ -10,11 +11,11 @@ var ProductPage = React.createClass({
     return(
       <div>
         <Header/>
-        <div>
-          <section class="product-page-info">
-            {theProduct.name}
-            {theProduct.description}
-            {theProduct.link}
+        <div className="product-page-container">
+          <section className="product-page-info">
+            <div>{theProduct.name}</div>
+            <div>{theProduct.description}</div>
+            <div>{theProduct.link}</div>
           </section>
 
 
