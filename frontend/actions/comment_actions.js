@@ -15,10 +15,10 @@ module.exports = {
     });
   },
 
-  deleteComment: function(comment){
+  deleteComment: function(idx){
     Dispatcher.dispatch({
-      actionType: "COMMENT_RECEIVED",
-      comments: comments
+      actionType: "COMMENT_DELETED",
+      idx: idx
     });
   }
 
