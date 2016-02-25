@@ -32122,11 +32122,7 @@
 	  displayName: "ProductPreview",
 	
 	  render: function () {
-	    return React.createElement(
-	      "div",
-	      { className: "product-preview-page" },
-	      "I'm a product preview"
-	    );
+	    return React.createElement("div", { className: "product-preview-page" });
 	  }
 	});
 	
