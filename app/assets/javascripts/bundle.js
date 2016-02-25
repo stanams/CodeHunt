@@ -24833,24 +24833,47 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ProductStore = __webpack_require__(226);
+	var Header = __webpack_require__(224);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
 	
 	  render: function () {
+	    var productId = parseInt(this.props.params.productId);
+	    var theProduct = ProductStore.find(productId);
+	
 	    return React.createElement(
 	      'div',
 	      null,
-	      React.createElement('section', null),
+	      React.createElement(Header, null),
 	      React.createElement(
-	        'section',
+	        'div',
 	        null,
-	        'votes'
-	      ),
-	      React.createElement(
-	        'section',
-	        null,
-	        'Comments'
+	        React.createElement(
+	          'section',
+	          { 'class': 'product-page-info' },
+	          theProduct.name,
+	          theProduct.description,
+	          theProduct.link
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'product-page-votes-box' },
+	          '21 upvotes',
+	          React.createElement(
+	            'ul',
+	            null,
+	            React.createElement('li', { className: 'product-page-upvotes' }),
+	            React.createElement('li', { className: 'product-page-upvotes' }),
+	            React.createElement('li', { className: 'product-page-upvotes' })
+	          )
+	        ),
+	        React.createElement(
+	          'section',
+	          { className: 'product-page-comments-box' },
+	          'Comments'
+	        )
 	      )
 	    );
 	  }
