@@ -408,6 +408,52 @@ input[type="submit"]:hover {
 .product-page-info {
   background-color: #eee;
   height: 300px;
+  text-align: center;
+}
+
+.product-info-wrapper {
+  position: relative;
+  top: 70px;
+}
+
+.product-name-product-page {
+  font-family: Roboto;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+.product-description-product-page {
+  font-family: Roboto;
+  font-size: 20px;
+}
+
+.product-link-product-page {
+  font-family: Roboto;
+  border-radius: 10px;
+  width: 70px;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #293244;
+  color: white;
+}
+
+.product-link-product-page:hover {
+  background-color: rgba(41, 50, 68, 0.9);
+}
+
+.try-it-btn {
+  color: white;
+  text-decoration: none;
+  z-index: 1;
+  margin: 10px;
+}
+
+.try-it-btn:hover
+{
+     color:white;
+     text-decoration:none;
+     cursor:pointer;
 }
 
 .product-page-votes-box {

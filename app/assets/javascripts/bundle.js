@@ -24867,21 +24867,25 @@
 	          { className: 'product-page-info' },
 	          React.createElement(
 	            'div',
-	            null,
-	            theProduct.name
-	          ),
-	          React.createElement(
-	            'div',
-	            null,
-	            theProduct.description
-	          ),
-	          React.createElement(
-	            'a',
-	            { href: theProduct.link },
+	            { className: 'product-info-wrapper' },
 	            React.createElement(
 	              'div',
-	              null,
-	              'Try It'
+	              { className: 'product-name-product-page' },
+	              theProduct.name
+	            ),
+	            React.createElement(
+	              'div',
+	              { className: 'product-description-product-page' },
+	              theProduct.description
+	            ),
+	            React.createElement(
+	              'a',
+	              { className: 'try-it-btn', href: theProduct.link },
+	              React.createElement(
+	                'div',
+	                { className: 'product-link-product-page' },
+	                'Try It'
+	              )
 	            )
 	          )
 	        ),

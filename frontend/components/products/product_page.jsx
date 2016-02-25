@@ -24,9 +24,11 @@ var ProductPage = React.createClass({
         <Header/>
         <div className="product-page-container">
           <section className="product-page-info">
-            <div>{theProduct.name}</div>
-            <div>{theProduct.description}</div>
-            <a href={theProduct.link}><div>Try It</div></a>
+            <div className="product-info-wrapper">
+              <div className="product-name-product-page">{theProduct.name}</div>
+              <div className="product-description-product-page">{theProduct.description}</div>
+              <a className="try-it-btn" href={theProduct.link}><div className="product-link-product-page" >Try It</div></a>
+            </div>
           </section>
 
 
