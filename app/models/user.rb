@@ -11,14 +11,14 @@ class User < ActiveRecord::Base
   has_many :products,
     foreign_key: :author_id,
     primary_key: :id,
-    class_name: 'Product',
-  dependent: :destroy
+    class_name: 'Product'
+  # dependent: :destroy
 
   has_many :comments,
-    foreign_key: :user_id,
+    foreign_key: :commenter_id,
     primary_key: :id,
-    class_name: 'Comment',
-  dependent: :destroy
+    class_name: 'Comment'
+  # dependent: :destroy
 
   def self.find_by_credentials(username, password)
     user = User.find_by(username: username)

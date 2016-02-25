@@ -10,6 +10,6 @@ class Product < ActiveRecord::Base
   has_many :comments,
     foreign_key: :user_id,
     primary_key: :id,
-    class_name: 'Comment',
-  dependant: :destroy
+    class_name: 'Comment'
+  # dependant: :destroy
 end

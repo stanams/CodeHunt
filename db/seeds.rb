@@ -15,3 +15,12 @@
   author_id: 1
   )
 }
+
+
+(1..10).to_a.each { |i|
+  Comment.create!(
+  commenter_id: 1,
+  body: "my_comment number " + i.to_s,
+  product_id: rand(1..3)
+  )
+}
