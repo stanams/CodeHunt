@@ -125,6 +125,11 @@ background-image: image_path("logo_canva.jpg");
   left: 30px;
   font-size: 30px;
   cursor: pointer;
+  color: black;
+}
+
+#logo-page:hover {
+  text-decoration: none !important;
 }
 
 .header-new-product-button {
@@ -186,7 +191,7 @@ background-image: image_path("logo_canva.jpg");
   color: #293244;
 }
 
-.index-products-list-item .list-item-title:hover {
+.list-item-title:hover {
   text-decoration: underline;
 }
 

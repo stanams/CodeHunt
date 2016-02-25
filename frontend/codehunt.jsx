@@ -8,6 +8,7 @@ var IndexRoute = ReactRouter.IndexRoute;
 var IndexView = require('./components/index_view');
 var ProductForm = require('./components/products/product_form');
 var ProductPage = require('./components/products/product_page');
+var browserHistory = require('react-router').browserHistory;
 
 var routes = (
   <Route path="/" component={App}>
@@ -21,7 +22,7 @@ var routes = (
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById('root')) {
     ReactDOM.render(
-      <Router>{routes}</Router>,
+      <Router history={browserHistory}>{routes}</Router>,
       document.getElementById('root'));
   }
 });

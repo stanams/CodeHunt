@@ -3,11 +3,13 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var ReactRouter = require('react-router');
 var ApiUtil = require('../../util/api_util');
 var Link = ReactRouter.Link;
+var browserHistory = require('react-router').browserHistory;
 
 
 var ProductForm = React.createClass({
 
-  mixins: [LinkedStateMixin, ReactRouter.History],
+  mixins: [LinkedStateMixin],
+  // ReactRouter.History
 
   getInitialState: function(){
     return {};
@@ -18,9 +20,8 @@ var ProductForm = React.createClass({
     var product = {};
     $.extend(product, this.state);
     ApiUtil.createProduct(product, function (id) {
-      this.history.push("/");
+      browserHistory.push("/");
     }.bind(this));
-    this.setState(this.blankAttrs);
   },
 
   render: function(){

@@ -54,6 +54,7 @@
 	var IndexView = __webpack_require__(223);
 	var ProductForm = __webpack_require__(217);
 	var ProductPage = __webpack_require__(218);
+	var browserHistory = __webpack_require__(160).browserHistory;
 	
 	var routes = React.createElement(
 	  Route,
@@ -67,7 +68,7 @@
 	  if (document.getElementById('root')) {
 	    ReactDOM.render(React.createElement(
 	      Router,
-	      null,
+	      { history: browserHistory },
 	      routes
 	    ), document.getElementById('root'));
 	  }
@@ -24729,12 +24730,14 @@
 	var ReactRouter = __webpack_require__(160);
 	var ApiUtil = __webpack_require__(247);
 	var Link = ReactRouter.Link;
+	var browserHistory = __webpack_require__(160).browserHistory;
 	
 	var ProductForm = React.createClass({
 	  displayName: 'ProductForm',
 	
 	
-	  mixins: [LinkedStateMixin, ReactRouter.History],
+	  mixins: [LinkedStateMixin],
+	  // ReactRouter.History
 	
 	  getInitialState: function () {
 	    return {};
@@ -24745,9 +24748,8 @@
 	    var product = {};
 	    $.extend(product, this.state);
 	    ApiUtil.createProduct(product, function (id) {
-	      this.history.push("/");
+	      browserHistory.push("/");
 	    }.bind(this));
-	    this.setState(this.blankAttrs);
 	  },
 	
 	  render: function () {
@@ -24835,6 +24837,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(226);
 	var Header = __webpack_require__(224);
+	var ApiUtil = __webpack_require__(247);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -24842,7 +24845,15 @@
 	
 	  render: function () {
 	    var productId = parseInt(this.props.params.productId);
+	    if (ProductStore.find(productId) === undefined) {
+	      ApiUtil.fetchSingleProduct(productId);
+	    }
 	    var theProduct = ProductStore.find(productId);
+	
+	    // var goodLink =
+	    // if (theProduct.link) {
+	    //
+	    // }
 	
 	    return React.createElement(
 	      'div',
@@ -24865,9 +24876,13 @@
 	            theProduct.description
 	          ),
 	          React.createElement(
-	            'div',
-	            null,
-	            theProduct.link
+	            'a',
+	            { href: theProduct.link },
+	            React.createElement(
+	              'div',
+	              null,
+	              'Try It'
+	            )
 	          )
 	        ),
 	        React.createElement(
@@ -25156,17 +25171,18 @@
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(219);
 	var ReactRouter = __webpack_require__(160);
+	var Link = ReactRouter.Link;
 	var Search = __webpack_require__(251);
+	var browserHistory = __webpack_require__(160).browserHistory;
 	
 	var Header = React.createClass({
 	  displayName: 'Header',
 	
 	
-	  mixins: [ReactRouter.History],
+	  // mixins: [ReactRouter.History],
 	
 	  handleClickNewProduct: function () {
-	    debugger;
-	    this.history.push("/products/new");
+	    browserHistory.push("/products/new");
 	  },
 	
 	  render: function () {
@@ -25174,9 +25190,13 @@
 	      'nav',
 	      { className: 'navbar' },
 	      React.createElement(
-	        'p',
-	        { id: 'logo-page' },
-	        'Code Hunt'
+	        Link,
+	        { to: '/' },
+	        React.createElement(
+	          'p',
+	          { id: 'logo-page' },
+	          'Code Hunt'
+	        )
 	      ),
 	      React.createElement(
 	        'button',
@@ -25215,8 +25235,8 @@
 	    ApiUtil.fetchAllProducts();
 	  },
 	
-	  componentWillUnmout: function () {
-	    this.productListener = ProductStore.removeListener(this._onChange);
+	  componentWillUnmount: function () {
+	    this.productListener.remove();
 	  },
 	
 	  _onChange: function () {
@@ -31976,7 +31996,7 @@
 	module.exports = {
 	  fetchAllProducts: function () {
 	    $.ajax({
-	      url: 'api/products',
+	      url: '/api/products',
 	      success: function (products) {
 	        ApiActions.receiveAllProducts(products);
 	      }
@@ -31985,7 +32005,7 @@
 	
 	  fetchSingleProduct: function (id) {
 	    $.ajax({
-	      url: 'api/products/' + id,
+	      url: '/api/products/' + id,
 	      success: function () {
 	        ApiActions.receiveSingleProduct(product);
 	      }
@@ -31994,7 +32014,7 @@
 	
 	  createProduct: function (product, callback) {
 	    $.ajax({
-	      url: 'api/products',
+	      url: '/api/products',
 	      method: "POST",
 	      data: { product: product },
 	      success: function () {
@@ -32053,29 +32073,29 @@
 	var React = __webpack_require__(1);
 	var ReactRouter = __webpack_require__(160);
 	var Link = ReactRouter.Link;
+	var browserHistory = __webpack_require__(160).browserHistory;
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
 	
 	
 	  makeUrl: function () {
-	    var path = "products/" + this.props.product.id;
+	    var path = "/products/" + this.props.product.id;
 	    return path;
 	  },
 	
+	  handleClick: function () {
+	    browserHistory.push(this.makeUrl());
+	  },
+	
 	  render: function () {
-	    debugger;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
 	      React.createElement(
-	        Link,
-	        { to: this.makeUrl() },
-	        React.createElement(
-	          'p',
-	          { className: 'list-item-title' },
-	          this.props.product.name
-	        )
+	        'p',
+	        { onClick: this.handleClick, className: 'list-item-title' },
+	        this.props.product.name
 	      ),
 	      React.createElement(
 	        'p',

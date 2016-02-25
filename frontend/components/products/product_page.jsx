@@ -1,12 +1,23 @@
 var React = require('react');
 var ProductStore = require('../../stores/product_store');
 var Header = require('../header');
+var ApiUtil = require('../../util/api_util');
 
 var ProductPage = React.createClass({
 
+
   render: function(){
     var productId = parseInt(this.props.params.productId);
+    if (ProductStore.find(productId) === undefined) {
+      ApiUtil.fetchSingleProduct(productId);
+    }
     var theProduct = ProductStore.find(productId);
+
+    // var goodLink =
+    // if (theProduct.link) {
+    //
+    // }
+
 
     return(
       <div>
@@ -15,7 +26,7 @@ var ProductPage = React.createClass({
           <section className="product-page-info">
             <div>{theProduct.name}</div>
             <div>{theProduct.description}</div>
-            <div>{theProduct.link}</div>
+            <a href={theProduct.link}><div>Try It</div></a>
           </section>
 
 

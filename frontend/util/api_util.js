@@ -3,7 +3,7 @@ var ApiActions = require('../actions/product_actions');
 module.exports = {
   fetchAllProducts: function(){
     $.ajax({
-      url: 'api/products',
+      url: '/api/products',
       success: function(products){
         ApiActions.receiveAllProducts(products);
       }
@@ -12,7 +12,7 @@ module.exports = {
 
   fetchSingleProduct: function(id){
     $.ajax({
-      url: 'api/products/' + id,
+      url: '/api/products/' + id,
       success: function(){
         ApiActions.receiveSingleProduct(product)
       }
@@ -21,7 +21,7 @@ module.exports = {
 
   createProduct: function(product, callback){
     $.ajax({
-      url: 'api/products',
+      url: '/api/products',
       method: "POST",
       data: {product: product},
       success: function(){

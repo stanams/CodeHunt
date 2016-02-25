@@ -13,8 +13,8 @@ var ProductsList = React.createClass({
     ApiUtil.fetchAllProducts();
   },
 
-  componentWillUnmout: function(){
-    this.productListener = ProductStore.removeListener(this._onChange);
+  componentWillUnmount: function(){
+    this.productListener.remove();
   },
 
   _onChange: function(){
