@@ -1,18 +1,23 @@
 class Api::CommentsController < ApplicationController
 
-  def show
-    @comments = Comment.where("product_id = ?", params[:id])
+  def index
+    @comments = Comment.where("product_id = ?", params[:product_id])
   end
 
   def create
     @comment = Comment.new(comment_params)
-    @comment.commenter_id = current_user.id
+    # @comment.commenter_id = current_user.id
 
-    if @comment.save
-      render :show
-    else
-      render json: @comment.errors.full_messages, status: 422
-    end
+    @comment.save
+    render :new
+    #
+    # else
+    #   render json: @comment.errors.full_messages, status: 422
+    # end
+  end
+
+  def show
+    render :show
   end
 
   # def destroy
@@ -26,6 +31,6 @@ class Api::CommentsController < ApplicationController
 
   private
   def comment_params
-    params.require(:comment).permit(:body, :product_id)
+    params.require(:comment).permit(:body, :product_id, :commenter_id)
   end
 end

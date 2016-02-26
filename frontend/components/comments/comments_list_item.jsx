@@ -3,24 +3,24 @@ var ApiUtil = require('../../util/api_util');
 
 var CommentListItem = React.createClass ({
 
-  delete: function(e){
-    e.preventDefault();
-    ApiUtil.deleteComment(this.props.comment.id);
-  },
-
-
   render: function(){
-    debugger
     return(
       <li>
-
         <div>{this.props.comment.body}</div>
       </li>
     );
   }
 })
 
+module.exports = CommentListItem;
 
+
+// <div>{this.props.comment.commenter.username}</div>
+
+// delete: function(e){
+//   e.preventDefault();
+//   ApiUtil.deleteComment(this.props.comment.id);
+// },
 
 // Re-put the delete option later (method)
 // renderDelete: function(){
@@ -31,6 +31,3 @@ var CommentListItem = React.createClass ({
 // {this.renderDelete()}
 
 // Add the commenter name
-// <div>{this.props.comment.commenter.username}</div>
-
-module.exports = CommentListItem;

@@ -320,7 +320,7 @@ li.list-item-description:hover {
 
 /*TODO Search bar: A inclure plus tard dans le header.jsx*/
 
-/*
+
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
 
@@ -328,21 +328,22 @@ li.list-item-description:hover {
 #wrap {
   background: #DDD;
   font-size: 10px;
-  margin: 50px 100px;
+  margin: 10px 10px;
   display: inline-block;
   position: relative;
-  height: 60px;
+  height: 30px;
   float: right;
   padding: 0;
   position: relative;
+  right: 400px;
 }
 
 input[type="text"] {
-  height: 60px;
-  font-size: 55px;
+  height: 30px;
+  font-size: 10px;
   display: inline-block;
   font-family: "Lato";
-  font-weight: 100;
+  /*font-weight: 100;*/
   border: none;
   outline: none;
   color: #555;
@@ -389,7 +390,10 @@ input[type="submit"] {
 
 input[type="submit"]:hover {
   opacity: 0.8;
-}*/
+}
+
+
+
 
 
 /*Product preview*/
@@ -404,9 +408,17 @@ input[type="submit"]:hover {
 
 /*Product Page*/
 
+.big-div-product-page {
+  width: 100%;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  z-index: -1;
+}
+
 .product-page-container {
   margin: 0;
-  height: 600px;
+  height: 100%;
 }
 
 .product-page-info {
@@ -496,11 +508,6 @@ input[type="submit"]:hover {
   cursor: pointer;
 }
 
-.big-div-product-page {
-    height: 100%;
-    padding: 0;
-    margin: 0;
-}
 
 .leave-product-page-button {
   /*float: left;*/

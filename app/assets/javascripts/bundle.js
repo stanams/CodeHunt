@@ -64,6 +64,8 @@
 	  React.createElement(Route, { path: 'products/:productId', component: ProductPage })
 	);
 	
+	// <Route path="profile/:userId" component={ProfilePage}/>
+	
 	document.addEventListener("DOMContentLoaded", function () {
 	  if (document.getElementById('root')) {
 	    ReactDOM.render(React.createElement(
@@ -19770,6 +19772,17 @@
 	});
 	
 	module.exports = Header;
+	
+	// <Search/>
+
+	// Profile page
+	// makeUrl: function(){
+	//   var path = "/profile/" + this.props.profileId;
+	//   return path;
+	// },
+
+	// Profile Page
+	// <Link to={this.makeUrl()}><p className="header-profile" >Profile</p></Link>
 
 /***/ },
 /* 162 */
@@ -25043,7 +25056,7 @@
 	        "form",
 	        { action: "", autocomplete: "on" },
 	        React.createElement("input", { className: "search-bar", id: "search", name: "search", type: "text", placeholder: "What're we looking for ?" }),
-	        React.createElement("input", { className: "search-bar", id: "search_submit", value: "Rechercher", type: "submit" })
+	        React.createElement("input", { className: "search-bar", id: "search_submit", value: "Search for products", type: "submit" })
 	      )
 	    );
 	  }
@@ -31869,7 +31882,7 @@
 	
 	  fetchComments: function (id) {
 	    $.ajax({
-	      url: "/api/comments/" + id,
+	      url: "/api/products/" + id + "/comments",
 	      type: "GET",
 	      success: function (comments) {
 	        CommentActions.receiveComments(comments);
@@ -31877,13 +31890,14 @@
 	    });
 	  },
 	
-	  createComment: function (comment) {
+	  createComment: function (comment, productId) {
 	    // debugger
 	    $.ajax({
-	      url: "/api/comments/",
+	      url: "/api/products/" + productId + "/comments",
 	      type: "POST",
 	      data: { comment: comment },
 	      success: function (comment) {
+	        debugger;
 	        CommentActions.postComment(comment);
 	      }
 	    });
@@ -31948,7 +31962,7 @@
 	module.exports = {
 	  receiveComments: function (comments) {
 	    Dispatcher.dispatch({
-	      actionType: "COMMENT_RECEIVED",
+	      actionType: "COMMENTS_RECEIVED",
 	      comments: comments
 	    });
 	  },
@@ -32146,6 +32160,8 @@
 	var CommentList = __webpack_require__(253);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
+	var CommentBox = __webpack_require__(258);
+	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
 	
@@ -32214,7 +32230,7 @@
 	            )
 	          )
 	        ),
-	        React.createElement(CommentList, { productId: productId, className: 'product-page-comments-box' })
+	        React.createElement(CommentBox, { productId: productId })
 	      )
 	    );
 	  }
@@ -32230,7 +32246,7 @@
 	var CommentStore = __webpack_require__(254);
 	var ApiUtil = __webpack_require__(246);
 	var CommentListItem = __webpack_require__(256);
-	var CommentForm = __webpack_require__(258);
+	var CommentForm = __webpack_require__(257);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32249,6 +32265,7 @@
 	  },
 	
 	  _onChange: function () {
+	    debugger;
 	    this.setState({
 	      comments: CommentStore.all()
 	    });
@@ -32263,20 +32280,13 @@
 	        return React.createElement(CommentListItem, { key: idx, comment: this.state.comments[idx] });
 	      }.bind(this));
 	    }
-	    return _renderComments.reverse();
+	    return _renderComments;
 	  },
 	
 	  render: function () {
-	    var renderForm = React.createElement(CommentForm, { productId: this.props.productId });
 	    return React.createElement(
 	      'div',
-	      { className: 'comments-container' },
-	      React.createElement(
-	        'h3',
-	        { className: 'discussion-title' },
-	        'DISCUSSION'
-	      ),
-	      renderForm,
+	      null,
 	      React.createElement(
 	        'ul',
 	        null,
@@ -32371,13 +32381,7 @@
 	  displayName: 'CommentListItem',
 	
 	
-	  delete: function (e) {
-	    e.preventDefault();
-	    ApiUtil.deleteComment(this.props.comment.id);
-	  },
-	
 	  render: function () {
-	    debugger;
 	    return React.createElement(
 	      'li',
 	      null,
@@ -32390,28 +32394,34 @@
 	  }
 	});
 	
+	module.exports = CommentListItem;
+	
+	// <div>{this.props.comment.commenter.username}</div>
+
+	// delete: function(e){
+	//   e.preventDefault();
+	//   ApiUtil.deleteComment(this.props.comment.id);
+	// },
+
 	// Re-put the delete option later (method)
 	// renderDelete: function(){
 	//   return <button onClick={this.delete}>Delete</button>
 	// }
-	
+
 	// Re-put the delete option later (render)
 	// {this.renderDelete()}
-	
+
 	// Add the commenter name
-	// <div>{this.props.comment.commenter.username}</div>
-	
-	module.exports = CommentListItem;
 
 /***/ },
-/* 257 */,
-/* 258 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
 	var LinkedStateMixin = __webpack_require__(162);
 	var browserHistory = __webpack_require__(166).browserHistory;
+	var ProductStore = __webpack_require__(225);
 	
 	var CommentForm = React.createClass({
 	  displayName: 'CommentForm',
@@ -32430,14 +32440,19 @@
 	
 	  createComment: function (e) {
 	    e.preventDefault();
+	    var productId = parseInt(this.props.productId);
+	    var product = ProductStore.find(productId);
+	    var commenter_id = product.author_id;
+	    // debugger
 	    var comment = {
-	      product_id: this.props.productId,
-	      commenter_id: 1
+	      product_id: productId,
+	      commenter_id: commenter_id
 	    };
 	    $.extend(comment, this.state);
-	    ApiUtil.createComment(comment, function (producId) {
+	    ApiUtil.createComment(comment, productId, function (productId) {
 	      browserHistory.push(makeUrl());
 	    });
+	    this.setState({ body: '' });
 	  },
 	
 	  render: function () {
@@ -32453,6 +32468,36 @@
 	});
 	
 	module.exports = CommentForm;
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var React = __webpack_require__(1);
+	var ApiUtil = __webpack_require__(246);
+	var CommentForm = __webpack_require__(257);
+	var CommentList = __webpack_require__(253);
+	
+	var CommentBox = React.createClass({
+	  displayName: 'CommentBox',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      { className: 'comments-container' },
+	      React.createElement(
+	        'h3',
+	        { className: 'discussion-title' },
+	        'DISCUSSION'
+	      ),
+	      React.createElement(CommentList, { productId: this.props.productId }),
+	      React.createElement(CommentForm, { productId: this.props.productId })
+	    );
+	  }
+	});
+	
+	module.exports = CommentBox;
 
 /***/ }
 /******/ ]);

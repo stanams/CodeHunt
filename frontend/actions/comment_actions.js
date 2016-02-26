@@ -3,7 +3,7 @@ var Dispatcher = require('../dispatcher/dispatcher');
 module.exports = {
   receiveComments: function(comments){
     Dispatcher.dispatch({
-      actionType: "COMMENT_RECEIVED",
+      actionType: "COMMENTS_RECEIVED",
       comments: comments
     });
   },

@@ -2,6 +2,7 @@ var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var browserHistory = require('react-router').browserHistory;
+var ProductStore = require('../../stores/product_store');
 
 
 
@@ -20,14 +21,19 @@ var CommentForm = React.createClass({
 
   createComment: function(e){
     e.preventDefault();
+    var productId = parseInt(this.props.productId);
+    var product = ProductStore.find(productId);
+    var commenter_id = product.author_id;
+    // debugger
     var comment = {
-      product_id: this.props.productId,
-      commenter_id: 1
+      product_id: productId,
+      commenter_id: commenter_id
       };
     $.extend(comment, this.state);
-    ApiUtil.createComment(comment, function(producId){
+    ApiUtil.createComment(comment, productId, function(productId) {
       browserHistory.push(makeUrl());
     });
+    this.setState({body: ''});
   },
 
   render: function(){

@@ -4,6 +4,9 @@ var ApiUtil = require('../../util/api_util');
 var CommentList = require('../comments/comments_list');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
+var CommentBox = require('../comments/comments_box');
+
+
 var ProductPage = React.createClass({
 
   render: function(){
@@ -37,11 +40,10 @@ var ProductPage = React.createClass({
             <div className="product-info-wrapper">
               <div className="product-name-product-page">{theProduct.name}</div>
               <div className="product-description-product-page">{theProduct.description}</div>
-              <a className="try-it-btn" href={theProduct.link}><div className="product-link-product-page" >Try It</div></a>
+              <a className="try-it-btn" href={theProduct.link}><div className="product-link-product-page">Try It</div></a>
             </div>
           </section>
-
-          <CommentList productId={productId} className="product-page-comments-box"/>
+          <CommentBox productId={productId}/>
 
         </div>
       </div>

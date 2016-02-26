@@ -19,6 +19,7 @@ var CommentList = React.createClass({
   },
 
   _onChange: function(){
+    debugger
     this.setState({
       comments: CommentStore.all()
     });
@@ -35,15 +36,12 @@ var CommentList = React.createClass({
         )
         }.bind(this))
       }
-    return _renderComments.reverse();
+    return _renderComments;
   },
 
   render: function(){
-    var renderForm = <CommentForm productId={this.props.productId} />;
     return(
-      <div className="comments-container">
-        <h3 className="discussion-title">DISCUSSION</h3>
-        {renderForm}
+      <div>
         <ul>
           {this.renderComments()}
         </ul>

@@ -39,7 +39,7 @@ module.exports = {
 
   fetchComments: function(id){
     $.ajax({
-      url: "/api/comments/" + id,
+      url: "/api/products/" + id + "/comments",
       type: "GET",
       success: function(comments) {
         CommentActions.receiveComments(comments);
@@ -47,13 +47,14 @@ module.exports = {
     });
   },
 
-  createComment: function(comment){
+  createComment: function(comment, productId){
     // debugger
     $.ajax({
-      url: "/api/comments/",
+      url: "/api/products/" + productId + "/comments",
       type: "POST",
       data: {comment: comment},
       success: function(comment) {
+        debugger
         CommentActions.postComment(comment);
       }
     });

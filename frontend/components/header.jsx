@@ -5,6 +5,7 @@ var Link = ReactRouter.Link;
 var Search = require('./search.jsx');
 var browserHistory = require('react-router').browserHistory;
 
+
 var Header = React.createClass({
 
   // mixins: [ReactRouter.History],
@@ -12,6 +13,8 @@ var Header = React.createClass({
   handleClickNewProduct: function(){
     browserHistory.push("/products/new");
   },
+
+
 
   render: function(){
     return(
@@ -25,3 +28,14 @@ var Header = React.createClass({
 })
 
 module.exports = Header;
+
+// <Search/>
+
+// Profile page
+// makeUrl: function(){
+//   var path = "/profile/" + this.props.profileId;
+//   return path;
+// },
+
+// Profile Page
+// <Link to={this.makeUrl()}><p className="header-profile" >Profile</p></Link>
