@@ -32387,7 +32387,7 @@
 	      null,
 	      React.createElement(
 	        'div',
-	        null,
+	        { clasName: 'comment-body' },
 	        this.props.comment.body
 	      )
 	    );

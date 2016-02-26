@@ -6,7 +6,7 @@ var CommentListItem = React.createClass ({
   render: function(){
     return(
       <li>
-        <div>{this.props.comment.body}</div>
+        <div  clasName="comment-body">{this.props.comment.body}</div>
       </li>
     );
   }

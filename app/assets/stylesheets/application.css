@@ -212,14 +212,7 @@ li.index-products-list-item:hover {
   border-radius: 5px;
 }
 
-/*Below does not work*/
-/*li.list-item-title:hover {
-  color: black;
-}
 
-li.list-item-description:hover {
-  color: #ccc;
-}*/
 
 /*New product form*/
 
@@ -320,7 +313,7 @@ li.list-item-description:hover {
 
 /*TODO Search bar: A inclure plus tard dans le header.jsx*/
 
-
+/*
 @import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700);
 @import url(https://raw.github.com/FortAwesome/Font-Awesome/master/docs/assets/css/font-awesome.min.css);
 
@@ -343,7 +336,7 @@ input[type="text"] {
   font-size: 10px;
   display: inline-block;
   font-family: "Lato";
-  /*font-weight: 100;*/
+  font-weight: 100;
   border: none;
   outline: none;
   color: #555;
@@ -392,7 +385,7 @@ input[type="submit"]:hover {
   opacity: 0.8;
 }
 
-
+*/
 
 
 
@@ -528,6 +521,9 @@ input[type="submit"]:hover {
   color: grey;
 }
 
+
+/*Comments on product page*/
+
 .comments-container {
   position: relative;
   border-right: 1px #F2F2F2 solid;
@@ -536,6 +532,14 @@ input[type="submit"]:hover {
   height: 100%;
   position: relative;
   left: 100px;
+}
+
+li {
+  list-style: none;
+}
+
+.comment-body {
+  margin: 10px;
 }
 
 .comment-form {
