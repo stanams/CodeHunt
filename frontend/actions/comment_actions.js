@@ -13,13 +13,13 @@ module.exports = {
       actionType: "COMMENT_POSTED",
       comment: comment
     });
-  },
-
-  deleteComment: function(idx){
-    Dispatcher.dispatch({
-      actionType: "COMMENT_DELETED",
-      idx: idx
-    });
   }
+
+  // deleteComment: function(idx){
+  //   Dispatcher.dispatch({
+  //     actionType: "COMMENT_DELETED",
+  //     idx: idx
+  //   });
+  // }
 
 }

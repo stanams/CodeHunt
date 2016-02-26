@@ -8,9 +8,6 @@ var CommentListItem = React.createClass ({
     ApiUtil.deleteComment(this.props.comment.id);
   },
 
-  renderDelete: function(){
-    return <button onClick={this.delete}>Delete</button>
-  },
 
   render: function(){
     debugger
@@ -18,11 +15,20 @@ var CommentListItem = React.createClass ({
       <li>
 
         <div>{this.props.comment.body}</div>
-        {this.renderDelete()}
       </li>
     );
   }
 })
+
+
+
+// Re-put the delete option later (method)
+// renderDelete: function(){
+//   return <button onClick={this.delete}>Delete</button>
+// }
+
+// Re-put the delete option later (render)
+// {this.renderDelete()}
 
 // Add the commenter name
 // <div>{this.props.comment.commenter.username}</div>

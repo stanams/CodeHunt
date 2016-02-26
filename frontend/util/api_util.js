@@ -57,15 +57,15 @@ module.exports = {
         CommentActions.postComment(comment);
       }
     });
-  },
-
-  deleteComment: function(id){
-    $.ajax({
-      url: "/api/comments/" + id,
-      type: "DELETE",
-      success: function(comment) {
-        CommentActions.deleteComment(comment);
-      }
-    });
   }
 }
+
+  // deleteComment: function(id){
+  //   $.ajax({
+  //     url: "/api/comments/" + id,
+  //     type: "DELETE",
+  //     success: function(comment) {
+  //       CommentActions.deleteComment(comment);
+  //     }
+  //   });
+  // }

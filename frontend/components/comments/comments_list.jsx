@@ -25,7 +25,6 @@ var CommentList = React.createClass({
   },
 
   renderComments: function(){
-    debugger
     var _renderComments;
     if (this.state.comments === {}) {
       _renderComments = ["loading..."];

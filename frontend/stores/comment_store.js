@@ -19,9 +19,9 @@ var resetComment = function (comment) {
   _comments[comment.id] = comment;
 };
 
-var deleteComment = function(idx){
-  delete _comments[idx];
-}
+// var deleteComment = function(idx){
+//   delete _comments[idx];
+// }
 
 CommentStore.all = function () {
   var comments = [];
@@ -45,10 +45,10 @@ CommentStore.__onDispatch = function (payload) {
       resetComment(payload.comment);
       CommentStore.__emitChange();
       break;
-    case CommentConstants.COMMENT_DELETED:
-      deleteComment(payload.comment);
-      CommentStore.__emitChange();
-      break;
+    // case CommentConstants.COMMENT_DELETED:
+    //   deleteComment(payload.comment);
+    //   CommentStore.__emitChange();
+    //   break;
   }
 }
 

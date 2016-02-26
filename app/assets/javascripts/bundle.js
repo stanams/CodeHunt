@@ -31887,18 +31887,18 @@
 	        CommentActions.postComment(comment);
 	      }
 	    });
-	  },
-	
-	  deleteComment: function (id) {
-	    $.ajax({
-	      url: "/api/comments/" + id,
-	      type: "DELETE",
-	      success: function (comment) {
-	        CommentActions.deleteComment(comment);
-	      }
-	    });
 	  }
 	};
+	
+	// deleteComment: function(id){
+	//   $.ajax({
+	//     url: "/api/comments/" + id,
+	//     type: "DELETE",
+	//     success: function(comment) {
+	//       CommentActions.deleteComment(comment);
+	//     }
+	//   });
+	// }
 
 /***/ },
 /* 247 */
@@ -31958,14 +31958,14 @@
 	      actionType: "COMMENT_POSTED",
 	      comment: comment
 	    });
-	  },
-	
-	  deleteComment: function (idx) {
-	    Dispatcher.dispatch({
-	      actionType: "COMMENT_DELETED",
-	      idx: idx
-	    });
 	  }
+	
+	  // deleteComment: function(idx){
+	  //   Dispatcher.dispatch({
+	  //     actionType: "COMMENT_DELETED",
+	  //     idx: idx
+	  //   });
+	  // }
 	
 	};
 
@@ -32255,7 +32255,6 @@
 	  },
 	
 	  renderComments: function () {
-	    debugger;
 	    var _renderComments;
 	    if (this.state.comments === {}) {
 	      _renderComments = ["loading..."];
@@ -32315,9 +32314,9 @@
 	  _comments[comment.id] = comment;
 	};
 	
-	var deleteComment = function (idx) {
-	  delete _comments[idx];
-	};
+	// var deleteComment = function(idx){
+	//   delete _comments[idx];
+	// }
 	
 	CommentStore.all = function () {
 	  var comments = [];
@@ -32341,10 +32340,10 @@
 	      resetComment(payload.comment);
 	      CommentStore.__emitChange();
 	      break;
-	    case CommentConstants.COMMENT_DELETED:
-	      deleteComment(payload.comment);
-	      CommentStore.__emitChange();
-	      break;
+	    // case CommentConstants.COMMENT_DELETED:
+	    //   deleteComment(payload.comment);
+	    //   CommentStore.__emitChange();
+	    //   break;
 	  }
 	};
 	
@@ -32377,14 +32376,6 @@
 	    ApiUtil.deleteComment(this.props.comment.id);
 	  },
 	
-	  renderDelete: function () {
-	    return React.createElement(
-	      'button',
-	      { onClick: this.delete },
-	      'Delete'
-	    );
-	  },
-	
 	  render: function () {
 	    debugger;
 	    return React.createElement(
@@ -32394,11 +32385,18 @@
 	        'div',
 	        null,
 	        this.props.comment.body
-	      ),
-	      this.renderDelete()
+	      )
 	    );
 	  }
 	});
+	
+	// Re-put the delete option later (method)
+	// renderDelete: function(){
+	//   return <button onClick={this.delete}>Delete</button>
+	// }
+	
+	// Re-put the delete option later (render)
+	// {this.renderDelete()}
 	
 	// Add the commenter name
 	// <div>{this.props.comment.commenter.username}</div>
