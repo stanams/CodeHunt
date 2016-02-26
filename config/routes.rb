@@ -6,9 +6,8 @@ Rails.application.routes.draw do
 
   namespace :api, default: {format: :json} do
     resources :users, only: [:show]
-    resources :products do
-      resources :comments
-    end
+    resources :products
+    resources :comments
   end
   get "*products", to: "static_pages#root"
 end

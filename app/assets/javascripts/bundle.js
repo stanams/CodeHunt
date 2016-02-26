@@ -31878,9 +31878,11 @@
 	  },
 	
 	  createComment: function (comment) {
+	    // debugger
 	    $.ajax({
 	      url: "api/comments/",
 	      type: "POST",
+	      data: { comment: comment },
 	      success: function (comment) {
 	        CommentActions.postComment(comment);
 	      }
@@ -32427,6 +32429,7 @@
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
 	var LinkedStateMixin = __webpack_require__(162);
+	var browserHistory = __webpack_require__(166).browserHistory;
 	
 	var CommentForm = React.createClass({
 	  displayName: 'CommentForm',
@@ -32447,7 +32450,7 @@
 	    e.preventDefault();
 	    var comment = {};
 	    $.extend(comment, this.state);
-	    ApiUtil.createComment(comment, function (id) {
+	    ApiUtil.createComment(comment, function (producId) {
 	      browserHistory.push(makeUrl());
 	    });
 	  },
@@ -32456,12 +32459,8 @@
 	    return React.createElement(
 	      'form',
 	      { className: 'comment-form' },
-	      React.createElement('input', { type: 'text', valueLink: this.linkState("comment") }),
-	      React.createElement(
-	        'button',
-	        { onClick: this.createComment },
-	        'Comment'
-	      )
+	      React.createElement('input', { className: 'comment-form-input', placeholder: 'What do you think about that product?', type: 'textarea', valueLink: this.linkState("comment") }),
+	      React.createElement('button', { className: 'comment-form-btn', onClick: this.createComment })
 	    );
 	  }
 	});

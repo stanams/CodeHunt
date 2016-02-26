@@ -1,6 +1,7 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var LinkedStateMixin = require('react-addons-linked-state-mixin');
+var browserHistory = require('react-router').browserHistory;
 
 
 
@@ -21,7 +22,7 @@ var CommentForm = React.createClass({
     e.preventDefault();
     var comment = {};
     $.extend(comment, this.state);
-    ApiUtil.createComment(comment, function(id){
+    ApiUtil.createComment(comment, function(producId){
       browserHistory.push(makeUrl());
     });
   },
@@ -29,8 +30,8 @@ var CommentForm = React.createClass({
   render: function(){
     return(
       <form className="comment-form">
-        <input type="text" valueLink={this.linkState("comment")}/>
-        <button onClick={this.createComment}>Comment</button>
+        <input className="comment-form-input" placeholder="What do you think about that product?" type="textarea" valueLink={this.linkState("comment")}/>
+        <button className="comment-form-btn" onClick={this.createComment}></button>
       </form>
     );
   }

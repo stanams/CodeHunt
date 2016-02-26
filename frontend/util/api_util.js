@@ -48,9 +48,11 @@ module.exports = {
   },
 
   createComment: function(comment){
+    // debugger
     $.ajax({
       url: "api/comments/",
       type: "POST",
+      data: {comment: comment},
       success: function(comment) {
         CommentActions.postComment(comment);
       }
