@@ -1,0 +1,2 @@
+Can we add computed data to the json object that we send from the backend ?
+I want to add the number of comments to the product index item.

@@ -32006,6 +32006,7 @@
 	  },
 	
 	  render: function () {
+	
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32024,6 +32025,7 @@
 	});
 	
 	module.exports = ProductsListItem;
+	// <p>{this.props.product.comments.length} comments</p>
 
 /***/ },
 /* 250 */
@@ -32511,7 +32513,6 @@
 	  displayName: 'CommentBox',
 	
 	  render: function () {
-	    debugger;
 	    return React.createElement(
 	      'div',
 	      { className: 'comments-container' },
