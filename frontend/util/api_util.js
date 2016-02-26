@@ -39,7 +39,7 @@ module.exports = {
 
   fetchComments: function(id){
     $.ajax({
-      url: "api/comments/" + id,
+      url: "/api/comments/" + id,
       type: "GET",
       success: function(comments) {
         CommentActions.receiveComments(comments);
@@ -50,7 +50,7 @@ module.exports = {
   createComment: function(comment){
     // debugger
     $.ajax({
-      url: "api/comments/",
+      url: "/api/comments/",
       type: "POST",
       data: {comment: comment},
       success: function(comment) {
@@ -59,9 +59,9 @@ module.exports = {
     });
   },
 
-  destroyComment: function(id){
+  deleteComment: function(id){
     $.ajax({
-      url: "api/comments/" + id,
+      url: "/api/comments/" + id,
       type: "DELETE",
       success: function(comment) {
         CommentActions.deleteComment(comment);

@@ -11,7 +11,7 @@ module.exports = {
   postComment: function(comment){
     Dispatcher.dispatch({
       actionType: "COMMENT_POSTED",
-      comments: comments
+      comment: comment
     });
   },
 

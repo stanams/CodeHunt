@@ -20,7 +20,10 @@ var CommentForm = React.createClass({
 
   createComment: function(e){
     e.preventDefault();
-    var comment = {};
+    var comment = {
+      product_id: this.props.productId,
+      commenter_id: 1
+      };
     $.extend(comment, this.state);
     ApiUtil.createComment(comment, function(producId){
       browserHistory.push(makeUrl());
@@ -30,7 +33,9 @@ var CommentForm = React.createClass({
   render: function(){
     return(
       <form className="comment-form">
-        <input className="comment-form-input" placeholder="What do you think about that product?" type="textarea" valueLink={this.linkState("comment")}/>
+        <input className="comment-form-input"
+          placeholder="What do you think about that product?"
+          type="textarea" valueLink={this.linkState("body")}/>
         <button className="comment-form-btn" onClick={this.createComment}></button>
       </form>
     );

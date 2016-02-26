@@ -467,10 +467,15 @@ input[type="submit"]:hover {
      margin-right: auto;
 }
 
+/*.product-page-body-container {
+  display: inline-block;
+}*/
+
 .product-page-votes-box {
   border: 1px black solid;
   position: relative;
   border-top: 200px;
+
 }
 
 .product-page-upvotes {
@@ -519,7 +524,7 @@ input[type="submit"]:hover {
 .comments-container {
   position: relative;
   border-right: 1px #F2F2F2 solid;
-  width: 70%;
+  width: 60%;
   margin: 0;
   height: 100%;
   position: relative;

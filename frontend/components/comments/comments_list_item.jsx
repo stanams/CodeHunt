@@ -13,9 +13,10 @@ var CommentListItem = React.createClass ({
   },
 
   render: function(){
+    debugger
     return(
       <li>
-        <div>{this.props.comment.user.username}</div>
+
         <div>{this.props.comment.body}</div>
         {this.renderDelete()}
       </li>
@@ -23,4 +24,7 @@ var CommentListItem = React.createClass ({
   }
 })
 
-module.export = CommentListItem;
+// Add the commenter name
+// <div>{this.props.comment.commenter.username}</div>
+
+module.exports = CommentListItem;

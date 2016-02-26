@@ -31869,7 +31869,7 @@
 	
 	  fetchComments: function (id) {
 	    $.ajax({
-	      url: "api/comments/" + id,
+	      url: "/api/comments/" + id,
 	      type: "GET",
 	      success: function (comments) {
 	        CommentActions.receiveComments(comments);
@@ -31880,7 +31880,7 @@
 	  createComment: function (comment) {
 	    // debugger
 	    $.ajax({
-	      url: "api/comments/",
+	      url: "/api/comments/",
 	      type: "POST",
 	      data: { comment: comment },
 	      success: function (comment) {
@@ -31889,9 +31889,9 @@
 	    });
 	  },
 	
-	  destroyComment: function (id) {
+	  deleteComment: function (id) {
 	    $.ajax({
-	      url: "api/comments/" + id,
+	      url: "/api/comments/" + id,
 	      type: "DELETE",
 	      success: function (comment) {
 	        CommentActions.deleteComment(comment);
@@ -31956,7 +31956,7 @@
 	  postComment: function (comment) {
 	    Dispatcher.dispatch({
 	      actionType: "COMMENT_POSTED",
-	      comments: comments
+	      comment: comment
 	    });
 	  },
 	
@@ -32255,6 +32255,7 @@
 	  },
 	
 	  renderComments: function () {
+	    debugger;
 	    var _renderComments;
 	    if (this.state.comments === {}) {
 	      _renderComments = ["loading..."];
@@ -32364,7 +32365,7 @@
 /* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(module) {var React = __webpack_require__(1);
+	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
 	
 	var CommentListItem = React.createClass({
@@ -32385,14 +32386,10 @@
 	  },
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      null,
-	      React.createElement(
-	        'div',
-	        null,
-	        this.props.comment.user.username
-	      ),
 	      React.createElement(
 	        'div',
 	        null,
@@ -32403,26 +32400,13 @@
 	  }
 	});
 	
-	module.export = CommentListItem;
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(257)(module)))
+	// Add the commenter name
+	// <div>{this.props.comment.commenter.username}</div>
+	
+	module.exports = CommentListItem;
 
 /***/ },
-/* 257 */
-/***/ function(module, exports) {
-
-	module.exports = function(module) {
-		if(!module.webpackPolyfill) {
-			module.deprecate = function() {};
-			module.paths = [];
-			// module.parent = undefined by default
-			module.children = [];
-			module.webpackPolyfill = 1;
-		}
-		return module;
-	}
-
-
-/***/ },
+/* 257 */,
 /* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32448,7 +32432,10 @@
 	
 	  createComment: function (e) {
 	    e.preventDefault();
-	    var comment = {};
+	    var comment = {
+	      product_id: this.props.productId,
+	      commenter_id: 1
+	    };
 	    $.extend(comment, this.state);
 	    ApiUtil.createComment(comment, function (producId) {
 	      browserHistory.push(makeUrl());
@@ -32459,7 +32446,9 @@
 	    return React.createElement(
 	      'form',
 	      { className: 'comment-form' },
-	      React.createElement('input', { className: 'comment-form-input', placeholder: 'What do you think about that product?', type: 'textarea', valueLink: this.linkState("comment") }),
+	      React.createElement('input', { className: 'comment-form-input',
+	        placeholder: 'What do you think about that product?',
+	        type: 'textarea', valueLink: this.linkState("body") }),
 	      React.createElement('button', { className: 'comment-form-btn', onClick: this.createComment })
 	    );
 	  }
