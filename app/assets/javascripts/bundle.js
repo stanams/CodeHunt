@@ -31860,7 +31860,7 @@
 	  fetchSingleProduct: function (id) {
 	    $.ajax({
 	      url: '/api/products/' + id,
-	      success: function () {
+	      success: function (product) {
 	        ApiActions.receiveSingleProduct(product);
 	      }
 	    });
@@ -32166,12 +32166,35 @@
 	  displayName: 'ProductPage',
 	
 	
-	  render: function () {
+	  getInitialState: function () {
+	
+	    return {
+	      theProduct: ProductStore.find(parseInt(this.props.params.productId))
+	    };
+	  },
+	
+	  componentDidMount: function () {
+	    this.productStoreListener = ProductStore.addListener(this.productChange);
 	    var productId = parseInt(this.props.params.productId);
 	    if (ProductStore.find(productId) === undefined) {
 	      ApiUtil.fetchSingleProduct(productId);
 	    }
-	    var theProduct = ProductStore.find(productId);
+	  },
+	
+	  componentWillUnmount: function () {
+	
+	    this.productStoreListener.remove();
+	  },
+	
+	  productChange: function () {
+	
+	    this.setState({
+	      theProduct: ProductStore.find(parseInt(this.props.params.productId))
+	
+	    });
+	  },
+	
+	  render: function () {
 	
 	    // var goodLink =
 	    // if (theProduct.link) {
@@ -32187,52 +32210,57 @@
 	    //     <li className='product-page-upvotes'></li>
 	    //   </ul>
 	    // </section>
+	    if (!this.state.theProduct) {
+	      debugger;
+	      return React.createElement('div', null);
+	    } else {
 	
-	    return React.createElement(
-	      'div',
-	      { className: 'big-div-product-page' },
-	      React.createElement(
-	        Link,
-	        { to: '/' },
-	        React.createElement(
-	          'p',
-	          { className: 'leave-product-page-button' },
-	          'x'
-	        )
-	      ),
-	      React.createElement(
+	      return React.createElement(
 	        'div',
-	        { className: 'product-page-container' },
+	        { className: 'big-div-product-page' },
 	        React.createElement(
-	          'section',
-	          { className: 'product-page-info' },
+	          Link,
+	          { to: '/' },
 	          React.createElement(
-	            'div',
-	            { className: 'product-info-wrapper' },
-	            React.createElement(
-	              'div',
-	              { className: 'product-name-product-page' },
-	              theProduct.name
-	            ),
-	            React.createElement(
-	              'div',
-	              { className: 'product-description-product-page' },
-	              theProduct.description
-	            ),
-	            React.createElement(
-	              'a',
-	              { className: 'try-it-btn', href: theProduct.link },
-	              React.createElement(
-	                'div',
-	                { className: 'product-link-product-page' },
-	                'Try It'
-	              )
-	            )
+	            'p',
+	            { className: 'leave-product-page-button' },
+	            'x'
 	          )
 	        ),
-	        React.createElement(CommentBox, { productId: productId })
-	      )
-	    );
+	        React.createElement(
+	          'div',
+	          { className: 'product-page-container' },
+	          React.createElement(
+	            'section',
+	            { className: 'product-page-info' },
+	            React.createElement(
+	              'div',
+	              { className: 'product-info-wrapper' },
+	              React.createElement(
+	                'div',
+	                { className: 'product-name-product-page' },
+	                this.state.theProduct.name
+	              ),
+	              React.createElement(
+	                'div',
+	                { className: 'product-description-product-page' },
+	                this.state.theProduct.description
+	              ),
+	              React.createElement(
+	                'a',
+	                { className: 'try-it-btn', href: this.state.theProduct.link },
+	                React.createElement(
+	                  'div',
+	                  { className: 'product-link-product-page' },
+	                  'Try It'
+	                )
+	              )
+	            )
+	          ),
+	          React.createElement(CommentBox, { productId: this.props.params.productId })
+	        )
+	      );
+	    }
 	  }
 	});
 	
@@ -32483,6 +32511,7 @@
 	  displayName: 'CommentBox',
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'div',
 	      { className: 'comments-container' },

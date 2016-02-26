@@ -6,6 +6,7 @@ var CommentList = require('./comments_list');
 
 var CommentBox = React.createClass({
   render: function(){
+    debugger
     return(
       <div className="comments-container">
         <h3 className="discussion-title">DISCUSSION</h3>
