@@ -73,7 +73,7 @@ var ProductPage = React.createClass({
               <div className="product-info-wrapper">
                 <div className="product-name-product-page">{this.state.theProduct.name}</div>
                 <div className="product-description-product-page">{this.state.theProduct.description}</div>
-                <a className="try-it-btn" href={this.state.theProduct.link}><div className="product-link-product-page">Try It</div></a>
+                <a className="try-it-btn" href={this.state.theProduct.link} target="_blank"><div className="product-link-product-page">Try It</div></a>
               </div>
             </section>
             <CommentBox productId={this.props.params.productId}/>

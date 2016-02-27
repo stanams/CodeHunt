@@ -32250,7 +32250,7 @@
 	              ),
 	              React.createElement(
 	                'a',
-	                { className: 'try-it-btn', href: this.state.theProduct.link },
+	                { className: 'try-it-btn', href: this.state.theProduct.link, target: '_blank' },
 	                React.createElement(
 	                  'div',
 	                  { className: 'product-link-product-page' },
