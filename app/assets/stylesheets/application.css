@@ -121,7 +121,7 @@ background-image: image_path("logo_canva.jpg");
   display: inline;
   position: relative;
   margin: 0;
-  top: 18px;
+  top: 16px;
   left: 30px;
   font-size: 30px;
   cursor: pointer;
@@ -180,6 +180,7 @@ background-image: image_path("logo_canva.jpg");
   margin-right: auto;
   position: relative;
   top: 80px;
+  right: 20px;
 }
 
 .list-item-title {
@@ -211,6 +212,27 @@ li.index-products-list-item:hover {
   /*opacity: 0.2;*/
   border-radius: 5px;
 }
+
+.list-item-comments-nb {
+  float: right;
+  position: relative;
+  bottom: 50px;
+  font-family: Roboto;
+  color: #a9a9a9;
+  width: 60px;
+}
+
+.comment-nb {
+  position: relative;
+  bottom: 18px;
+  left: 50px;
+}
+
+.icon-comment {
+  position: relative;
+  left: 20px;
+}
+
 
 
 

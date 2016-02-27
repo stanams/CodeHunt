@@ -19751,11 +19751,7 @@
 	      React.createElement(
 	        Link,
 	        { to: '/', className: 'logo-page' },
-	        React.createElement(
-	          'p',
-	          { className: 'logo-page' },
-	          'Code Hunt'
-	        )
+	        'Code Hunt'
 	      ),
 	      React.createElement(
 	        'button',
@@ -32021,9 +32017,14 @@
 	        this.props.product.description
 	      ),
 	      React.createElement(
-	        'p',
+	        'div',
 	        { className: 'list-item-comments-nb' },
-	        this.props.product.comments.length
+	        React.createElement('i', { className: 'fa fa-comments-o fa-lg icon-comment' }),
+	        React.createElement(
+	          'p',
+	          { className: 'comment-nb' },
+	          this.props.product.comments.length
+	        )
 	      )
 	    );
 	  }

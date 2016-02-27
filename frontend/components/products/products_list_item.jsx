@@ -20,7 +20,7 @@ var ProductsListItem = React.createClass({
         <li className="index-products-list-item">
           <p onClick={this.handleClick} className="list-item-title">{this.props.product.name}</p>
           <p className="list-item-description">{this.props.product.description}</p>
-          <p className="list-item-comments-nb">{this.props.product.comments.length}</p>
+          <div className="list-item-comments-nb"><i className="fa fa-comments-o fa-lg icon-comment"></i><p className="comment-nb">{this.props.product.comments.length}</p></div>
         </li>
 
     );
