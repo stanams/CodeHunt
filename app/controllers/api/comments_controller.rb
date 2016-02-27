@@ -3,7 +3,7 @@ class Api::CommentsController < ApplicationController
   def index
     @comments = Comment.includes(:commenter)
                         .where("product_id = ?", params[:product_id])
-                        debugger
+                        # debugger
   end
 
   def create

@@ -31,10 +31,12 @@ UserStore.select = function (idsArray) {
 UserStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case UserConstants.USER_RECEIVED:
-      UserStore.resetUser(payload.user);
+      resetUser(payload.commenter);
+      UserStore.__emitChange();
       break;
     case UserConstants.USERS_RECEIVED:
-      UserStore.resetUsers(payload.users);
+      resetUser(payload.commenter);
+      UserStore.__emitChange();
       break;
   }
 

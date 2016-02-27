@@ -31919,9 +31919,7 @@
 	      success: function (response) {
 	        UserActions.receiveFilteredUsers(response);
 	      },
-	      error: function () {
-	        debugger;
-	      }
+	      error: function () {}
 	    });
 	  },
 	
@@ -32365,10 +32363,30 @@
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
+	var UserStore = __webpack_require__(261);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
 	
+	
+	  // getInitialState: function(){
+	  //   return {
+	  //     commenter: UserStore.find(this.props.comment.commenter_id)
+	  //   };
+	  // },
+	  //
+	  // componentDidMount: function(){
+	  //   this.commentListener = UserStore.addListener(this._onChange);
+	  //   ApiUtil.fetchSingleUser(this.props.comment.commenter_id);
+	  // },
+	  //
+	  // componentWillUnmount: function(){
+	  //   this.commentListener.remove();
+	  // },
+	  //
+	  // _onChange: function(){
+	  //   this.setState({commenter: UserStore.find(this.props.comment.commenter_id)});
+	  // },
 	
 	  render: function () {
 	    debugger;
@@ -32577,7 +32595,7 @@
 	module.exports = {
 	
 	  receiveFilteredUsers: function (users) {
-	    debugger;
+	    // debugger
 	    Dispatcher.dispatch({
 	      actionType: UserConstants.USERS_RECEIVED,
 	      users: users
@@ -32601,6 +32619,55 @@
 	  USERS_RECEIVED: "USERS_RECEIVED",
 	  USER_RECEIVED: "USER_RECEIVED"
 	};
+
+/***/ },
+/* 261 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var Store = __webpack_require__(226).Store;
+	var UserConstants = __webpack_require__(260);
+	var UserStore = new Store(Dispatcher);
+	
+	var _users = {};
+	
+	var resetUsers = function (users) {
+	  _users = {};
+	  users.forEach(function (user) {
+	    _users[user.id] = user;
+	  });
+	};
+	
+	var resetUser = function (user) {
+	  _users[user.id] = user;
+	};
+	
+	UserStore.find = function (id) {
+	  return _users[id];
+	};
+	
+	UserStore.select = function (idsArray) {
+	  selectedUsers = [];
+	  for (var idx = 0; i < idsArray.length; i++) {
+	    selectedUsers.push(UserStore.find(idsArray[idx]));
+	  }
+	  return selectedUsers;
+	};
+	
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case UserConstants.USER_RECEIVED:
+	      resetUser(payload.commenter);
+	      UserStore.__emitChange();
+	      break;
+	    case UserConstants.USERS_RECEIVED:
+	      resetUser(payload.commenter);
+	      UserStore.__emitChange();
+	      break;
+	  }
+	};
+	
+	module.exports = UserStore;
 
 /***/ }
 /******/ ]);

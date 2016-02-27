@@ -4,7 +4,7 @@ var UserConstants = require('../constants/user_constants');
 module.exports = {
 
   receiveFilteredUsers: function(users){
-    debugger
+    // debugger
     Dispatcher.dispatch({
       actionType: UserConstants.USERS_RECEIVED,
       users: users

@@ -1,7 +1,27 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
+var UserStore = require('../../stores/user_store');
 
 var CommentListItem = React.createClass ({
+
+  // getInitialState: function(){
+  //   return {
+  //     commenter: UserStore.find(this.props.comment.commenter_id)
+  //   };
+  // },
+  //
+  // componentDidMount: function(){
+  //   this.commentListener = UserStore.addListener(this._onChange);
+  //   ApiUtil.fetchSingleUser(this.props.comment.commenter_id);
+  // },
+  //
+  // componentWillUnmount: function(){
+  //   this.commentListener.remove();
+  // },
+  //
+  // _onChange: function(){
+  //   this.setState({commenter: UserStore.find(this.props.comment.commenter_id)});
+  // },
 
   render: function(){
     debugger
