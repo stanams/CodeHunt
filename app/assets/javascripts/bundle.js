@@ -32327,7 +32327,7 @@
 	      null,
 	      React.createElement(
 	        'ul',
-	        null,
+	        { className: 'comments-list' },
 	        this.renderComments()
 	      )
 	    );
@@ -32529,8 +32529,12 @@
 	        { className: 'discussion-title' },
 	        'DISCUSSION'
 	      ),
-	      React.createElement(CommentList, { productId: this.props.productId }),
-	      React.createElement(CommentForm, { productId: this.props.productId })
+	      React.createElement(
+	        'div',
+	        { className: 'form-and-comments' },
+	        React.createElement(CommentForm, { productId: this.props.productId }),
+	        React.createElement(CommentList, { productId: this.props.productId })
+	      )
 	    );
 	  }
 	});

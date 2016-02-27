@@ -42,7 +42,7 @@ var CommentList = React.createClass({
   render: function(){
     return(
       <div>
-        <ul>
+        <ul className="comments-list">
           {this.renderComments()}
         </ul>
       </div>

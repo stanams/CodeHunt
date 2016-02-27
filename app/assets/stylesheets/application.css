@@ -556,6 +556,11 @@ input[type="submit"]:hover {
   left: 100px;
 }
 
+.form-and-comments {
+  position: relative;
+  bottom: 20px;
+}
+
 li {
   list-style: none;
 }
@@ -587,6 +592,11 @@ li {
   padding: 10px;
   padding-bottom: 25px;
   color: #a9a9a9;
+}
+
+.comments-list {
+  position: relative;
+  top: 30px;
 }
 
 .comment-form-btn {
