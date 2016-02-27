@@ -575,8 +575,18 @@ li {
   list-style: none;
 }
 
+.comment-item-container {
+  margin: 30px;
+}
+
+.comment-commenter {
+  font-weight: bold;
+
+}
+
 .comment-body {
   margin: 10px;
+  color: #CCCCCC;
 }
 
 .comment-form {
@@ -615,6 +625,10 @@ li {
   font-size:0;
   cursor: none;
 }
+
+
+/*Profil pic on product list items*/
+
 
 .pic-container {
   width: 250px;

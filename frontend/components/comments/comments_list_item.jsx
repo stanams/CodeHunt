@@ -26,8 +26,8 @@ var CommentListItem = React.createClass ({
   render: function(){
     debugger
     return(
-      <li>
-        <div  className="comment-body">{this.props.comment.commenter}</div>
+      <li className="comment-item-container">
+        <div  className="comment-commenter">{this.props.comment.commenter}</div>
         <div  className="comment-body">{this.props.comment.body}</div>
       </li>
     );

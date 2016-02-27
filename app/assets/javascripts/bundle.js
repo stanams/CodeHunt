@@ -32392,10 +32392,10 @@
 	    debugger;
 	    return React.createElement(
 	      'li',
-	      null,
+	      { className: 'comment-item-container' },
 	      React.createElement(
 	        'div',
-	        { className: 'comment-body' },
+	        { className: 'comment-commenter' },
 	        this.props.comment.commenter
 	      ),
 	      React.createElement(
