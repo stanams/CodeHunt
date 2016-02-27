@@ -52,8 +52,8 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(251);
-	var ProductPage = __webpack_require__(252);
+	var ProductForm = __webpack_require__(249);
+	var ProductPage = __webpack_require__(250);
 	var browserHistory = __webpack_require__(166).browserHistory;
 	
 	var routes = React.createElement(
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(250);
+	var ProductPreview = __webpack_require__(248);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -25067,7 +25067,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var ProductsListItem = __webpack_require__(249);
+	var ProductsListItem = __webpack_require__(247);
 	
 	var ProductsList = React.createClass({
 	  displayName: 'ProductsList',
@@ -31837,8 +31837,9 @@
 /* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ApiActions = __webpack_require__(247);
-	var CommentActions = __webpack_require__(248);
+	var ProductActions = __webpack_require__(257);
+	var CommentActions = __webpack_require__(258);
+	var UserActions = __webpack_require__(259);
 	
 	module.exports = {
 	
@@ -31848,7 +31849,7 @@
 	    $.ajax({
 	      url: '/api/products',
 	      success: function (products) {
-	        ApiActions.receiveAllProducts(products);
+	        ProductActions.receiveAllProducts(products);
 	      }
 	    });
 	  },
@@ -31857,7 +31858,7 @@
 	    $.ajax({
 	      url: '/api/products/' + id,
 	      success: function (product) {
-	        ApiActions.receiveSingleProduct(product);
+	        ProductActions.receiveSingleProduct(product);
 	      }
 	    });
 	  },
@@ -31868,7 +31869,7 @@
 	      method: "POST",
 	      data: { product: product },
 	      success: function () {
-	        ApiActions.receiveSingleProduct(product);
+	        ProductActions.receiveSingleProduct(product);
 	        callback && callback(product.id);
 	      }
 	    });
@@ -31897,90 +31898,42 @@
 	        CommentActions.postComment(comment);
 	      }
 	    });
-	  }
-	};
-	
-	// deleteComment: function(id){
-	//   $.ajax({
-	//     url: "/api/comments/" + id,
-	//     type: "DELETE",
-	//     success: function(comment) {
-	//       CommentActions.deleteComment(comment);
-	//     }
-	//   });
-	// }
-
-/***/ },
-/* 247 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(242);
-	var ProductConstants = __webpack_require__(245);
-	
-	module.exports = {
-	
-	  receiveAllProducts: function (products) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCTS_RECEIVED,
-	      products: products
-	    });
 	  },
 	
-	  receiveSingleProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_RECEIVED,
-	      product: product
-	    });
-	  },
-	
-	  createProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_CREATED,
-	      product: product
-	    });
-	  }
-	};
-	
-	//
-	// updateProduct: function(){
-	//   Dispatcher.dispatch({
-	//     actionType: ProductConstants.PRODUCT_UPDATED,
-	//     product: product
-	//   });
-	// },
-
-/***/ },
-/* 248 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(242);
-	
-	module.exports = {
-	  receiveComments: function (comments) {
-	    Dispatcher.dispatch({
-	      actionType: "COMMENTS_RECEIVED",
-	      comments: comments
-	    });
-	  },
-	
-	  postComment: function (comment) {
-	    Dispatcher.dispatch({
-	      actionType: "COMMENT_POSTED",
-	      comment: comment
-	    });
-	  }
-	
-	  // deleteComment: function(idx){
-	  //   Dispatcher.dispatch({
-	  //     actionType: "COMMENT_DELETED",
-	  //     idx: idx
+	  // deleteComment: function(id){
+	  //   $.ajax({
+	  //     url: "/api/comments/" + id,
+	  //     type: "DELETE",
+	  //     success: function(comment) {
+	  //       CommentActions.deleteComment(comment);
+	  //     }
 	  //   });
 	  // }
 	
+	  // ------------ User requets -------------------
+	
+	  // fetchUsersByIds: function(idsArray){
+	  //   $.ajax({
+	  //     url: "/api/users?users_list=" + idsArray,
+	  //     type: "GET",
+	  //     success: function(response) {
+	  //       UserActions.receiveUsers(response);
+	  //     }
+	  //   });
+	  // }
+	
+	  fetchSingleUser: function (id) {
+	    $.ajax({
+	      url: '/api/users/' + id,
+	      success: function (user) {
+	        UserActions.receiveSingleUser(user);
+	      }
+	    });
+	  }
 	};
 
 /***/ },
-/* 249 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32025,6 +31978,13 @@
 	          { className: 'comment-nb' },
 	          this.props.product.comments.length
 	        )
+	      ),
+	      React.createElement(
+	        'ul',
+	        { className: 'pic-container' },
+	        React.createElement('li', { className: 'users-picture-product-list-item first' }),
+	        React.createElement('li', { className: 'users-picture-product-list-item second' }),
+	        React.createElement('li', { className: 'users-picture-product-list-item third' })
 	      )
 	    );
 	  }
@@ -32034,7 +31994,7 @@
 	// <p>{this.props.product.comments.length} comments</p>
 
 /***/ },
-/* 250 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32050,7 +32010,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 251 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32159,16 +32119,16 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 252 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(253);
+	var CommentList = __webpack_require__(251);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(258);
+	var CommentBox = __webpack_require__(256);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32276,14 +32236,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 253 */
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(254);
+	var CommentStore = __webpack_require__(252);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(256);
-	var CommentForm = __webpack_require__(257);
+	var CommentListItem = __webpack_require__(254);
+	var CommentForm = __webpack_require__(255);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32295,10 +32255,14 @@
 	  componentDidMount: function () {
 	    ApiUtil.fetchComments(this.props.productId);
 	    this.productListener = CommentStore.addListener(this._onChange);
+	
+	    // ApiUtil.fetchUsersByIds(this.props.)
+	    // this.usersListener = UserStore.addListener(this._onChange);
 	  },
 	
 	  componentWillUnmount: function () {
 	    this.productListener.remove();
+	    // this.usersListener.remove();
 	  },
 	
 	  _onChange: function () {
@@ -32316,7 +32280,7 @@
 	        return React.createElement(CommentListItem, { key: idx, comment: this.state.comments[idx] });
 	      }.bind(this));
 	    }
-	    return _renderComments;
+	    return _renderComments.reverse();
 	  },
 	
 	  render: function () {
@@ -32336,7 +32300,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 254 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32345,7 +32309,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(255);
+	var CommentConstants = __webpack_require__(253);
 	
 	var _comments = {};
 	
@@ -32396,7 +32360,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 255 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32407,7 +32371,7 @@
 	};
 
 /***/ },
-/* 256 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32451,7 +32415,7 @@
 	// Add the commenter name
 
 /***/ },
-/* 257 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32507,14 +32471,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 258 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(257);
-	var CommentList = __webpack_require__(253);
+	var CommentForm = __webpack_require__(255);
+	var CommentList = __webpack_require__(251);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32539,6 +32503,109 @@
 	});
 	
 	module.exports = CommentBox;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var ProductConstants = __webpack_require__(245);
+	
+	module.exports = {
+	
+	  receiveAllProducts: function (products) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCTS_RECEIVED,
+	      products: products
+	    });
+	  },
+	
+	  receiveSingleProduct: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCT_RECEIVED,
+	      product: product
+	    });
+	  },
+	
+	  createProduct: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCT_CREATED,
+	      product: product
+	    });
+	  }
+	};
+	
+	//
+	// updateProduct: function(){
+	//   Dispatcher.dispatch({
+	//     actionType: ProductConstants.PRODUCT_UPDATED,
+	//     product: product
+	//   });
+	// },
+
+/***/ },
+/* 258 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	
+	module.exports = {
+	  receiveComments: function (comments) {
+	    Dispatcher.dispatch({
+	      actionType: "COMMENTS_RECEIVED",
+	      comments: comments
+	    });
+	  },
+	
+	  postComment: function (comment) {
+	    Dispatcher.dispatch({
+	      actionType: "COMMENT_POSTED",
+	      comment: comment
+	    });
+	  }
+	
+	  // deleteComment: function(idx){
+	  //   Dispatcher.dispatch({
+	  //     actionType: "COMMENT_DELETED",
+	  //     idx: idx
+	  //   });
+	  // }
+	
+	};
+
+/***/ },
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var UserConstants = __webpack_require__(260);
+	
+	module.exports = {
+	
+	  receiveFilteredUsers: function (users) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USERS_RECEIVED,
+	      users: users
+	    });
+	  },
+	
+	  receiveSingleUser: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USER_RECEIVED,
+	      user: user
+	    });
+	  }
+	
+	};
+
+/***/ },
+/* 260 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  USERS_RECEIVED: "USERS_RECEIVED",
+	  USER_RECEIVED: "USER_RECEIVED"
+	};
 
 /***/ }
 /******/ ]);

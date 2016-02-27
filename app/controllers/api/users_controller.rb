@@ -4,6 +4,17 @@ class Api::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  # Will need to create filtered query on index method when displaying all the voters for ex
+  def index
+
+    # debugger
+
+    if params[:users_list]
+      users_array = params[:users_list].split(',').map(&:to_i)
+      @users = User.where(id: users_array)
+    else
+      @users = User.all
+    end
+
+  end
 
 end

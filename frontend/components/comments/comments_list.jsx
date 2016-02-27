@@ -12,10 +12,14 @@ var CommentList = React.createClass({
   componentDidMount: function(){
     ApiUtil.fetchComments(this.props.productId);
     this.productListener = CommentStore.addListener(this._onChange);
+
+    // ApiUtil.fetchUsersByIds(this.props.)
+    // this.usersListener = UserStore.addListener(this._onChange);
   },
 
   componentWillUnmount: function(){
     this.productListener.remove();
+    // this.usersListener.remove();
   },
 
   _onChange: function(){
@@ -35,7 +39,7 @@ var CommentList = React.createClass({
         )
         }.bind(this))
       }
-    return _renderComments;
+    return _renderComments.reverse();
   },
 
   render: function(){

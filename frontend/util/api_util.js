@@ -1,5 +1,6 @@
-var ApiActions = require('../actions/product_actions');
+var ProductActions = require('../actions/product_actions');
 var CommentActions = require("../actions/comment_actions");
+var UserActions = require("../actions/user_actions");
 
 module.exports = {
 
@@ -9,7 +10,7 @@ module.exports = {
     $.ajax({
       url: '/api/products',
       success: function(products){
-        ApiActions.receiveAllProducts(products);
+        ProductActions.receiveAllProducts(products);
       }
     })
   },
@@ -18,7 +19,7 @@ module.exports = {
     $.ajax({
       url: '/api/products/' + id,
       success: function(product){
-        ApiActions.receiveSingleProduct(product)
+        ProductActions.receiveSingleProduct(product)
       }
     })
   },
@@ -29,7 +30,7 @@ module.exports = {
       method: "POST",
       data: {product: product},
       success: function(){
-        ApiActions.receiveSingleProduct(product);
+        ProductActions.receiveSingleProduct(product);
         callback && callback(product.id);
       }
     })
@@ -58,8 +59,8 @@ module.exports = {
         CommentActions.postComment(comment);
       }
     });
-  }
-}
+  },
+
 
   // deleteComment: function(id){
   //   $.ajax({
@@ -70,3 +71,27 @@ module.exports = {
   //     }
   //   });
   // }
+
+
+
+// ------------ User requets -------------------
+
+// fetchUsersByIds: function(idsArray){
+//   $.ajax({
+//     url: "/api/users?users_list=" + idsArray,
+//     type: "GET",
+//     success: function(response) {
+//       UserActions.receiveUsers(response);
+//     }
+//   });
+// }
+
+  fetchSingleUser: function(id){
+    $.ajax({
+      url: '/api/users/' + id,
+      success: function(user){
+        UserActions.receiveSingleUser(user)
+      }
+    })
+  }
+}

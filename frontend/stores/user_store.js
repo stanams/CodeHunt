@@ -1,34 +1,40 @@
 var Dispatcher = require('../dispatcher/dispatcher');
 var Store = require('flux/utils').Store;
-
 var UserConstants = require('../constants/user_constants');
-
 var UserStore = new Store(Dispatcher);
 
-var _currentUser = null;
+var _users = {};
 
-UserStore.currentUser = function() {
-  return _currentUser;
+var resetUsers = function (users) {
+  _users = {};
+  users.forEach(function (user) {
+    _users[user.id] = user;
+  });
 };
 
-UserStore.removeCurrentUser = function() {
-  _currentUser = null;
-  UserStore.__emitChange();
+var resetUser = function (user) {
+  _users[user.id] = user;
 };
 
-UserStore.setCurrentUser = function(user) {
-  if (user.id) { _currentUser = user; }
-  else { _currentUser = null; }
-  UserStore.__emitChange();
-};
+UserStore.find = function (id) {
+  return _users[id];
+}
+
+UserStore.select = function (idsArray) {
+  selectedUsers = [];
+  for (var idx = 0; i < idsArray.length; i++) {
+    selectedUsers.push(UserStore.find(idsArray[idx]));
+  }
+  return selectedUsers;
+}
 
 UserStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
-    case UserConstants.LOG_IN_USER:
-      UserStore.setCurrentUser(payload.user);
+    case UserConstants.USER_RECEIVED:
+      UserStore.resetUser(payload.user);
       break;
-    case UserConstants.LOG_OUT_USER:
-      UserStore.removeCurrentUser();
+    case UserConstants.USERS_RECEIVED:
+      UserStore.resetUsers(payload.users);
       break;
   }
 

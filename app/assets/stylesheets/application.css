@@ -200,10 +200,15 @@ background-image: image_path("logo_canva.jpg");
 
 .list-item-description {
   font-family: 'Open Sans', sans-serif;
+  width: 530px;
   font-size: 18px;
   color: #ccc;
   position: relative;
   bottom: 10px;
+}
+
+.list-item-description:hover {
+  color: #A9A9A9;
 }
 
 li.index-products-list-item:hover {
@@ -218,8 +223,13 @@ li.index-products-list-item:hover {
   position: relative;
   bottom: 50px;
   font-family: Roboto;
-  color: #a9a9a9;
+  color: #ccc;
   width: 60px;
+  height: 27px;
+}
+
+.list-item-comments-nb:hover {
+  color: #a9a9a9;
 }
 
 .comment-nb {
@@ -604,4 +614,61 @@ li {
   border: none !important;
   font-size:0;
   cursor: none;
+}
+
+.pic-container {
+  width: 250px;
+  height: 65px;
+  text-align: center;
+  float: right;
+  position: relative;
+  bottom: 65px;
+}
+
+.users-picture-product-list-item {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  cursor: pointer;
+  border: 1px black solid;
+  display: inline-block;
+  background-color: white;
+}
+
+.first {
+  position: relative;
+  left: 100px;
+  z-index: 2;
+    /*Transitions*/
+    /*-webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.5s ease-in-out;
+    -o-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;*/
+
+
+}
+/*.first:hover {
+  -webkit-transform: translate(-3em,0);
+      -moz-transform: translate(-3em,0);
+      -o-transform: translate(-3em,0);
+      -ms-transform: translate(-3em,0);
+      transform: translate(-3em,0);
+}*/
+
+.second {
+  position: relative;
+  left: 50px;
+  z-index: 1;
+  /*-webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;*/
+}
+.third {
+  position: relative;
+  /*-webkit-transition: 0.5s ease-in-out;
+  -moz-transition: 0.5s ease-in-out;
+  -o-transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in-out;*/
 }

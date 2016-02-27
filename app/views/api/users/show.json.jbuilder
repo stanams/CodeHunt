@@ -1,2 +1,2 @@
-json.extract! @user, :id, :username, :bio
-# later we'll add the votes (that we''l get through associations)
+json.extract! @user, :id, :username, :bio, :products
+# later we'll add the votes (that we'll get through associations)
