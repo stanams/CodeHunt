@@ -31958,10 +31958,10 @@
 	
 	    return React.createElement(
 	      'li',
-	      { className: 'index-products-list-item' },
+	      { onClick: this.handleClick, className: 'index-products-list-item' },
 	      React.createElement(
 	        'p',
-	        { onClick: this.handleClick, className: 'list-item-title' },
+	        { className: 'list-item-title' },
 	        this.props.product.name
 	      ),
 	      React.createElement(

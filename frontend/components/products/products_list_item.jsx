@@ -17,8 +17,8 @@ var ProductsListItem = React.createClass({
   render: function(){
 
     return(
-        <li className="index-products-list-item">
-          <p onClick={this.handleClick} className="list-item-title">{this.props.product.name}</p>
+        <li onClick={this.handleClick} className="index-products-list-item">
+          <p className="list-item-title">{this.props.product.name}</p>
           <p className="list-item-description">{this.props.product.description}</p>
           <div className="list-item-comments-nb">
             <i className="fa fa-comments-o fa-lg icon-comment"></i>
@@ -29,6 +29,7 @@ var ProductsListItem = React.createClass({
             <li className="users-picture-product-list-item second"></li>
             <li className="users-picture-product-list-item third"></li>
           </ul>
+
         </li>
 
     );
