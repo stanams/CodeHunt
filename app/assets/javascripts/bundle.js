@@ -32019,6 +32019,11 @@
 	        'p',
 	        { className: 'list-item-description' },
 	        this.props.product.description
+	      ),
+	      React.createElement(
+	        'p',
+	        { className: 'list-item-comments-nb' },
+	        this.props.product.comments.length
 	      )
 	    );
 	  }
@@ -32250,7 +32255,9 @@
 	              ),
 	              React.createElement(
 	                'a',
-	                { className: 'try-it-btn', href: this.state.theProduct.link, target: '_blank' },
+	                { className: 'try-it-btn',
+	                  href: this.state.theProduct.link,
+	                  target: '_blank' },
 	                React.createElement(
 	                  'div',
 	                  { className: 'product-link-product-page' },
