@@ -4,9 +4,10 @@ var ApiUtil = require('../../util/api_util');
 var CommentListItem = React.createClass ({
 
   render: function(){
+    debugger
     return(
       <li>
-        <div  clasName="comment-body">{this.props.comment.body}</div>
+        <div  className="comment-body">{this.props.comment.body}</div>
       </li>
     );
   }

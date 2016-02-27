@@ -19,7 +19,6 @@ var CommentList = React.createClass({
   },
 
   _onChange: function(){
-    debugger
     this.setState({
       comments: CommentStore.all()
     });

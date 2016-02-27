@@ -32219,7 +32219,6 @@
 	    //   </ul>
 	    // </section>
 	    if (!this.state.theProduct) {
-	      debugger;
 	      return React.createElement('div', null);
 	    } else {
 	
@@ -32303,7 +32302,6 @@
 	  },
 	
 	  _onChange: function () {
-	    debugger;
 	    this.setState({
 	      comments: CommentStore.all()
 	    });
@@ -32420,12 +32418,13 @@
 	
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      null,
 	      React.createElement(
 	        'div',
-	        { clasName: 'comment-body' },
+	        { className: 'comment-body' },
 	        this.props.comment.body
 	      )
 	    );

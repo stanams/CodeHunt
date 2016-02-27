@@ -61,7 +61,6 @@ var ProductPage = React.createClass({
     //   </ul>
     // </section>
     if (!this.state.theProduct) {
-      debugger
       return <div></div>;
     } else {
 
