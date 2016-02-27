@@ -10,13 +10,12 @@ var CommentBox = require('../comments/comments_box');
 var ProductPage = React.createClass({
 
   getInitialState: function(){
-
+    // debugger
     return {
       theProduct: ProductStore.find(
         parseInt(this.props.params.productId)
       )
     };
-
   },
 
   componentDidMount: function(){
@@ -28,40 +27,20 @@ var ProductPage = React.createClass({
   },
 
   componentWillUnmount: function(){
-
     this.productStoreListener.remove();
-
   },
 
   productChange: function(){
-
     this.setState({
       theProduct: ProductStore.find(
         parseInt(this.props.params.productId)
       )
-
     })
-
   },
 
   render: function(){
-
-    // var goodLink =
-    // if (theProduct.link) {
-    //
-    // }
-
-    // Later for the votes (will float: left;):
-    // <section className="product-page-votes-box">
-    //   21 upvotes
-    //   <ul>
-    //     <li className='product-page-upvotes'></li>
-    //     <li className='product-page-upvotes'></li>
-    //     <li className='product-page-upvotes'></li>
-    //   </ul>
-    // </section>
     if (!this.state.theProduct) {
-      return <div></div>;
+      return <div>Loading...</div>;
     } else {
 
     return(

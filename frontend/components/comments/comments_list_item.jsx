@@ -7,6 +7,7 @@ var CommentListItem = React.createClass ({
     debugger
     return(
       <li>
+        <div  className="comment-body">{this.props.comment.commenter}</div>
         <div  className="comment-body">{this.props.comment.body}</div>
       </li>
     );

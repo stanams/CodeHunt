@@ -63,7 +63,6 @@
 	  React.createElement(Route, { path: 'products/new', component: ProductForm }),
 	  React.createElement(Route, { path: 'products/:productId', component: ProductPage })
 	);
-	
 	// <Route path="profile/:userId" component={ProfilePage}/>
 	
 	document.addEventListener("DOMContentLoaded", function () {
@@ -31912,15 +31911,19 @@
 	
 	  // ------------ User requets -------------------
 	
-	  // fetchUsersByIds: function(idsArray){
-	  //   $.ajax({
-	  //     url: "/api/users?users_list=" + idsArray,
-	  //     type: "GET",
-	  //     success: function(response) {
-	  //       UserActions.receiveUsers(response);
-	  //     }
-	  //   });
-	  // }
+	  fetchUsersByIds: function (idsArray) {
+	    stringified = idsArray.join(',');
+	    $.ajax({
+	      url: "/api/users?users_list=" + stringified,
+	      type: "GET",
+	      success: function (response) {
+	        UserActions.receiveFilteredUsers(response);
+	      },
+	      error: function () {
+	        debugger;
+	      }
+	    });
+	  },
 	
 	  fetchSingleUser: function (id) {
 	    $.ajax({
@@ -32135,7 +32138,7 @@
 	
 	
 	  getInitialState: function () {
-	
+	    // debugger
 	    return {
 	      theProduct: ProductStore.find(parseInt(this.props.params.productId))
 	    };
@@ -32150,36 +32153,22 @@
 	  },
 	
 	  componentWillUnmount: function () {
-	
 	    this.productStoreListener.remove();
 	  },
 	
 	  productChange: function () {
-	
 	    this.setState({
 	      theProduct: ProductStore.find(parseInt(this.props.params.productId))
-	
 	    });
 	  },
 	
 	  render: function () {
-	
-	    // var goodLink =
-	    // if (theProduct.link) {
-	    //
-	    // }
-	
-	    // Later for the votes (will float: left;):
-	    // <section className="product-page-votes-box">
-	    //   21 upvotes
-	    //   <ul>
-	    //     <li className='product-page-upvotes'></li>
-	    //     <li className='product-page-upvotes'></li>
-	    //     <li className='product-page-upvotes'></li>
-	    //   </ul>
-	    // </section>
 	    if (!this.state.theProduct) {
-	      return React.createElement('div', null);
+	      return React.createElement(
+	        'div',
+	        null,
+	        'Loading...'
+	      );
 	    } else {
 	
 	      return React.createElement(
@@ -32389,6 +32378,11 @@
 	      React.createElement(
 	        'div',
 	        { className: 'comment-body' },
+	        this.props.comment.commenter
+	      ),
+	      React.createElement(
+	        'div',
+	        { className: 'comment-body' },
 	        this.props.comment.body
 	      )
 	    );
@@ -32583,6 +32577,7 @@
 	module.exports = {
 	
 	  receiveFilteredUsers: function (users) {
+	    debugger;
 	    Dispatcher.dispatch({
 	      actionType: UserConstants.USERS_RECEIVED,
 	      users: users

@@ -76,15 +76,19 @@ module.exports = {
 
 // ------------ User requets -------------------
 
-// fetchUsersByIds: function(idsArray){
-//   $.ajax({
-//     url: "/api/users?users_list=" + idsArray,
-//     type: "GET",
-//     success: function(response) {
-//       UserActions.receiveUsers(response);
-//     }
-//   });
-// }
+fetchUsersByIds: function(idsArray){
+  stringified = idsArray.join(',');
+  $.ajax({
+    url: "/api/users?users_list=" + stringified,
+    type: "GET",
+    success: function(response) {
+      UserActions.receiveFilteredUsers(response);
+    },
+    error: function() {
+      debugger
+    }
+  });
+},
 
   fetchSingleUser: function(id){
     $.ajax({

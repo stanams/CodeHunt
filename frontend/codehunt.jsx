@@ -17,8 +17,8 @@ var routes = (
     <Route path="products/:productId" component={ProductPage}/>
   </Route>
 );
-
 // <Route path="profile/:userId" component={ProfilePage}/>
+
 
 document.addEventListener("DOMContentLoaded", function () {
   if (document.getElementById('root')) {

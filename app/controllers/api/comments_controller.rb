@@ -1,7 +1,9 @@
 class Api::CommentsController < ApplicationController
 
   def index
-    @comments = Comment.where("product_id = ?", params[:product_id])
+    @comments = Comment.includes(:commenter)
+                        .where("product_id = ?", params[:product_id])
+                        debugger
   end
 
   def create
