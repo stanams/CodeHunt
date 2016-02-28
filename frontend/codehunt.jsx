@@ -9,15 +9,16 @@ var IndexView = require('./components/index_view');
 var ProductForm = require('./components/products/product_form');
 var ProductPage = require('./components/products/product_page');
 var browserHistory = require('react-router').browserHistory;
+var ProfilePage = require('.components/profile_page');
 
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={IndexView}/>
     <Route path="products/new" component={ProductForm}/>
     <Route path="products/:productId" component={ProductPage}/>
+    <Route path="profile/:userId" component={ProfilePage}/>
   </Route>
 );
-// <Route path="profile/:userId" component={ProfilePage}/>
 
 
 document.addEventListener("DOMContentLoaded", function () {

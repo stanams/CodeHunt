@@ -55,15 +55,16 @@
 	var ProductForm = __webpack_require__(249);
 	var ProductPage = __webpack_require__(250);
 	var browserHistory = __webpack_require__(166).browserHistory;
+	var ProfilePage = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \".components/profile_page\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var routes = React.createElement(
 	  Route,
 	  { path: '/', component: App },
 	  React.createElement(IndexRoute, { component: IndexView }),
 	  React.createElement(Route, { path: 'products/new', component: ProductForm }),
-	  React.createElement(Route, { path: 'products/:productId', component: ProductPage })
+	  React.createElement(Route, { path: 'products/:productId', component: ProductPage }),
+	  React.createElement(Route, { path: 'profile/:userId', component: ProfilePage })
 	);
-	// <Route path="profile/:userId" component={ProfilePage}/>
 	
 	document.addEventListener("DOMContentLoaded", function () {
 	  if (document.getElementById('root')) {
@@ -32409,8 +32410,6 @@
 	
 	module.exports = CommentListItem;
 	
-	// <div>{this.props.comment.commenter.username}</div>
-
 	// delete: function(e){
 	//   e.preventDefault();
 	//   ApiUtil.deleteComment(this.props.comment.id);

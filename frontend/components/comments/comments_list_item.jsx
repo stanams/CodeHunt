@@ -37,7 +37,6 @@ var CommentListItem = React.createClass ({
 module.exports = CommentListItem;
 
 
-// <div>{this.props.comment.commenter.username}</div>
 
 // delete: function(e){
 //   e.preventDefault();
