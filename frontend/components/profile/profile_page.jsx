@@ -38,13 +38,15 @@ var ProfilePage = React.createClass({
   },
 
   render: function(){
+    debugger
+    var theUser = this.state.user;
     if (!this.state.user) {
       return <div>Loading...</div>;
     } else {
       return(
         <div>
-          <ProfileInfos user={this.props.params.userId}>
-          <UserProducts user={this.props.params.userId}>
+          <ProfileInfos user={theUser} />
+          <UserProducts user={theUser} />
         </div>
       );
     }

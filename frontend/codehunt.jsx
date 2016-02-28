@@ -9,14 +9,14 @@ var IndexView = require('./components/index_view');
 var ProductForm = require('./components/products/product_form');
 var ProductPage = require('./components/products/product_page');
 var browserHistory = require('react-router').browserHistory;
-var ProfilePage = require('.components/profile_page');
+var ProfilePage = require('./components/profile/profile_page');
 
 var routes = (
   <Route path="/" component={App}>
     <IndexRoute component={IndexView}/>
     <Route path="products/new" component={ProductForm}/>
     <Route path="products/:productId" component={ProductPage}/>
-    <Route path="profile/:userId" component={ProfilePage}/>
+    <Route path="users/:userId" component={ProfilePage}/>
   </Route>
 );
 

@@ -84,9 +84,6 @@ fetchUsersByIds: function(idsArray){
     success: function(response) {
       UserActions.receiveFilteredUsers(response);
     },
-    error: function() {
-
-    }
   });
 },
 

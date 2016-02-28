@@ -1,13 +1,17 @@
 var React = require('react');
 
-var ProfileInfo = React.createClass({
+var ProfileInfos = React.createClass({
+
+
+
   render: function(){
+    debugger
     return(
       <div>
-        
+        {this.props.user.username}
       </div>
     );
   }
 })
 
-module.exports = ProfileInfo;
+module.exports = ProfileInfos;

@@ -17,6 +17,7 @@ var resetUser = function (user) {
 };
 
 UserStore.find = function (id) {
+  debugger
   return _users[id];
 }
 
@@ -31,11 +32,11 @@ UserStore.select = function (idsArray) {
 UserStore.__onDispatch = function(payload) {
   switch (payload.actionType) {
     case UserConstants.USER_RECEIVED:
-      resetUser(payload.commenter);
+      resetUser(payload.user);
       UserStore.__emitChange();
       break;
     case UserConstants.USERS_RECEIVED:
-      resetUser(payload.commenter);
+      resetUsers(payload.users);
       UserStore.__emitChange();
       break;
   }

@@ -52,10 +52,10 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(249);
-	var ProductPage = __webpack_require__(250);
+	var ProductForm = __webpack_require__(253);
+	var ProductPage = __webpack_require__(254);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \".components/profile_page\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	var ProfilePage = __webpack_require__(262);
 	
 	var routes = React.createElement(
 	  Route,
@@ -63,7 +63,7 @@
 	  React.createElement(IndexRoute, { component: IndexView }),
 	  React.createElement(Route, { path: 'products/new', component: ProductForm }),
 	  React.createElement(Route, { path: 'products/:productId', component: ProductPage }),
-	  React.createElement(Route, { path: 'profile/:userId', component: ProfilePage })
+	  React.createElement(Route, { path: 'users/:userId', component: ProfilePage })
 	);
 	
 	document.addEventListener("DOMContentLoaded", function () {
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(248);
+	var ProductPreview = __webpack_require__(252);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -25067,7 +25067,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var ProductsListItem = __webpack_require__(247);
+	var ProductsListItem = __webpack_require__(251);
 	
 	var ProductsList = React.createClass({
 	  displayName: 'ProductsList',
@@ -31837,9 +31837,9 @@
 /* 246 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ProductActions = __webpack_require__(257);
-	var CommentActions = __webpack_require__(258);
-	var UserActions = __webpack_require__(259);
+	var ProductActions = __webpack_require__(247);
+	var CommentActions = __webpack_require__(248);
+	var UserActions = __webpack_require__(249);
 	
 	module.exports = {
 	
@@ -31919,8 +31919,7 @@
 	      type: "GET",
 	      success: function (response) {
 	        UserActions.receiveFilteredUsers(response);
-	      },
-	      error: function () {}
+	      }
 	    });
 	  },
 	
@@ -31936,6 +31935,110 @@
 
 /***/ },
 /* 247 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var ProductConstants = __webpack_require__(245);
+	
+	module.exports = {
+	
+	  receiveAllProducts: function (products) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCTS_RECEIVED,
+	      products: products
+	    });
+	  },
+	
+	  receiveSingleProduct: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCT_RECEIVED,
+	      product: product
+	    });
+	  },
+	
+	  createProduct: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: ProductConstants.PRODUCT_CREATED,
+	      product: product
+	    });
+	  }
+	};
+	
+	//
+	// updateProduct: function(){
+	//   Dispatcher.dispatch({
+	//     actionType: ProductConstants.PRODUCT_UPDATED,
+	//     product: product
+	//   });
+	// },
+
+/***/ },
+/* 248 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	
+	module.exports = {
+	  receiveComments: function (comments) {
+	    Dispatcher.dispatch({
+	      actionType: "COMMENTS_RECEIVED",
+	      comments: comments
+	    });
+	  },
+	
+	  postComment: function (comment) {
+	    Dispatcher.dispatch({
+	      actionType: "COMMENT_POSTED",
+	      comment: comment
+	    });
+	  }
+	
+	  // deleteComment: function(idx){
+	  //   Dispatcher.dispatch({
+	  //     actionType: "COMMENT_DELETED",
+	  //     idx: idx
+	  //   });
+	  // }
+	
+	};
+
+/***/ },
+/* 249 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var UserConstants = __webpack_require__(250);
+	
+	module.exports = {
+	
+	  receiveFilteredUsers: function (users) {
+	    // debugger
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USERS_RECEIVED,
+	      users: users
+	    });
+	  },
+	
+	  receiveSingleUser: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: UserConstants.USER_RECEIVED,
+	      user: user
+	    });
+	  }
+	
+	};
+
+/***/ },
+/* 250 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  USERS_RECEIVED: "USERS_RECEIVED",
+	  USER_RECEIVED: "USER_RECEIVED"
+	};
+
+/***/ },
+/* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -31996,7 +32099,7 @@
 	// <p>{this.props.product.comments.length} comments</p>
 
 /***/ },
-/* 248 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32012,7 +32115,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 249 */
+/* 253 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32121,16 +32224,16 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 250 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(251);
+	var CommentList = __webpack_require__(255);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(256);
+	var CommentBox = __webpack_require__(261);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32224,14 +32327,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 251 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(252);
+	var CommentStore = __webpack_require__(256);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(254);
-	var CommentForm = __webpack_require__(255);
+	var CommentListItem = __webpack_require__(258);
+	var CommentForm = __webpack_require__(260);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32288,7 +32391,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 252 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32297,7 +32400,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(253);
+	var CommentConstants = __webpack_require__(257);
 	
 	var _comments = {};
 	
@@ -32348,7 +32451,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 253 */
+/* 257 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32359,12 +32462,12 @@
 	};
 
 /***/ },
-/* 254 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var UserStore = __webpack_require__(261);
+	var UserStore = __webpack_require__(259);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32426,7 +32529,57 @@
 	// Add the commenter name
 
 /***/ },
-/* 255 */
+/* 259 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var Store = __webpack_require__(226).Store;
+	var UserConstants = __webpack_require__(250);
+	var UserStore = new Store(Dispatcher);
+	
+	var _users = {};
+	
+	var resetUsers = function (users) {
+	  _users = {};
+	  users.forEach(function (user) {
+	    _users[user.id] = user;
+	  });
+	};
+	
+	var resetUser = function (user) {
+	  _users[user.id] = user;
+	};
+	
+	UserStore.find = function (id) {
+	  debugger;
+	  return _users[id];
+	};
+	
+	UserStore.select = function (idsArray) {
+	  selectedUsers = [];
+	  for (var idx = 0; i < idsArray.length; i++) {
+	    selectedUsers.push(UserStore.find(idsArray[idx]));
+	  }
+	  return selectedUsers;
+	};
+	
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case UserConstants.USER_RECEIVED:
+	      resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	    case UserConstants.USERS_RECEIVED:
+	      resetUsers(payload.users);
+	      UserStore.__emitChange();
+	      break;
+	  }
+	};
+	
+	module.exports = UserStore;
+
+/***/ },
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32482,14 +32635,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 256 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(255);
-	var CommentList = __webpack_require__(251);
+	var CommentForm = __webpack_require__(260);
+	var CommentList = __webpack_require__(255);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32516,157 +32669,109 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 257 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
-	var ProductConstants = __webpack_require__(245);
+	var React = __webpack_require__(1);
+	var UserStore = __webpack_require__(259);
+	var ApiUtil = __webpack_require__(246);
+	var ReactRouter = __webpack_require__(166);
+	var Link = ReactRouter.Link;
+	var ProfileInfos = __webpack_require__(263);
+	var UserProducts = __webpack_require__(264);
 	
-	module.exports = {
+	var ProfilePage = React.createClass({
+	  displayName: 'ProfilePage',
 	
-	  receiveAllProducts: function (products) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCTS_RECEIVED,
-	      products: products
-	    });
-	  },
 	
-	  receiveSingleProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_RECEIVED,
-	      product: product
-	    });
-	  },
-	
-	  createProduct: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: ProductConstants.PRODUCT_CREATED,
-	      product: product
-	    });
-	  }
-	};
-	
-	//
-	// updateProduct: function(){
-	//   Dispatcher.dispatch({
-	//     actionType: ProductConstants.PRODUCT_UPDATED,
-	//     product: product
-	//   });
-	// },
-
-/***/ },
-/* 258 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(242);
-	
-	module.exports = {
-	  receiveComments: function (comments) {
-	    Dispatcher.dispatch({
-	      actionType: "COMMENTS_RECEIVED",
-	      comments: comments
-	    });
-	  },
-	
-	  postComment: function (comment) {
-	    Dispatcher.dispatch({
-	      actionType: "COMMENT_POSTED",
-	      comment: comment
-	    });
-	  }
-	
-	  // deleteComment: function(idx){
-	  //   Dispatcher.dispatch({
-	  //     actionType: "COMMENT_DELETED",
-	  //     idx: idx
-	  //   });
-	  // }
-	
-	};
-
-/***/ },
-/* 259 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(242);
-	var UserConstants = __webpack_require__(260);
-	
-	module.exports = {
-	
-	  receiveFilteredUsers: function (users) {
+	  getInitialState: function () {
 	    // debugger
-	    Dispatcher.dispatch({
-	      actionType: UserConstants.USERS_RECEIVED,
-	      users: users
+	    return {
+	      user: UserStore.find(parseInt(this.props.params.userId))
+	    };
+	  },
+	
+	  componentDidMount: function () {
+	    this.userStoreListener = UserStore.addListener(this.userChange);
+	    var userId = parseInt(this.props.params.userId);
+	    if (UserStore.find(userId) === undefined) {
+	      ApiUtil.fetchSingleUser(userId);
+	    }
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.userStoreListener.remove();
+	  },
+	
+	  userChange: function () {
+	    this.setState({
+	      user: UserStore.find(parseInt(this.props.params.userId))
 	    });
 	  },
 	
-	  receiveSingleUser: function (user) {
-	    Dispatcher.dispatch({
-	      actionType: UserConstants.USER_RECEIVED,
-	      user: user
-	    });
+	  render: function () {
+	    debugger;
+	    var theUser = this.state.user;
+	    if (!this.state.user) {
+	      return React.createElement(
+	        'div',
+	        null,
+	        'Loading...'
+	      );
+	    } else {
+	      return React.createElement(
+	        'div',
+	        null,
+	        React.createElement(ProfileInfos, { user: theUser }),
+	        React.createElement(UserProducts, { user: theUser })
+	      );
+	    }
 	  }
+	});
 	
-	};
+	module.exports = ProfilePage;
 
 /***/ },
-/* 260 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  USERS_RECEIVED: "USERS_RECEIVED",
-	  USER_RECEIVED: "USER_RECEIVED"
-	};
-
-/***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
-	var Store = __webpack_require__(226).Store;
-	var UserConstants = __webpack_require__(260);
-	var UserStore = new Store(Dispatcher);
+	var React = __webpack_require__(1);
 	
-	var _users = {};
+	var ProfileInfos = React.createClass({
+	  displayName: 'ProfileInfos',
 	
-	var resetUsers = function (users) {
-	  _users = {};
-	  users.forEach(function (user) {
-	    _users[user.id] = user;
-	  });
-	};
 	
-	var resetUser = function (user) {
-	  _users[user.id] = user;
-	};
-	
-	UserStore.find = function (id) {
-	  return _users[id];
-	};
-	
-	UserStore.select = function (idsArray) {
-	  selectedUsers = [];
-	  for (var idx = 0; i < idsArray.length; i++) {
-	    selectedUsers.push(UserStore.find(idsArray[idx]));
+	  render: function () {
+	    debugger;
+	    return React.createElement(
+	      'div',
+	      null,
+	      this.props.user.username
+	    );
 	  }
-	  return selectedUsers;
-	};
+	});
 	
-	UserStore.__onDispatch = function (payload) {
-	  switch (payload.actionType) {
-	    case UserConstants.USER_RECEIVED:
-	      resetUser(payload.commenter);
-	      UserStore.__emitChange();
-	      break;
-	    case UserConstants.USERS_RECEIVED:
-	      resetUser(payload.commenter);
-	      UserStore.__emitChange();
-	      break;
+	module.exports = ProfileInfos;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var UserProducts = React.createClass({
+	  displayName: 'UserProducts',
+	
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'products'
+	    );
 	  }
-	};
+	});
 	
-	module.exports = UserStore;
+	module.exports = UserProducts;
 
 /***/ }
 /******/ ]);
