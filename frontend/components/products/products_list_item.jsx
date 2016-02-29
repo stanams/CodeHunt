@@ -11,12 +11,21 @@ var ProductsListItem = React.createClass({
     return path;
   },
 
+  makeProfileUrl: function(){
+    var path = "/users/" + this.props.product.author.id;
+    return path;
+  },
+
   handleClick: function(){
     browserHistory.push(this.makeUrl());
   },
 
+  handleProfileClick: function(){
+    browserHistory.push(this.makeProfileUrl());
+  },
+
   render: function(){
-    
+debugger
     return(
         <li className="index-products-list-item">
 
@@ -32,7 +41,7 @@ var ProductsListItem = React.createClass({
               <p className="comment-nb">{this.props.product.comments_count}</p>
             </div>
             <ul className="name-container">
-              <li className="item-username">{this.props.product.author.username}</li>
+              <li onClick={this.handleProfileClick} className="item-username">{this.props.product.author.username}</li>
             </ul>
           </div>
         </li>

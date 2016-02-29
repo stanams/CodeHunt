@@ -19745,6 +19745,7 @@
 	  },
 	
 	  render: function () {
+	    // debugger
 	    return React.createElement(
 	      'nav',
 	      { className: 'navbarr' },
@@ -32074,12 +32075,21 @@
 	    return path;
 	  },
 	
+	  makeProfileUrl: function () {
+	    var path = "/users/" + this.props.product.author.id;
+	    return path;
+	  },
+	
 	  handleClick: function () {
 	    browserHistory.push(this.makeUrl());
 	  },
 	
-	  render: function () {
+	  handleProfileClick: function () {
+	    browserHistory.push(this.makeProfileUrl());
+	  },
 	
+	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32116,7 +32126,7 @@
 	          { className: 'name-container' },
 	          React.createElement(
 	            'li',
-	            { className: 'item-username' },
+	            { onClick: this.handleProfileClick, className: 'item-username' },
 	            this.props.product.author.username
 	          )
 	        )
