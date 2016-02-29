@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
     class_name: 'Comment'
   # dependent: :destroy
 
-  
+  acts_as_voter
 
 
   def self.find_by_credentials(username, password)

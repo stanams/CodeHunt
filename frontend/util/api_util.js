@@ -96,3 +96,5 @@ fetchUsersByIds: function(idsArray){
     })
   }
 }
+
+// ------------ Votes requets -------------------
