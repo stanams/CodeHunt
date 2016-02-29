@@ -17,6 +17,3 @@ Rails.application.routes.draw do
   end
   get "*products", to: "static_pages#root"
 end
-
-
-# put "api/poducts/like"

@@ -21,9 +21,11 @@ var resetProduct = function (product) {
   _products[product.id] = product;
 };
 
-// var resetProductsFromUser(user) {
-//   var products = user.products;
-//   })
+// var resetProductsFromUser = function(user) {
+//  var postedProducts = [];
+//   user.products.map(function(product){
+//      postedProduct.push(product);
+//    });
 //   resetProducts(products);
 // };
 

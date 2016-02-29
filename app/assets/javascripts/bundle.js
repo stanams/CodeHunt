@@ -19747,7 +19747,7 @@
 	  render: function () {
 	    return React.createElement(
 	      'nav',
-	      { className: 'navbar' },
+	      { className: 'navbarr' },
 	      React.createElement(
 	        Link,
 	        { to: '/', className: 'logo-page' },
@@ -25128,9 +25128,11 @@
 	  _products[product.id] = product;
 	};
 	
-	// var resetProductsFromUser(user) {
-	//   var products = user.products;
-	//   })
+	// var resetProductsFromUser = function(user) {
+	//  var postedProducts = [];
+	//   user.products.map(function(product){
+	//      postedProduct.push(product);
+	//    });
 	//   resetProducts(products);
 	// };
 	
@@ -31934,9 +31936,20 @@
 	      }
 	    });
 	  }
-	};
 	
-	// ------------ Votes requets -------------------
+	  // ------------ Votes requets -------------------
+	
+	  // createVote: function(productId){
+	  //   $.ajax({
+	  //     url: "/api/products/" + productId + "/like",
+	  //     type: "POST",
+	  //     success: function(productId) {
+	  //       VoteAction.createVote(productId);
+	  //     },
+	  //   });
+	  // }
+	
+	};
 
 /***/ },
 /* 247 */
@@ -32066,7 +32079,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32120,9 +32133,10 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ApiUtil = __webpack_require__(246);
 	
 	var VoteButton = React.createClass({
-	  displayName: "VoteButton",
+	  displayName: 'VoteButton',
 	
 	
 	  getInitialState: function () {
@@ -32130,9 +32144,12 @@
 	  },
 	
 	  handleVoteUp: function () {
+	    debugger;
+	    var productId = this.props.productData.id;
 	    var vote_state = this.state.vote_count === this.props.productData.votes_count ? "non voted" : "voted";
 	    if (vote_state === "non voted") {
 	      this.setState({ vote_count: this.props.productData.votes_count + 1 });
+	      ApiUtil.fetchSingleProduct(productId);
 	    } else {
 	      this.setState({ vote_count: this.state.vote_count - 1 });
 	    }
@@ -32142,11 +32159,11 @@
 	    // var classNamee = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
 	
 	    return React.createElement(
-	      "div",
-	      { onClick: this.handleVoteUp, className: "upvote-button" },
-	      React.createElement("i", { className: "fa fa-sort-asc up-icon" }),
+	      'div',
+	      { onClick: this.handleVoteUp, className: 'upvote-button' },
+	      React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
 	      React.createElement(
-	        "p",
+	        'p',
 	        null,
 	        this.state.vote_count
 	      )
@@ -32155,6 +32172,8 @@
 	});
 	
 	module.exports = VoteButton;
+	
+	// # put "api/poducts/1/like"
 
 /***/ },
 /* 253 */
@@ -32332,7 +32351,7 @@
 	        'Loading...'
 	      );
 	    } else {
-	      debugger;
+	
 	      return React.createElement(
 	        'div',
 	        { className: 'big-div-product-page' },
@@ -32393,6 +32412,8 @@
 	    }
 	  }
 	});
+	
+	// Give the props to the VotesBox voters={this.state.theProduct.voters}
 	
 	module.exports = ProductPage;
 

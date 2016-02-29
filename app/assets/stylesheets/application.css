@@ -109,12 +109,12 @@ background-image: image_path("logo_canva.jpg");
 
 /*Header stuff*/
 
-.navbar {
+.navbarr {
   width: auto;
   height: 80px;
   margin: 0;
-  border: 2px solid black;
-  /*TODO: border don't work!*/
+  border-bottom: 1px solid #eee;
+  box-shadow: 1px 1px 1px #eee;
 }
 
 .logo-page {

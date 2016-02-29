@@ -1,5 +1,5 @@
 var React = require('react');
-
+var ApiUtil = require('../../util/api_util');
 
 var VoteButton = React.createClass({
 
@@ -8,9 +8,12 @@ var VoteButton = React.createClass({
   },
 
   handleVoteUp: function(){
+    debugger
+    var productId = this.props.productData.id;
     var vote_state = (this.state.vote_count === this.props.productData.votes_count) ? "non voted" : "voted";
     if (vote_state === "non voted") {
       this.setState({vote_count: this.props.productData.votes_count + 1});
+      ApiUtil.fetchSingleProduct(productId);
     } else {
       this.setState({vote_count: this.state.vote_count - 1});
     }
@@ -29,3 +32,5 @@ var VoteButton = React.createClass({
 })
 
 module.exports = VoteButton;
+
+// # put "api/poducts/1/like"

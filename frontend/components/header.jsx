@@ -18,7 +18,7 @@ var Header = React.createClass({
 
   render: function(){
     return(
-      <nav className="navbar">
+      <nav className="navbarr">
         <Link to="/" className="logo-page">Code Hunt</Link>
         <button className="header-profile-button">Sign Out</button>
         <p className="header-new-product-button" onClick={this.handleClickNewProduct}>+</p>

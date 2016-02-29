@@ -95,6 +95,17 @@ fetchUsersByIds: function(idsArray){
       }
     })
   }
-}
 
 // ------------ Votes requets -------------------
+
+  // createVote: function(productId){
+  //   $.ajax({
+  //     url: "/api/products/" + productId + "/like",
+  //     type: "POST",
+  //     success: function(productId) {
+  //       VoteAction.createVote(productId);
+  //     },
+  //   });
+  // }
+
+}

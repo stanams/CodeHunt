@@ -43,7 +43,7 @@ var ProductPage = React.createClass({
     if (!this.state.theProduct) {
       return <div>Loading...</div>;
     } else {
-      debugger
+      
     return(
         <div className="big-div-product-page">
           <Link to="/"><p className="leave-product-page-button">x</p></Link>
@@ -79,5 +79,7 @@ var ProductPage = React.createClass({
     }
   }
 })
+
+// Give the props to the VotesBox voters={this.state.theProduct.voters}
 
 module.exports = ProductPage;
