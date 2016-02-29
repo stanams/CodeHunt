@@ -5,7 +5,7 @@ var CommentList = require('../comments/comments_list');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var CommentBox = require('../comments/comments_box');
-
+var VotesBox = require('../votes/votes_box');
 
 var ProductPage = React.createClass({
 
@@ -64,8 +64,10 @@ var ProductPage = React.createClass({
                  </a>
               </div>
             </section>
-            <CommentBox productId={this.props.params.productId}/>
-
+            <div className="product-body-wrapper">
+              <CommentBox productId={this.props.params.productId}/>
+              <VotesBox className="product-page-votes-box" productData={this.state.theProduct}/>
+            </div>
           </div>
         </div>
       );

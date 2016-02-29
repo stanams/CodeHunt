@@ -32063,34 +32063,56 @@
 	  },
 	
 	  render: function () {
-	
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      { onClick: this.handleClick, className: 'index-products-list-item' },
 	      React.createElement(
-	        'p',
-	        { className: 'list-item-title' },
-	        this.props.product.name
-	      ),
-	      React.createElement(
-	        'p',
-	        { className: 'list-item-description' },
-	        this.props.product.description
-	      ),
-	      React.createElement(
 	        'div',
-	        { className: 'list-item-comments-nb' },
-	        React.createElement('i', { className: 'fa fa-comments-o fa-lg icon-comment' }),
+	        { className: 'item-wrapper' },
 	        React.createElement(
-	          'p',
-	          { className: 'comment-nb' },
-	          this.props.product.comments.length
+	          'div',
+	          { className: 'upvote-button' },
+	          React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
+	          React.createElement(
+	            'p',
+	            null,
+	            this.props.product.votes_count
+	          )
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'item-title-description' },
+	          React.createElement(
+	            'p',
+	            { className: 'list-item-title' },
+	            this.props.product.name
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'list-item-description' },
+	            this.props.product.description
+	          )
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'list-item-comments-nb' },
+	          React.createElement('i', { className: 'fa fa-comments-o fa-lg icon-comment' }),
+	          React.createElement(
+	            'p',
+	            { className: 'comment-nb' },
+	            this.props.product.comments.length
+	          )
+	        ),
+	        React.createElement(
+	          'ul',
+	          { className: 'name-container' },
+	          React.createElement(
+	            'li',
+	            { className: 'item-username' },
+	            this.props.product.author.username
+	          )
 	        )
-	      ),
-	      React.createElement(
-	        'ul',
-	        { className: 'pic-container' },
-	        React.createElement('li', { className: 'users-picture-product-list-item first' })
 	      )
 	    );
 	  }
@@ -32235,6 +32257,7 @@
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
 	var CommentBox = __webpack_require__(261);
+	var VotesBox = __webpack_require__(265);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32318,7 +32341,12 @@
 	              )
 	            )
 	          ),
-	          React.createElement(CommentBox, { productId: this.props.params.productId })
+	          React.createElement(
+	            'div',
+	            { className: 'product-body-wrapper' },
+	            React.createElement(CommentBox, { productId: this.props.params.productId }),
+	            React.createElement(VotesBox, { className: 'product-page-votes-box', productData: this.state.theProduct })
+	          )
 	        )
 	      );
 	    }
@@ -32775,6 +32803,33 @@
 	});
 	
 	module.exports = UserProducts;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var VotesBox = React.createClass({
+	  displayName: "VotesBox",
+	
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      null,
+	      React.createElement(
+	        "h3",
+	        { className: "discussion-title" },
+	        this.props.productData.votes_count,
+	        " VOTES"
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = VotesBox;
 
 /***/ }
 /******/ ]);

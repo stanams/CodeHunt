@@ -33,7 +33,12 @@ class Api::ProductsController < ApplicationController
   def show
     # debugger
     @product = Product.find(params[:id])
+  end
 
+  def upvote
+    @product = Product.find(params[:id])
+    @product.upvote_by current_user
+    # redirect_to :back
   end
 
   private

@@ -1,4 +1,4 @@
 json.extract!(
   product,
-  :id, :name, :description, :link, :author_id, :comments
+  :id, :name, :description, :link, :user, :comments
 )

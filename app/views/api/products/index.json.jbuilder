@@ -1,3 +1,10 @@
-json.array!(@products) do |product|
-  json.partial!('product', product: product)
+json.array! @products do |product|
+  json.id product.id
+  json.name product.name
+  json.description product.description
+  json.link product.link
+  json.author product.user
+  json.comments product.comments
+  json.votes_count product.get_upvotes.size
+  json.voters product.votes_for.up.by_type(User)
 end
