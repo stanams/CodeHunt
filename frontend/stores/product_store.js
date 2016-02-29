@@ -21,6 +21,13 @@ var resetProduct = function (product) {
   _products[product.id] = product;
 };
 
+// var resetProductsFromUser(user) {
+//   var products = user.products;
+//   })
+//   resetProducts(products);
+// };
+
+
 ProductStore.all = function () {
   var products = [];
   for (var id in _products) {

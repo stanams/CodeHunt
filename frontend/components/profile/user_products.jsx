@@ -1,6 +1,8 @@
 var React = require('react');
 
 var UserProducts = React.createClass({
+
+  // var products =
   render: function(){
     return(
       <div>

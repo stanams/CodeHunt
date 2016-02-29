@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index]
     resources :products do
       resources :comments
+      resources :votes
     end
   end
   get "*products", to: "static_pages#root"

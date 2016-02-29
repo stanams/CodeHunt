@@ -26,10 +26,7 @@ var ProductsListItem = React.createClass({
           </div>
           <ul className="pic-container">
             <li className="users-picture-product-list-item first"></li>
-            <li className="users-picture-product-list-item second"></li>
-            <li className="users-picture-product-list-item third"></li>
           </ul>
-
         </li>
 
     );

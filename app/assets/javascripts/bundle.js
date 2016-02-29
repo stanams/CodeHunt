@@ -25090,9 +25090,6 @@
 	  },
 	
 	  render: function () {
-	    // var productPreview =
-	    // TODO: if statement: si this.props.product.id est undefined, on renvoit une empty div,
-	    // sinon, on génère le ProductPreview component avec les right data: rajouter {productPreview} après l'ul
 	    var productList = this.state.products.map(function (product, idx) {
 	      return React.createElement(ProductsListItem, { key: idx, product: product });
 	    });
@@ -25130,6 +25127,12 @@
 	var resetProduct = function (product) {
 	  _products[product.id] = product;
 	};
+	
+	// var resetProductsFromUser(user) {
+	//   var products = user.products;
+	//   })
+	//   resetProducts(products);
+	// };
 	
 	ProductStore.all = function () {
 	  var products = [];
@@ -32087,9 +32090,7 @@
 	      React.createElement(
 	        'ul',
 	        { className: 'pic-container' },
-	        React.createElement('li', { className: 'users-picture-product-list-item first' }),
-	        React.createElement('li', { className: 'users-picture-product-list-item second' }),
-	        React.createElement('li', { className: 'users-picture-product-list-item third' })
+	        React.createElement('li', { className: 'users-picture-product-list-item first' })
 	      )
 	    );
 	  }
@@ -32762,6 +32763,8 @@
 	var UserProducts = React.createClass({
 	  displayName: 'UserProducts',
 	
+	
+	  // var products =
 	  render: function () {
 	    return React.createElement(
 	      'div',
