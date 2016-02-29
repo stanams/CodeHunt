@@ -94,18 +94,18 @@ fetchUsersByIds: function(idsArray){
         UserActions.receiveSingleUser(user)
       }
     })
-  }
+  },
 
 // ------------ Votes requets -------------------
 
-  // createVote: function(productId){
-  //   $.ajax({
-  //     url: "/api/products/" + productId + "/like",
-  //     type: "POST",
-  //     success: function(productId) {
-  //       VoteAction.createVote(productId);
-  //     },
-  //   });
-  // }
+  createVote: function(productId){
+    $.ajax({
+      url: "/api/products/" + productId + "/like",
+      type: "POST",
+      success: function(productId) {
+        VoteAction.createVote(productId);
+      },
+    });
+  }
 
 }

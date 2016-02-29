@@ -4,7 +4,8 @@ var ApiUtil = require('../../util/api_util');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var ProfileInfos = require('./profile_info');
-var UserProducts = require('./user_products');
+var ProfileTab = require('./profile_tab');
+var Header = require('../header');
 
 var ProfilePage = React.createClass({
 
@@ -44,9 +45,10 @@ var ProfilePage = React.createClass({
       return <div>Loading...</div>;
     } else {
       return(
-        <div>
+        <div className="profile-container">
+          <Header />
           <ProfileInfos user={theUser} />
-          <UserProducts user={theUser} />
+          <ProfileTab user={theUser} />
         </div>
       );
     }

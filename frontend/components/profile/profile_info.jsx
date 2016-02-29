@@ -7,8 +7,10 @@ var ProfileInfos = React.createClass({
   render: function(){
     debugger
     return(
-      <div>
-        {this.props.user.username}
+      <div className="profile-info-container">
+        <div className="profile-info-data">
+          {this.props.user.username}
+        </div>
       </div>
     );
   }

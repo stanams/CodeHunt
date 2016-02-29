@@ -25,7 +25,7 @@ var ProductsListItem = React.createClass({
   },
 
   render: function(){
-debugger
+// debugger
     return(
         <li className="index-products-list-item">
 

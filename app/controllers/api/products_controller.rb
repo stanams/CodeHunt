@@ -37,6 +37,7 @@ class Api::ProductsController < ApplicationController
 
   def upvote
     @product = Product.find(params[:id])
+    debugger
     @product.upvote_by current_user
     render :show
   end

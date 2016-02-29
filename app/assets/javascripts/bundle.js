@@ -31936,19 +31936,19 @@
 	        UserActions.receiveSingleUser(user);
 	      }
 	    });
-	  }
+	  },
 	
 	  // ------------ Votes requets -------------------
 	
-	  // createVote: function(productId){
-	  //   $.ajax({
-	  //     url: "/api/products/" + productId + "/like",
-	  //     type: "POST",
-	  //     success: function(productId) {
-	  //       VoteAction.createVote(productId);
-	  //     },
-	  //   });
-	  // }
+	  createVote: function (productId) {
+	    $.ajax({
+	      url: "/api/products/" + productId + "/like",
+	      type: "POST",
+	      success: function (productId) {
+	        VoteAction.createVote(productId);
+	      }
+	    });
+	  }
 	
 	};
 
@@ -32089,7 +32089,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	    // debugger
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32151,15 +32151,20 @@
 	
 	  getInitialState: function () {
 	    return { vote_count: this.props.productData.votes_count };
+	    // mettre ProductStore.find...  plutôt que d'utiliser la prop
 	  },
 	
 	  handleVoteUp: function () {
-	    debugger;
+	    // debugger
 	    var productId = this.props.productData.id;
 	    var vote_state = this.state.vote_count === this.props.productData.votes_count ? "non voted" : "voted";
 	    if (vote_state === "non voted") {
+	
+	      // addLIstener on componentdidmount sur le product store
+	      // après le vote ça va suivre tout el flux cycle du product
+	
 	      this.setState({ vote_count: this.props.productData.votes_count + 1 });
-	      ApiUtil.fetchSingleProduct(productId);
+	      ApiUtil.createVote(productId);
 	    } else {
 	      this.setState({ vote_count: this.state.vote_count - 1 });
 	    }
@@ -32846,7 +32851,8 @@
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
 	var ProfileInfos = __webpack_require__(266);
-	var UserProducts = __webpack_require__(267);
+	var ProfileTab = __webpack_require__(267);
+	var Header = __webpack_require__(161);
 	
 	var ProfilePage = React.createClass({
 	  displayName: 'ProfilePage',
@@ -32889,9 +32895,10 @@
 	    } else {
 	      return React.createElement(
 	        'div',
-	        null,
+	        { className: 'profile-container' },
+	        React.createElement(Header, null),
 	        React.createElement(ProfileInfos, { user: theUser }),
-	        React.createElement(UserProducts, { user: theUser })
+	        React.createElement(ProfileTab, { user: theUser })
 	      );
 	    }
 	  }
@@ -32906,15 +32913,19 @@
 	var React = __webpack_require__(1);
 	
 	var ProfileInfos = React.createClass({
-	  displayName: 'ProfileInfos',
+	  displayName: "ProfileInfos",
 	
 	
 	  render: function () {
 	    debugger;
 	    return React.createElement(
-	      'div',
-	      null,
-	      this.props.user.username
+	      "div",
+	      { className: "profile-info-container" },
+	      React.createElement(
+	        "div",
+	        { className: "profile-info-data" },
+	        this.props.user.username
+	      )
 	    );
 	  }
 	});
@@ -32927,21 +32938,29 @@
 
 	var React = __webpack_require__(1);
 	
-	var UserProducts = React.createClass({
-	  displayName: 'UserProducts',
+	var ProfileTab = React.createClass({
+	  displayName: "ProfileTab",
 	
-	
-	  // var products =
 	  render: function () {
 	    return React.createElement(
-	      'div',
-	      null,
-	      'products'
+	      "div",
+	      { className: "profile-tabs" },
+	      React.createElement(
+	        "div",
+	        null,
+	        "products voted"
+	      ),
+	      React.createElement(
+	        "div",
+	        null,
+	        "products posted"
+	      )
 	    );
 	  }
+	
 	});
 	
-	module.exports = UserProducts;
+	module.exports = ProfileTab;
 
 /***/ }
 /******/ ]);
