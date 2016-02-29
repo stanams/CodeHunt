@@ -8,7 +8,12 @@ Rails.application.routes.draw do
     resources :users, only: [:show, :index]
     resources :products do
       resources :comments
-      resources :votes
+
+      member do
+        put "like", to: "links#upvote"
+        put "dislike", to: "links#downvote"
+      end
+
     end
   end
   get "*products", to: "static_pages#root"
