@@ -52,10 +52,10 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(253);
-	var ProductPage = __webpack_require__(254);
+	var ProductForm = __webpack_require__(254);
+	var ProductPage = __webpack_require__(255);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(262);
+	var ProfilePage = __webpack_require__(265);
 	
 	var routes = React.createElement(
 	  Route,
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(252);
+	var ProductPreview = __webpack_require__(253);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -32048,6 +32048,7 @@
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
+	var VoteButton = __webpack_require__(252);
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32066,23 +32067,14 @@
 	    debugger;
 	    return React.createElement(
 	      'li',
-	      { onClick: this.handleClick, className: 'index-products-list-item' },
+	      { className: 'index-products-list-item' },
 	      React.createElement(
 	        'div',
 	        { className: 'item-wrapper' },
+	        React.createElement(VoteButton, { productData: this.props.product }),
 	        React.createElement(
 	          'div',
-	          { className: 'upvote-button' },
-	          React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
-	          React.createElement(
-	            'p',
-	            null,
-	            this.props.product.votes_count
-	          )
-	        ),
-	        React.createElement(
-	          'div',
-	          { className: 'item-title-description' },
+	          { onClick: this.handleClick, className: 'item-title-description' },
 	          React.createElement(
 	            'p',
 	            { className: 'list-item-title' },
@@ -32127,6 +32119,47 @@
 
 	var React = __webpack_require__(1);
 	
+	var VoteButton = React.createClass({
+	  displayName: "VoteButton",
+	
+	
+	  getInitialState: function () {
+	    return { vote_count: this.props.productData.votes_count };
+	  },
+	
+	  handleVoteUp: function () {
+	    var vote_state = this.state.vote_count === this.props.productData.votes_count ? "non voted" : "voted";
+	    if (vote_state === "non voted") {
+	      this.setState({ vote_count: this.props.productData.votes_count + 1 });
+	    } else {
+	      this.setState({ vote_count: this.state.vote_count - 1 });
+	    }
+	  },
+	
+	  render: function () {
+	    // var classNamee = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
+	
+	    return React.createElement(
+	      "div",
+	      { onClick: this.handleVoteUp, className: "upvote-button" },
+	      React.createElement("i", { className: "fa fa-sort-asc up-icon" }),
+	      React.createElement(
+	        "p",
+	        null,
+	        this.state.vote_count
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = VoteButton;
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
 	var ProductPreview = React.createClass({
 	  displayName: "ProductPreview",
 	
@@ -32138,7 +32171,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32247,17 +32280,18 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(255);
+	var CommentList = __webpack_require__(256);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(261);
-	var VotesBox = __webpack_require__(265);
+	var CommentBox = __webpack_require__(262);
+	var VotesBox = __webpack_require__(263);
+	var VoteButtonPage = __webpack_require__(264);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32331,16 +32365,7 @@
 	              React.createElement(
 	                'div',
 	                { className: 'btn-and-link' },
-	                React.createElement(
-	                  'div',
-	                  { className: 'product-page-upvote-button' },
-	                  React.createElement('i', { className: 'fa fa-sort-asc up-icon-product-page' }),
-	                  React.createElement(
-	                    'p',
-	                    { className: 'product-page-votes-count' },
-	                    this.state.theProduct.votes_count
-	                  )
-	                ),
+	                React.createElement(VoteButtonPage, { voteCount: this.state.theProduct.votes_count }),
 	                React.createElement(
 	                  'a',
 	                  { className: 'try-it-btn',
@@ -32370,14 +32395,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(256);
+	var CommentStore = __webpack_require__(257);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(258);
-	var CommentForm = __webpack_require__(260);
+	var CommentListItem = __webpack_require__(259);
+	var CommentForm = __webpack_require__(261);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32434,7 +32459,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32443,7 +32468,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(257);
+	var CommentConstants = __webpack_require__(258);
 	
 	var _comments = {};
 	
@@ -32494,7 +32519,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 257 */
+/* 258 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32505,12 +32530,12 @@
 	};
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var UserStore = __webpack_require__(259);
+	var UserStore = __webpack_require__(260);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32572,7 +32597,7 @@
 	// Add the commenter name
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(242);
@@ -32622,7 +32647,7 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32678,14 +32703,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(260);
-	var CommentList = __webpack_require__(255);
+	var CommentForm = __webpack_require__(261);
+	var CommentList = __webpack_require__(256);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32712,16 +32737,83 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var UserStore = __webpack_require__(259);
+	
+	var VotesBox = React.createClass({
+	  displayName: "VotesBox",
+	
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      { className: "votes-container" },
+	      React.createElement(
+	        "h3",
+	        { className: "votes-title" },
+	        this.props.productData.votes_count,
+	        " VOTES"
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = VotesBox;
+
+/***/ },
+/* 264 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var VoteButtonPage = React.createClass({
+	  displayName: "VoteButtonPage",
+	
+	  getInitialState: function () {
+	    debugger;
+	    return { vote_count: this.props.voteCount };
+	  },
+	
+	  handleVoteUp: function () {
+	    var vote_state = this.state.vote_count === this.props.voteCount ? "non voted" : "voted";
+	    if (vote_state === "non voted") {
+	      this.setState({ vote_count: this.state.vote_count + 1 });
+	    } else {
+	      this.setState({ vote_count: this.state.vote_count - 1 });
+	    }
+	  },
+	
+	  render: function () {
+	    return React.createElement(
+	      "div",
+	      { onClick: this.handleVoteUp, className: "product-page-upvote-button" },
+	      React.createElement("i", { className: "fa fa-sort-asc up-icon-product-page" }),
+	      React.createElement(
+	        "p",
+	        { className: "product-page-votes-count" },
+	        this.state.vote_count
+	      )
+	    );
+	  }
+	
+	});
+	
+	module.exports = VoteButtonPage;
+
+/***/ },
+/* 265 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var UserStore = __webpack_require__(260);
 	var ApiUtil = __webpack_require__(246);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var ProfileInfos = __webpack_require__(263);
-	var UserProducts = __webpack_require__(264);
+	var ProfileInfos = __webpack_require__(266);
+	var UserProducts = __webpack_require__(267);
 	
 	var ProfilePage = React.createClass({
 	  displayName: 'ProfilePage',
@@ -32775,7 +32867,7 @@
 	module.exports = ProfilePage;
 
 /***/ },
-/* 263 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32797,7 +32889,7 @@
 	module.exports = ProfileInfos;
 
 /***/ },
-/* 264 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32817,33 +32909,6 @@
 	});
 	
 	module.exports = UserProducts;
-
-/***/ },
-/* 265 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var VotesBox = React.createClass({
-	  displayName: "VotesBox",
-	
-	
-	  render: function () {
-	    return React.createElement(
-	      "div",
-	      { className: "votes-container" },
-	      React.createElement(
-	        "h3",
-	        { className: "votes-title" },
-	        this.props.productData.votes_count,
-	        " VOTES"
-	      )
-	    );
-	  }
-	
-	});
-	
-	module.exports = VotesBox;
 
 /***/ }
 /******/ ]);

@@ -297,6 +297,10 @@ li.index-products-list-item:hover {
   transform: scale(1.1);
 }
 
+.upvote-button:active {
+  color: #5687E9;
+}
+
 .up-icon {
   margin-top: 12px;
 }
@@ -491,13 +495,13 @@ input[type="submit"]:hover {
 
 /*Product Page*/
 
-.big-div-product-page {
+/*.big-div-product-page {
   width: 100%;
   height: 100vh;
   padding: 0;
   margin: 0;
   z-index: -1;
-}
+}*/
 
 .product-page-container {
   margin: 0;
@@ -736,6 +740,7 @@ li {
 .product-body-wrapper {
   display: inline;
   height: 100%;
+  position: relative;
 }
 
 .votes-title {
@@ -744,15 +749,18 @@ li {
 }
 
 .votes-container {
+  position: absolute;
   float: right;
-  position: relative;
-  bottom: 1005px;
-  right: 27%;
+  /*bottom: 1005px;*/
+  /*right: 27%;*/
   font-family: Roboto;
   font-size: 14px;
   color: #999999;
   font-weight: 500;
   line-height: 15.4;
+  width: 450px;
+  height: 100%;
+
 }
 
 

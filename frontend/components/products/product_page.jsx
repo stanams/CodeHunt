@@ -6,6 +6,7 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var CommentBox = require('../comments/comments_box');
 var VotesBox = require('../votes/votes_box');
+var VoteButtonPage = require('../votes/vote-button-page');
 
 var ProductPage = React.createClass({
 
@@ -56,10 +57,8 @@ var ProductPage = React.createClass({
                   {this.state.theProduct.description}
                 </div>
                 <div className="btn-and-link">
-                  <div className="product-page-upvote-button">
-                    <i className="fa fa-sort-asc up-icon-product-page"></i>
-                    <p className="product-page-votes-count">{this.state.theProduct.votes_count}</p>
-                  </div>
+                  <VoteButtonPage voteCount={this.state.theProduct.votes_count}/>
+
                   <a className="try-it-btn"
                      href={this.state.theProduct.link}
                      target="_blank">

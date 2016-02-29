@@ -2,6 +2,7 @@ var React = require('react');
 var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
+var VoteButton = require('../votes/vote-button');
 
 var ProductsListItem = React.createClass({
 
@@ -17,14 +18,12 @@ var ProductsListItem = React.createClass({
   render: function(){
     debugger
     return(
-        <li onClick={this.handleClick} className="index-products-list-item">
+        <li className="index-products-list-item">
 
           <div className="item-wrapper">
-            <div className="upvote-button">
-              <i className="fa fa-sort-asc up-icon"></i>
-              <p>{this.props.product.votes_count}</p>
-            </div>
-            <div className="item-title-description">
+
+            <VoteButton productData={this.props.product}/>
+            <div onClick={this.handleClick} className="item-title-description">
               <p className="list-item-title">{this.props.product.name}</p>
               <p className="list-item-description">{this.props.product.description}</p>
             </div>
