@@ -38,7 +38,7 @@ class Api::ProductsController < ApplicationController
   def upvote
     @product = Product.find(params[:id])
     @product.upvote_by current_user
-    # redirect_to :back
+    # render :show
   end
 
   private
