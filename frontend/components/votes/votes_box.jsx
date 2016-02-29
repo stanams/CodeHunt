@@ -4,8 +4,8 @@ var VotesBox = React.createClass({
 
   render: function(){
     return(
-      <div>
-          <h3 className="discussion-title">{this.props.productData.votes_count} VOTES</h3>
+      <div className="votes-container">
+          <h3 className="votes-title">{this.props.productData.votes_count} VOTES</h3>
       </div>
     );
   }

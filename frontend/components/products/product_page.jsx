@@ -66,7 +66,7 @@ var ProductPage = React.createClass({
             </section>
             <div className="product-body-wrapper">
               <CommentBox productId={this.props.params.productId}/>
-              <VotesBox className="product-page-votes-box" productData={this.state.theProduct}/>
+              <VotesBox productData={this.state.theProduct}/>
             </div>
           </div>
         </div>

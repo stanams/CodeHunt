@@ -688,18 +688,25 @@ li {
 
 /*Votes on product page*/
 .product-body-wrapper {
-  display: block;
+  display: inline;
   height: 100%;
 }
 
-.vote-title {
-  float:right;
+.votes-title {
+  font-family: Roboto;
+  font-size: 14px;
 }
 
-.product-page-votes-box {
+.votes-container {
   float: right;
   position: relative;
-  left: 500px;
+  bottom: 1005px;
+  right: 27%;
+  font-family: Roboto;
+  font-size: 14px;
+  color: #999999;
+  font-weight: 500;
+  line-height: 15.4;
 }
 
 

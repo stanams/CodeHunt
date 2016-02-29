@@ -30,7 +30,7 @@ var ProductsListItem = React.createClass({
             </div>
             <div className="list-item-comments-nb">
               <i className="fa fa-comments-o fa-lg icon-comment"></i>
-              <p className="comment-nb">{this.props.product.comments.length}</p>
+              <p className="comment-nb">{this.props.product.comments_count}</p>
             </div>
             <ul className="name-container">
               <li className="item-username">{this.props.product.author.username}</li>

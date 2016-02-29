@@ -32101,7 +32101,7 @@
 	          React.createElement(
 	            'p',
 	            { className: 'comment-nb' },
-	            this.props.product.comments.length
+	            this.props.product.comments_count
 	          )
 	        ),
 	        React.createElement(
@@ -32345,7 +32345,7 @@
 	            'div',
 	            { className: 'product-body-wrapper' },
 	            React.createElement(CommentBox, { productId: this.props.params.productId }),
-	            React.createElement(VotesBox, { className: 'product-page-votes-box', productData: this.state.theProduct })
+	            React.createElement(VotesBox, { productData: this.state.theProduct })
 	          )
 	        )
 	      );
@@ -32817,10 +32817,10 @@
 	  render: function () {
 	    return React.createElement(
 	      "div",
-	      null,
+	      { className: "votes-container" },
 	      React.createElement(
 	        "h3",
-	        { className: "discussion-title" },
+	        { className: "votes-title" },
 	        this.props.productData.votes_count,
 	        " VOTES"
 	      )
