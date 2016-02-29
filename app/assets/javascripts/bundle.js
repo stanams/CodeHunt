@@ -32296,7 +32296,7 @@
 	        'Loading...'
 	      );
 	    } else {
-	
+	      debugger;
 	      return React.createElement(
 	        'div',
 	        { className: 'big-div-product-page' },
@@ -32329,14 +32329,28 @@
 	                this.state.theProduct.description
 	              ),
 	              React.createElement(
-	                'a',
-	                { className: 'try-it-btn',
-	                  href: this.state.theProduct.link,
-	                  target: '_blank' },
+	                'div',
+	                { className: 'btn-and-link' },
 	                React.createElement(
 	                  'div',
-	                  { className: 'product-link-product-page' },
-	                  'Try It'
+	                  { className: 'product-page-upvote-button' },
+	                  React.createElement('i', { className: 'fa fa-sort-asc up-icon-product-page' }),
+	                  React.createElement(
+	                    'p',
+	                    { className: 'product-page-votes-count' },
+	                    this.state.theProduct.votes_count
+	                  )
+	                ),
+	                React.createElement(
+	                  'a',
+	                  { className: 'try-it-btn',
+	                    href: this.state.theProduct.link,
+	                    target: '_blank' },
+	                  React.createElement(
+	                    'div',
+	                    { className: 'product-link-product-page' },
+	                    'Try It'
+	                  )
 	                )
 	              )
 	            )
@@ -32522,7 +32536,7 @@
 	  // },
 	
 	  render: function () {
-	    debugger;
+	
 	    return React.createElement(
 	      'li',
 	      { className: 'comment-item-container' },

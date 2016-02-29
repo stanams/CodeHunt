@@ -552,6 +552,8 @@ input[type="submit"]:hover {
   width: 70px;
   margin-left: auto;
   margin-right: auto;
+  position: relative;
+  left: 35px;
 }
 
 .try-it-btn:hover {
@@ -561,6 +563,50 @@ input[type="submit"]:hover {
      width: 70px;
      margin-left: auto;
      margin-right: auto;
+}
+
+.product-page-upvote-button {
+  float: left;
+  position: relative;
+  top: 20px;
+  background-color: white;
+  border-radius: 50px;
+  font-weight: 600;
+  margin-right: 15px;
+  width: 40px;
+  height: 40px;
+  text-align: center;
+  padding: 4px 0;
+  border-radius: 4px;
+  margin-top: 0;
+  left: 30px;
+  z-index: 2;
+  background-color: white;
+}
+
+.product-page-upvote-button:hover {
+  background-color: #fff;
+  color: #5687E9;
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+
+.up-icon-product-page {
+  position: relative;
+  bottom: 1px;
+}
+
+.btn-and-link {
+  width: 170px;
+  height: 100px;
+  display: inline-block;
+  text-align: center;
+}
+
+.product-page-votes-count {
+  position: relative;
+  bottom: 7px;
 }
 
 /*.product-page-body-container {

@@ -42,7 +42,7 @@ var ProductPage = React.createClass({
     if (!this.state.theProduct) {
       return <div>Loading...</div>;
     } else {
-
+      debugger
     return(
         <div className="big-div-product-page">
           <Link to="/"><p className="leave-product-page-button">x</p></Link>
@@ -55,13 +55,19 @@ var ProductPage = React.createClass({
                 <div className="product-description-product-page">
                   {this.state.theProduct.description}
                 </div>
-                <a className="try-it-btn"
-                   href={this.state.theProduct.link}
-                   target="_blank">
-                     <div className="product-link-product-page">
-                       Try It
-                     </div>
-                 </a>
+                <div className="btn-and-link">
+                  <div className="product-page-upvote-button">
+                    <i className="fa fa-sort-asc up-icon-product-page"></i>
+                    <p className="product-page-votes-count">{this.state.theProduct.votes_count}</p>
+                  </div>
+                  <a className="try-it-btn"
+                     href={this.state.theProduct.link}
+                     target="_blank">
+                       <div className="product-link-product-page">
+                         Try It
+                       </div>
+                   </a>
+                 </div>
               </div>
             </section>
             <div className="product-body-wrapper">
