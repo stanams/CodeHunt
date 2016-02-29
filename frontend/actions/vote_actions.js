@@ -4,13 +4,13 @@ module.exports = {
   createVote: function(product){
     Dispatcher.dispatch({
       actionType: "VOTE_CREATED",
-      product: azes
+      product: product
     });
   },
 
   destroyVote: function(product){
     Dispatcher.dispatch({
       actionType: "VOTE_DESTROYED",
-      product: azsq
+      product: product
     });
   }

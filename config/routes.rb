@@ -11,7 +11,6 @@ Rails.application.routes.draw do
 
       member do
         put "like", to: "products#upvote"
-        put "dislike", to: "products#downvote"
       end
 
     end
