@@ -5,7 +5,7 @@ var ProductsListItem = require('./products_list_item');
 
 var ProductsList = React.createClass({
   getInitialState: function(){
-    return {products: ProductStore.all()};
+    return {products: ProductStore.getSorted()};
   },
 
   componentDidMount: function(){
@@ -18,7 +18,7 @@ var ProductsList = React.createClass({
   },
 
   _onChange: function(){
-    this.setState({products: ProductStore.all()});
+    this.setState({products: ProductStore.getSorted()});
   },
 
   render: function(){

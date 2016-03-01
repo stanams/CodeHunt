@@ -2,7 +2,13 @@ class Api::ProductsController < ApplicationController
 
   def index
     @current_user = current_user
-    @products = Product.includes(:comments, :votes_for).all #.order(:votes_for.size)
+    @products = Product.all
+          #  Product.includes(:comments, :votes_for).all
+                             #  .joins(:votes_for)
+                             #  .group("products.id")
+                             #  .count(:votable_id)
+                             #  .sort_by{|key, value| value}
+                             #  .map { |i| Product.find(i[0]) }
   end
 
   def new

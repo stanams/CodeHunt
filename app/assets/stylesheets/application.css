@@ -776,8 +776,9 @@ li {
   color: #999999;
   font-weight: 500;
   line-height: 15.4;
-  width: 450px;
-  height: 100%;
+  /*width: 450px;
+  height: 100px;*/
+  z-index: 4;
 }
 
 

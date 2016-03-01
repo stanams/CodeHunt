@@ -10,6 +10,7 @@ var VoteConstants = require('../constants/vote_constants');
 
 
 var _products = {};
+// var _orderedProducts = [];
 
 var resetProducts = function (products) {
   _products = {};
@@ -20,6 +21,22 @@ var resetProducts = function (products) {
 
 var resetProduct = function (product) {
   _products[product.id] = product;
+};
+
+ProductStore.getSorted = function(){
+  var ary = [];
+  for (var key in _products) {
+    ary.push(_products[key]);
+  };
+  return ary.sort(function(a, b){
+    if (a.votes_count < b.votes_count) {
+      return 1;
+    } else if (a.votes_count >= b.votes_count) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
 };
 
 // var resetProductsFromUser = function(user) {

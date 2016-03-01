@@ -25074,7 +25074,7 @@
 	  displayName: 'ProductsList',
 	
 	  getInitialState: function () {
-	    return { products: ProductStore.all() };
+	    return { products: ProductStore.getSorted() };
 	  },
 	
 	  componentDidMount: function () {
@@ -25087,7 +25087,7 @@
 	  },
 	
 	  _onChange: function () {
-	    this.setState({ products: ProductStore.all() });
+	    this.setState({ products: ProductStore.getSorted() });
 	  },
 	
 	  render: function () {
@@ -25118,6 +25118,7 @@
 	var VoteConstants = __webpack_require__(252);
 	
 	var _products = {};
+	// var _orderedProducts = [];
 	
 	var resetProducts = function (products) {
 	  _products = {};
@@ -25128,6 +25129,22 @@
 	
 	var resetProduct = function (product) {
 	  _products[product.id] = product;
+	};
+	
+	ProductStore.getSorted = function () {
+	  var ary = [];
+	  for (var key in _products) {
+	    ary.push(_products[key]);
+	  };
+	  return ary.sort(function (a, b) {
+	    if (a.votes_count < b.votes_count) {
+	      return 1;
+	    } else if (a.votes_count >= b.votes_count) {
+	      return -1;
+	    } else {
+	      return 0;
+	    }
+	  });
 	};
 	
 	// var resetProductsFromUser = function(user) {
@@ -32858,25 +32875,28 @@
 	var React = __webpack_require__(1);
 	
 	var VotesBox = React.createClass({
-	  displayName: "VotesBox",
+	  displayName: 'VotesBox',
 	
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
-	      "div",
-	      { className: "votes-container" },
+	      'div',
+	      null,
 	      React.createElement(
-	        "h3",
-	        { className: "votes-title" },
+	        'h3',
+	        null,
 	        this.props.productData.votes_count,
-	        " VOTES"
+	        ' Votes'
 	      )
 	    );
 	  }
-	
 	});
 	
 	module.exports = VotesBox;
+	
+	// className="votes-container"
+	// className="votes-title"
 
 /***/ },
 /* 266 */
