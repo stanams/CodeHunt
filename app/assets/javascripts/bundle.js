@@ -25118,17 +25118,28 @@
 	var VoteConstants = __webpack_require__(252);
 	
 	var _products = {};
+	var productsByUserId = {};
 	// var _orderedProducts = [];
 	
 	var resetProducts = function (products) {
+	  productsByUserId = {};
 	  _products = {};
 	  products.forEach(function (product) {
 	    _products[product.id] = product;
+	    if (typeof productsByUserId[product.author_id] === "undefined") {
+	      productsByUserId[product.author_id] = [product];
+	    } else {
+	      productsByUserId[product.author_id].push(product);
+	    }
 	  });
 	};
 	
 	var resetProduct = function (product) {
 	  _products[product.id] = product;
+	};
+	
+	ProductStore.findByUserId = function (id) {
+	  return productsByUserId[id];
 	};
 	
 	ProductStore.getSorted = function () {
