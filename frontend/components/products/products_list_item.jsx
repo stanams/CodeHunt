@@ -18,10 +18,12 @@ var ProductsListItem = React.createClass({
 
   handleClick: function(){
     browserHistory.push(this.makeUrl());
+    window.scrollTo(0,0);
   },
 
   handleProfileClick: function(){
     browserHistory.push(this.makeProfileUrl());
+    window.scrollTo(0,0);
   },
 
   render: function(){

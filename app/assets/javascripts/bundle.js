@@ -32151,10 +32151,12 @@
 	
 	  handleClick: function () {
 	    browserHistory.push(this.makeUrl());
+	    window.scrollTo(0, 0);
 	  },
 	
 	  handleProfileClick: function () {
 	    browserHistory.push(this.makeProfileUrl());
+	    window.scrollTo(0, 0);
 	  },
 	
 	  render: function () {
@@ -32995,6 +32997,7 @@
 
 	var React = __webpack_require__(1);
 	var TabLabels = __webpack_require__(270);
+	var ProfileProductsList = __webpack_require__(271);
 	
 	var ProfileTab = React.createClass({
 	  displayName: 'ProfileTab',
@@ -33011,7 +33014,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        'LabelledProducts'
+	        React.createElement(ProfileProductsList, null)
 	      )
 	    );
 	  }
@@ -33114,6 +33117,28 @@
 	});
 	
 	module.exports = TabLabels;
+
+/***/ },
+/* 271 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ProfileProductsList = React.createClass({
+	  displayName: 'ProfileProductsList',
+	
+	
+	  // var products =
+	  render: function () {
+	    return React.createElement(
+	      'div',
+	      null,
+	      'products'
+	    );
+	  }
+	});
+	
+	module.exports = ProfileProductsList;
 
 /***/ }
 /******/ ]);
