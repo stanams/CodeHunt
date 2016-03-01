@@ -45,9 +45,9 @@ var VoteButton = React.createClass({
   render: function(){
     // debugger
     // var rightStyle = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
-    // var appropriateClass = (this.props.params.productId) ? "product-page-upvote-button" : "upvote-button"
+    var appropriateClass = (typeof this.props.params === "undefined") ? "upvote-button" : "product-page-upvote-button";
     return(
-      <div onClick={this.handleVoteUp} className="upvote-button">
+      <div onClick={this.handleVoteUp} className={appropriateClass}>
         <i className="fa fa-sort-asc up-icon"></i>
         <p>{this.state.vote_count}</p>
       </div>

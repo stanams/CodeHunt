@@ -32210,10 +32210,10 @@
 	  render: function () {
 	    // debugger
 	    // var rightStyle = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
-	    // var appropriateClass = (this.props.params.productId) ? "product-page-upvote-button" : "upvote-button"
+	    var appropriateClass = typeof this.props.params === "undefined" ? "upvote-button" : "product-page-upvote-button";
 	    return React.createElement(
 	      'div',
-	      { onClick: this.handleVoteUp, className: 'upvote-button' },
+	      { onClick: this.handleVoteUp, className: appropriateClass },
 	      React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
 	      React.createElement(
 	        'p',
@@ -32439,7 +32439,7 @@
 	              React.createElement(
 	                'div',
 	                { className: 'btn-and-link' },
-	                React.createElement(VoteButton, { productData: this.state.theProduct }),
+	                React.createElement(VoteButton, { productData: this.state.theProduct, params: this.props.params }),
 	                React.createElement(
 	                  'a',
 	                  { className: 'try-it-btn',

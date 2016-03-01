@@ -57,7 +57,7 @@ var ProductPage = React.createClass({
                   {this.state.theProduct.description}
                 </div>
                 <div className="btn-and-link">
-                  <VoteButton productData={this.state.theProduct}/>
+                  <VoteButton productData={this.state.theProduct} params={this.props.params}/>
 
                   <a className="try-it-btn"
                      href={this.state.theProduct.link}
