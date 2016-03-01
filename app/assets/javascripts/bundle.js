@@ -32173,6 +32173,7 @@
 	  },
 	
 	  render: function () {
+	
 	    var userId = this.props.product.author_id;
 	    if (typeof UserStore.find(userId) !== "undefined") {
 	      var userName = UserStore.find(userId).username;
@@ -32279,6 +32280,7 @@
 	  },
 	
 	  render: function () {
+	    debugger;
 	    var appropriateClass = typeof this.props.params === "undefined" ? "upvote-button" : "product-page-upvote-button";
 	    var rightStyleCount = typeof this.props.params === "undefined" ? "" : "number-of-votes";
 	    var voteClasses = classNames({ "voted-vote": this.props.productData.voted,
@@ -33019,6 +33021,7 @@
 	  displayName: 'ProfileTab',
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-tabs' },
@@ -33030,7 +33033,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(ProfileProductsList, { user: this.props.user })
+	        React.createElement(ProfileProductsList, { user: this.props.user, products: this.props.user.products })
 	      )
 	    );
 	  }
@@ -33147,8 +33150,8 @@
 	
 	
 	  render: function () {
-	    debugger;
-	    var productsList = this.props.user.products.map(function (product, idx) {
+	    // debugger
+	    var productsList = this.props.products.map(function (product, idx) {
 	      return React.createElement(ProductsListItem, { key: idx, product: product });
 	    });
 	    return React.createElement(

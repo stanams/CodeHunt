@@ -44,6 +44,7 @@ var VoteButton = React.createClass({
   },
 
   render: function(){
+    debugger
     var appropriateClass = (typeof this.props.params === "undefined") ? "upvote-button" : "product-page-upvote-button";
     var rightStyleCount = (typeof this.props.params === "undefined") ? "" : "number-of-votes";
     var voteClasses = classNames({"voted-vote": this.props.productData.voted,
