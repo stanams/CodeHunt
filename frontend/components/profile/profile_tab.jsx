@@ -10,7 +10,7 @@ var ProfileTab = React.createClass({
           <TabLabels />
         </div>
         <div>
-          <ProfileProductsList />
+          <ProfileProductsList user={this.props.user}/>
         </div>
       </div>
     );

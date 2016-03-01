@@ -39,7 +39,6 @@ var ProfilePage = React.createClass({
   },
 
   render: function(){
-    debugger
     var theUser = this.state.user;
     if (!this.state.user) {
       return <div>Loading...</div>;

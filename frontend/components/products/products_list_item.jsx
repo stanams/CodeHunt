@@ -27,7 +27,8 @@ var ProductsListItem = React.createClass({
   },
 
   render: function(){
-// debugger
+    debugger
+var userName = (typeof this.props.product.author.username === "undefined") ? "" : this.props.product.author.username;
     return(
         <li className="index-products-list-item">
 
@@ -43,7 +44,7 @@ var ProductsListItem = React.createClass({
               <p className="comment-nb">{this.props.product.comments_count}</p>
             </div>
             <ul className="name-container">
-              <li onClick={this.handleProfileClick} className="item-username">{this.props.product.author.username}</li>
+              <li onClick={this.handleProfileClick} className="item-username">{userName}</li>
             </ul>
           </div>
         </li>

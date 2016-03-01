@@ -10,19 +10,19 @@ var VoteConstants = require('../constants/vote_constants');
 
 
 var _products = {};
-var productsByUserId = {};
+var _productsByUserId = {};
 // var _orderedProducts = [];
 
 var resetProducts = function (products) {
-  productsByUserId = {};
+  _productsByUserId = {};
   _products = {};
   products.forEach(function (product) {
     _products[product.id] = product;
-    if (typeof productsByUserId[product.author_id] === "undefined") {
-      productsByUserId[product.author_id] = [product];
-    } else {
-      productsByUserId[product.author_id].push(product);
-    }
+    // if (typeof _productsByUserId[product.author_id] === "undefined") {
+    //   _productsByUserId[product.author_id] = [product];
+    // } else {
+    //   _productsByUserId[product.author_id].push(product);
+    // }
   });
 };
 
@@ -30,9 +30,10 @@ var resetProduct = function (product) {
   _products[product.id] = product;
 };
 
-ProductStore.findByUserId = function(id){
-  return productsByUserId[id];
-};
+// ProductStore.findByUserId = function(id){
+//   debugger
+//   return _productsByUserId[id];
+// };
 
 ProductStore.getSorted = function(){
   var ary = [];

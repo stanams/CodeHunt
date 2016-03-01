@@ -25118,19 +25118,19 @@
 	var VoteConstants = __webpack_require__(252);
 	
 	var _products = {};
-	var productsByUserId = {};
+	var _productsByUserId = {};
 	// var _orderedProducts = [];
 	
 	var resetProducts = function (products) {
-	  productsByUserId = {};
+	  _productsByUserId = {};
 	  _products = {};
 	  products.forEach(function (product) {
 	    _products[product.id] = product;
-	    if (typeof productsByUserId[product.author_id] === "undefined") {
-	      productsByUserId[product.author_id] = [product];
-	    } else {
-	      productsByUserId[product.author_id].push(product);
-	    }
+	    // if (typeof _productsByUserId[product.author_id] === "undefined") {
+	    //   _productsByUserId[product.author_id] = [product];
+	    // } else {
+	    //   _productsByUserId[product.author_id].push(product);
+	    // }
 	  });
 	};
 	
@@ -25138,9 +25138,10 @@
 	  _products[product.id] = product;
 	};
 	
-	ProductStore.findByUserId = function (id) {
-	  return productsByUserId[id];
-	};
+	// ProductStore.findByUserId = function(id){
+	//   debugger
+	//   return _productsByUserId[id];
+	// };
 	
 	ProductStore.getSorted = function () {
 	  var ary = [];
@@ -32171,7 +32172,8 @@
 	  },
 	
 	  render: function () {
-	    // debugger
+	    debugger;
+	    var userName = typeof this.props.product.author.username === "undefined" ? "" : this.props.product.author.username;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32209,7 +32211,7 @@
 	          React.createElement(
 	            'li',
 	            { onClick: this.handleProfileClick, className: 'item-username' },
-	            this.props.product.author.username
+	            userName
 	          )
 	        )
 	      )
@@ -32764,7 +32766,6 @@
 	};
 	
 	UserStore.find = function (id) {
-	  debugger;
 	  return _users[id];
 	};
 	
@@ -32954,7 +32955,6 @@
 	  },
 	
 	  render: function () {
-	    debugger;
 	    var theUser = this.state.user;
 	    if (!this.state.user) {
 	      return React.createElement(
@@ -33025,7 +33025,7 @@
 	      React.createElement(
 	        'div',
 	        null,
-	        React.createElement(ProfileProductsList, null)
+	        React.createElement(ProfileProductsList, { user: this.props.user })
 	      )
 	    );
 	  }
@@ -33134,17 +33134,22 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ProductStore = __webpack_require__(225);
+	var ProductsListItem = __webpack_require__(253);
 	
 	var ProfileProductsList = React.createClass({
 	  displayName: 'ProfileProductsList',
 	
 	
-	  // var products =
 	  render: function () {
+	    debugger;
+	    var productsList = this.props.user.products.map(function (product, idx) {
+	      return React.createElement(ProductsListItem, { key: idx, productFromProfile: product });
+	    });
 	    return React.createElement(
-	      'div',
+	      'ul',
 	      null,
-	      'products'
+	      productsList
 	    );
 	  }
 	});

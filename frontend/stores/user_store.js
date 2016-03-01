@@ -17,7 +17,6 @@ var resetUser = function (user) {
 };
 
 UserStore.find = function (id) {
-  debugger
   return _users[id];
 }
 
