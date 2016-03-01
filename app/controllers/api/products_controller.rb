@@ -33,6 +33,7 @@ class Api::ProductsController < ApplicationController
 
   def show
     # debugger
+    @current_user = current_user
     @product = Product.find(params[:id])
   end
 

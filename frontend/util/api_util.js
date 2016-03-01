@@ -109,19 +109,6 @@ fetchUsersByIds: function(idsArray){
     });
   },
 
-
-  // createVoteFromProductPage?
-
-  // createVoteFromIndex: function(productId){
-  //   $.ajax({
-  //     url: "/api/products/" + productId + "/like",
-  //     type: "POST",
-  //     success: function(productId) {
-  //       VoteAction.createVote(productId);
-  //     },
-  //   });
-  // },
-
   destroyVote: function(productId){
     $.ajax({
       url: "/api/products/" + productId + "/unlike",

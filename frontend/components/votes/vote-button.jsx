@@ -26,13 +26,12 @@ var VoteButton = React.createClass({
     debugger
     var theProduct = ProductStore.find(this.props.productData.id);
     var productId = theProduct.id;
-    var vote_state = (this.props.productData.voted) ? "voted" : "non voted";
-    if (vote_state === "non voted") {
-      this.setState({vote_count: this.props.productData.votes_count + 1});
-      ApiUtil.createVote(productId);
-    } else {
+    if (this.props.productData.voted) {
       this.setState({vote_count: this.state.vote_count - 1});
       ApiUtil.destroyVote(productId);
+    } else {
+      this.setState({vote_count: this.props.productData.votes_count + 1});
+      ApiUtil.createVote(productId);
     }
   },
 
