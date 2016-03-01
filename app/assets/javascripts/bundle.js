@@ -32174,7 +32174,11 @@
 	
 	  render: function () {
 	    var userId = this.props.product.author_id;
-	    var userName = UserStore.find(userId).username;
+	    if (typeof UserStore.find(userId) !== "undefined") {
+	      var userName = UserStore.find(userId).username;
+	    } else {
+	      var userName = this.props.product.author.username;
+	    }
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },

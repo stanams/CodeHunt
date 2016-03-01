@@ -29,7 +29,11 @@ var ProductsListItem = React.createClass({
 
   render: function(){
     var userId = this.props.product.author_id
+  if (typeof UserStore.find(userId) !== "undefined") {
     var userName = UserStore.find(userId).username;
+  } else {
+    var userName = this.props.product.author.username;
+  }
     return(
         <li className="index-products-list-item">
 
