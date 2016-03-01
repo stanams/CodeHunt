@@ -8,7 +8,7 @@ var ProfileProductsList = React.createClass({
   render: function(){
     debugger
     var productsList = this.props.user.products.map(function(product, idx){
-      return <ProductsListItem key={idx} productFromProfile={product} />;
+      return <ProductsListItem key={idx} product={product} />;
     })
     return(
       <ul>

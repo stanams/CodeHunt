@@ -32146,6 +32146,7 @@
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
+	var UserStore = __webpack_require__(262);
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32172,8 +32173,8 @@
 	  },
 	
 	  render: function () {
-	    debugger;
-	    var userName = typeof this.props.product.author.username === "undefined" ? "" : this.props.product.author.username;
+	    var userId = this.props.product.author_id;
+	    var userName = UserStore.find(userId).username;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -33144,7 +33145,7 @@
 	  render: function () {
 	    debugger;
 	    var productsList = this.props.user.products.map(function (product, idx) {
-	      return React.createElement(ProductsListItem, { key: idx, productFromProfile: product });
+	      return React.createElement(ProductsListItem, { key: idx, product: product });
 	    });
 	    return React.createElement(
 	      'ul',

@@ -3,6 +3,7 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
 var VoteButton = require('../votes/vote-button');
+var UserStore = require('../../stores/user_store');
 
 var ProductsListItem = React.createClass({
 
@@ -27,8 +28,8 @@ var ProductsListItem = React.createClass({
   },
 
   render: function(){
-    debugger
-var userName = (typeof this.props.product.author.username === "undefined") ? "" : this.props.product.author.username;
+    var userId = this.props.product.author_id
+    var userName = UserStore.find(userId).username;
     return(
         <li className="index-products-list-item">
 
