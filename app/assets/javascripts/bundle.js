@@ -32209,16 +32209,21 @@
 	
 	  render: function () {
 	    // debugger
-	    // var rightStyle = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
 	    var appropriateClass = typeof this.props.params === "undefined" ? "upvote-button" : "product-page-upvote-button";
+	    var rightStyle = typeof this.props.params === "undefined" ? "" : "count-vote-page";
+	    var rightStyleCount = typeof this.props.params === "undefined" ? "" : "number-of-votes";
 	    return React.createElement(
 	      'div',
 	      { onClick: this.handleVoteUp, className: appropriateClass },
-	      React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
 	      React.createElement(
-	        'p',
-	        null,
-	        this.state.vote_count
+	        'div',
+	        { className: rightStyle },
+	        React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
+	        React.createElement(
+	          'p',
+	          { className: rightStyleCount },
+	          this.state.vote_count
+	        )
 	      )
 	    );
 	  }
