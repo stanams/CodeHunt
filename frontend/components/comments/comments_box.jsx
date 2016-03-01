@@ -10,8 +10,8 @@ var CommentBox = React.createClass({
       <div className="comments-container">
         <h3 className="discussion-title">DISCUSSION</h3>
         <div className="form-and-comments">
-          <CommentForm productId={this.props.productId}/>
           <CommentList productId={this.props.productId}/>
+          <CommentForm productId={this.props.productId}/>
         </div>
       </div>
 

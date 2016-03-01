@@ -19,10 +19,10 @@ var VoteButton = React.createClass({
 
   componentWillReceiveProps: function(newProps) {
     this.setState({vote_count: newProps.productData.votes_count})
+    // I need this here because I've chosen to pass the theProduct
+    // props thanks to this.state.theProduct. And state is changing inside the page
+    // if I upvote, so I need to update that change of state.
   },
-  // I need this here because I've chosen to pass the theProduct
-  // props thanks to this.state.theProduct. And state is still the same.
-
 
   _onChange: function(){
     this.setState({
@@ -44,11 +44,8 @@ var VoteButton = React.createClass({
   },
 
   render: function(){
-    debugger
     var appropriateClass = (typeof this.props.params === "undefined") ? "upvote-button" : "product-page-upvote-button";
-    // var rightStyle = (typeof this.props.params === "undefined") ? "" : "count-vote-page";
     var rightStyleCount = (typeof this.props.params === "undefined") ? "" : "number-of-votes";
-    // var voteStatus = (this.props.productData.voted) ? "voted-vote" : "";
     var voteClasses = classNames({"voted-vote": this.props.productData.voted,
                                   "count-vote-page": this.props.params });
     return(

@@ -2,7 +2,7 @@ class Api::ProductsController < ApplicationController
 
   def index
     @current_user = current_user
-    @products = Product.includes(:comments, :votes_for).all
+    @products = Product.includes(:comments, :votes_for).all #.order(:votes_for.size)
   end
 
   def new

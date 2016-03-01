@@ -39,7 +39,7 @@ var CommentList = React.createClass({
         )
         }.bind(this))
       }
-    return _renderComments.reverse();
+    return _renderComments;
   },
 
   render: function(){
