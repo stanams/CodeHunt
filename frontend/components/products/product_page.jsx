@@ -6,7 +6,7 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var CommentBox = require('../comments/comments_box');
 var VotesBox = require('../votes/votes_box');
-var VoteButtonPage = require('../votes/vote-button-page');
+var VoteButton = require('../votes/vote-button');
 
 var ProductPage = React.createClass({
 
@@ -43,7 +43,7 @@ var ProductPage = React.createClass({
     if (!this.state.theProduct) {
       return <div>Loading...</div>;
     } else {
-      
+
     return(
         <div className="big-div-product-page">
           <Link to="/"><p className="leave-product-page-button">x</p></Link>
@@ -57,7 +57,7 @@ var ProductPage = React.createClass({
                   {this.state.theProduct.description}
                 </div>
                 <div className="btn-and-link">
-                  <VoteButtonPage voteCount={this.state.theProduct.votes_count}/>
+                  <VoteButton productData={this.state.theProduct}/>
 
                   <a className="try-it-btn"
                      href={this.state.theProduct.link}

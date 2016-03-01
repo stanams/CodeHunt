@@ -31948,6 +31948,28 @@
 	        VoteAction.createVote(productId);
 	      }
 	    });
+	  },
+	
+	  // createVoteFromProductPage?
+	
+	  // createVoteFromIndex: function(productId){
+	  //   $.ajax({
+	  //     url: "/api/products/" + productId + "/like",
+	  //     type: "POST",
+	  //     success: function(productId) {
+	  //       VoteAction.createVote(productId);
+	  //     },
+	  //   });
+	  // },
+	
+	  destroyVote: function (productId) {
+	    $.ajax({
+	      url: "/api/products/" + productId + "/like",
+	      type: "DELETE",
+	      success: function (productId) {
+	        VoteAction.destroyVote(productId);
+	      }
+	    });
 	  }
 	
 	};
@@ -32144,29 +32166,46 @@
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
+	var ProductStore = __webpack_require__(225);
 	
 	var VoteButton = React.createClass({
 	  displayName: 'VoteButton',
 	
 	
 	  getInitialState: function () {
-	    return { vote_count: this.props.productData.votes_count };
-	    // mettre ProductStore.find...  plutôt que d'utiliser la prop
+	    return { vote_count: ProductStore.find(this.props.productData.id).votes_count };
+	  },
+	
+	  componentDidMount: function () {
+	    if (this.props.productId) {
+	      ApiUtil.fetchSingleProduct(this.props.productId);
+	    } else {
+	      ApiUtil.fetchAllProducts();
+	    }
+	    this.productListener = ProductStore.addListener(this._onChange);
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.productListener.remove();
+	  },
+	
+	  _onChange: function () {
+	    this.setState({
+	      vote_count: ProductStore.find(this.props.productData.id).votes_count
+	    });
 	  },
 	
 	  handleVoteUp: function () {
 	    // debugger
-	    var productId = this.props.productData.id;
-	    var vote_state = this.state.vote_count === this.props.productData.votes_count ? "non voted" : "voted";
+	    var theProduct = ProductStore.find(this.props.productData.id);
+	    var productId = theProduct.id;
+	    var vote_state = this.state.vote_count === theProduct.votes_count ? "non voted" : "voted";
 	    if (vote_state === "non voted") {
-	
-	      // addLIstener on componentdidmount sur le product store
-	      // après le vote ça va suivre tout el flux cycle du product
-	
 	      this.setState({ vote_count: this.props.productData.votes_count + 1 });
 	      ApiUtil.createVote(productId);
 	    } else {
 	      this.setState({ vote_count: this.state.vote_count - 1 });
+	      ApiUtil.destroyVote(productId);
 	    }
 	  },
 	
@@ -32327,7 +32366,7 @@
 	var Link = ReactRouter.Link;
 	var CommentBox = __webpack_require__(262);
 	var VotesBox = __webpack_require__(263);
-	var VoteButtonPage = __webpack_require__(264);
+	var VoteButton = __webpack_require__(252);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32401,7 +32440,7 @@
 	              React.createElement(
 	                'div',
 	                { className: 'btn-and-link' },
-	                React.createElement(VoteButtonPage, { voteCount: this.state.theProduct.votes_count }),
+	                React.createElement(VoteButton, { productData: this.state.theProduct }),
 	                React.createElement(
 	                  'a',
 	                  { className: 'try-it-btn',
@@ -32802,46 +32841,7 @@
 	module.exports = VotesBox;
 
 /***/ },
-/* 264 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var VoteButtonPage = React.createClass({
-	  displayName: "VoteButtonPage",
-	
-	  getInitialState: function () {
-	    debugger;
-	    return { vote_count: this.props.voteCount };
-	  },
-	
-	  handleVoteUp: function () {
-	    var vote_state = this.state.vote_count === this.props.voteCount ? "non voted" : "voted";
-	    if (vote_state === "non voted") {
-	      this.setState({ vote_count: this.state.vote_count + 1 });
-	    } else {
-	      this.setState({ vote_count: this.state.vote_count - 1 });
-	    }
-	  },
-	
-	  render: function () {
-	    return React.createElement(
-	      "div",
-	      { onClick: this.handleVoteUp, className: "product-page-upvote-button" },
-	      React.createElement("i", { className: "fa fa-sort-asc up-icon-product-page" }),
-	      React.createElement(
-	        "p",
-	        { className: "product-page-votes-count" },
-	        this.state.vote_count
-	      )
-	    );
-	  }
-	
-	});
-	
-	module.exports = VoteButtonPage;
-
-/***/ },
+/* 264 */,
 /* 265 */
 /***/ function(module, exports, __webpack_require__) {
 

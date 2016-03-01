@@ -1,27 +1,43 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
+var ProductStore = require('../../stores/product_store');
 
 var VoteButton = React.createClass({
 
   getInitialState: function(){
-    return({vote_count: this.props.productData.votes_count});
-    // mettre ProductStore.find...  plutôt que d'utiliser la prop
+    return({vote_count: ProductStore.find(this.props.productData.id).votes_count});
+  },
+
+  componentDidMount: function(){
+    if (this.props.productId) {
+      ApiUtil.fetchSingleProduct(this.props.productId);
+    } else {
+      ApiUtil.fetchAllProducts();
+    }
+    this.productListener = ProductStore.addListener(this._onChange);
+  },
+
+  componentWillUnmount: function(){
+    this.productListener.remove();
+  },
+
+  _onChange: function(){
+    this.setState({
+      vote_count: ProductStore.find(this.props.productData.id).votes_count
+    })
   },
 
   handleVoteUp: function(){
     // debugger
-    var productId = this.props.productData.id;
-    var vote_state = (this.state.vote_count === this.props.productData.votes_count) ? "non voted" : "voted";
+    var theProduct = ProductStore.find(this.props.productData.id);
+    var productId = theProduct.id;
+    var vote_state = (this.state.vote_count === theProduct.votes_count) ? "non voted" : "voted";
     if (vote_state === "non voted") {
-
-      // addLIstener on componentdidmount sur le product store
-      // après le vote ça va suivre tout el flux cycle du product
-      
-
       this.setState({vote_count: this.props.productData.votes_count + 1});
       ApiUtil.createVote(productId);
     } else {
       this.setState({vote_count: this.state.vote_count - 1});
+      ApiUtil.destroyVote(productId);
     }
   },
 
