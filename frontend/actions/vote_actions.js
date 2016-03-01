@@ -14,3 +14,5 @@ module.exports = {
       product: product
     });
   }
+
+}

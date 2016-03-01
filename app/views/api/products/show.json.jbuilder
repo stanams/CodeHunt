@@ -6,3 +6,4 @@ json.author @product.user
 json.comments_count @product.comments.length
 json.votes_count @product.get_upvotes.size
 json.voters @product.votes_for.up.by_type(User)
+json.voted @product.votes_for.up.by_type(User).include?(current_user)

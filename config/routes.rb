@@ -10,7 +10,8 @@ Rails.application.routes.draw do
       resources :comments
 
       member do
-        put "like", to: "products#upvote"
+        post "like", to: "products#upvote"
+        delete "unlike", to: "products#downvote"
       end
 
     end

@@ -25115,6 +25115,7 @@
 	var ProductConstants = __webpack_require__(245);
 	var ProductStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
+	var VoteConstants = __webpack_require__(270);
 	
 	var _products = {};
 	
@@ -25156,6 +25157,14 @@
 	      ProductStore.__emitChange();
 	      break;
 	    case ProductConstants.PRODUCT_RECEIVED:
+	      resetProduct(payload.product);
+	      ProductStore.__emitChange();
+	      break;
+	    case VoteConstants.VOTE_CREATED:
+	      resetProduct(payload.product);
+	      ProductStore.__emitChange();
+	      break;
+	    case VoteConstants.VOTE_DESTROYED:
 	      resetProduct(payload.product);
 	      ProductStore.__emitChange();
 	      break;
@@ -31846,6 +31855,7 @@
 	var ProductActions = __webpack_require__(247);
 	var CommentActions = __webpack_require__(248);
 	var UserActions = __webpack_require__(249);
+	var VoteAction = __webpack_require__(268);
 	
 	module.exports = {
 	
@@ -31964,7 +31974,7 @@
 	
 	  destroyVote: function (productId) {
 	    $.ajax({
-	      url: "/api/products/" + productId + "/like",
+	      url: "/api/products/" + productId + "/unlike",
 	      type: "DELETE",
 	      success: function (productId) {
 	        VoteAction.destroyVote(productId);
@@ -32173,15 +32183,10 @@
 	
 	
 	  getInitialState: function () {
-	    return { vote_count: ProductStore.find(this.props.productData.id).votes_count };
+	    return { vote_count: this.props.productData.votes_count };
 	  },
 	
 	  componentDidMount: function () {
-	    if (this.props.productId) {
-	      ApiUtil.fetchSingleProduct(this.props.productId);
-	    } else {
-	      ApiUtil.fetchAllProducts();
-	    }
 	    this.productListener = ProductStore.addListener(this._onChange);
 	  },
 	
@@ -32191,15 +32196,15 @@
 	
 	  _onChange: function () {
 	    this.setState({
-	      vote_count: ProductStore.find(this.props.productData.id).votes_count
+	      vote_count: this.props.productData.votes_count
 	    });
 	  },
 	
 	  handleVoteUp: function () {
-	    // debugger
+	    debugger;
 	    var theProduct = ProductStore.find(this.props.productData.id);
 	    var productId = theProduct.id;
-	    var vote_state = this.state.vote_count === theProduct.votes_count ? "non voted" : "voted";
+	    var vote_state = this.props.productData.voted ? "voted" : "non voted";
 	    if (vote_state === "non voted") {
 	      this.setState({ vote_count: this.props.productData.votes_count + 1 });
 	      ApiUtil.createVote(productId);
@@ -32210,8 +32215,9 @@
 	  },
 	
 	  render: function () {
-	    // var classNamee = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
-	
+	    // debugger
+	    // var rightStyle = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
+	    // var appropriateClass = (this.props.params.productId) ? "product-page-upvote-button" : "upvote-button"
 	    return React.createElement(
 	      'div',
 	      { onClick: this.handleVoteUp, className: 'upvote-button' },
@@ -32961,6 +32967,39 @@
 	});
 	
 	module.exports = ProfileTab;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	
+	module.exports = {
+	  createVote: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: "VOTE_CREATED",
+	      product: product
+	    });
+	  },
+	
+	  destroyVote: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: "VOTE_DESTROYED",
+	      product: product
+	    });
+	  }
+	
+	};
+
+/***/ },
+/* 269 */,
+/* 270 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  VOTE_CREATED: "VOTE_CREATED",
+	  VOTE_DESTROYED: "VOTE_DESTROYED"
+	};
 
 /***/ }
 /******/ ]);

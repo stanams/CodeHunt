@@ -5,6 +5,7 @@ var Dispatcher = require('../dispatcher/dispatcher');
 var ProductConstants = require('../constants/product_constants');
 var ProductStore = new Store(Dispatcher);
 var ApiUtil = require('../util/api_util');
+var VoteConstants = require('../constants/vote_constants');
 
 
 
@@ -49,6 +50,14 @@ ProductStore.__onDispatch = function (payload) {
       ProductStore.__emitChange();
       break;
     case ProductConstants.PRODUCT_RECEIVED:
+      resetProduct(payload.product);
+      ProductStore.__emitChange();
+      break;
+    case VoteConstants.VOTE_CREATED:
+      resetProduct(payload.product);
+      ProductStore.__emitChange();
+      break;
+    case VoteConstants.VOTE_DESTROYED:
       resetProduct(payload.product);
       ProductStore.__emitChange();
       break;

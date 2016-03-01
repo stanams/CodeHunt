@@ -1,6 +1,7 @@
 var ProductActions = require('../actions/product_actions');
 var CommentActions = require("../actions/comment_actions");
 var UserActions = require("../actions/user_actions");
+var VoteAction = require("../actions/vote_actions");
 
 module.exports = {
 
@@ -110,7 +111,7 @@ fetchUsersByIds: function(idsArray){
 
 
   // createVoteFromProductPage?
-  
+
   // createVoteFromIndex: function(productId){
   //   $.ajax({
   //     url: "/api/products/" + productId + "/like",
@@ -123,7 +124,7 @@ fetchUsersByIds: function(idsArray){
 
   destroyVote: function(productId){
     $.ajax({
-      url: "/api/products/" + productId + "/like",
+      url: "/api/products/" + productId + "/unlike",
       type: "DELETE",
       success: function(productId) {
         VoteAction.destroyVote(productId);

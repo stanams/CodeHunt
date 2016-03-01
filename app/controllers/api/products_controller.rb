@@ -1,7 +1,8 @@
 class Api::ProductsController < ApplicationController
 
   def index
-    @products = Product.includes(:comments).all
+    @current_user = current_user
+    @products = Product.includes(:comments, :votes_for).all
   end
 
   def new
@@ -37,8 +38,13 @@ class Api::ProductsController < ApplicationController
 
   def upvote
     @product = Product.find(params[:id])
-    debugger
     @product.upvote_by current_user
+    render :show
+  end
+
+  def downvote
+    @product = Product.find(params[:id])
+    current_user.votes.where(votable_id: params[:id]).destroy_all
     render :show
   end
 

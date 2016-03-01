@@ -5,15 +5,10 @@ var ProductStore = require('../../stores/product_store');
 var VoteButton = React.createClass({
 
   getInitialState: function(){
-    return({vote_count: ProductStore.find(this.props.productData.id).votes_count});
+    return({vote_count: this.props.productData.votes_count});
   },
 
   componentDidMount: function(){
-    if (this.props.productId) {
-      ApiUtil.fetchSingleProduct(this.props.productId);
-    } else {
-      ApiUtil.fetchAllProducts();
-    }
     this.productListener = ProductStore.addListener(this._onChange);
   },
 
@@ -23,15 +18,15 @@ var VoteButton = React.createClass({
 
   _onChange: function(){
     this.setState({
-      vote_count: ProductStore.find(this.props.productData.id).votes_count
+      vote_count: this.props.productData.votes_count
     })
   },
 
   handleVoteUp: function(){
-    // debugger
+    debugger
     var theProduct = ProductStore.find(this.props.productData.id);
     var productId = theProduct.id;
-    var vote_state = (this.state.vote_count === theProduct.votes_count) ? "non voted" : "voted";
+    var vote_state = (this.props.productData.voted) ? "voted" : "non voted";
     if (vote_state === "non voted") {
       this.setState({vote_count: this.props.productData.votes_count + 1});
       ApiUtil.createVote(productId);
@@ -42,8 +37,9 @@ var VoteButton = React.createClass({
   },
 
   render: function(){
-    // var classNamee = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
-
+    // debugger
+    // var rightStyle = (this.state.vote_count === this.props.productData.votes_count) ? "upvote-button" : "upvote-button-clicked";
+    // var appropriateClass = (this.props.params.productId) ? "product-page-upvote-button" : "upvote-button"
     return(
       <div onClick={this.handleVoteUp} className="upvote-button">
         <i className="fa fa-sort-asc up-icon"></i>
