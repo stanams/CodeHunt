@@ -602,6 +602,10 @@ input[type="submit"]:hover {
   bottom: 1px;
 }
 
+.voted-vote {
+  color: #5687E9;
+}
+
 .count-vote-page {
   position: relative;
   bottom: 10px;

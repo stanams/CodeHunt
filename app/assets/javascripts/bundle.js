@@ -52,10 +52,10 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(254);
-	var ProductPage = __webpack_require__(255);
+	var ProductForm = __webpack_require__(256);
+	var ProductPage = __webpack_require__(257);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(265);
+	var ProfilePage = __webpack_require__(266);
 	
 	var routes = React.createElement(
 	  Route,
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(253);
+	var ProductPreview = __webpack_require__(255);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -25068,7 +25068,7 @@
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var ProductsListItem = __webpack_require__(251);
+	var ProductsListItem = __webpack_require__(253);
 	
 	var ProductsList = React.createClass({
 	  displayName: 'ProductsList',
@@ -25115,7 +25115,7 @@
 	var ProductConstants = __webpack_require__(245);
 	var ProductStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var VoteConstants = __webpack_require__(270);
+	var VoteConstants = __webpack_require__(252);
 	
 	var _products = {};
 	
@@ -31855,7 +31855,7 @@
 	var ProductActions = __webpack_require__(247);
 	var CommentActions = __webpack_require__(248);
 	var UserActions = __webpack_require__(249);
-	var VoteAction = __webpack_require__(268);
+	var VoteAction = __webpack_require__(251);
 	
 	module.exports = {
 	
@@ -32080,11 +32080,43 @@
 /* 251 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var Dispatcher = __webpack_require__(242);
+	
+	module.exports = {
+	  createVote: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: "VOTE_CREATED",
+	      product: product
+	    });
+	  },
+	
+	  destroyVote: function (product) {
+	    Dispatcher.dispatch({
+	      actionType: "VOTE_DESTROYED",
+	      product: product
+	    });
+	  }
+	
+	};
+
+/***/ },
+/* 252 */
+/***/ function(module, exports) {
+
+	module.exports = {
+	  VOTE_CREATED: "VOTE_CREATED",
+	  VOTE_DESTROYED: "VOTE_DESTROYED"
+	};
+
+/***/ },
+/* 253 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var React = __webpack_require__(1);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var VoteButton = __webpack_require__(252);
+	var VoteButton = __webpack_require__(254);
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32159,12 +32191,13 @@
 	// <p>{this.props.product.comments.length} comments</p>
 
 /***/ },
-/* 252 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
 	var ProductStore = __webpack_require__(225);
+	var classNames = __webpack_require__(269);
 	
 	var VoteButton = React.createClass({
 	  displayName: 'VoteButton',
@@ -32208,16 +32241,19 @@
 	  },
 	
 	  render: function () {
-	    // debugger
+	    debugger;
 	    var appropriateClass = typeof this.props.params === "undefined" ? "upvote-button" : "product-page-upvote-button";
-	    var rightStyle = typeof this.props.params === "undefined" ? "" : "count-vote-page";
+	    // var rightStyle = (typeof this.props.params === "undefined") ? "" : "count-vote-page";
 	    var rightStyleCount = typeof this.props.params === "undefined" ? "" : "number-of-votes";
+	    // var voteStatus = (this.props.productData.voted) ? "voted-vote" : "";
+	    var voteClasses = classNames({ "voted-vote": this.props.productData.voted,
+	      "count-vote-page": this.props.params });
 	    return React.createElement(
 	      'div',
 	      { onClick: this.handleVoteUp, className: appropriateClass },
 	      React.createElement(
 	        'div',
-	        { className: rightStyle },
+	        { className: voteClasses },
 	        React.createElement('i', { className: 'fa fa-sort-asc up-icon' }),
 	        React.createElement(
 	          'p',
@@ -32234,7 +32270,7 @@
 	// # put "api/poducts/1/like"
 
 /***/ },
-/* 253 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32250,7 +32286,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 254 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32359,18 +32395,18 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 255 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(256);
+	var CommentList = __webpack_require__(258);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(262);
-	var VotesBox = __webpack_require__(263);
-	var VoteButton = __webpack_require__(252);
+	var CommentBox = __webpack_require__(264);
+	var VotesBox = __webpack_require__(265);
+	var VoteButton = __webpack_require__(254);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32476,14 +32512,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 256 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(257);
+	var CommentStore = __webpack_require__(259);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(259);
-	var CommentForm = __webpack_require__(261);
+	var CommentListItem = __webpack_require__(261);
+	var CommentForm = __webpack_require__(263);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32540,7 +32576,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32549,7 +32585,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(258);
+	var CommentConstants = __webpack_require__(260);
 	
 	var _comments = {};
 	
@@ -32600,7 +32636,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32611,12 +32647,12 @@
 	};
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var UserStore = __webpack_require__(260);
+	var UserStore = __webpack_require__(262);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32678,7 +32714,7 @@
 	// Add the commenter name
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var Dispatcher = __webpack_require__(242);
@@ -32728,7 +32764,7 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32784,14 +32820,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(261);
-	var CommentList = __webpack_require__(256);
+	var CommentForm = __webpack_require__(263);
+	var CommentList = __webpack_require__(258);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32818,7 +32854,7 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32845,17 +32881,16 @@
 	module.exports = VotesBox;
 
 /***/ },
-/* 264 */,
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var UserStore = __webpack_require__(260);
+	var UserStore = __webpack_require__(262);
 	var ApiUtil = __webpack_require__(246);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var ProfileInfos = __webpack_require__(266);
-	var ProfileTab = __webpack_require__(267);
+	var ProfileInfos = __webpack_require__(267);
+	var ProfileTab = __webpack_require__(268);
 	var Header = __webpack_require__(161);
 	
 	var ProfilePage = React.createClass({
@@ -32911,7 +32946,7 @@
 	module.exports = ProfilePage;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32937,7 +32972,7 @@
 	module.exports = ProfileInfos;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32967,37 +33002,58 @@
 	module.exports = ProfileTab;
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
 	
-	module.exports = {
-	  createVote: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: "VOTE_CREATED",
-	      product: product
-	    });
-	  },
+	(function () {
+		'use strict';
 	
-	  destroyVote: function (product) {
-	    Dispatcher.dispatch({
-	      actionType: "VOTE_DESTROYED",
-	      product: product
-	    });
-	  }
+		var hasOwn = {}.hasOwnProperty;
 	
-	};
+		function classNames () {
+			var classes = [];
+	
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+	
+				var argType = typeof arg;
+	
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+	
+			return classes.join(' ');
+		}
+	
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
 
-/***/ },
-/* 269 */,
-/* 270 */
-/***/ function(module, exports) {
-
-	module.exports = {
-	  VOTE_CREATED: "VOTE_CREATED",
-	  VOTE_DESTROYED: "VOTE_DESTROYED"
-	};
 
 /***/ }
 /******/ ]);

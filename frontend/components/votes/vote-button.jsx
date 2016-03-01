@@ -1,6 +1,7 @@
 var React = require('react');
 var ApiUtil = require('../../util/api_util');
 var ProductStore = require('../../stores/product_store');
+var classNames = require('classnames');
 
 var VoteButton = React.createClass({
 
@@ -43,13 +44,16 @@ var VoteButton = React.createClass({
   },
 
   render: function(){
-    // debugger
+    debugger
     var appropriateClass = (typeof this.props.params === "undefined") ? "upvote-button" : "product-page-upvote-button";
-    var rightStyle = (typeof this.props.params === "undefined") ? "" : "count-vote-page";
+    // var rightStyle = (typeof this.props.params === "undefined") ? "" : "count-vote-page";
     var rightStyleCount = (typeof this.props.params === "undefined") ? "" : "number-of-votes";
+    // var voteStatus = (this.props.productData.voted) ? "voted-vote" : "";
+    var voteClasses = classNames({"voted-vote": this.props.productData.voted,
+                                  "count-vote-page": this.props.params });
     return(
       <div onClick={this.handleVoteUp} className={appropriateClass}>
-        <div className={rightStyle}>
+        <div className={voteClasses}>
           <i className="fa fa-sort-asc up-icon"></i>
           <p className={rightStyleCount}>{this.state.vote_count}</p>
         </div>
