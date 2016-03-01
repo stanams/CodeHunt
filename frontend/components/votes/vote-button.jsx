@@ -16,6 +16,13 @@ var VoteButton = React.createClass({
     this.productListener.remove();
   },
 
+  componentWillReceiveProps: function(newProps) {
+    this.setState({vote_count: newProps.productData.votes_count})
+  },
+  // I need this here because I've chosen to pass the theProduct
+  // props thanks to this.state.theProduct. And state is still the same.
+
+
   _onChange: function(){
     this.setState({
       vote_count: this.props.productData.votes_count
