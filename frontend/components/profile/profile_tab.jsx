@@ -1,14 +1,15 @@
 var React = require('react');
+var TabLabels = require('./tab_labels');
 
 var ProfileTab = React.createClass({
   render: function(){
     return(
       <div className="profile-tabs">
         <div>
-          products voted
+          <TabLabels/>
         </div>
         <div>
-          products posted
+          LabelledProducts
         </div>
       </div>
     );

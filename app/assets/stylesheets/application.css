@@ -841,11 +841,46 @@ li {
 
 .profile-tabs {
   border: 1px solid black;
+  border-bottom: none;
   width: 70%;
   height: 100%;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  bottom: 42px;
+  bottom: 60px;
   border-radius: 3px;
+}
+
+.tab-label-container {
+  height: 60px;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  /*position:relative;*/
+}
+
+.votes-tab {
+  float:left;
+  position:relative;
+  width: 250px;
+  height: 60px;
+  padding-top: 20px;
+  color: #C4BFA7;
+  font-size: 16px;
+  font-family: Roboto;
+  border: 1px #eee solid;
+}
+
+.posts-tab {
+  float:right;
+  position:relative;
+  width: 250px;
+  height: 60px;
+  padding-top: 20px;
+  color: #C4BFA7;
+  font-size: 16px;
+  font-family: Roboto;
+  border: 1px #eee solid;
+  /*background-color: #756A66;*/
 }

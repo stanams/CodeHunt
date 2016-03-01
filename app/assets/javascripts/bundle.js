@@ -32974,23 +32974,24 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var TabLabels = __webpack_require__(270);
 	
 	var ProfileTab = React.createClass({
-	  displayName: "ProfileTab",
+	  displayName: 'ProfileTab',
 	
 	  render: function () {
 	    return React.createElement(
-	      "div",
-	      { className: "profile-tabs" },
+	      'div',
+	      { className: 'profile-tabs' },
 	      React.createElement(
-	        "div",
+	        'div',
 	        null,
-	        "products voted"
+	        React.createElement(TabLabels, null)
 	      ),
 	      React.createElement(
-	        "div",
+	        'div',
 	        null,
-	        "products posted"
+	        'LabelledProducts'
 	      )
 	    );
 	  }
@@ -33052,6 +33053,47 @@
 		}
 	}());
 
+
+/***/ },
+/* 270 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var TabLabels = React.createClass({
+	  displayName: "TabLabels",
+	
+	  getInitialState: function () {
+	    return { selectedTab: "Votes" };
+	  },
+	
+	  clickOnPostsTab: function () {
+	    this.setState({ selectedTab: "Posts" });
+	  },
+	
+	  clickOnVotesTab: function () {
+	    this.setState({ selectedTab: "Votes" });
+	  },
+	
+	  render: function () {
+	    return React.createElement(
+	      "ul",
+	      { className: "tab-label-container" },
+	      React.createElement(
+	        "li",
+	        { className: "votes-tab", onClick: this.clickOnVotesTab },
+	        "Votes"
+	      ),
+	      React.createElement(
+	        "li",
+	        { className: "posts-tab", onClick: this.clickOnPostsTab },
+	        "Posts"
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = TabLabels;
 
 /***/ }
 /******/ ]);
