@@ -33154,7 +33154,6 @@
 	
 	  render: function () {
 	    if (this.props.selectedTab === "Votes") {
-	      // sort the productsList first! this.props.user.voted_products.sort()
 	      var productsList = this.props.user.voted_products.map(function (product, idx) {
 	        return React.createElement(ProductsListItem, { key: idx, product: product });
 	      });
@@ -33165,13 +33164,39 @@
 	    }
 	    return React.createElement(
 	      'ul',
-	      { className: 'product-list-wrapper-profile-page' },
+	      null,
 	      productsList
 	    );
 	  }
 	});
 	
 	module.exports = ProfileProductsList;
+	// var votedProdcutsSorted = this.props.user.voted_products.sort(function(a, b){
+	//   if (a.votes_count < b.votes_count) {
+	//     return 1;
+	//   } else if (a.votes_count >= b.votes_count) {
+	//     return -1;
+	//   } else {
+	//     return 0;
+	//   }
+	// };
+	// var productsList = votedProdcutsSorted.map(function(product, idx){
+	//   return <ProductsListItem key={idx} product={product} />
+	//   });
+	//
+	//
+	//   var votedProdcutsSorted = this.props.user.products.sort(function(a, b){
+	//     if (a.votes_count < b.votes_count) {
+	//       return 1;
+	//     } else if (a.votes_count >= b.votes_count) {
+	//       return -1;
+	//     } else {
+	//       return 0;
+	//     }
+	//   };
+	//   var productsList = votedProdcutsSorted.map(function(product, idx){
+	//     return <ProductsListItem key={idx} product={product} />
+	//     });
 
 /***/ }
 /******/ ]);

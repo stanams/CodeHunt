@@ -893,7 +893,7 @@ li {
 .votes-tab {
   float:left;
   position:relative;
-  width: 250px;
+  width: 230px;
   height: 60px;
   padding-top: 20px;
   color: #C4BFA7;
@@ -901,12 +901,13 @@ li {
   font-family: Roboto;
   border-right: 1px #eee solid;
   cursor: pointer;
+  text-align: center;
 }
 
 .posts-tab {
   float:right;
   position:relative;
-  width: 250px;
+  width: 230px;
   height: 60px;
   padding-top: 20px;
   color: #C4BFA7;
@@ -915,4 +916,5 @@ li {
   /*border-left: 1px #eee solid;*/
   cursor: pointer;
   /*background-color: #756A66;*/
+  text-align: center;
 }
