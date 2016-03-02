@@ -6,6 +6,7 @@ json.username @user.username
 json.bio @user.bio
 json.products @user.products do |product|
   json.author_id product.author_id
+  json.author product.user
   json.category product.category
   json.created_at product.created_at
   json.description product.description
@@ -19,6 +20,7 @@ json.products @user.products do |product|
 end
 json.voted_products @user.find_up_voted_items do |product|
   json.author_id product.author_id
+  json.author product.user
   json.category product.category
   json.created_at product.created_at
   json.description product.description

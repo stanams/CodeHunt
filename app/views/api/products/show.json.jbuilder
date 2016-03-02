@@ -1,4 +1,5 @@
 json.author_id @product.author_id
+json.author @product.user
 json.category @product.category
 json.created_at @product.created_at
 json.description @product.description
