@@ -10,11 +10,19 @@
 
 (1..40).to_a.each { |i|
   Comment.create!(
-  commenter_id: 1,
+  commenter_id: rand(1..12),
   body: "co" + (["o", "o", "o", "o", "o"].sample(rand(1..5)).join("")) + "l" + " stuff",
   product_id: rand(1..19)
   )
 }
+
+30.times do
+  User.create!(
+  username: Faker::Name.name,
+  bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
+  product_id: rand(1..19)
+  )
+end
 
 # ["ruby gem", "chrome extension", "atom package", "js lib", "js framework", "codec", "algorithms", "api"]
 
