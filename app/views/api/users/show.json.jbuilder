@@ -15,6 +15,7 @@ json.products @user.products do |product|
   json.name product.name
   json.updated_at product.updated_at
   json.votes_count product.get_upvotes.size
+  json.voted product.votes_for.up.by_type(User).map{|vote| vote.voter_id}.include?(current_user.id)
 end
 json.voted_products @user.find_up_voted_items do |product|
   json.author_id product.author_id
@@ -27,5 +28,6 @@ json.voted_products @user.find_up_voted_items do |product|
   json.name product.name
   json.updated_at product.updated_at
   json.votes_count product.get_upvotes.size
+  json.voted product.votes_for.up.by_type(User).map{|vote| vote.voter_id}.include?(current_user.id)
 end
 # json.votes_count @user.products.

@@ -32177,7 +32177,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	
 	    var userId = this.props.product.author_id;
 	    if (typeof UserStore.find(userId) !== "undefined") {
 	      var userName = UserStore.find(userId).username;
@@ -32265,15 +32265,16 @@
 	  },
 	
 	  _onChange: function () {
-	    this.setState({
-	      vote_count: this.props.productData.votes_count
-	    });
+	    // this.setState({
+	    //   vote_count: this.props.productData.votes_count
+	    // })
 	  },
 	
 	  handleVoteUp: function () {
+	
 	    debugger;
-	    var theProduct = ProductStore.find(this.props.productData.id);
-	    var productId = theProduct.id;
+	    // var theProduct = ProductStore.find(this.props.productData.id);
+	    var productId = this.props.productData.id;
 	    if (this.props.productData.voted) {
 	      this.setState({ vote_count: this.state.vote_count - 1 });
 	      ApiUtil.destroyVote(productId);
@@ -32284,7 +32285,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	
 	    var appropriateClass = typeof this.props.params === "undefined" ? "upvote-button" : "product-page-upvote-button";
 	    var rightStyleCount = typeof this.props.params === "undefined" ? "" : "number-of-votes";
 	    var voteClasses = classNames({ "voted-vote": this.props.productData.voted,
@@ -32582,6 +32583,7 @@
 	  },
 	
 	  render: function () {
+	    debugger;
 	    if (!this.state.theProduct) {
 	      return React.createElement(
 	        'div',
@@ -32967,15 +32969,13 @@
 	        { className: "votes-title" },
 	        this.props.productData.votes_count,
 	        " VOTES"
-	      )
+	      ),
+	      React.createElement("div", null)
 	    );
 	  }
 	});
 	
 	module.exports = VotesBox;
-	
-	// className="votes-container"
-	// className="votes-title"
 
 /***/ },
 /* 267 */
@@ -33052,7 +33052,7 @@
 	
 	
 	  render: function () {
-	    debugger;
+	
 	    return React.createElement(
 	      "div",
 	      { className: "profile-info-container" },
@@ -33079,11 +33079,11 @@
 	  displayName: 'ProfileTab',
 	
 	  render: function () {
-	    debugger;
+	
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-tabs' },
-	      React.createElement(TabLabels, { user: this.props.user, products: this.props })
+	      React.createElement(TabLabels, { user: this.props.user, products: this.props.user.products })
 	    );
 	  }
 	
@@ -33113,26 +33113,27 @@
 	    this.setState({ selectedTab: "Votes" });
 	  },
 	
-	  decideClick: function () {
-	    if (this.state.selectedTab === "Votes") {
-	      this.clickOnPostsTab();
-	    } else {
-	      this.clickOnVotesTab();
-	    }
-	  },
-	
 	  render: function () {
 	    var rightClass = this.state.selectedTab === "Votes" ? "votes-tab" : "posts-tab";
 	
 	    return React.createElement(
-	      'ul',
-	      { className: 'tab-label-container' },
+	      'div',
+	      null,
 	      React.createElement(
-	        'li',
-	        { className: rightClass, onClick: this.decideClick },
-	        this.state.selectedTab
+	        'ul',
+	        { className: 'tab-label-container' },
+	        React.createElement(
+	          'li',
+	          { className: 'votes-tab', onClick: this.clickOnVotesTab },
+	          'Votes'
+	        ),
+	        React.createElement(
+	          'li',
+	          { className: 'posts-tab', onClick: this.clickOnPostsTab },
+	          'Posts'
+	        )
 	      ),
-	      React.createElement(ProfileProductsList, { selectedTab: this.state.selectedTab, user: this.props.user, products: this.props })
+	      React.createElement(ProfileProductsList, { selectedTab: this.state.selectedTab, user: this.props.user, products: this.props.products })
 	    );
 	  }
 	});

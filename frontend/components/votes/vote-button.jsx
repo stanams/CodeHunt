@@ -25,15 +25,16 @@ var VoteButton = React.createClass({
   },
 
   _onChange: function(){
-    this.setState({
-      vote_count: this.props.productData.votes_count
-    })
+    // this.setState({
+    //   vote_count: this.props.productData.votes_count
+    // })
   },
 
   handleVoteUp: function(){
+
     debugger
-    var theProduct = ProductStore.find(this.props.productData.id);
-    var productId = theProduct.id;
+    // var theProduct = ProductStore.find(this.props.productData.id);
+    var productId = this.props.productData.id;
     if (this.props.productData.voted) {
       this.setState({vote_count: this.state.vote_count - 1});
       ApiUtil.destroyVote(productId);
@@ -44,7 +45,7 @@ var VoteButton = React.createClass({
   },
 
   render: function(){
-    debugger
+
     var appropriateClass = (typeof this.props.params === "undefined") ? "upvote-button" : "product-page-upvote-button";
     var rightStyleCount = (typeof this.props.params === "undefined") ? "" : "number-of-votes";
     var voteClasses = classNames({"voted-vote": this.props.productData.voted,

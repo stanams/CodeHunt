@@ -1,9 +1,11 @@
-json.id @product.id
-json.name @product.name
+json.author_id @product.author_id
+json.category @product.category
+json.created_at @product.created_at
 json.description @product.description
+json.id @product.id
+json.image @product.image
 json.link @product.link
-json.author @product.user
-json.comments_count @product.comments.length
+json.name @product.name
+json.updated_at @product.updated_at
 json.votes_count @product.get_upvotes.size
-json.voters @product.votes_for.up.by_type(User)
-json.voted @product.votes_for.up.by_type(User).map{|vote| vote.voter_id}.include?(@current_user.id)
+json.voted @product.votes_for.up.by_type(User).map{|vote| vote.voter_id}.include?(current_user.id)

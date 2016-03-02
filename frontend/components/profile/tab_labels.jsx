@@ -14,22 +14,17 @@ var TabLabels = React.createClass({
     this.setState({selectedTab: "Votes"});
   },
 
-  decideClick: function(){
-    if (this.state.selectedTab === "Votes") {
-      this.clickOnPostsTab();
-    } else {
-      this.clickOnVotesTab();
-    }
-  },
-
   render: function(){
     var rightClass = (this.state.selectedTab === "Votes") ? "votes-tab" : "posts-tab";
 
     return(
-      <ul className="tab-label-container">
-        <li className={rightClass} onClick={this.decideClick}>{this.state.selectedTab}</li>
-          <ProfileProductsList selectedTab={this.state.selectedTab} user={this.props.user} products={this.props}/>
-      </ul>
+      <div>
+        <ul className="tab-label-container">
+          <li className="votes-tab" onClick={this.clickOnVotesTab}>Votes</li>
+          <li className="posts-tab" onClick={this.clickOnPostsTab}>Posts</li>
+        </ul>
+        <ProfileProductsList selectedTab={this.state.selectedTab} user={this.props.user} products={this.props.products}/>
+      </div>
 
     );
   }

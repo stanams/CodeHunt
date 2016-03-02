@@ -40,6 +40,7 @@ var ProductPage = React.createClass({
   },
 
   render: function(){
+    debugger
     if (!this.state.theProduct) {
       return <div>Loading...</div>;
     } else {
