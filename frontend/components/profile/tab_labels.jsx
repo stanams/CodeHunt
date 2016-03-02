@@ -21,18 +21,22 @@ var TabLabels = React.createClass({
       <div>
         <ul className="tab-label-container">
           <li className="votes-tab" onClick={this.clickOnVotesTab}>
-            <div className="inside-text-tab">
+            <span className="tab-label">
               {this.props.user.voted_products.length}
-              <br></br>
+            </span>
+            <br></br>
+            <span className="tab-label">
               Votes
-            </div>
+            </span>
           </li>
           <li className="posts-tab" onClick={this.clickOnPostsTab}>
-            <div className="inside-text-tab">
+            <span className="tab-label">
               {this.props.user.products.length}
-              <br></br>
+            </span>
+            <br></br>
+            <span className="tab-label">
               Posts
-            </div>
+            </span>
           </li>
         </ul>
         <ProfileProductsList selectedTab={this.state.selectedTab} user={this.props.user} products={this.props.products}/>

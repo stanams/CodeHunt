@@ -63,8 +63,7 @@ var ProductForm = React.createClass({
             </div>
 
             <br/>
-            <button id="upload_widget_opener_product"></button>
-            // TODO WIDGET CLOUDINARY
+          
           </div>
           <input className="btn btn-primary form-submit-button"
                  type="submit"

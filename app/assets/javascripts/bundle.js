@@ -32527,9 +32527,7 @@
 	              placeholder: 'https://webpack.github.io/docs/',
 	              valueLink: this.linkState('link') })
 	          ),
-	          React.createElement('br', null),
-	          React.createElement('button', { id: 'upload_widget_opener_product' }),
-	          '// TODO WIDGET CLOUDINARY'
+	          React.createElement('br', null)
 	        ),
 	        React.createElement('input', { className: 'btn btn-primary form-submit-button',
 	          type: 'submit',
@@ -33128,10 +33126,14 @@
 	          'li',
 	          { className: 'votes-tab', onClick: this.clickOnVotesTab },
 	          React.createElement(
-	            'div',
-	            { className: 'inside-text-tab' },
-	            this.props.user.voted_products.length,
-	            React.createElement('br', null),
+	            'span',
+	            { className: 'tab-label' },
+	            this.props.user.voted_products.length
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'span',
+	            { className: 'tab-label' },
 	            'Votes'
 	          )
 	        ),
@@ -33139,10 +33141,14 @@
 	          'li',
 	          { className: 'posts-tab', onClick: this.clickOnPostsTab },
 	          React.createElement(
-	            'div',
-	            { className: 'inside-text-tab' },
-	            this.props.user.products.length,
-	            React.createElement('br', null),
+	            'span',
+	            { className: 'tab-label' },
+	            this.props.user.products.length
+	          ),
+	          React.createElement('br', null),
+	          React.createElement(
+	            'span',
+	            { className: 'tab-label' },
 	            'Posts'
 	          )
 	        )
