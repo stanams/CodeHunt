@@ -32601,11 +32601,11 @@
 	            'section',
 	            { className: 'product-page-info' },
 	            React.createElement(
-	              'p',
-	              { className: 'leave-product-page-button' },
+	              Link,
+	              { to: '/' },
 	              React.createElement(
-	                Link,
-	                { to: '/' },
+	                'p',
+	                { className: 'leave-product-page-button' },
 	                'x'
 	              )
 	            ),
