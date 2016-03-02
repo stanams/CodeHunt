@@ -33154,6 +33154,7 @@
 	
 	  render: function () {
 	    if (this.props.selectedTab === "Votes") {
+	      // sort the productsList first! this.props.user.voted_products.sort()
 	      var productsList = this.props.user.voted_products.map(function (product, idx) {
 	        return React.createElement(ProductsListItem, { key: idx, product: product });
 	      });
@@ -33164,7 +33165,7 @@
 	    }
 	    return React.createElement(
 	      'ul',
-	      null,
+	      { className: 'product-list-wrapper-profile-page' },
 	      productsList
 	    );
 	  }

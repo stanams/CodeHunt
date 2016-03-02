@@ -191,6 +191,8 @@ background-image: image_path("logo_canva.jpg");
 .item-wrapper {
   position: relative;
   bottom: 40px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .item-title-description {
@@ -232,6 +234,9 @@ li.index-products-list-item:hover {
   background-color: rgba(255, 215, 3, 0.2);
   color: black;
   border-radius: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
 }
 
 .name-container {
@@ -866,6 +871,12 @@ li {
   border-radius: 3px;
 }
 
+.product-list-wrapper-profile-page {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .tab-label-container {
   height: 61px;
   width: 510px;
@@ -875,6 +886,7 @@ li {
   border: 1px #EEEEEE solid;
   border-radius: 4px;
   border-bottom: none;
+  /*text-align: center;*/
   /*position:relative;*/
 }
 

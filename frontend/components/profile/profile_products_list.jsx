@@ -7,6 +7,7 @@ var ProfileProductsList = React.createClass({
 
   render: function(){
     if (this.props.selectedTab === "Votes") {
+      // sort the productsList first! this.props.user.voted_products.sort()
       var productsList = this.props.user.voted_products.map(function(product, idx){
         return <ProductsListItem key={idx} product={product} />
         });
@@ -16,8 +17,8 @@ var ProfileProductsList = React.createClass({
         });
     }
     return(
-      <ul>
-            {productsList}
+      <ul className="product-list-wrapper-profile-page">
+        {productsList}
       </ul>
 
 
