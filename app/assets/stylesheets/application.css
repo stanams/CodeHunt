@@ -281,6 +281,8 @@ li.index-products-list-item:hover {
   margin: 0;
   position: relative;
   left: 100px;
+  margin-right: 40px;
+  float: lzft;
 
 }
 
@@ -869,6 +871,13 @@ li {
   position: relative;
   bottom: 60px;
   border-radius: 3px;
+}
+
+.inside-text-tab {
+  position: relative;
+  bottom: 35px;
+  height: 60px;
+  padding: 15px;
 }
 
 .product-list-wrapper-profile-page {

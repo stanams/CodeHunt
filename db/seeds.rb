@@ -26,6 +26,7 @@ description: 'A ruby debugging tool with crazy features',
 link: 'http://pryrepl.org/',
 author_id: 1,
 category: "ruby gem"
+# image: "/assets/ruby2"
 )
 
 Product.create!(

@@ -32527,7 +32527,9 @@
 	              placeholder: 'https://webpack.github.io/docs/',
 	              valueLink: this.linkState('link') })
 	          ),
-	          React.createElement('br', null)
+	          React.createElement('br', null),
+	          React.createElement('button', { id: 'upload_widget_opener_product' }),
+	          '// TODO WIDGET CLOUDINARY'
 	        ),
 	        React.createElement('input', { className: 'btn btn-primary form-submit-button',
 	          type: 'submit',
@@ -33125,12 +33127,24 @@
 	        React.createElement(
 	          'li',
 	          { className: 'votes-tab', onClick: this.clickOnVotesTab },
-	          'Votes'
+	          React.createElement(
+	            'div',
+	            { className: 'inside-text-tab' },
+	            this.props.user.voted_products.length,
+	            React.createElement('br', null),
+	            'Votes'
+	          )
 	        ),
 	        React.createElement(
 	          'li',
 	          { className: 'posts-tab', onClick: this.clickOnPostsTab },
-	          'Posts'
+	          React.createElement(
+	            'div',
+	            { className: 'inside-text-tab' },
+	            this.props.user.products.length,
+	            React.createElement('br', null),
+	            'Posts'
+	          )
 	        )
 	      ),
 	      React.createElement(ProfileProductsList, { selectedTab: this.state.selectedTab, user: this.props.user, products: this.props.products })
