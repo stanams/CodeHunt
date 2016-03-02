@@ -829,10 +829,11 @@ li {
 
 .votes-count-container-product-page {
   float: right;
-  width: 200px;
+  width: 25%;
   height: 100%;
   position: relative;
-	display: inline;
+	right: 5%;
+	/*display: inline;*/
   /*position: absolute;*/
 }
 
