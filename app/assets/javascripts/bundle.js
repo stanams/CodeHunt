@@ -32177,7 +32177,6 @@
 	  },
 	
 	  render: function () {
-	    debugger;
 	    var userId = this.props.product.author_id;
 	    if (typeof UserStore.find(userId) !== "undefined") {
 	      var userName = UserStore.find(userId).username;
@@ -32596,20 +32595,20 @@
 	        'div',
 	        { className: 'big-div-product-page' },
 	        React.createElement(
-	          Link,
-	          { to: '/' },
-	          React.createElement(
-	            'p',
-	            { className: 'leave-product-page-button' },
-	            'x'
-	          )
-	        ),
-	        React.createElement(
 	          'div',
 	          { className: 'product-page-container' },
 	          React.createElement(
 	            'section',
 	            { className: 'product-page-info' },
+	            React.createElement(
+	              'p',
+	              { className: 'leave-product-page-button' },
+	              React.createElement(
+	                Link,
+	                { to: '/' },
+	                'x'
+	              )
+	            ),
 	            React.createElement(
 	              'div',
 	              { className: 'product-info-wrapper' },

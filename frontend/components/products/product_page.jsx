@@ -47,9 +47,9 @@ var ProductPage = React.createClass({
 
     return(
         <div className="big-div-product-page">
-          <Link to="/"><p className="leave-product-page-button">x</p></Link>
           <div className="product-page-container">
             <section className="product-page-info">
+              <p className="leave-product-page-button"><Link to="/">x</Link></p>
               <div className="product-info-wrapper">
                 <div className="product-name-product-page">
                   {this.state.theProduct.name}

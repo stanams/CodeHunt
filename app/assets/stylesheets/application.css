@@ -23,7 +23,7 @@
    License: none (public domain)
 */
 
-html, body, div, span, applet, object, iframe,
+/*html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
@@ -42,9 +42,9 @@ time, mark, audio, video {
 	font-size: 100%;
 	font: inherit;
 	vertical-align: baseline;
-}
+}*/
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure,
+/*article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
 	display: block;
 }
@@ -65,7 +65,7 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
-}
+}*/
 /*
 
 */
@@ -453,11 +453,11 @@ li.index-products-list-item:hover {
     border-radius: 50%;
   	width: 50px;
   	height: 50px;
-    /*margin: 10px;*/
+    margin: 10px;
     position: relative;
-    left: 200px;
+    left: 70px;
     display: inline-block;
-    transform: translateY(-220%);
+    transform: translateY(-340%);
     padding: 1px;
     font-size: 30px;
     text-align: center;
@@ -729,11 +729,13 @@ input[type="submit"]:hover {
   border-radius: 50%;
   width: 50px;
   height: 50px;
+	position: absolute;
+	z-index: 1;
   /*margin: 10px;*/
-  position: relative;
+  /*position: relative;*/
   left: 100px;
   display: inline-block;
-  transform: translateY(150%);
+  transform: translateY(50%);
   padding: 1px;
   font-size: 30px;
   text-align: center;
@@ -745,13 +747,14 @@ input[type="submit"]:hover {
 /*Comments on product page*/
 
 .comments-container {
-  position: relative;
   border-right: 1px #F2F2F2 solid;
   width: 60%;
   margin: 0;
   height: 100%;
   position: relative;
   left: 100px;
+	display: inline;
+	float: left;
 }
 
 .form-and-comments {
@@ -829,8 +832,7 @@ li {
   width: 200px;
   height: 100%;
   position: relative;
-  bottom: 800px;
-  right: 250px;
+	display: inline;
   /*position: absolute;*/
 }
 
