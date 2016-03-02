@@ -16,7 +16,7 @@ var ProfileProductsList = React.createClass({
         });
     }
     return(
-      <ul className="tab-label-container">
+      <ul>
             {productsList}
       </ul>
 

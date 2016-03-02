@@ -33164,7 +33164,7 @@
 	    }
 	    return React.createElement(
 	      'ul',
-	      { className: 'tab-label-container' },
+	      null,
 	      productsList
 	    );
 	  }
