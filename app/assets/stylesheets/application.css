@@ -954,7 +954,7 @@ li {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  border: 1px #EEEEEE solid;
+  /*border: 1px #EEEEEE solid;*/
   border-radius: 4px;
   border-bottom: none;
   /*text-align: center;*/
@@ -973,9 +973,25 @@ li {
   border-right: 1px #eee solid;
   cursor: pointer;
   text-align: center;
+  border-top: 1px #eeeeee solid;
+  border-left: 1px #eeeeee solid;
+  border-right: 1px #eeeeee solid;
+  border-radius: 4px;
+}
+
+.votes-tab:hover {
+  background-color: #756A66;
+}
+
+.posts-tab:hover {
+  background-color: #756A66;
 }
 
 .posts-tab {
+  border-radius: 4px;
+  border-top: 1px #eeeeee solid;
+  border-left: 1px #eeeeee solid;
+  border-right: 1px #eeeeee solid;
   float:right;
   position:relative;
   width: 230px;
