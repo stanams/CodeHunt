@@ -10,11 +10,11 @@ var VoteConstants = require('../constants/vote_constants');
 
 
 var _products = {};
-var _productsByUserId = {};
+// var _productsByUserId = {};
 // var _orderedProducts = [];
 
 var resetProducts = function (products) {
-  _productsByUserId = {};
+  // _productsByUserId = {};
   _products = {};
   products.forEach(function (product) {
     _products[product.id] = product;
@@ -33,6 +33,10 @@ var resetProduct = function (product) {
 // ProductStore.findByUserId = function(id){
 //   debugger
 //   return _productsByUserId[id];
+// };
+
+// ProductStore.getProductsByUserId = function() {
+//
 // };
 
 ProductStore.getSorted = function(){

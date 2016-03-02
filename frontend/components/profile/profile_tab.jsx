@@ -9,12 +9,7 @@ var ProfileTab = React.createClass({
     debugger
     return(
       <div className="profile-tabs">
-        <div>
-          <TabLabels />
-        </div>
-        <div>
-          <ProfileProductsList user={this.props.user} products={this.props.user.products}/>
-        </div>
+          <TabLabels user={this.props.user} products={this.props}/>
       </div>
     );
   }

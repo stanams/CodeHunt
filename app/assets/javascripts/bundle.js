@@ -52,10 +52,10 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(256);
-	var ProductPage = __webpack_require__(257);
+	var ProductForm = __webpack_require__(258);
+	var ProductPage = __webpack_require__(259);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(266);
+	var ProfilePage = __webpack_require__(267);
 	
 	var routes = React.createElement(
 	  Route,
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(255);
+	var ProductPreview = __webpack_require__(257);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -25118,11 +25118,11 @@
 	var VoteConstants = __webpack_require__(252);
 	
 	var _products = {};
-	var _productsByUserId = {};
+	// var _productsByUserId = {};
 	// var _orderedProducts = [];
 	
 	var resetProducts = function (products) {
-	  _productsByUserId = {};
+	  // _productsByUserId = {};
 	  _products = {};
 	  products.forEach(function (product) {
 	    _products[product.id] = product;
@@ -25141,6 +25141,10 @@
 	// ProductStore.findByUserId = function(id){
 	//   debugger
 	//   return _productsByUserId[id];
+	// };
+	
+	// ProductStore.getProductsByUserId = function() {
+	//
 	// };
 	
 	ProductStore.getSorted = function () {
@@ -32146,7 +32150,7 @@
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
-	var UserStore = __webpack_require__(262);
+	var UserStore = __webpack_require__(256);
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32173,7 +32177,7 @@
 	  },
 	
 	  render: function () {
-	
+	    debugger;
 	    var userId = this.props.product.author_id;
 	    if (typeof UserStore.find(userId) !== "undefined") {
 	      var userName = UserStore.find(userId).username;
@@ -32235,7 +32239,7 @@
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
 	var ProductStore = __webpack_require__(225);
-	var classNames = __webpack_require__(269);
+	var classNames = __webpack_require__(255);
 	
 	var VoteButton = React.createClass({
 	  displayName: 'VoteButton',
@@ -32310,6 +32314,109 @@
 /* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+	  Copyright (c) 2016 Jed Watson.
+	  Licensed under the MIT License (MIT), see
+	  http://jedwatson.github.io/classnames
+	*/
+	/* global define */
+	
+	(function () {
+		'use strict';
+	
+		var hasOwn = {}.hasOwnProperty;
+	
+		function classNames () {
+			var classes = [];
+	
+			for (var i = 0; i < arguments.length; i++) {
+				var arg = arguments[i];
+				if (!arg) continue;
+	
+				var argType = typeof arg;
+	
+				if (argType === 'string' || argType === 'number') {
+					classes.push(arg);
+				} else if (Array.isArray(arg)) {
+					classes.push(classNames.apply(null, arg));
+				} else if (argType === 'object') {
+					for (var key in arg) {
+						if (hasOwn.call(arg, key) && arg[key]) {
+							classes.push(key);
+						}
+					}
+				}
+			}
+	
+			return classes.join(' ');
+		}
+	
+		if (typeof module !== 'undefined' && module.exports) {
+			module.exports = classNames;
+		} else if (true) {
+			// register as 'classnames', consistent with npm package name
+			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+				return classNames;
+			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+		} else {
+			window.classNames = classNames;
+		}
+	}());
+
+
+/***/ },
+/* 256 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var Dispatcher = __webpack_require__(242);
+	var Store = __webpack_require__(226).Store;
+	var UserConstants = __webpack_require__(250);
+	var UserStore = new Store(Dispatcher);
+	
+	var _users = {};
+	
+	var resetUsers = function (users) {
+	  _users = {};
+	  users.forEach(function (user) {
+	    _users[user.id] = user;
+	  });
+	};
+	
+	var resetUser = function (user) {
+	  _users[user.id] = user;
+	};
+	
+	UserStore.find = function (id) {
+	  return _users[id];
+	};
+	
+	UserStore.select = function (idsArray) {
+	  selectedUsers = [];
+	  for (var idx = 0; i < idsArray.length; i++) {
+	    selectedUsers.push(UserStore.find(idsArray[idx]));
+	  }
+	  return selectedUsers;
+	};
+	
+	UserStore.__onDispatch = function (payload) {
+	  switch (payload.actionType) {
+	    case UserConstants.USER_RECEIVED:
+	      resetUser(payload.user);
+	      UserStore.__emitChange();
+	      break;
+	    case UserConstants.USERS_RECEIVED:
+	      resetUsers(payload.users);
+	      UserStore.__emitChange();
+	      break;
+	  }
+	};
+	
+	module.exports = UserStore;
+
+/***/ },
+/* 257 */
+/***/ function(module, exports, __webpack_require__) {
+
 	var React = __webpack_require__(1);
 	
 	var ProductPreview = React.createClass({
@@ -32323,7 +32430,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 256 */
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32432,17 +32539,17 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 257 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(258);
+	var CommentList = __webpack_require__(260);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(264);
-	var VotesBox = __webpack_require__(265);
+	var CommentBox = __webpack_require__(265);
+	var VotesBox = __webpack_require__(266);
 	var VoteButton = __webpack_require__(254);
 	
 	var ProductPage = React.createClass({
@@ -32549,14 +32656,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(259);
+	var CommentStore = __webpack_require__(261);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(261);
-	var CommentForm = __webpack_require__(263);
+	var CommentListItem = __webpack_require__(263);
+	var CommentForm = __webpack_require__(264);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32613,7 +32720,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32622,7 +32729,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(260);
+	var CommentConstants = __webpack_require__(262);
 	
 	var _comments = {};
 	
@@ -32673,7 +32780,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32684,12 +32791,12 @@
 	};
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var UserStore = __webpack_require__(262);
+	var UserStore = __webpack_require__(256);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32751,56 +32858,7 @@
 	// Add the commenter name
 
 /***/ },
-/* 262 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var Dispatcher = __webpack_require__(242);
-	var Store = __webpack_require__(226).Store;
-	var UserConstants = __webpack_require__(250);
-	var UserStore = new Store(Dispatcher);
-	
-	var _users = {};
-	
-	var resetUsers = function (users) {
-	  _users = {};
-	  users.forEach(function (user) {
-	    _users[user.id] = user;
-	  });
-	};
-	
-	var resetUser = function (user) {
-	  _users[user.id] = user;
-	};
-	
-	UserStore.find = function (id) {
-	  return _users[id];
-	};
-	
-	UserStore.select = function (idsArray) {
-	  selectedUsers = [];
-	  for (var idx = 0; i < idsArray.length; i++) {
-	    selectedUsers.push(UserStore.find(idsArray[idx]));
-	  }
-	  return selectedUsers;
-	};
-	
-	UserStore.__onDispatch = function (payload) {
-	  switch (payload.actionType) {
-	    case UserConstants.USER_RECEIVED:
-	      resetUser(payload.user);
-	      UserStore.__emitChange();
-	      break;
-	    case UserConstants.USERS_RECEIVED:
-	      resetUsers(payload.users);
-	      UserStore.__emitChange();
-	      break;
-	  }
-	};
-	
-	module.exports = UserStore;
-
-/***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32856,14 +32914,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(263);
-	var CommentList = __webpack_require__(258);
+	var CommentForm = __webpack_require__(264);
+	var CommentList = __webpack_require__(260);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32890,25 +32948,25 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	
 	var VotesBox = React.createClass({
-	  displayName: 'VotesBox',
+	  displayName: "VotesBox",
 	
 	
 	  render: function () {
 	    debugger;
 	    return React.createElement(
-	      'div',
-	      null,
+	      "div",
+	      { className: "votes-count-container-product-page" },
 	      React.createElement(
-	        'h3',
-	        null,
+	        "h3",
+	        { className: "votes-title" },
 	        this.props.productData.votes_count,
-	        ' Votes'
+	        " VOTES"
 	      )
 	    );
 	  }
@@ -32920,16 +32978,16 @@
 	// className="votes-title"
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var UserStore = __webpack_require__(262);
+	var UserStore = __webpack_require__(256);
 	var ApiUtil = __webpack_require__(246);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var ProfileInfos = __webpack_require__(267);
-	var ProfileTab = __webpack_require__(268);
+	var ProfileInfos = __webpack_require__(268);
+	var ProfileTab = __webpack_require__(269);
 	var Header = __webpack_require__(161);
 	
 	var ProfilePage = React.createClass({
@@ -32984,7 +33042,7 @@
 	module.exports = ProfilePage;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -33010,7 +33068,7 @@
 	module.exports = ProfileInfos;
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -33025,16 +33083,7 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'profile-tabs' },
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(TabLabels, null)
-	      ),
-	      React.createElement(
-	        'div',
-	        null,
-	        React.createElement(ProfileProductsList, { user: this.props.user, products: this.props.user.products })
-	      )
+	      React.createElement(TabLabels, { user: this.props.user, products: this.props })
 	    );
 	  }
 	
@@ -33043,67 +33092,14 @@
 	module.exports = ProfileTab;
 
 /***/ },
-/* 269 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
-	  Copyright (c) 2016 Jed Watson.
-	  Licensed under the MIT License (MIT), see
-	  http://jedwatson.github.io/classnames
-	*/
-	/* global define */
-	
-	(function () {
-		'use strict';
-	
-		var hasOwn = {}.hasOwnProperty;
-	
-		function classNames () {
-			var classes = [];
-	
-			for (var i = 0; i < arguments.length; i++) {
-				var arg = arguments[i];
-				if (!arg) continue;
-	
-				var argType = typeof arg;
-	
-				if (argType === 'string' || argType === 'number') {
-					classes.push(arg);
-				} else if (Array.isArray(arg)) {
-					classes.push(classNames.apply(null, arg));
-				} else if (argType === 'object') {
-					for (var key in arg) {
-						if (hasOwn.call(arg, key) && arg[key]) {
-							classes.push(key);
-						}
-					}
-				}
-			}
-	
-			return classes.join(' ');
-		}
-	
-		if (typeof module !== 'undefined' && module.exports) {
-			module.exports = classNames;
-		} else if (true) {
-			// register as 'classnames', consistent with npm package name
-			!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
-				return classNames;
-			}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
-		} else {
-			window.classNames = classNames;
-		}
-	}());
-
-
-/***/ },
 /* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var ProfileProductsList = __webpack_require__(271);
 	
 	var TabLabels = React.createClass({
-	  displayName: "TabLabels",
+	  displayName: 'TabLabels',
 	
 	  getInitialState: function () {
 	    return { selectedTab: "Votes" };
@@ -33117,20 +33113,26 @@
 	    this.setState({ selectedTab: "Votes" });
 	  },
 	
+	  decideClick: function () {
+	    if (this.state.selectedTab === "Votes") {
+	      this.clickOnPostsTab();
+	    } else {
+	      this.clickOnVotesTab();
+	    }
+	  },
+	
 	  render: function () {
+	    var rightClass = this.state.selectedTab === "Votes" ? "votes-tab" : "posts-tab";
+	
 	    return React.createElement(
-	      "ul",
-	      { className: "tab-label-container" },
+	      'ul',
+	      { className: 'tab-label-container' },
 	      React.createElement(
-	        "li",
-	        { className: "votes-tab", onClick: this.clickOnVotesTab },
-	        "Votes"
+	        'li',
+	        { className: rightClass, onClick: this.decideClick },
+	        this.state.selectedTab
 	      ),
-	      React.createElement(
-	        "li",
-	        { className: "posts-tab", onClick: this.clickOnPostsTab },
-	        "Posts"
-	      )
+	      React.createElement(ProfileProductsList, { selectedTab: this.state.selectedTab, user: this.props.user, products: this.props })
 	    );
 	  }
 	});
@@ -33150,13 +33152,18 @@
 	
 	
 	  render: function () {
-	    // debugger
-	    var productsList = this.props.products.map(function (product, idx) {
-	      return React.createElement(ProductsListItem, { key: idx, product: product });
-	    });
+	    if (this.props.selectedTab === "Votes") {
+	      var productsList = this.props.user.voted_products.map(function (product, idx) {
+	        return React.createElement(ProductsListItem, { key: idx, product: product });
+	      });
+	    } else {
+	      var productsList = this.props.user.products.map(function (product, idx) {
+	        return React.createElement(ProductsListItem, { key: idx, product: product });
+	      });
+	    }
 	    return React.createElement(
 	      'ul',
-	      null,
+	      { className: 'tab-label-container' },
 	      productsList
 	    );
 	  }
