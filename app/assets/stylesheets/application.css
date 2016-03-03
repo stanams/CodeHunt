@@ -999,6 +999,10 @@ img .profile-picture {
   width: auto;
 }
 
+.small-profile-pic:hover {
+  transform: scale(1.1);
+}
+
 .profile-info-container {
   width: 100vw;
   background-color: #534540;
