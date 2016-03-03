@@ -63,7 +63,7 @@ var ProductForm = React.createClass({
             </div>
 
             <br/>
-          
+            
           </div>
           <input className="btn btn-primary form-submit-button"
                  type="submit"

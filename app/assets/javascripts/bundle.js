@@ -32018,6 +32018,32 @@
 	        VoteAction.destroyVote(productId);
 	      }
 	    });
+	  },
+	
+	  // ------------ Image requets -------------------
+	
+	  createImage: function (productId, data, callback) {
+	    $.ajax({
+	      url: "/api/products/" + productId,
+	      type: "POST",
+	      data: {
+	        product: data
+	      },
+	      success: function (product) {
+	        UserActions.receiveSingleUser(product);
+	        callback && callback(product.id);
+	      }
+	    });
+	  },
+	
+	  receiveImage: function (productId, callback) {
+	    $.ajax({
+	      url: "/api/products/" + productId,
+	      success: function (product) {
+	        UserActions.receiveSingleUser(product);
+	        callback && callback(product.id);
+	      }
+	    });
 	  }
 	
 	};
