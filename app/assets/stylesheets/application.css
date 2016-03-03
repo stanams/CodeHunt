@@ -178,6 +178,8 @@ background-image: image_path("logo_canva.jpg");
 
 .header-logo {
   width: 17%;
+  position: relative;
+  bottom: 2px;
 }
 
 .logo-page {
@@ -205,7 +207,7 @@ background-image: image_path("logo_canva.jpg");
 	height: 50px;
   margin: 10px;
   position: relative;
-  top: 3px;
+  top: 5px;
   right: 20px;
   display: inline-block;
   padding: 0px;

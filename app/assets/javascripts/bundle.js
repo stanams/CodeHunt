@@ -33118,6 +33118,7 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'profile-info-container' },
+	        React.createElement('img', { src: this.props.user.image }),
 	        React.createElement(
 	          'div',
 	          { className: 'profile-info-data' },

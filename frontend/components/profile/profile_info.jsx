@@ -19,12 +19,13 @@ var ProfileInfos = React.createClass({
     if (this.props.user.current_user.id === this.props.user.id) {
       return(
         <div className="profile-info-container">
+          <img src={this.props.user.image}/>
           <div className="profile-info-data">
             {this.props.user.username}
             <br></br>
             <div className="user-description">
               {this.props.user.bio}
-            </div>            
+            </div>
             <div className="edit-button-profile" onClick={this.handleEditClick}><i className="fa fa-pencil"></i> edit</div>
           </div>
         </div>
