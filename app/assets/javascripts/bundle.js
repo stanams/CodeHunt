@@ -33104,7 +33104,7 @@
 	          ),
 	          React.createElement(
 	            'div',
-	            { onClick: this.handleEditClick },
+	            { className: 'edit-button-profile', onClick: this.handleEditClick },
 	            React.createElement('i', { className: 'fa fa-pencil' }),
 	            ' edit'
 	          )
