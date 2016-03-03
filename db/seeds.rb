@@ -19,210 +19,210 @@ User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p30_zyj82p.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p30_zyj82p.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p29_r16xkb.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p29_r16xkb.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p28_jkgqxa.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p28_jkgqxa.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p27_kr13zw.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p27_kr13zw.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p26_urgi5z.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p26_urgi5z.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p25_leshbf.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060303/p25_leshbf.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p24_rg745i.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p24_rg745i.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p23_vzcbkc.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p23_vzcbkc.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p22_ogfgyh.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p22_ogfgyh.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p21_vrmhba.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p21_vrmhba.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p20_rzcmnp.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p20_rzcmnp.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p19_yoskyp.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p19_yoskyp.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p18_vnwxi9.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p18_vnwxi9.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p17_idxomp.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p17_idxomp.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p16_aumftt.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p16_aumftt.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p15_q1h1v4.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p15_q1h1v4.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p14_p0ehsr.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p14_p0ehsr.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p13_mkewc1.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p13_mkewc1.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p12_ps3ujf.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p12_ps3ujf.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p11_xhkqdm.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p11_xhkqdm.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p10_wtou6a.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p10_wtou6a.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p9_d817ba.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060302/p9_d817ba.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p8_uuiyw9.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p8_uuiyw9.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p7_mh5b2d.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p7_mh5b2d.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p6_pgzym6.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p6_pgzym6.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p5_rez0ud.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p5_rez0ud.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p4_fbjznl.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p4_fbjznl.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p3_vgvzfn.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p3_vgvzfn.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p2_fqc041.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p2_fqc041.jpg"
 )
 
 User.create!(
   username: Faker::Name.name,
   bio: ["CTO", "CEO", "Scientist", "Growth Hacker", "Lead Devloper", "Api Architect", "UX Frontend", "Frontend Engineer"].sample + " @ " + ["Apple", "Google", "Microsoft", "Adobe", "Amazon", "Dropbox", "Solar City", "Spotify", "SoundCloud"].sample,
   password: "aaaaaa",
-  image: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p1_zxq3pa.jpg"
+  profile_pic: "http://res.cloudinary.com/codehunt/image/upload/v1457060301/p1_zxq3pa.jpg"
 )
 
 

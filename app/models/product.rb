@@ -16,6 +16,6 @@ class Product < ActiveRecord::Base
   # dependant: :destroy
 
 
-  has_one :image
+  # has_one :image
 
 end
