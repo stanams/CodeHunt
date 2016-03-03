@@ -33105,7 +33105,7 @@
 	          React.createElement(
 	            'div',
 	            { onClick: this.handleEditClick },
-	            React.createElement('i', { 'class': 'fa fa-pencil' }),
+	            React.createElement('i', { className: 'fa fa-pencil' }),
 	            ' edit'
 	          )
 	        )

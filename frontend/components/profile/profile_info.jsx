@@ -25,7 +25,7 @@ var ProfileInfos = React.createClass({
             <div className="user-description">
               {this.props.user.bio}
             </div>
-            <div onClick={this.handleEditClick}><i class="fa fa-pencil"></i> edit</div>
+            <div onClick={this.handleEditClick}><i className="fa fa-pencil"></i> edit</div>
           </div>
         </div>
       );
