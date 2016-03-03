@@ -19,6 +19,9 @@
         <input type="password" name="user[password]" id="Password" value="" placeholder="Password">
         <br>
         <br>
+        <input type="text" name="user[bio]" id="Bio" value="" placeholder="Student @ Appacademy" value="<%= @user.bio.nil? ? '' : "#{@user.bio}"%>">
+        <br>
+        <br>
         <input class="btn btn-primary" type="submit" value="Sign Up">
       </form>
       <p class="auth-footer">

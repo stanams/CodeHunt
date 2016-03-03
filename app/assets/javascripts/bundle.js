@@ -32152,7 +32152,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
 	var UserStore = __webpack_require__(256);
-	var TagsList = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../categories/tags_list\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	// var TagsList = require('../categories/tags_list');
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32206,11 +32206,7 @@
 	            this.props.product.description
 	          )
 	        ),
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement(TagsList, { product: this.props.product })
-	        ),
+	        React.createElement('div', null),
 	        React.createElement(
 	          'div',
 	          { className: 'list-item-comments-nb' },
@@ -32237,6 +32233,7 @@
 	
 	module.exports = ProductsListItem;
 	// <p>{this.props.product.comments.length} comments</p>
+	// <TagsList product={this.props.product}/> to put lin 49
 
 /***/ },
 /* 254 */
@@ -33068,7 +33065,13 @@
 	      React.createElement(
 	        "div",
 	        { className: "profile-info-data" },
-	        this.props.user.username
+	        this.props.user.username,
+	        React.createElement("br", null),
+	        React.createElement(
+	          "div",
+	          { className: "user-description" },
+	          this.props.user.bio
+	        )
 	      )
 	    );
 	  }
