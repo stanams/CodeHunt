@@ -19755,7 +19755,7 @@
 	      React.createElement(
 	        Link,
 	        { to: '/', className: 'logo-page' },
-	        React.createElement('img', { className: 'header-logo', src: 'assets/header-logo' })
+	        React.createElement('img', { className: 'header-logo', src: 'http://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
 	      ),
 	      React.createElement(
 	        'button',
@@ -33118,7 +33118,11 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'profile-info-container' },
-	        React.createElement('img', { src: this.props.user.image }),
+	        React.createElement(
+	          'div',
+	          { className: 'image-cropper profile-pic' },
+	          React.createElement('img', { className: 'profile-picture', src: this.props.user.picture })
+	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'profile-info-data' },
@@ -33141,6 +33145,11 @@
 	      return React.createElement(
 	        'div',
 	        { className: 'profile-info-container' },
+	        React.createElement(
+	          'div',
+	          { className: 'image-cropper profile-pic' },
+	          React.createElement('img', { className: 'profile-picture', src: this.props.user.picture })
+	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'profile-info-data' },

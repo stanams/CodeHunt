@@ -19,7 +19,9 @@ var ProfileInfos = React.createClass({
     if (this.props.user.current_user.id === this.props.user.id) {
       return(
         <div className="profile-info-container">
-          <img src={this.props.user.image}/>
+          <div className="image-cropper profile-pic">
+            <img className="profile-picture" src={this.props.user.picture}/>
+          </div>
           <div className="profile-info-data">
             {this.props.user.username}
             <br></br>
@@ -33,6 +35,9 @@ var ProfileInfos = React.createClass({
     } else {
       return(
         <div className="profile-info-container">
+          <div className="image-cropper profile-pic">
+            <img className="profile-picture" src={this.props.user.picture}/>
+          </div>
           <div className="profile-info-data">
             {this.props.user.username}
             <br></br>
