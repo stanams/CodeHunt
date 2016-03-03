@@ -72,6 +72,12 @@ table {
 
 a {
   text-decoration: none !important;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
 /*Landing page stuff*/
@@ -317,13 +323,14 @@ li.index-products-list-item:hover {
 .list-item-comments-nb {
   float: right;
   position: relative;
-  bottom: 50px;
+  bottom: 35px;
+  right: 60px;
   font-family: Roboto;
   color: #ccc;
   width: 60px;
   height: 27px;
   bottom: 75px;
-  margin-right: 20px;
+  /*margin-right: 20px;*/
 }
 
 .list-item-comments-nb:hover {
@@ -339,6 +346,10 @@ li.index-products-list-item:hover {
 .icon-comment {
   position: relative;
   left: 20px;
+}
+
+.list-item-ext-link {
+  z-index: 1;
 }
 
 .item-username {
@@ -937,6 +948,26 @@ li {
 }
 
 img .profile-picture {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: auto;
+}
+
+.small-cropper {
+  width: 35px;
+  height: 35px;
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  bottom: 5px;
+}
+
+.small-profile-pic {
   display: inline;
   margin: 0 auto;
   height: 100%;

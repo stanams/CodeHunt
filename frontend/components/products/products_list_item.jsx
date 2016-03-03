@@ -29,12 +29,12 @@ var ProductsListItem = React.createClass({
   },
 
   render: function(){
-  var userId = this.props.product.author_id;
-  if (typeof UserStore.find(userId) !== "undefined") {
-    var userName = UserStore.find(userId).username;
-  } else {
-    var userName = this.props.product.author.username;
-  }
+    var userId = this.props.product.author_id;
+    if (typeof UserStore.find(userId) !== "undefined") {
+      var profilePic = UserStore.find(userId).picture;
+    } else {
+      var profilePic = this.props.product.author.profile_pic;
+    }
     return(
         <li className="index-products-list-item">
 
@@ -53,7 +53,7 @@ var ProductsListItem = React.createClass({
               <p className="comment-nb">{this.props.product.comments_count}</p>
             </div>
             <ul className="name-container">
-              <li onClick={this.handleProfileClick} className="item-username">{userName}</li>
+              <li onClick={this.handleProfileClick} className="item-username small-cropper"><img className="small-profile-pic" src={profilePic}/></li>
             </ul>
           </div>
         </li>
@@ -63,5 +63,8 @@ var ProductsListItem = React.createClass({
 });
 
 module.exports = ProductsListItem;
+// <a href={this.props.product.link} className="list-item-ext-link">
+//   <i className="fa fa-external-link"></i>
+// </a>
 // <p>{this.props.product.comments.length} comments</p>
 // <TagsList product={this.props.product}/> to put lin 49

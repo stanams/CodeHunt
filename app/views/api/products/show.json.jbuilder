@@ -8,5 +8,6 @@ json.image @product.image
 json.link @product.link
 json.name @product.name
 json.updated_at @product.updated_at
+json.comments_count @product.comments.size
 json.votes_count @product.get_upvotes.size
 json.voted @product.votes_for.up.by_type(User).map{|vote| vote.voter_id}.include?(current_user.id)

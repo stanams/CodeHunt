@@ -32223,9 +32223,9 @@
 	  render: function () {
 	    var userId = this.props.product.author_id;
 	    if (typeof UserStore.find(userId) !== "undefined") {
-	      var userName = UserStore.find(userId).username;
+	      var profilePic = UserStore.find(userId).picture;
 	    } else {
-	      var userName = this.props.product.author.username;
+	      var profilePic = this.props.product.author.profile_pic;
 	    }
 	    return React.createElement(
 	      'li',
@@ -32264,8 +32264,8 @@
 	          { className: 'name-container' },
 	          React.createElement(
 	            'li',
-	            { onClick: this.handleProfileClick, className: 'item-username' },
-	            userName
+	            { onClick: this.handleProfileClick, className: 'item-username small-cropper' },
+	            React.createElement('img', { className: 'small-profile-pic', src: profilePic })
 	          )
 	        )
 	      )
@@ -32274,6 +32274,9 @@
 	});
 	
 	module.exports = ProductsListItem;
+	// <a href={this.props.product.link} className="list-item-ext-link">
+	//   <i className="fa fa-external-link"></i>
+	// </a>
 	// <p>{this.props.product.comments.length} comments</p>
 	// <TagsList product={this.props.product}/> to put lin 49
 
