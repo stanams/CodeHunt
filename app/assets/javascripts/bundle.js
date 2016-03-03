@@ -33029,8 +33029,8 @@
 	    var votersList = this.props.productData.voters.map(function (voter, idx) {
 	      return React.createElement(
 	        'li',
-	        { onClick: this.handleProfileClick, key: idx, className: 'mid-cropper voters-list-item' },
-	        React.createElement('img', { className: 'small-profile-pic', src: voter.profile_pic })
+	        { key: idx, className: 'mid-cropper voters-list-item' },
+	        React.createElement('img', { onClick: this.handleProfileClick, className: 'small-profile-pic', src: voter.profile_pic })
 	      );
 	    });
 	
