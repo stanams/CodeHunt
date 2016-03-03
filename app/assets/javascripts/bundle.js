@@ -56,6 +56,7 @@
 	var ProductPage = __webpack_require__(259);
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var ProfilePage = __webpack_require__(267);
+	var ProfileForm = __webpack_require__(272);
 	
 	var routes = React.createElement(
 	  Route,
@@ -63,7 +64,8 @@
 	  React.createElement(IndexRoute, { component: IndexView }),
 	  React.createElement(Route, { path: 'products/new', component: ProductForm }),
 	  React.createElement(Route, { path: 'products/:productId', component: ProductPage }),
-	  React.createElement(Route, { path: 'users/:userId', component: ProfilePage })
+	  React.createElement(Route, { path: 'users/:userId', component: ProfilePage }),
+	  React.createElement(Route, { path: 'users/:userId/edit', component: ProfileForm })
 	);
 	
 	document.addEventListener("DOMContentLoaded", function () {
@@ -31982,6 +31984,20 @@
 	    });
 	  },
 	
+	  updateUser: function (id, data, callback) {
+	    $.ajax({
+	      url: '/api/users/' + id,
+	      type: "PATCH",
+	      data: {
+	        user: data
+	      },
+	      success: function (user) {
+	        UserActions.receiveSingleUser(user);
+	        callback && callback(user.id);
+	      }
+	    });
+	  },
+	
 	  // ------------ Votes requets -------------------
 	
 	  createVote: function (productId) {
@@ -32392,6 +32408,10 @@
 	
 	UserStore.find = function (id) {
 	  return _users[id];
+	};
+	
+	UserStore.all = function () {
+	  return _users;
 	};
 	
 	UserStore.select = function (idsArray) {
@@ -33051,28 +33071,62 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
+	var browserHistory = __webpack_require__(166).browserHistory;
 	
 	var ProfileInfos = React.createClass({
-	  displayName: "ProfileInfos",
+	  displayName: 'ProfileInfos',
 	
+	
+	  makeEditProfileUrl: function () {
+	    var path = "/users/" + this.props.user.id + "/edit";
+	    return path;
+	  },
+	
+	  handleEditClick: function () {
+	    browserHistory.push(this.makeEditProfileUrl());
+	    window.scrollTo(0, 0);
+	  },
 	
 	  render: function () {
-	
-	    return React.createElement(
-	      "div",
-	      { className: "profile-info-container" },
-	      React.createElement(
-	        "div",
-	        { className: "profile-info-data" },
-	        this.props.user.username,
-	        React.createElement("br", null),
+	    if (this.props.user.current_user.id === this.props.user.id) {
+	      return React.createElement(
+	        'div',
+	        { className: 'profile-info-container' },
 	        React.createElement(
-	          "div",
-	          { className: "user-description" },
-	          this.props.user.bio
+	          'div',
+	          { className: 'profile-info-data' },
+	          this.props.user.username,
+	          React.createElement('br', null),
+	          React.createElement(
+	            'div',
+	            { className: 'user-description' },
+	            this.props.user.bio
+	          ),
+	          React.createElement(
+	            'div',
+	            { onClick: this.handleEditClick },
+	            React.createElement('i', { 'class': 'fa fa-pencil' }),
+	            ' edit'
+	          )
 	        )
-	      )
-	    );
+	      );
+	    } else {
+	      return React.createElement(
+	        'div',
+	        { className: 'profile-info-container' },
+	        React.createElement(
+	          'div',
+	          { className: 'profile-info-data' },
+	          this.props.user.username,
+	          React.createElement('br', null),
+	          React.createElement(
+	            'div',
+	            { className: 'user-description' },
+	            this.props.user.bio
+	          )
+	        )
+	      );
+	    }
 	  }
 	});
 	
@@ -33228,6 +33282,137 @@
 	//   var productsList = votedProdcutsSorted.map(function(product, idx){
 	//     return <ProductsListItem key={idx} product={product} />
 	//     });
+
+/***/ },
+/* 272 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var LinkedStateMixin = __webpack_require__(162);
+	var UserStore = __webpack_require__(256);
+	var browserHistory = __webpack_require__(166).browserHistory;
+	var ApiUtil = __webpack_require__(246);
+	
+	var ProfileForm = React.createClass({
+	  displayName: 'ProfileForm',
+	
+	
+	  mixins: [LinkedStateMixin],
+	
+	  loadIt: function (theUser) {
+	    if (theUser === undefined) {
+	      return {
+	        username: " ",
+	        bio: " "
+	      };
+	    } else {
+	      return {
+	        username: theUser.username,
+	        bio: theUser.bio
+	      };
+	    }
+	  },
+	
+	  getInitialState: function () {
+	
+	    var userId = parseInt(this.props.params.userId);
+	    var theUser = UserStore.find(userId);
+	    return this.loadIt(theUser);
+	  },
+	
+	  componentDidMount: function () {
+	    this.userStoreListener = UserStore.addListener(this.userChange);
+	    var userId = parseInt(this.props.params.userId);
+	    if (UserStore.find(userId) === undefined) {
+	      ApiUtil.fetchSingleUser(userId);
+	    }
+	  },
+	
+	  componentWillUnmount: function () {
+	    this.userStoreListener.remove();
+	  },
+	
+	  userChange: function () {
+	    var userId = parseInt(this.props.params.userId);
+	    var theUser = UserStore.find(userId);
+	    this.setState({
+	      username: theUser.username,
+	      bio: theUser.bio
+	    });
+	  },
+	
+	  makeProfileUrl: function () {
+	    var path = "/users/" + parseInt(this.props.params.userId);
+	    return path;
+	  },
+	
+	  updateUser: function (e) {
+	    // debugger
+	    e.preventDefault();
+	    var newUser = {
+	      username: this.state.username,
+	      bio: this.state.bio
+	    };
+	
+	    ApiUtil.updateUser(parseInt(this.props.params.userId), newUser, function (id) {
+	      browserHistory.push("/users/" + id);
+	    }.bind(this));
+	  },
+	
+	  displayUser: function () {
+	    var theUser = UserStore.find(parseInt(this.props.params.userId));
+	    if (theUser === undefined) {
+	      return {
+	        username: "",
+	        bio: ""
+	      };
+	    } else {
+	
+	      return theUser;
+	    }
+	  },
+	
+	  handleUsernameChange: function (e) {
+	    e.preventDefault();
+	    this.setState({
+	      username: e.target.value
+	    });
+	  },
+	
+	  handleBioChange: function (e) {
+	    e.preventDefault();
+	    this.setState({
+	      bio: e.target.value
+	    });
+	  },
+	
+	  render: function () {
+	
+	    var path = "/users/" + this.props.params.id;
+	    return React.createElement(
+	      'div',
+	      null,
+	      React.createElement(
+	        'form',
+	        { onSubmit: this.updateUser, className: 'edit-profile-form', action: path, method: 'post' },
+	        React.createElement('input', { onChange: this.handleUsernameChange, type: 'text', name: 'user[username]', id: 'Username', placeholder: 'Username', value: this.state.username }),
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement('input', { type: 'text',
+	          name: 'user[bio]',
+	          id: 'Bio',
+	          placeholder: 'Student @ Appacademy',
+	          value: this.state.bio,
+	          onChange: this.handleBioChange }),
+	        React.createElement('br', null),
+	        React.createElement('br', null),
+	        React.createElement('input', { className: 'btn btn-primary', type: 'submit', value: 'Update' })
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProfileForm;
 
 /***/ }
 /******/ ]);

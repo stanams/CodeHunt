@@ -10,6 +10,7 @@ var ProductForm = require('./components/products/product_form');
 var ProductPage = require('./components/products/product_page');
 var browserHistory = require('react-router').browserHistory;
 var ProfilePage = require('./components/profile/profile_page');
+var ProfileForm = require('./components/profile/profile_form');
 
 var routes = (
   <Route path="/" component={App}>
@@ -17,6 +18,7 @@ var routes = (
     <Route path="products/new" component={ProductForm}/>
     <Route path="products/:productId" component={ProductPage}/>
     <Route path="users/:userId" component={ProfilePage}/>
+    <Route path="users/:userId/edit" component={ProfileForm}/>
   </Route>
 );
 

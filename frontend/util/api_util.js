@@ -97,6 +97,20 @@ fetchUsersByIds: function(idsArray){
     })
   },
 
+  updateUser: function(id, data, callback){
+    $.ajax({
+      url: '/api/users/' + id,
+      type: "PATCH",
+      data: {
+        user: data
+      },
+      success: function(user){
+        UserActions.receiveSingleUser(user);
+       callback && callback(user.id);
+      }
+    })
+  },
+
 // ------------ Votes requets -------------------
 
   createVote: function(productId){

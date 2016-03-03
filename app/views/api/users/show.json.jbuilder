@@ -4,6 +4,8 @@
 json.id @user.id
 json.username @user.username
 json.bio @user.bio
+json.logged (@user == current_user)
+json.current_user current_user
 json.products @user.products do |product|
   json.author_id product.author_id
   json.author product.user

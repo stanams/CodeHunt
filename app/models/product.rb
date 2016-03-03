@@ -15,4 +15,7 @@ class Product < ActiveRecord::Base
     class_name: 'Comment'
   # dependant: :destroy
 
+
+  has_one :image
+
 end

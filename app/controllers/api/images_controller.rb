@@ -17,6 +17,10 @@ def create
    end
  end
 
+ def update
+    # TODO
+ end
+
  private
 
  def image_params

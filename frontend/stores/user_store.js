@@ -20,6 +20,10 @@ UserStore.find = function (id) {
   return _users[id];
 }
 
+UserStore.all = function(){
+  return _users;
+}
+
 UserStore.select = function (idsArray) {
   selectedUsers = [];
   for (var idx = 0; i < idsArray.length; i++) {
