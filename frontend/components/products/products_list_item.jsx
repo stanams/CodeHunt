@@ -4,6 +4,7 @@ var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
 var VoteButton = require('../votes/vote-button');
 var UserStore = require('../../stores/user_store');
+var TagsList = require('../categories/tags_list');
 
 var ProductsListItem = React.createClass({
 
@@ -43,6 +44,9 @@ var ProductsListItem = React.createClass({
             <div onClick={this.handleClick} className="item-title-description">
               <p className="list-item-title">{this.props.product.name}</p>
               <p className="list-item-description">{this.props.product.description}</p>
+            </div>
+            <div>
+              <TagsList product={this.props.product}/>
             </div>
             <div className="list-item-comments-nb">
               <i className="fa fa-comments-o fa-lg icon-comment"></i>

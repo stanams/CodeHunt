@@ -1,11 +1,14 @@
 var React = require('react');
-var TagItem = requrie('./tag_item');
+var TagItem = require('./tag_item');
 
 var TagsList = React.createClass({
+  var tList = this.props.product.category.map(function(category, idx){
+    return <TagItem key={idx} category={category} />;
+  })
   render: function(){
     return(
       <ul>
-        <TagItem/>
+        {tList}
       </ul>
     );
   }

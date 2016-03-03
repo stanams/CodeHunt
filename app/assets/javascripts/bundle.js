@@ -52,10 +52,10 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(258);
-	var ProductPage = __webpack_require__(259);
+	var ProductForm = __webpack_require__(259);
+	var ProductPage = __webpack_require__(260);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(267);
+	var ProfilePage = __webpack_require__(268);
 	
 	var routes = React.createElement(
 	  Route,
@@ -19705,7 +19705,7 @@
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
 	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(257);
+	var ProductPreview = __webpack_require__(258);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -32152,6 +32152,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
 	var UserStore = __webpack_require__(256);
+	var TagsList = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../categories/tags_list\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32204,6 +32205,11 @@
 	            { className: 'list-item-description' },
 	            this.props.product.description
 	          )
+	        ),
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(TagsList, { product: this.props.product })
 	        ),
 	        React.createElement(
 	          'div',
@@ -32415,7 +32421,8 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 257 */
+/* 257 */,
+/* 258 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32431,7 +32438,7 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 258 */
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32540,17 +32547,17 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 259 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ProductStore = __webpack_require__(225);
 	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(260);
+	var CommentList = __webpack_require__(261);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(265);
-	var VotesBox = __webpack_require__(266);
+	var CommentBox = __webpack_require__(266);
+	var VotesBox = __webpack_require__(267);
 	var VoteButton = __webpack_require__(254);
 	
 	var ProductPage = React.createClass({
@@ -32660,14 +32667,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 260 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(261);
+	var CommentStore = __webpack_require__(262);
 	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(263);
-	var CommentForm = __webpack_require__(264);
+	var CommentListItem = __webpack_require__(264);
+	var CommentForm = __webpack_require__(265);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32724,7 +32731,7 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 261 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32733,7 +32740,7 @@
 	var Dispatcher = __webpack_require__(242);
 	var CommentStore = new Store(Dispatcher);
 	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(262);
+	var CommentConstants = __webpack_require__(263);
 	
 	var _comments = {};
 	
@@ -32784,7 +32791,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 262 */
+/* 263 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32795,7 +32802,7 @@
 	};
 
 /***/ },
-/* 263 */
+/* 264 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32862,7 +32869,7 @@
 	// Add the commenter name
 
 /***/ },
-/* 264 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32918,14 +32925,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 265 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(264);
-	var CommentList = __webpack_require__(260);
+	var CommentForm = __webpack_require__(265);
+	var CommentList = __webpack_require__(261);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -32952,7 +32959,7 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 266 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32980,7 +32987,7 @@
 	module.exports = VotesBox;
 
 /***/ },
-/* 267 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32988,8 +32995,8 @@
 	var ApiUtil = __webpack_require__(246);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var ProfileInfos = __webpack_require__(268);
-	var ProfileTab = __webpack_require__(269);
+	var ProfileInfos = __webpack_require__(269);
+	var ProfileTab = __webpack_require__(270);
 	var Header = __webpack_require__(161);
 	
 	var ProfilePage = React.createClass({
@@ -33044,7 +33051,7 @@
 	module.exports = ProfilePage;
 
 /***/ },
-/* 268 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -33070,12 +33077,12 @@
 	module.exports = ProfileInfos;
 
 /***/ },
-/* 269 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var TabLabels = __webpack_require__(270);
-	var ProfileProductsList = __webpack_require__(271);
+	var TabLabels = __webpack_require__(271);
+	var ProfileProductsList = __webpack_require__(272);
 	
 	var ProfileTab = React.createClass({
 	  displayName: 'ProfileTab',
@@ -33094,11 +33101,11 @@
 	module.exports = ProfileTab;
 
 /***/ },
-/* 270 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ProfileProductsList = __webpack_require__(271);
+	var ProfileProductsList = __webpack_require__(272);
 	
 	var TabLabels = React.createClass({
 	  displayName: 'TabLabels',
@@ -33163,7 +33170,7 @@
 	module.exports = TabLabels;
 
 /***/ },
-/* 271 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
