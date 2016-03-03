@@ -176,6 +176,10 @@ background-image: image_path("logo_canva.jpg");
   box-shadow: 1px 1px 1px #eee;
 }
 
+.header-logo {
+  width: 17%;
+}
+
 .logo-page {
   display: inline;
   position: relative;

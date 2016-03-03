@@ -19755,7 +19755,7 @@
 	      React.createElement(
 	        Link,
 	        { to: '/', className: 'logo-page' },
-	        'Code Hunt'
+	        React.createElement('img', { className: 'header-logo', src: 'assets/header-logo' })
 	      ),
 	      React.createElement(
 	        'button',

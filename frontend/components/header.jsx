@@ -20,8 +20,8 @@ var Header = React.createClass({
     // debugger
     return(
       <nav className="navbarr">
-        <Link to="/" className="logo-page">Code Hunt</Link>
-        
+        <Link to="/" className="logo-page"><img className="header-logo" src="assets/header-logo"></img></Link>
+
         <button className="header-profile-button">Sign Out</button>
         <p className="header-new-product-button" onClick={this.handleClickNewProduct}>+</p>
       </nav>

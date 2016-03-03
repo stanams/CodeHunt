@@ -144,7 +144,7 @@ fetchUsersByIds: function(idsArray){
       },
       success: function(product){
         UserActions.receiveSingleUser(product);
-       callback && callback(product.id);
+        callback && callback(product.id);
       }
     })
   },
@@ -154,7 +154,7 @@ fetchUsersByIds: function(idsArray){
       url: "/api/products/" + productId,
       success: function(product){
         UserActions.receiveSingleUser(product);
-       callback && callback(product.id);
+        callback && callback(product.id);
       }
     })
   }
