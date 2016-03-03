@@ -224,6 +224,10 @@ background-image: image_path("logo_canva.jpg");
 
 /*Index page stuff*/
 
+.homepage-image {
+  width: 100%;
+}
+
 .index-list {
   margin: 0;
 }

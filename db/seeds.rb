@@ -7,7 +7,6 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
-
 (1..40).to_a.each { |i|
   Comment.create!(
   commenter_id: rand(1..12),
