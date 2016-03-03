@@ -19715,6 +19715,7 @@
 	      'div',
 	      null,
 	      React.createElement(Header, null),
+	      React.createElement('img', { src: 'assets/codesplash' }),
 	      React.createElement(ProductsList, null),
 	      React.createElement(ProductPreview, null)
 	    );
@@ -32582,7 +32583,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	
 	    if (!this.state.theProduct) {
 	      return React.createElement(
 	        'div',
@@ -32653,6 +32654,8 @@
 	});
 	
 	// Give the props to the VotesBox voters={this.state.theProduct.voters}
+	// <img src={this.state.theProduct.image} className="product-picture"/>
+	// put line 52 but fix space
 	
 	module.exports = ProductPage;
 
