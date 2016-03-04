@@ -1010,12 +1010,12 @@ img .profile-picture {
 }
 
 .profile-info-data {
-  width: 400px;
-  height: 400px;
+  width: 800px;
+  height: 150px;
   color: white;
   /*text-shadow: 0px 1px 2px #999999;*/
   font-size: 40px;
-  width: 70%;
+  /*width: 70%;*/
   position: relative;
   left: 30%;
   bottom: 90px;
@@ -1085,6 +1085,7 @@ img .profile-picture {
 }
 
 .votes-tab {
+  margin: 0;
   float:left;
   position:relative;
   width: 230px;
@@ -1111,6 +1112,7 @@ img .profile-picture {
 }
 
 .posts-tab {
+  margin: 0;
   border-radius: 4px;
   border-top: 1px #eeeeee solid;
   border-left: 1px #eeeeee solid;

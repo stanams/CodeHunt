@@ -19755,7 +19755,7 @@
 	      React.createElement(
 	        Link,
 	        { to: '/', className: 'logo-page' },
-	        React.createElement('img', { className: 'header-logo', src: 'http://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
+	        React.createElement('img', { className: 'header-logo', src: 'https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
 	      ),
 	      React.createElement(
 	        'button',
