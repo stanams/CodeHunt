@@ -33286,13 +33286,13 @@
 	          { className: voteTabClasses, onClick: this.clickOnVotesTab },
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label' },
+	            { className: 'tab-label tab-label-nb' },
 	            this.props.user.voted_products.length
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label' },
+	            { className: 'tab-label tab-label-name' },
 	            'Votes'
 	          )
 	        ),
@@ -33301,13 +33301,13 @@
 	          { className: postTabClasses, onClick: this.clickOnPostsTab },
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label' },
+	            { className: 'tab-label tab-label-nb' },
 	            this.props.user.products.length
 	          ),
 	          React.createElement('br', null),
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label' },
+	            { className: 'tab-label tab-label-name' },
 	            'Posts'
 	          )
 	        )

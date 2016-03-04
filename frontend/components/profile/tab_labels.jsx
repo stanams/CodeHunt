@@ -29,20 +29,20 @@ var TabLabels = React.createClass({
       <div>
         <ul className="tab-label-container">
           <li className={voteTabClasses} onClick={this.clickOnVotesTab}>
-            <span className="tab-label">
+            <span className="tab-label tab-label-nb">
               {this.props.user.voted_products.length}
             </span>
             <br></br>
-            <span className="tab-label">
+            <span className="tab-label tab-label-name">
               Votes
             </span>
           </li>
           <li className={postTabClasses} onClick={this.clickOnPostsTab}>
-            <span className="tab-label">
+            <span className="tab-label tab-label-nb">
               {this.props.user.products.length}
             </span>
             <br></br>
-            <span className="tab-label">
+            <span className="tab-label tab-label-name">
               Posts
             </span>
           </li>

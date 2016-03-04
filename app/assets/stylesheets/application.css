@@ -1102,6 +1102,10 @@ img .profile-picture {
 	bottom: 10px;
 }
 
+.tab-label-nb {
+  font-weight: bold;
+}
+
 .product-list-wrapper-profile-page {
   position: relative;
   margin-left: auto;
