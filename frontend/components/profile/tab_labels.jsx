@@ -17,6 +17,11 @@ var TabLabels = React.createClass({
   render: function(){
     var rightClass = (this.state.selectedTab === "Votes") ? "votes-tab" : "posts-tab";
 
+    // var votesTabClasses = classNames({
+    //   "votes-tab": true,
+    //   "votes-tab-selected": this.state.selectedTab === "Votes"
+    // })
+
     return(
       <div>
         <ul className="tab-label-container">

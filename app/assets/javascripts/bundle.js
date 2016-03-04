@@ -33039,13 +33039,13 @@
 	  displayName: 'VotesBox',
 	
 	
-	  makeProfileUrl: function () {
-	    var path = "/users/" + this.props.productData.author.id;
+	  makeProfileUrl: function (voterId) {
+	    var path = "/users/" + voterId;
 	    return path;
 	  },
 	
-	  handleProfileClick: function () {
-	    browserHistory.push(this.makeProfileUrl());
+	  handleProfileClick: function (voterId) {
+	    browserHistory.push(this.makeProfileUrl(voterId));
 	    window.scrollTo(0, 0);
 	  },
 	
@@ -33055,9 +33055,9 @@
 	      return React.createElement(
 	        'li',
 	        { key: idx, className: 'mid-cropper voters-list-item' },
-	        React.createElement('img', { onClick: this.handleProfileClick, className: 'small-profile-pic', src: voter.profile_pic })
+	        React.createElement('img', { onClick: this.handleProfileClick.bind(null, voter.id), className: 'small-profile-pic', src: voter.profile_pic })
 	      );
-	    });
+	    }.bind(this));
 	
 	    return React.createElement(
 	      'div',
@@ -33267,6 +33267,11 @@
 	
 	  render: function () {
 	    var rightClass = this.state.selectedTab === "Votes" ? "votes-tab" : "posts-tab";
+	
+	    // var votesTabClasses = classNames({
+	    //   "votes-tab": true,
+	    //   "votes-tab-selected": this.state.selectedTab === "Votes"
+	    // })
 	
 	    return React.createElement(
 	      'div',

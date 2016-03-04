@@ -3,13 +3,13 @@ var browserHistory = require('react-router').browserHistory;
 
 var VotesBox = React.createClass({
 
-  makeProfileUrl: function(){
-    var path = "/users/" + this.props.productData.author.id;
+  makeProfileUrl: function(voterId){
+    var path = "/users/" + voterId;
     return path;
   },
 
-  handleProfileClick: function(){
-    browserHistory.push(this.makeProfileUrl());
+  handleProfileClick: function(voterId){
+    browserHistory.push(this.makeProfileUrl(voterId));
     window.scrollTo(0,0);
   },
 
@@ -17,9 +17,9 @@ var VotesBox = React.createClass({
     // debugger
     var votersList = this.props.productData.voters.map(function(voter, idx){
       return (<li key={idx} className="mid-cropper voters-list-item">
-                <img onClick={this.handleProfileClick} className="small-profile-pic" src={voter.profile_pic}/>
+                <img onClick={this.handleProfileClick.bind(null, voter.id)} className="small-profile-pic" src={voter.profile_pic}/>
               </li>)
-    });
+    }.bind(this));
 
     return(
       <div className="votes-count-container-product-page">
