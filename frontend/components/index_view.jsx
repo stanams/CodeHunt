@@ -8,7 +8,7 @@ var IndexView = React.createClass({
     return(
       <div>
         <Header />
-        <img className="homepage-image" src="assets/codesplash"></img>
+        <img className="homepage-image" src="http://res.cloudinary.com/codehunt/image/upload/v1457111580/codesplash_-_copie_f4e5zw.jpg"></img>
         <ProductsList />
         <ProductPreview />
       </div>
