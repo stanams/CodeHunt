@@ -10,14 +10,24 @@ var Header = React.createClass({
 
   // mixins: [ReactRouter.History],
 
+  // getInitialState: function(){
+  //   return {
+  //     user: UserStore
+  //   }
+  // },
+
   handleClickNewProduct: function(){
     browserHistory.push("/products/new");
   },
 
+  // getUserLoggedIn: function(){
+  //   ApiUtil.
+  // },
+
 
 
   render: function(){
-    // debugger
+    debugger
     return(
       <nav className="navbarr">
         <Link to="/" className="logo-page"><img className="header-logo" src="https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png"></img></Link>

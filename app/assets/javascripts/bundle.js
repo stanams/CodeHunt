@@ -19713,6 +19713,7 @@
 	  displayName: 'IndexView',
 	
 	  render: function () {
+	    debugger;
 	    return React.createElement(
 	      'div',
 	      null,
@@ -19743,12 +19744,22 @@
 	
 	  // mixins: [ReactRouter.History],
 	
+	  // getInitialState: function(){
+	  //   return {
+	  //     user: UserStore
+	  //   }
+	  // },
+	
 	  handleClickNewProduct: function () {
 	    browserHistory.push("/products/new");
 	  },
 	
+	  // getUserLoggedIn: function(){
+	  //   ApiUtil.
+	  // },
+	
 	  render: function () {
-	    // debugger
+	    debugger;
 	    return React.createElement(
 	      'nav',
 	      { className: 'navbarr' },
