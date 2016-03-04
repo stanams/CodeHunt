@@ -32898,22 +32898,18 @@
 	        { className: 'comment-item-header' },
 	        React.createElement(
 	          'div',
-	          { className: 'comment-item-subheader' },
-	          React.createElement(
-	            'div',
-	            { className: 'mid-cropper' },
-	            React.createElement('img', { src: this.props.comment.commenter.profile_pic, className: 'small-profile-pic' })
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'comment-commenter' },
-	            this.props.comment.commenter_name
-	          ),
-	          React.createElement(
-	            'div',
-	            { className: 'comment-commenter-bio' },
-	            this.props.comment.commenter.bio
-	          )
+	          { className: 'mid-cropper' },
+	          React.createElement('img', { src: this.props.comment.commenter.profile_pic, className: 'small-profile-pic' })
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'comment-commenter' },
+	          this.props.comment.commenter_name
+	        ),
+	        React.createElement(
+	          'div',
+	          { className: 'comment-commenter-bio' },
+	          this.props.comment.commenter.bio
 	        )
 	      ),
 	      React.createElement(

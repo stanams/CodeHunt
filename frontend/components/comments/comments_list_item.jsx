@@ -28,13 +28,13 @@ var CommentListItem = React.createClass ({
     return(
       <li className="comment-item-container">
         <div className="comment-item-header">
-          <div className="comment-item-subheader">
+
             <div className="mid-cropper">
               <img src={this.props.comment.commenter.profile_pic} className="small-profile-pic" />
             </div>
             <div  className="comment-commenter">{this.props.comment.commenter_name}</div>
             <div  className="comment-commenter-bio">{this.props.comment.commenter.bio}</div>
-          </div>
+          
         </div>
         <div  className="comment-body">{this.props.comment.body}</div>
       </li>

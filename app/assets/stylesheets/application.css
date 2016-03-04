@@ -792,9 +792,6 @@ img.product-picture {
 	float: left;
 }
 
-.comment-commenter-bio {
-  color: #ccc;
-}
 
 .form-and-comments {
   position: relative;
@@ -820,18 +817,33 @@ li {
   display: inline;
 }
 
-.comment-item-subheader li {
-  display: inline;
-}
-
 .comment-commenter {
   font-weight: bold;
+  position: relative;
+  bottom: 50px;
+  left: 60px;
 }
+/*bottom: 50px;
+left: 60px;*/
+
+.comment-commenter-bio {
+  color: #ccc;
+  position: relative;
+  bottom: 50px;
+  left: 60px;
+}
+/*bottom: 50px;
+left: 60px;*/
 
 .comment-body {
   margin: 10px;
   color: #100700;
+  position: relative;
+  bottom: 50px;
+  margin-left: 70px;
 }
+/*bottom: 50px;
+left: 70px;*/
 
 .comment-form {
   margin-top: 50px;
