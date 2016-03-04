@@ -32878,14 +32878,32 @@
 	  // },
 	
 	  render: function () {
-	
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      { className: 'comment-item-container' },
 	      React.createElement(
 	        'div',
-	        { className: 'comment-commenter' },
-	        this.props.comment.commenter
+	        { className: 'comment-item-header' },
+	        React.createElement(
+	          'div',
+	          { className: 'comment-item-subheader' },
+	          React.createElement(
+	            'div',
+	            { className: 'mid-cropper' },
+	            React.createElement('img', { src: this.props.comment.commenter.profile_pic, className: 'small-profile-pic' })
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'comment-commenter' },
+	            this.props.comment.commenter_name
+	          ),
+	          React.createElement(
+	            'div',
+	            { className: 'comment-commenter-bio' },
+	            this.props.comment.commenter.bio
+	          )
+	        )
 	      ),
 	      React.createElement(
 	        'div',
@@ -33025,7 +33043,7 @@
 	  },
 	
 	  render: function () {
-	    debugger;
+	    // debugger
 	    var votersList = this.props.productData.voters.map(function (voter, idx) {
 	      return React.createElement(
 	        'li',

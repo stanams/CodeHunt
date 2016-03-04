@@ -792,6 +792,10 @@ img.product-picture {
 	float: left;
 }
 
+.comment-commenter-bio {
+  color: #ccc;
+}
+
 .form-and-comments {
   position: relative;
   bottom: 20px;
@@ -803,16 +807,30 @@ li {
 
 .comment-item-container {
   margin: 30px;
+  margin-left: -10px;
+  /*display: inline;*/
+}
+
+.comment-item-header {
+  position: relative;
+  display: inline;
+}
+
+.comment-item-subheader {
+  display: inline;
+}
+
+.comment-item-subheader li {
+  display: inline;
 }
 
 .comment-commenter {
   font-weight: bold;
-
 }
 
 .comment-body {
   margin: 10px;
-  color: #CCCCCC;
+  color: #100700;
 }
 
 .comment-form {
@@ -1005,8 +1023,9 @@ img .profile-picture {
   width: auto;
 }
 
+
 .small-profile-pic:hover {
-  transform: scale(1.1);
+  cursor: pointer;
 }
 
 .profile-info-container {

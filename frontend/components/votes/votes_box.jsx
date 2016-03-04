@@ -14,7 +14,7 @@ var VotesBox = React.createClass({
   },
 
   render: function(){
-    debugger
+    // debugger
     var votersList = this.props.productData.voters.map(function(voter, idx){
       return (<li key={idx} className="mid-cropper voters-list-item">
                 <img onClick={this.handleProfileClick} className="small-profile-pic" src={voter.profile_pic}/>
