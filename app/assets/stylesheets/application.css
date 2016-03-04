@@ -101,9 +101,10 @@ body, html {
 .centered-box {
   height:100%;
   width: 35%;
-  position: relative;
+  position: fixed;
   float: right;
-  transform: translateY(-20%);
+  right: 0;
+  top: 0;
   text-align: center;
   background-color: #eee;
   text-align: center;
@@ -115,9 +116,14 @@ body, html {
   box-shadow: 0 0 15px #000000;
 }
 
+.small-logo-landing {
+  position: relative;
+  top: 30%;
+}
+
 .auth-wrapper {
   position: relative;
-  top: 300px;
+  top: 200px;
 }
 
 .auth-title {
