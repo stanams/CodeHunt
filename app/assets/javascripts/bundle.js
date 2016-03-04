@@ -33266,12 +33266,14 @@
 	  },
 	
 	  render: function () {
-	    var rightClass = this.state.selectedTab === "Votes" ? "votes-tab" : "posts-tab";
 	
-	    // var votesTabClasses = classNames({
-	    //   "votes-tab": true,
-	    //   "votes-tab-selected": this.state.selectedTab === "Votes"
-	    // })
+	    if (this.state.selectedTab === "Votes") {
+	      voteTabClasses = "votes-tab tab-selected";
+	      postTabClasses = "posts-tab";
+	    } else {
+	      voteTabClasses = "votes-tab";
+	      postTabClasses = "posts-tab tab-selected";
+	    }
 	
 	    return React.createElement(
 	      'div',
@@ -33281,7 +33283,7 @@
 	        { className: 'tab-label-container' },
 	        React.createElement(
 	          'li',
-	          { className: 'votes-tab', onClick: this.clickOnVotesTab },
+	          { className: voteTabClasses, onClick: this.clickOnVotesTab },
 	          React.createElement(
 	            'span',
 	            { className: 'tab-label' },
@@ -33296,7 +33298,7 @@
 	        ),
 	        React.createElement(
 	          'li',
-	          { className: 'posts-tab', onClick: this.clickOnPostsTab },
+	          { className: postTabClasses, onClick: this.clickOnPostsTab },
 	          React.createElement(
 	            'span',
 	            { className: 'tab-label' },

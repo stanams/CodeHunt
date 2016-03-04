@@ -15,17 +15,20 @@ var TabLabels = React.createClass({
   },
 
   render: function(){
-    var rightClass = (this.state.selectedTab === "Votes") ? "votes-tab" : "posts-tab";
 
-    // var votesTabClasses = classNames({
-    //   "votes-tab": true,
-    //   "votes-tab-selected": this.state.selectedTab === "Votes"
-    // })
+    if (this.state.selectedTab === "Votes") {
+      voteTabClasses = "votes-tab tab-selected";
+      postTabClasses = "posts-tab";
+    } else {
+      voteTabClasses = "votes-tab"
+      postTabClasses = "posts-tab tab-selected";
+    }
+
 
     return(
       <div>
         <ul className="tab-label-container">
-          <li className="votes-tab" onClick={this.clickOnVotesTab}>
+          <li className={voteTabClasses} onClick={this.clickOnVotesTab}>
             <span className="tab-label">
               {this.props.user.voted_products.length}
             </span>
@@ -34,7 +37,7 @@ var TabLabels = React.createClass({
               Votes
             </span>
           </li>
-          <li className="posts-tab" onClick={this.clickOnPostsTab}>
+          <li className={postTabClasses} onClick={this.clickOnPostsTab}>
             <span className="tab-label">
               {this.props.user.products.length}
             </span>
