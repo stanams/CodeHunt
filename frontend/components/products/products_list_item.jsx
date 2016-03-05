@@ -4,7 +4,7 @@ var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
 var VoteButton = require('../votes/vote-button');
 var UserStore = require('../../stores/user_store');
-// var TagsList = require('../categories/tags_list');
+var TagsList = require('../categories/tags_list');
 
 var ProductsListItem = React.createClass({
 
@@ -13,8 +13,8 @@ var ProductsListItem = React.createClass({
     return path;
   },
 
-  makeProfileUrl: function(){
-    var path = "/users/" + this.props.product.author.id;
+  makeProfileUrl: function(authorId){
+    var path = "/users/" + authorId;
     return path;
   },
 
@@ -23,8 +23,8 @@ var ProductsListItem = React.createClass({
     window.scrollTo(0,0);
   },
 
-  handleProfileClick: function(){
-    browserHistory.push(this.makeProfileUrl());
+  handleProfileClick: function(authorId){
+    browserHistory.push(this.makeProfileUrl(authorId));
     window.scrollTo(0,0);
   },
 
@@ -35,6 +35,7 @@ var ProductsListItem = React.createClass({
     } else {
       var profilePic = this.props.product.author.profile_pic;
     }
+    debugger
     return(
         <li className="index-products-list-item">
 
@@ -46,6 +47,7 @@ var ProductsListItem = React.createClass({
               <p className="list-item-description">{this.props.product.description}</p>
             </div>
             <div>
+            <TagsList product={this.props.product}/>
 
             </div>
             <div className="list-item-comments-nb">
@@ -53,7 +55,12 @@ var ProductsListItem = React.createClass({
               <p className="comment-nb">{this.props.product.comments_count}</p>
             </div>
             <ul className="name-container">
-              <li onClick={this.handleProfileClick} className="item-username small-cropper"><img className="small-profile-pic" src={profilePic}/></li>
+              <li className="item-username small-cropper">
+                <img onClick={this.handleProfileClick.bind(null, this.props.product.author_id)}
+                     className="small-profile-pic"
+                     src={profilePic}
+                 />
+              </li>
             </ul>
           </div>
         </li>
@@ -67,4 +74,3 @@ module.exports = ProductsListItem;
 //   <i className="fa fa-external-link"></i>
 // </a>
 // <p>{this.props.product.comments.length} comments</p>
-// <TagsList product={this.props.product}/> to put lin 49

@@ -19746,7 +19746,7 @@
 	
 	  getInitialState: function () {
 	    return {
-	      showProfileMenu: false
+	      showProfileMenu: true
 	    };
 	  },
 	
@@ -19761,12 +19761,12 @@
 	      { className: 'profile-menu-dropdown' },
 	      React.createElement(
 	        'li',
-	        null,
+	        { className: 'profile-menu-item' },
 	        'profile'
 	      ),
 	      React.createElement(
 	        'li',
-	        null,
+	        { className: 'profile-menu-item' },
 	        'logout'
 	      )
 	    );
@@ -19809,17 +19809,6 @@
 	});
 	
 	module.exports = Header;
-	
-	// <Search/>
-
-	// Profile page
-	// makeUrl: function(){
-	//   var path = "/profile/" + this.props.profileId;
-	//   return path;
-	// },
-
-	// Profile Page
-	// <Link to={this.makeUrl()}><p className="header-profile" >Profile</p></Link>
 
 /***/ },
 /* 162 */
@@ -32231,7 +32220,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
 	var UserStore = __webpack_require__(256);
-	// var TagsList = require('../categories/tags_list');
+	var TagsList = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../categories/tags_list\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32242,8 +32231,8 @@
 	    return path;
 	  },
 	
-	  makeProfileUrl: function () {
-	    var path = "/users/" + this.props.product.author.id;
+	  makeProfileUrl: function (authorId) {
+	    var path = "/users/" + authorId;
 	    return path;
 	  },
 	
@@ -32252,8 +32241,8 @@
 	    window.scrollTo(0, 0);
 	  },
 	
-	  handleProfileClick: function () {
-	    browserHistory.push(this.makeProfileUrl());
+	  handleProfileClick: function (authorId) {
+	    browserHistory.push(this.makeProfileUrl(authorId));
 	    window.scrollTo(0, 0);
 	  },
 	
@@ -32264,6 +32253,7 @@
 	    } else {
 	      var profilePic = this.props.product.author.profile_pic;
 	    }
+	    debugger;
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32285,7 +32275,11 @@
 	            this.props.product.description
 	          )
 	        ),
-	        React.createElement('div', null),
+	        React.createElement(
+	          'div',
+	          null,
+	          React.createElement(TagsList, { product: this.props.product })
+	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'list-item-comments-nb' },
@@ -32301,8 +32295,11 @@
 	          { className: 'name-container' },
 	          React.createElement(
 	            'li',
-	            { onClick: this.handleProfileClick, className: 'item-username small-cropper' },
-	            React.createElement('img', { className: 'small-profile-pic', src: profilePic })
+	            { className: 'item-username small-cropper' },
+	            React.createElement('img', { onClick: this.handleProfileClick.bind(null, this.props.product.author_id),
+	              className: 'small-profile-pic',
+	              src: profilePic
+	            })
 	          )
 	        )
 	      )
@@ -32315,7 +32312,6 @@
 	//   <i className="fa fa-external-link"></i>
 	// </a>
 	// <p>{this.props.product.comments.length} comments</p>
-	// <TagsList product={this.props.product}/> to put lin 49
 
 /***/ },
 /* 254 */

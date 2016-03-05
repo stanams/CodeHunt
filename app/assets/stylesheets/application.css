@@ -201,6 +201,15 @@ background-image: image_path("logo_canva.jpg");
 
 .profile-menu-dropdown {
   background-color: green;
+  z-index: 2;
+  width: 200px;
+  height: 200px;
+}
+
+.profile-menu-item {
+  width: 100px;
+  height: 100px;
+  font-size: 100px;
 }
 
 .header-logo {
