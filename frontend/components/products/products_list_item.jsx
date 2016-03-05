@@ -4,7 +4,7 @@ var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
 var VoteButton = require('../votes/vote-button');
 var UserStore = require('../../stores/user_store');
-var TagsList = require('../categories/tags_list');
+// var TagsList = require('../categories/tags_list');
 
 var ProductsListItem = React.createClass({
 
@@ -35,7 +35,7 @@ var ProductsListItem = React.createClass({
     } else {
       var profilePic = this.props.product.author.profile_pic;
     }
-    debugger
+    // debugger
     return(
         <li className="index-products-list-item">
 
@@ -47,7 +47,7 @@ var ProductsListItem = React.createClass({
               <p className="list-item-description">{this.props.product.description}</p>
             </div>
             <div>
-            <TagsList product={this.props.product}/>
+
 
             </div>
             <div className="list-item-comments-nb">
@@ -74,3 +74,4 @@ module.exports = ProductsListItem;
 //   <i className="fa fa-external-link"></i>
 // </a>
 // <p>{this.props.product.comments.length} comments</p>
+// <TagsList product={this.props.product}/>

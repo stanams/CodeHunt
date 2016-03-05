@@ -32220,7 +32220,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var VoteButton = __webpack_require__(254);
 	var UserStore = __webpack_require__(256);
-	var TagsList = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"../categories/tags_list\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+	// var TagsList = require('../categories/tags_list');
 	
 	var ProductsListItem = React.createClass({
 	  displayName: 'ProductsListItem',
@@ -32253,7 +32253,7 @@
 	    } else {
 	      var profilePic = this.props.product.author.profile_pic;
 	    }
-	    debugger;
+	    // debugger
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32275,11 +32275,7 @@
 	            this.props.product.description
 	          )
 	        ),
-	        React.createElement(
-	          'div',
-	          null,
-	          React.createElement(TagsList, { product: this.props.product })
-	        ),
+	        React.createElement('div', null),
 	        React.createElement(
 	          'div',
 	          { className: 'list-item-comments-nb' },
@@ -32312,6 +32308,7 @@
 	//   <i className="fa fa-external-link"></i>
 	// </a>
 	// <p>{this.props.product.comments.length} comments</p>
+	// <TagsList product={this.props.product}/>
 
 /***/ },
 /* 254 */
