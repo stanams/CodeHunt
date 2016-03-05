@@ -19738,26 +19738,47 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var attr = document.getElementById('root');
 	var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
+	var ProfileMenu = __webpack_require__(273);
 	
 	var Header = React.createClass({
 	  displayName: 'Header',
 	
 	
-	  // mixins: [ReactRouter.History],
-	
-	  // getInitialState: function(){
-	  //   return {
-	  //     user: UserStore
-	  //   }
-	  // },
+	  getInitialState: function () {
+	    return {
+	      showProfileMenu: false
+	    };
+	  },
 	
 	  handleClickNewProduct: function () {
 	    browserHistory.push("/products/new");
 	  },
 	
-	  // getUserLoggedIn: function(){
-	  //   ApiUtil.
-	  // },
+	  renderProfileMenu: function () {
+	    debugger;
+	    return React.createElement(
+	      'ul',
+	      { className: 'profile-menu-dropdown' },
+	      React.createElement(
+	        'li',
+	        null,
+	        'profile'
+	      ),
+	      React.createElement(
+	        'li',
+	        null,
+	        'logout'
+	      )
+	    );
+	  },
+	
+	  handleClickProfileMenu: function () {
+	    if (this.state.showProfileMenu) {
+	      this.setState({ showProfileMenu: false });
+	    } else {
+	      this.setState({ showProfileMenu: true });
+	    }
+	  },
 	
 	  render: function () {
 	    return React.createElement(
@@ -19774,7 +19795,8 @@
 	        React.createElement(
 	          'div',
 	          { className: 'header-profile-cropper profile-menu' },
-	          React.createElement('img', { className: 'small-profile-pic', src: logged_in_user.profile_pic })
+	          React.createElement('img', { onClick: this.handleClickProfileMenu, className: 'small-profile-pic', src: logged_in_user.profile_pic }),
+	          this.state.showProfileMenu ? this.renderProfileMenu() : null
 	        ),
 	        React.createElement(
 	          'p',
@@ -33515,6 +33537,35 @@
 	});
 	
 	module.exports = ProfileForm;
+
+/***/ },
+/* 273 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	
+	var ProfileMenu = React.createClass({
+	  displayName: "ProfileMenu",
+	
+	  render: function () {
+	    return React.createElement(
+	      "ul",
+	      { className: "profile-menu-dropdown" },
+	      React.createElement(
+	        "li",
+	        null,
+	        "profile"
+	      ),
+	      React.createElement(
+	        "li",
+	        null,
+	        "logout"
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProfileMenu;
 
 /***/ }
 /******/ ]);

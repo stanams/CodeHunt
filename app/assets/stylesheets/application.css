@@ -199,6 +199,10 @@ background-image: image_path("logo_canva.jpg");
   right: 20px;
 }
 
+.profile-menu-dropdown {
+  background-color: green;
+}
+
 .header-logo {
   width: 17%;
   position: relative;
