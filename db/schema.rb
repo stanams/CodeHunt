@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303182512) do
+ActiveRecord::Schema.define(version: 20160305154521) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -55,13 +55,13 @@ ActiveRecord::Schema.define(version: 20160303182512) do
   add_index "products", ["name"], name: "index_products_on_name", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",        null: false
-    t.string   "session_token",   null: false
-    t.string   "password_digest", null: false
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.string   "username",                                                                                   null: false
+    t.string   "session_token",                                                                              null: false
+    t.string   "password_digest",                                                                            null: false
+    t.datetime "created_at",                                                                                 null: false
+    t.datetime "updated_at",                                                                                 null: false
     t.text     "bio"
-    t.string   "profile_pic"
+    t.string   "profile_pic",     default: "https://40.media.tumblr.com/tumblr_lkoxtzsa981qe25ajo1_400.jpg"
   end
 
   add_index "users", ["session_token"], name: "index_users_on_session_token", using: :btree
