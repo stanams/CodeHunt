@@ -5,7 +5,6 @@ var ProductPreview = require('./products/product_preview');
 
 var IndexView = React.createClass({
   render: function(){
-    debugger
     return(
       <div>
         <Header/>

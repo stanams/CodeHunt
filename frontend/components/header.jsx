@@ -4,6 +4,9 @@ var ReactRouter = require('react-router');
 var Link = ReactRouter.Link;
 var Search = require('./search.jsx');
 var browserHistory = require('react-router').browserHistory;
+var attr = document.getElementById('root');
+var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
+
 
 
 var Header = React.createClass({
@@ -27,14 +30,14 @@ var Header = React.createClass({
 
 
   render: function(){
-    debugger
     return(
       <nav className="navbarr">
         <Link to="/" className="logo-page"><img className="header-logo" src="https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png"></img></Link>
-
-        <button className="header-profile-button">Sign Out</button>
-        <p className="header-new-product-button" onClick={this.handleClickNewProduct}>+</p>
-      </nav>
+        <div className="right-el-nav">
+          <div className="header-profile-cropper profile-menu"><img className="small-profile-pic" src={logged_in_user.profile_pic}/></div>
+          <p className="header-new-product-button" onClick={this.handleClickNewProduct}><i className="fa fa-plus"></i></p>
+        </div>
+    </nav>
     );
   }
 })

@@ -19713,7 +19713,6 @@
 	  displayName: 'IndexView',
 	
 	  render: function () {
-	    debugger;
 	    return React.createElement(
 	      'div',
 	      null,
@@ -19737,6 +19736,8 @@
 	var Link = ReactRouter.Link;
 	var Search = __webpack_require__(223);
 	var browserHistory = __webpack_require__(166).browserHistory;
+	var attr = document.getElementById('root');
+	var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
 	
 	var Header = React.createClass({
 	  displayName: 'Header',
@@ -19759,7 +19760,6 @@
 	  // },
 	
 	  render: function () {
-	    debugger;
 	    return React.createElement(
 	      'nav',
 	      { className: 'navbarr' },
@@ -19769,14 +19769,18 @@
 	        React.createElement('img', { className: 'header-logo', src: 'https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
 	      ),
 	      React.createElement(
-	        'button',
-	        { className: 'header-profile-button' },
-	        'Sign Out'
-	      ),
-	      React.createElement(
-	        'p',
-	        { className: 'header-new-product-button', onClick: this.handleClickNewProduct },
-	        '+'
+	        'div',
+	        { className: 'right-el-nav' },
+	        React.createElement(
+	          'div',
+	          { className: 'header-profile-cropper profile-menu' },
+	          React.createElement('img', { className: 'small-profile-pic', src: logged_in_user.profile_pic })
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'header-new-product-button', onClick: this.handleClickNewProduct },
+	          React.createElement('i', { className: 'fa fa-plus' })
+	        )
 	      )
 	    );
 	  }
@@ -33270,9 +33274,13 @@
 	    if (this.state.selectedTab === "Votes") {
 	      voteTabClasses = "votes-tab tab-selected";
 	      postTabClasses = "posts-tab";
+	      voteNbClass = "tab-label tab-label-nb vote-nb-selected";
+	      postNbClass = "tab-label tab-label-nb post-nb-non-selected";
 	    } else {
 	      voteTabClasses = "votes-tab";
 	      postTabClasses = "posts-tab tab-selected";
+	      postNbClass = "tab-label tab-label-nb post-nb-selected";
+	      voteNbClass = "tab-label tab-label-nb vote-nb-non-selected";
 	    }
 	
 	    return React.createElement(
@@ -33286,7 +33294,7 @@
 	          { className: voteTabClasses, onClick: this.clickOnVotesTab },
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label tab-label-nb' },
+	            { className: voteNbClass },
 	            this.props.user.voted_products.length
 	          ),
 	          React.createElement('br', null),
@@ -33301,7 +33309,7 @@
 	          { className: postTabClasses, onClick: this.clickOnPostsTab },
 	          React.createElement(
 	            'span',
-	            { className: 'tab-label tab-label-nb' },
+	            { className: postNbClass },
 	            this.props.user.products.length
 	          ),
 	          React.createElement('br', null),

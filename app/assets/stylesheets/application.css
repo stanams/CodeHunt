@@ -108,8 +108,6 @@ body, html {
   text-align: center;
   background-color: #eee;
   text-align: center;
-  /*margin-left: auto;
-  margin-right: auto;*/
   font-family: 'Open Sans', sans-serif;
   border-bottom: 2px #a9a9a9 solid;
   float: right;
@@ -181,11 +179,24 @@ background-image: image_path("logo_canva.jpg");
 /*Header stuff*/
 
 .navbarr {
-  width: auto;
+  /*position: fixed;*/
+  width: 100%;
   height: 80px;
   margin: 0;
   border-bottom: 1px solid #eee;
   box-shadow: 1px 1px 1px #eee;
+}
+
+.right-el-nav {
+  float: right;
+  height: 60px;
+}
+
+.profile-menu {
+  position: relative;
+  margin: 22px;
+  margin-left: 100px;
+  right: 20px;
 }
 
 .header-logo {
@@ -211,16 +222,24 @@ background-image: image_path("logo_canva.jpg");
   text-decoration: none !important;
 }
 
+i.fa-plus {
+  font-size: 75%;
+  position: relative;
+  bottom: 2px;
+}
+
 .header-new-product-button {
   float: right;
   background-color: #FDDD10;
   border-radius: 50%;
-	width: 50px;
-	height: 50px;
+	width: 40px;
+	height: 40px;
   margin: 10px;
   position: relative;
-  top: 5px;
-  right: 20px;
+  /*top: 5px;*/
+  bottom: 72px;
+  right: 100px;
+  /*margin-right: 100px;*/
   display: inline-block;
   padding: 0px;
   font-size: 30px;
@@ -230,7 +249,7 @@ background-image: image_path("logo_canva.jpg");
 }
 
 .header-new-product-button:hover {
-  opacity: 0.8;
+  opacity: 0.7;
 }
 
 
@@ -847,6 +866,8 @@ left: 70px;*/
 
 .comment-form {
   margin-top: 50px;
+  margin-left: 75px;
+  margin-right: 75px;
 }
 
 .discussion-title {
@@ -990,6 +1011,8 @@ img .profile-picture {
   width: auto;
 }
 
+
+
 .small-cropper {
   width: 35px;
   height: 35px;
@@ -1001,6 +1024,18 @@ img .profile-picture {
   -o-border-radius: 50%;
   border-radius: 50%;
   bottom: 5px;
+}
+
+.header-profile-cropper {
+  width: 40px;
+  height: 40px;
+  position: relative;
+  overflow: hidden;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
 }
 
 .mid-cropper {
@@ -1043,7 +1078,7 @@ img .profile-picture {
 .profile-info-container {
   width: 100vw;
   background-color: #534540;
-  height: 30%;
+  height: 35%;
 }
 
 .profile-info-data {
@@ -1127,6 +1162,7 @@ img .profile-picture {
 }
 
 .votes-tab {
+  background-color: #756A66;
   margin: 0;
   float:left;
   position:relative;
@@ -1139,14 +1175,18 @@ img .profile-picture {
   border-right: 1px #eee solid;
   cursor: pointer;
   text-align: center;
-  border-top: 1px #fff solid;
+  /*border-top: 1px #fff solid;
   border-left: 0.2px #fff solid;
-  border-right: 1px #fff solid;
+  border-right: 1px #fff solid;*/
   border-radius: 4px 0 0 0;
 }
 
 .tab-selected {
-  background-color: white;
+  background-color: white !important;
+}
+
+.tab-selected:hover {
+  background-color: white !important;
 }
 
 .votes-tab:hover {
@@ -1157,12 +1197,34 @@ img .profile-picture {
   background-color: #756A66;
 }
 
+/*.tab-non-selected {
+  padding: 0;
+}
+
+.tab-non-selected:hover {
+  background-color: green;
+}*/
+
+.vote-nb-selected {
+  color: black;
+}
+
+.vote-nb-non-selected {
+  color: white;
+}
+
+.post-nb-selected {
+  color: black;
+}
+
+.post-nb-non-selected {
+  color: white;
+}
+
 .posts-tab {
+  background-color: #756A66;
   margin: 0;
   border-radius: 0 4px 0 0;
-  border-top: 1px #fff solid;
-  border-left: 0.2px #fff solid;
-  border-right: 1px #fff solid;
   float:right;
   position:relative;
   width: 230px;
@@ -1171,8 +1233,6 @@ img .profile-picture {
   color: #C4BFA7;
   font-size: 16px;
   font-family: Roboto;
-  /*border-left: 1px #eee solid;*/
   cursor: pointer;
-  /*background-color: #756A66;*/
   text-align: center;
 }
