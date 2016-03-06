@@ -19718,13 +19718,14 @@
 	      null,
 	      React.createElement(Header, null),
 	      React.createElement('img', { className: 'homepage-image', src: 'http://res.cloudinary.com/codehunt/image/upload/v1457111580/codesplash_-_copie_f4e5zw.jpg' }),
-	      React.createElement(ProductsList, null),
-	      React.createElement(ProductPreview, null)
+	      React.createElement(ProductsList, null)
 	    );
 	  }
 	});
 	
 	module.exports = IndexView;
+	
+	// Pour faire la modale, rajouter la <ProductPreview />
 
 /***/ },
 /* 161 */
