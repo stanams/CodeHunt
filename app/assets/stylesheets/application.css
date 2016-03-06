@@ -307,7 +307,7 @@ i.fa-plus {
 .item-title-description {
   position: relative;
   left: 100px;
-  bottom: 10px;
+  bottom: 30px;
   display: block;
 }
 
@@ -355,6 +355,22 @@ li.index-products-list-item:hover {
   float: right;
   position: relative;
   bottom: 75px;
+}
+
+.tag-item {
+  border: 1px #ccc solid;
+  border-radius: 4px;
+  color: #ccc;
+  display: inline;
+  padding: 5px;
+  position: relative;
+  bottom: 35px;
+  left: 100px;
+}
+
+.tag-item:hover {
+  border: 1px #A9A9A9 solid;
+  color: #A9A9A9;
 }
 
 

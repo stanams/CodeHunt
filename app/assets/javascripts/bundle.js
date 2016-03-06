@@ -52,11 +52,11 @@
 	var Route = ReactRouter.Route;
 	var IndexRoute = ReactRouter.IndexRoute;
 	var IndexView = __webpack_require__(160);
-	var ProductForm = __webpack_require__(258);
-	var ProductPage = __webpack_require__(259);
+	var ProductForm = __webpack_require__(260);
+	var ProductPage = __webpack_require__(261);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProfilePage = __webpack_require__(267);
-	var ProfileForm = __webpack_require__(272);
+	var ProfilePage = __webpack_require__(269);
+	var ProfileForm = __webpack_require__(274);
 	
 	var routes = React.createElement(
 	  Route,
@@ -19706,8 +19706,8 @@
 
 	var React = __webpack_require__(1);
 	var Header = __webpack_require__(161);
-	var ProductsList = __webpack_require__(224);
-	var ProductPreview = __webpack_require__(257);
+	var ProductsList = __webpack_require__(225);
+	var ProductPreview = __webpack_require__(259);
 	
 	var IndexView = React.createClass({
 	  displayName: 'IndexView',
@@ -19738,7 +19738,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var attr = document.getElementById('root');
 	var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
-	var ProfileMenu = __webpack_require__(273);
+	var ProfileMenu = __webpack_require__(224);
 	
 	var Header = React.createClass({
 	  displayName: 'Header',
@@ -25095,9 +25095,38 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ProductStore = __webpack_require__(225);
-	var ApiUtil = __webpack_require__(246);
-	var ProductsListItem = __webpack_require__(253);
+	
+	var ProfileMenu = React.createClass({
+	  displayName: "ProfileMenu",
+	
+	  render: function () {
+	    return React.createElement(
+	      "ul",
+	      { className: "profile-menu-dropdown" },
+	      React.createElement(
+	        "li",
+	        null,
+	        "profile"
+	      ),
+	      React.createElement(
+	        "li",
+	        null,
+	        "logout"
+	      )
+	    );
+	  }
+	});
+	
+	module.exports = ProfileMenu;
+
+/***/ },
+/* 225 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var React = __webpack_require__(1);
+	var ProductStore = __webpack_require__(226);
+	var ApiUtil = __webpack_require__(247);
+	var ProductsListItem = __webpack_require__(254);
 	
 	var ProductsList = React.createClass({
 	  displayName: 'ProductsList',
@@ -25134,17 +25163,17 @@
 	module.exports = ProductsList;
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	
-	var Store = __webpack_require__(226).Store;
-	var Dispatcher = __webpack_require__(242);
-	var ProductConstants = __webpack_require__(245);
+	var Store = __webpack_require__(227).Store;
+	var Dispatcher = __webpack_require__(243);
+	var ProductConstants = __webpack_require__(246);
 	var ProductStore = new Store(Dispatcher);
-	var ApiUtil = __webpack_require__(246);
-	var VoteConstants = __webpack_require__(252);
+	var ApiUtil = __webpack_require__(247);
+	var VoteConstants = __webpack_require__(253);
 	
 	var _products = {};
 	// var _productsByUserId = {};
@@ -25236,7 +25265,7 @@
 	module.exports = ProductStore;
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -25248,15 +25277,15 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Container = __webpack_require__(227);
-	module.exports.MapStore = __webpack_require__(231);
-	module.exports.Mixin = __webpack_require__(241);
-	module.exports.ReduceStore = __webpack_require__(232);
-	module.exports.Store = __webpack_require__(233);
+	module.exports.Container = __webpack_require__(228);
+	module.exports.MapStore = __webpack_require__(232);
+	module.exports.Mixin = __webpack_require__(242);
+	module.exports.ReduceStore = __webpack_require__(233);
+	module.exports.Store = __webpack_require__(234);
 
 
 /***/ },
-/* 227 */
+/* 228 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25278,10 +25307,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStoreGroup = __webpack_require__(228);
+	var FluxStoreGroup = __webpack_require__(229);
 	
-	var invariant = __webpack_require__(229);
-	var shallowEqual = __webpack_require__(230);
+	var invariant = __webpack_require__(230);
+	var shallowEqual = __webpack_require__(231);
 	
 	var DEFAULT_OPTIONS = {
 	  pure: true,
@@ -25439,7 +25468,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 228 */
+/* 229 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25458,7 +25487,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	/**
 	 * FluxStoreGroup allows you to execute a callback on every dispatch after
@@ -25520,7 +25549,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 229 */
+/* 230 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25575,7 +25604,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 230 */
+/* 231 */
 /***/ function(module, exports) {
 
 	/**
@@ -25630,7 +25659,7 @@
 	module.exports = shallowEqual;
 
 /***/ },
-/* 231 */
+/* 232 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25651,10 +25680,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxReduceStore = __webpack_require__(232);
-	var Immutable = __webpack_require__(240);
+	var FluxReduceStore = __webpack_require__(233);
+	var Immutable = __webpack_require__(241);
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	/**
 	 * This is a simple store. It allows caching key value pairs. An implementation
@@ -25780,7 +25809,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 232 */
+/* 233 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25801,10 +25830,10 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var FluxStore = __webpack_require__(233);
+	var FluxStore = __webpack_require__(234);
 	
-	var abstractMethod = __webpack_require__(239);
-	var invariant = __webpack_require__(229);
+	var abstractMethod = __webpack_require__(240);
+	var invariant = __webpack_require__(230);
 	
 	var FluxReduceStore = (function (_FluxStore) {
 	  _inherits(FluxReduceStore, _FluxStore);
@@ -25887,7 +25916,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 233 */
+/* 234 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -25906,11 +25935,11 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var _require = __webpack_require__(234);
+	var _require = __webpack_require__(235);
 	
 	var EventEmitter = _require.EventEmitter;
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	/**
 	 * This class should be extended by the stores in your application, like so:
@@ -26070,7 +26099,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 234 */
+/* 235 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26083,14 +26112,14 @@
 	 */
 	
 	var fbemitter = {
-	  EventEmitter: __webpack_require__(235)
+	  EventEmitter: __webpack_require__(236)
 	};
 	
 	module.exports = fbemitter;
 
 
 /***/ },
-/* 235 */
+/* 236 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26109,8 +26138,8 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var EmitterSubscription = __webpack_require__(236);
-	var EventSubscriptionVendor = __webpack_require__(238);
+	var EmitterSubscription = __webpack_require__(237);
+	var EventSubscriptionVendor = __webpack_require__(239);
 	
 	var emptyFunction = __webpack_require__(15);
 	var invariant = __webpack_require__(13);
@@ -26287,7 +26316,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 236 */
+/* 237 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -26308,7 +26337,7 @@
 	
 	function _inherits(subClass, superClass) { if (typeof superClass !== 'function' && superClass !== null) { throw new TypeError('Super expression must either be null or a function, not ' + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 	
-	var EventSubscription = __webpack_require__(237);
+	var EventSubscription = __webpack_require__(238);
 	
 	/**
 	 * EmitterSubscription represents a subscription with listener and context data.
@@ -26340,7 +26369,7 @@
 	module.exports = EmitterSubscription;
 
 /***/ },
-/* 237 */
+/* 238 */
 /***/ function(module, exports) {
 
 	/**
@@ -26394,7 +26423,7 @@
 	module.exports = EventSubscription;
 
 /***/ },
-/* 238 */
+/* 239 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26503,7 +26532,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 239 */
+/* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -26520,7 +26549,7 @@
 	
 	'use strict';
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	function abstractMethod(className, methodName) {
 	   true ? process.env.NODE_ENV !== 'production' ? invariant(false, 'Subclasses of %s must override %s() with their own implementation.', className, methodName) : invariant(false) : undefined;
@@ -26530,7 +26559,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 240 */
+/* 241 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31517,7 +31546,7 @@
 	}));
 
 /***/ },
-/* 241 */
+/* 242 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31534,9 +31563,9 @@
 	
 	'use strict';
 	
-	var FluxStoreGroup = __webpack_require__(228);
+	var FluxStoreGroup = __webpack_require__(229);
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	/**
 	 * `FluxContainer` should be preferred over this mixin, but it requires using
@@ -31640,14 +31669,14 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 242 */
+/* 243 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(243).Dispatcher;
+	var Dispatcher = __webpack_require__(244).Dispatcher;
 	module.exports = new Dispatcher();
 
 /***/ },
-/* 243 */
+/* 244 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/**
@@ -31659,11 +31688,11 @@
 	 * of patent rights can be found in the PATENTS file in the same directory.
 	 */
 	
-	module.exports.Dispatcher = __webpack_require__(244);
+	module.exports.Dispatcher = __webpack_require__(245);
 
 
 /***/ },
-/* 244 */
+/* 245 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/* WEBPACK VAR INJECTION */(function(process) {/**
@@ -31685,7 +31714,7 @@
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError('Cannot call a class as a function'); } }
 	
-	var invariant = __webpack_require__(229);
+	var invariant = __webpack_require__(230);
 	
 	var _prefix = 'ID_';
 	
@@ -31900,7 +31929,7 @@
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(4)))
 
 /***/ },
-/* 245 */
+/* 246 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -31911,13 +31940,13 @@
 	};
 
 /***/ },
-/* 246 */
+/* 247 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var ProductActions = __webpack_require__(247);
-	var CommentActions = __webpack_require__(248);
-	var UserActions = __webpack_require__(249);
-	var VoteAction = __webpack_require__(251);
+	var ProductActions = __webpack_require__(248);
+	var CommentActions = __webpack_require__(249);
+	var UserActions = __webpack_require__(250);
+	var VoteAction = __webpack_require__(252);
 	
 	module.exports = {
 	
@@ -32075,11 +32104,11 @@
 	};
 
 /***/ },
-/* 247 */
+/* 248 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
-	var ProductConstants = __webpack_require__(245);
+	var Dispatcher = __webpack_require__(243);
+	var ProductConstants = __webpack_require__(246);
 	
 	module.exports = {
 	
@@ -32114,10 +32143,10 @@
 	// },
 
 /***/ },
-/* 248 */
+/* 249 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
+	var Dispatcher = __webpack_require__(243);
 	
 	module.exports = {
 	  receiveComments: function (comments) {
@@ -32144,11 +32173,11 @@
 	};
 
 /***/ },
-/* 249 */
+/* 250 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
-	var UserConstants = __webpack_require__(250);
+	var Dispatcher = __webpack_require__(243);
+	var UserConstants = __webpack_require__(251);
 	
 	module.exports = {
 	
@@ -32170,7 +32199,7 @@
 	};
 
 /***/ },
-/* 250 */
+/* 251 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32179,10 +32208,10 @@
 	};
 
 /***/ },
-/* 251 */
+/* 252 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
+	var Dispatcher = __webpack_require__(243);
 	
 	module.exports = {
 	  createVote: function (product) {
@@ -32202,7 +32231,7 @@
 	};
 
 /***/ },
-/* 252 */
+/* 253 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32211,15 +32240,15 @@
 	};
 
 /***/ },
-/* 253 */
+/* 254 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var VoteButton = __webpack_require__(254);
-	var UserStore = __webpack_require__(256);
+	var VoteButton = __webpack_require__(255);
+	var UserStore = __webpack_require__(257);
 	// var TagsList = require('../categories/tags_list');
 	
 	var ProductsListItem = React.createClass({
@@ -32275,7 +32304,11 @@
 	            this.props.product.description
 	          )
 	        ),
-	        React.createElement('div', null),
+	        React.createElement(
+	          'div',
+	          { className: 'tag-item' },
+	          this.props.product.category
+	        ),
 	        React.createElement(
 	          'div',
 	          { className: 'list-item-comments-nb' },
@@ -32311,13 +32344,13 @@
 	// <TagsList product={this.props.product}/>
 
 /***/ },
-/* 254 */
+/* 255 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ApiUtil = __webpack_require__(246);
-	var ProductStore = __webpack_require__(225);
-	var classNames = __webpack_require__(255);
+	var ApiUtil = __webpack_require__(247);
+	var ProductStore = __webpack_require__(226);
+	var classNames = __webpack_require__(256);
 	
 	var VoteButton = React.createClass({
 	  displayName: 'VoteButton',
@@ -32390,7 +32423,7 @@
 	// # put "api/poducts/1/like"
 
 /***/ },
-/* 255 */
+/* 256 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
@@ -32444,12 +32477,12 @@
 
 
 /***/ },
-/* 256 */
+/* 257 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var Dispatcher = __webpack_require__(242);
-	var Store = __webpack_require__(226).Store;
-	var UserConstants = __webpack_require__(250);
+	var Dispatcher = __webpack_require__(243);
+	var Store = __webpack_require__(227).Store;
+	var UserConstants = __webpack_require__(251);
 	var UserStore = new Store(Dispatcher);
 	
 	var _users = {};
@@ -32497,7 +32530,8 @@
 	module.exports = UserStore;
 
 /***/ },
-/* 257 */
+/* 258 */,
+/* 259 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -32513,13 +32547,13 @@
 	module.exports = ProductPreview;
 
 /***/ },
-/* 258 */
+/* 260 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(162);
 	var ReactRouter = __webpack_require__(166);
-	var ApiUtil = __webpack_require__(246);
+	var ApiUtil = __webpack_require__(247);
 	var Link = ReactRouter.Link;
 	var browserHistory = __webpack_require__(166).browserHistory;
 	
@@ -32622,18 +32656,18 @@
 	module.exports = ProductForm;
 
 /***/ },
-/* 259 */
+/* 261 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ProductStore = __webpack_require__(225);
-	var ApiUtil = __webpack_require__(246);
-	var CommentList = __webpack_require__(260);
+	var ProductStore = __webpack_require__(226);
+	var ApiUtil = __webpack_require__(247);
+	var CommentList = __webpack_require__(262);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var CommentBox = __webpack_require__(265);
-	var VotesBox = __webpack_require__(266);
-	var VoteButton = __webpack_require__(254);
+	var CommentBox = __webpack_require__(267);
+	var VotesBox = __webpack_require__(268);
+	var VoteButton = __webpack_require__(255);
 	
 	var ProductPage = React.createClass({
 	  displayName: 'ProductPage',
@@ -32742,14 +32776,14 @@
 	module.exports = ProductPage;
 
 /***/ },
-/* 260 */
+/* 262 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var CommentStore = __webpack_require__(261);
-	var ApiUtil = __webpack_require__(246);
-	var CommentListItem = __webpack_require__(263);
-	var CommentForm = __webpack_require__(264);
+	var CommentStore = __webpack_require__(263);
+	var ApiUtil = __webpack_require__(247);
+	var CommentListItem = __webpack_require__(265);
+	var CommentForm = __webpack_require__(266);
 	
 	var CommentList = React.createClass({
 	  displayName: 'CommentList',
@@ -32806,16 +32840,16 @@
 	module.exports = CommentList;
 
 /***/ },
-/* 261 */
+/* 263 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	
-	var Store = __webpack_require__(226).Store;
-	var Dispatcher = __webpack_require__(242);
+	var Store = __webpack_require__(227).Store;
+	var Dispatcher = __webpack_require__(243);
 	var CommentStore = new Store(Dispatcher);
-	var ApiUtil = __webpack_require__(246);
-	var CommentConstants = __webpack_require__(262);
+	var ApiUtil = __webpack_require__(247);
+	var CommentConstants = __webpack_require__(264);
 	
 	var _comments = {};
 	
@@ -32866,7 +32900,7 @@
 	module.exports = CommentStore;
 
 /***/ },
-/* 262 */
+/* 264 */
 /***/ function(module, exports) {
 
 	module.exports = {
@@ -32877,12 +32911,12 @@
 	};
 
 /***/ },
-/* 263 */
+/* 265 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ApiUtil = __webpack_require__(246);
-	var UserStore = __webpack_require__(256);
+	var ApiUtil = __webpack_require__(247);
+	var UserStore = __webpack_require__(257);
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32958,14 +32992,14 @@
 	// Add the commenter name
 
 /***/ },
-/* 264 */
+/* 266 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ApiUtil = __webpack_require__(246);
+	var ApiUtil = __webpack_require__(247);
 	var LinkedStateMixin = __webpack_require__(162);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ProductStore = __webpack_require__(225);
+	var ProductStore = __webpack_require__(226);
 	
 	var CommentForm = React.createClass({
 	  displayName: 'CommentForm',
@@ -33014,14 +33048,14 @@
 	module.exports = CommentForm;
 
 /***/ },
-/* 265 */
+/* 267 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var React = __webpack_require__(1);
-	var ApiUtil = __webpack_require__(246);
-	var CommentForm = __webpack_require__(264);
-	var CommentList = __webpack_require__(260);
+	var ApiUtil = __webpack_require__(247);
+	var CommentForm = __webpack_require__(266);
+	var CommentList = __webpack_require__(262);
 	
 	var CommentBox = React.createClass({
 	  displayName: 'CommentBox',
@@ -33048,7 +33082,7 @@
 	module.exports = CommentBox;
 
 /***/ },
-/* 266 */
+/* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -33099,16 +33133,16 @@
 	module.exports = VotesBox;
 
 /***/ },
-/* 267 */
+/* 269 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var UserStore = __webpack_require__(256);
-	var ApiUtil = __webpack_require__(246);
+	var UserStore = __webpack_require__(257);
+	var ApiUtil = __webpack_require__(247);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var ProfileInfos = __webpack_require__(268);
-	var ProfileTab = __webpack_require__(269);
+	var ProfileInfos = __webpack_require__(270);
+	var ProfileTab = __webpack_require__(271);
 	var Header = __webpack_require__(161);
 	
 	var ProfilePage = React.createClass({
@@ -33163,7 +33197,7 @@
 	module.exports = ProfilePage;
 
 /***/ },
-/* 268 */
+/* 270 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
@@ -33239,12 +33273,12 @@
 	module.exports = ProfileInfos;
 
 /***/ },
-/* 269 */
+/* 271 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var TabLabels = __webpack_require__(270);
-	var ProfileProductsList = __webpack_require__(271);
+	var TabLabels = __webpack_require__(272);
+	var ProfileProductsList = __webpack_require__(273);
 	
 	var ProfileTab = React.createClass({
 	  displayName: 'ProfileTab',
@@ -33263,11 +33297,11 @@
 	module.exports = ProfileTab;
 
 /***/ },
-/* 270 */
+/* 272 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ProfileProductsList = __webpack_require__(271);
+	var ProfileProductsList = __webpack_require__(273);
 	
 	var TabLabels = React.createClass({
 	  displayName: 'TabLabels',
@@ -33343,12 +33377,12 @@
 	module.exports = TabLabels;
 
 /***/ },
-/* 271 */
+/* 273 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
-	var ProductStore = __webpack_require__(225);
-	var ProductsListItem = __webpack_require__(253);
+	var ProductStore = __webpack_require__(226);
+	var ProductsListItem = __webpack_require__(254);
 	
 	var ProfileProductsList = React.createClass({
 	  displayName: 'ProfileProductsList',
@@ -33401,14 +33435,14 @@
 	//     });
 
 /***/ },
-/* 272 */
+/* 274 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var React = __webpack_require__(1);
 	var LinkedStateMixin = __webpack_require__(162);
-	var UserStore = __webpack_require__(256);
+	var UserStore = __webpack_require__(257);
 	var browserHistory = __webpack_require__(166).browserHistory;
-	var ApiUtil = __webpack_require__(246);
+	var ApiUtil = __webpack_require__(247);
 	
 	var ProfileForm = React.createClass({
 	  displayName: 'ProfileForm',
@@ -33530,35 +33564,6 @@
 	});
 	
 	module.exports = ProfileForm;
-
-/***/ },
-/* 273 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var ProfileMenu = React.createClass({
-	  displayName: "ProfileMenu",
-	
-	  render: function () {
-	    return React.createElement(
-	      "ul",
-	      { className: "profile-menu-dropdown" },
-	      React.createElement(
-	        "li",
-	        null,
-	        "profile"
-	      ),
-	      React.createElement(
-	        "li",
-	        null,
-	        "logout"
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = ProfileMenu;
 
 /***/ }
 /******/ ]);

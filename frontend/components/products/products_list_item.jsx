@@ -46,9 +46,8 @@ var ProductsListItem = React.createClass({
               <p className="list-item-title">{this.props.product.name}</p>
               <p className="list-item-description">{this.props.product.description}</p>
             </div>
-            <div>
-
-
+            <div className="tag-item">
+              {this.props.product.category}
             </div>
             <div className="list-item-comments-nb">
               <i className="fa fa-comments-o fa-lg icon-comment"></i>
