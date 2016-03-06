@@ -32904,6 +32904,7 @@
 	var React = __webpack_require__(1);
 	var ApiUtil = __webpack_require__(247);
 	var UserStore = __webpack_require__(257);
+	var browserHistory = __webpack_require__(166).browserHistory;
 	
 	var CommentListItem = React.createClass({
 	  displayName: 'CommentListItem',
@@ -32928,6 +32929,16 @@
 	  //   this.setState({commenter: UserStore.find(this.props.comment.commenter_id)});
 	  // },
 	
+	  makeProfileUrl: function (commenterId) {
+	    var path = "/users/" + commenterId;
+	    return path;
+	  },
+	
+	  handleProfileClick: function (commenterId) {
+	    browserHistory.push(this.makeProfileUrl(commenterId));
+	    window.scrollTo(0, 0);
+	  },
+	
 	  render: function () {
 	    debugger;
 	    return React.createElement(
@@ -32935,7 +32946,7 @@
 	      { className: 'comment-item-container' },
 	      React.createElement(
 	        'div',
-	        { className: 'comment-item-header' },
+	        { className: 'comment-item-header', onClick: this.handleProfileClick.bind(null, this.props.comment.commenter.id) },
 	        React.createElement(
 	          'div',
 	          { className: 'mid-cropper' },

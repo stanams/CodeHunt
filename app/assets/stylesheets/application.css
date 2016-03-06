@@ -908,6 +908,10 @@ li {
   display: inline;
 }
 
+.comment-item-header {
+  cursor: pointer;
+}
+
 .comment-item-subheader {
   display: inline;
 }
