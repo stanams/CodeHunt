@@ -34,7 +34,7 @@ var CommentListItem = React.createClass ({
             </div>
             <div  className="comment-commenter">{this.props.comment.commenter_name}</div>
             <div  className="comment-commenter-bio">{this.props.comment.commenter.bio}</div>
-          
+
         </div>
         <div  className="comment-body">{this.props.comment.body}</div>
       </li>

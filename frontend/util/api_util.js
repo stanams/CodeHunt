@@ -56,7 +56,7 @@ module.exports = {
       type: "POST",
       data: {comment: comment},
       success: function(comment) {
-        debugger
+        // debugger
         CommentActions.postComment(comment);
       }
     });
@@ -109,6 +109,10 @@ fetchUsersByIds: function(idsArray){
        callback && callback(user.id);
       }
     })
+  },
+
+  logoutUser: function(id, callback){
+
   },
 
 // ------------ Votes requets -------------------

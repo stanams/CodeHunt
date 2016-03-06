@@ -19735,11 +19735,11 @@
 	var LinkedStateMixin = __webpack_require__(162);
 	var ReactRouter = __webpack_require__(166);
 	var Link = ReactRouter.Link;
-	var Search = __webpack_require__(223);
+	// var Search = require('./search.jsx');
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var attr = document.getElementById('root');
 	var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
-	var ProfileMenu = __webpack_require__(224);
+	// var ProfileMenu = require('./profile_menu');
 	
 	var Header = React.createClass({
 	  displayName: 'Header',
@@ -19747,13 +19747,20 @@
 	
 	  getInitialState: function () {
 	    return {
-	      showProfileMenu: true
+	      showProfileMenu: false
 	    };
 	  },
 	
 	  handleClickNewProduct: function () {
 	    browserHistory.push("/products/new");
 	  },
+	
+	  handleMyProfileClick: function () {
+	    debugger;
+	    browserHistory.push("/users/" + logged_in_user.id);
+	  },
+	
+	  handleLogout: function () {},
 	
 	  renderProfileMenu: function () {
 	    debugger;
@@ -19762,15 +19769,30 @@
 	      { className: 'profile-menu-dropdown' },
 	      React.createElement(
 	        'li',
-	        { className: 'profile-menu-item' },
-	        'profile'
+	        { className: 'profile-menu-item profile-btn', onClick: this.handleMyProfileClick },
+	        'My profile'
 	      ),
 	      React.createElement(
 	        'li',
-	        { className: 'profile-menu-item' },
-	        'logout'
+	        { className: 'profile-menu-item logout-btn', onClick: this.handleLogout },
+	        'Log Out'
 	      )
 	    );
+	  },
+	
+	  handleClickOutside: function (e) {
+	    // e.preventDefault();
+	    if (e.target != this.refs.profileBtn) {
+	      this.setState({ showProfileMenu: false });
+	    }
+	  },
+	
+	  componentWillMount: function () {
+	    window.addEventListener("click", this.handleClickOutside, false);
+	  },
+	
+	  componentWillUnmount: function () {
+	    window.removeEventListener();
 	  },
 	
 	  handleClickProfileMenu: function () {
@@ -19783,28 +19805,36 @@
 	
 	  render: function () {
 	    return React.createElement(
-	      'nav',
-	      { className: 'navbarr' },
+	      'div',
+	      { className: 'header-wrapper' },
 	      React.createElement(
-	        Link,
-	        { to: '/', className: 'logo-page' },
-	        React.createElement('img', { className: 'header-logo', src: 'https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
-	      ),
-	      React.createElement(
-	        'div',
-	        { className: 'right-el-nav' },
+	        'nav',
+	        { className: 'navbarr' },
 	        React.createElement(
-	          'div',
-	          { className: 'header-profile-cropper profile-menu' },
-	          React.createElement('img', { onClick: this.handleClickProfileMenu, className: 'small-profile-pic', src: logged_in_user.profile_pic }),
-	          this.state.showProfileMenu ? this.renderProfileMenu() : null
+	          Link,
+	          { to: '/', className: 'logo-page' },
+	          React.createElement('img', { className: 'header-logo', src: 'https://res.cloudinary.com/codehunt/image/upload/v1457062978/header-logo_uus4j9.png' })
 	        ),
 	        React.createElement(
-	          'p',
-	          { className: 'header-new-product-button', onClick: this.handleClickNewProduct },
-	          React.createElement('i', { className: 'fa fa-plus' })
+	          'div',
+	          { className: 'right-el-nav' },
+	          React.createElement(
+	            'div',
+	            { className: 'header-profile-cropper profile-menu' },
+	            React.createElement('img', { onClick: this.handleClickProfileMenu,
+	              className: 'small-profile-pic',
+	              src: logged_in_user.profile_pic,
+	              ref: 'profileBtn'
+	            })
+	          ),
+	          React.createElement(
+	            'p',
+	            { className: 'header-new-product-button', onClick: this.handleClickNewProduct },
+	            React.createElement('i', { className: 'fa fa-plus' })
+	          )
 	        )
-	      )
+	      ),
+	      this.state.showProfileMenu ? this.renderProfileMenu() : null
 	    );
 	  }
 	});
@@ -25067,60 +25097,8 @@
 	module.exports = exports['default'];
 
 /***/ },
-/* 223 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var Search = React.createClass({
-	  displayName: "Search",
-	
-	  render: function () {
-	    return React.createElement(
-	      "div",
-	      { id: "wrap" },
-	      React.createElement(
-	        "form",
-	        { action: "", autocomplete: "on" },
-	        React.createElement("input", { className: "search-bar", id: "search", name: "search", type: "text", placeholder: "What're we looking for ?" }),
-	        React.createElement("input", { className: "search-bar", id: "search_submit", value: "Search for products", type: "submit" })
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = Search;
-
-/***/ },
-/* 224 */
-/***/ function(module, exports, __webpack_require__) {
-
-	var React = __webpack_require__(1);
-	
-	var ProfileMenu = React.createClass({
-	  displayName: "ProfileMenu",
-	
-	  render: function () {
-	    return React.createElement(
-	      "ul",
-	      { className: "profile-menu-dropdown" },
-	      React.createElement(
-	        "li",
-	        null,
-	        "profile"
-	      ),
-	      React.createElement(
-	        "li",
-	        null,
-	        "logout"
-	      )
-	    );
-	  }
-	});
-	
-	module.exports = ProfileMenu;
-
-/***/ },
+/* 223 */,
+/* 224 */,
 /* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -32002,7 +31980,7 @@
 	      type: "POST",
 	      data: { comment: comment },
 	      success: function (comment) {
-	        debugger;
+	        // debugger
 	        CommentActions.postComment(comment);
 	      }
 	    });
@@ -32053,6 +32031,8 @@
 	      }
 	    });
 	  },
+	
+	  logoutUser: function (id, callback) {},
 	
 	  // ------------ Votes requets -------------------
 	
@@ -32158,6 +32138,7 @@
 	  },
 	
 	  postComment: function (comment) {
+	    // debugger
 	    Dispatcher.dispatch({
 	      actionType: "COMMENT_POSTED",
 	      comment: comment
@@ -32283,7 +32264,7 @@
 	    } else {
 	      var profilePic = this.props.product.author.profile_pic;
 	    }
-	    // debugger
+	
 	    return React.createElement(
 	      'li',
 	      { className: 'index-products-list-item' },
@@ -32321,7 +32302,7 @@
 	          ),
 	          React.createElement(
 	            'a',
-	            { className: 'external-link', href: this.props.product.link },
+	            { className: 'external-link', target: '_blank', href: this.props.product.link },
 	            React.createElement('i', { className: 'fa fa-external-link' })
 	          )
 	        ),
@@ -32344,7 +32325,7 @@
 	
 	module.exports = ProductsListItem;
 	// <a href={this.props.product.link} className="list-item-ext-link">
-	//   <i className="fa fa-external-link"></i>
+	//   <i className="fa fa-external-link"></i></a>
 	// </a>
 	// <p>{this.props.product.comments.length} comments</p>
 	// <TagsList product={this.props.product}/>

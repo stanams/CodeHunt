@@ -9,6 +9,7 @@ module.exports = {
   },
 
   postComment: function(comment){
+    // debugger
     Dispatcher.dispatch({
       actionType: "COMMENT_POSTED",
       comment: comment
