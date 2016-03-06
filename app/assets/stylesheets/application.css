@@ -208,7 +208,7 @@ background-image: image_path("logo_canva.jpg");
   height: 90px;
   float: right;
   color: #ccc;
-  position: fixed;
+  position: absolute;
   top: 85px;
   right: 30px;
   padding: 10px 50px 10px 10px;
