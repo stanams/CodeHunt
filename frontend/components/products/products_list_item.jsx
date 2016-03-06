@@ -52,6 +52,7 @@ var ProductsListItem = React.createClass({
             <div className="list-item-comments-nb">
               <i className="fa fa-comments-o fa-lg icon-comment"></i>
               <p className="comment-nb">{this.props.product.comments_count}</p>
+              <a className="external-link" href={this.props.product.link}><i className="fa fa-external-link"></i></a>
             </div>
             <ul className="name-container">
               <li className="item-username small-cropper">
@@ -61,6 +62,7 @@ var ProductsListItem = React.createClass({
                  />
               </li>
             </ul>
+
           </div>
         </li>
 

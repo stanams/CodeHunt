@@ -32317,6 +32317,11 @@
 	            'p',
 	            { className: 'comment-nb' },
 	            this.props.product.comments_count
+	          ),
+	          React.createElement(
+	            'a',
+	            { className: 'external-link', href: this.props.product.link },
+	            React.createElement('i', { className: 'fa fa-external-link' })
 	          )
 	        ),
 	        React.createElement(
