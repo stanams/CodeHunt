@@ -6,6 +6,7 @@ var Link = ReactRouter.Link;
 var browserHistory = require('react-router').browserHistory;
 var attr = document.getElementById('root');
 var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
+var ApiUtil = require('../util/api_util');
 // var ProfileMenu = require('./profile_menu');
 
 
@@ -22,16 +23,16 @@ var Header = React.createClass({
   },
 
   handleMyProfileClick: function() {
-    debugger
+    // debugger
     browserHistory.push("/users/" + logged_in_user.id);
   },
 
   handleLogout: function(){
-
+    ApiUtil.logoutUser();
   },
 
   renderProfileMenu: function(){
-    debugger
+    // debugger
     return (
       <ul className="profile-menu-dropdown">
           <li className="profile-menu-item profile-btn" onClick={this.handleMyProfileClick}>My profile</li>

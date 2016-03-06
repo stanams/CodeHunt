@@ -111,8 +111,13 @@ fetchUsersByIds: function(idsArray){
     })
   },
 
-  logoutUser: function(id, callback){
-
+  logoutUser: function() {
+    $.ajax({
+      url: '/session/',
+      type: 'DELETE',
+      success: function(result) {
+      }
+    });
   },
 
 // ------------ Votes requets -------------------

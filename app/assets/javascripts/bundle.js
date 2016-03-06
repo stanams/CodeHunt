@@ -19739,6 +19739,7 @@
 	var browserHistory = __webpack_require__(166).browserHistory;
 	var attr = document.getElementById('root');
 	var logged_in_user = JSON.parse(attr.getAttribute('userLoggedIn'));
+	var ApiUtil = __webpack_require__(247);
 	// var ProfileMenu = require('./profile_menu');
 	
 	var Header = React.createClass({
@@ -19756,14 +19757,16 @@
 	  },
 	
 	  handleMyProfileClick: function () {
-	    debugger;
+	    // debugger
 	    browserHistory.push("/users/" + logged_in_user.id);
 	  },
 	
-	  handleLogout: function () {},
+	  handleLogout: function () {
+	    ApiUtil.logoutUser();
+	  },
 	
 	  renderProfileMenu: function () {
-	    debugger;
+	    // debugger
 	    return React.createElement(
 	      'ul',
 	      { className: 'profile-menu-dropdown' },
@@ -32032,7 +32035,13 @@
 	    });
 	  },
 	
-	  logoutUser: function (id, callback) {},
+	  logoutUser: function () {
+	    $.ajax({
+	      url: '/session/',
+	      type: 'DELETE',
+	      success: function (result) {}
+	    });
+	  },
 	
 	  // ------------ Votes requets -------------------
 	
