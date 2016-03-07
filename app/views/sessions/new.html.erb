@@ -21,6 +21,14 @@
         <br>
         <input class="btn btn-primary" type="submit" value="Sign In">
       </form>
+<br>
+<br>
+      <form action="<%= session_url %>" method="post">
+        <%= auth_token %>
+        <input type="hidden" name="user[username]" id="username" value="Blaise Cremin Jr.">
+        <input type="hidden" name="user[password]" id="password" value="aaaaaa">
+        <input class="btn btn-primary" type="submit" value="Demo Account">
+      </form>
       <p class="auth-footer">
         Not registered yet ? <%= link_to "Sign Up!", new_user_url %>
       </p>
