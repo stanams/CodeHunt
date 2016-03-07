@@ -3,6 +3,8 @@ var LinkedStateMixin = require('react-addons-linked-state-mixin');
 var UserStore = require('../../stores/user_store');
 var browserHistory = require('react-router').browserHistory;
 var ApiUtil = require('../../util/api_util');
+var ReactRouter = require('react-router');
+var Link = ReactRouter.Link;
 
 var ProfileForm = React.createClass({
 
@@ -98,12 +100,21 @@ var ProfileForm = React.createClass({
   },
 
   render: function(){
-
+    debugger
     var path = "/users/" + this.props.params.id;
     return(
-      <div>
+      <div className="edit-profile-wrapper">
+        <h1>Update your infos</h1>
+        <br></br>
+        <br></br>
         <form onSubmit={this.updateUser} className="edit-profile-form" action={path} method="post">
-          <input onChange={this.handleUsernameChange} type="text" name="user[username]" id="Username" placeholder="Username"  value={this.state.username}/>
+          <input onChange={this.handleUsernameChange}
+                 type="text"
+                 name="user[username]"
+                 id="Username"
+                 placeholder="Username"
+                 className="username-input"
+                 value={this.state.username}/>
           <br/>
           <br/>
           <input type="text"
@@ -111,10 +122,12 @@ var ProfileForm = React.createClass({
                  id="Bio"
                  placeholder="Student @ Appacademy"
                  value={this.state.bio}
-                onChange={this.handleBioChange}/>
+                 className="bio-input"
+                 onChange={this.handleBioChange}/>
           <br/>
           <br/>
-          <input className="btn btn-primary" type="submit" value="Update"/>
+          <Link to={"/users/" + this.props.params.userId}><button onClick={this.handleCancel} className="btn btn-secondary cancel-btn">Cancel</button></Link>
+          <input className="btn btn-primary update-btn" type="submit" value="Update"/>
         </form>
       </div>
     );
