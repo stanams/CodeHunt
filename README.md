@@ -6,7 +6,7 @@
 
 ## Overview
 
-CodeHunt is a web application inspired by Product Hunt built using Ruby on Rails & PostgreSQL on the backend and React.js, HTML5, CSS3 on the frontend. CSS3 is fully custom.
+**[CodeHunt][heroku]** is a web application inspired by Product Hunt built using **Ruby on Rails** & **PostgreSQL** on the backend and **React.js**, **HTML5**, **CSS3** on the frontend. CSS3 is fully custom.
 The goal is to let developers discover and vote for the best dev products, from ruby gems to node packages, js frameworks or chrome extensions!
 
 <!-- This is a Markdown checklist. Use it to keep track of your
@@ -19,16 +19,16 @@ progress. Put an x between the brackets for a checkmark: [x] -->
 
 ![Landing-signup](http://res.cloudinary.com/codehunt/image/upload/v1457727054/Login_signup_hbvzqj.png)
 
-Login and signup are made using BCrypt to handle the hashing and salting of passwords in a very secure way.
+Login and signup are made using **BCrypt** to handle the hashing and salting of passwords in a very secure way.
 
 
 ### Index Page
 
 ![Index-page] (http://res.cloudinary.com/codehunt/image/upload/v1457727438/Index_page_pa2hla.png)
 
-The index page displays the ranked list of products based on their upvotes count. Users can vote/unvote for any product (no downvotes) and add new products to the list. The rank is updated in real time when users take actions.
+The index page displays the **ranked list** of products based on their upvotes count. Users can vote/unvote for any product (no downvotes) and add new products to the list. The rank is updated in **real time** when users take actions.
 Users can see if they already voted for a product (count in blue) and can directly jump to the author profile page or the external link.
-Codehunt uses acts_as_votable ruby gem to take benefit from methods brought by polymorphic associations setup.
+CodeHunt uses **acts_as_votable** ruby gem to take benefit from methods brought by polymorphic associations setup.
 
 ### Product Page
 
