@@ -1,128 +1,52 @@
 # CodeHunt
 
-[Heroku link][heroku] soon
+[Live link][heroku]
 
-[heroku]: http://www.herokuapp.com
+[heroku]: evening-sea-48514.herokuapp.com
 
-## Minimum Viable Product
+## Overview
 
-CodeHunt is a web application inspired by Product Hunt built using Ruby on Rails
-and React.js. CodeHunt allows users to:
+CodeHunt is a web application inspired by Product Hunt built using Ruby on Rails & PostgreSQL on the backend and React.js, HTML5, CSS3 on the frontend. CSS3 is fully custom.
+The goal is to let developers discover and vote for the best dev products, from ruby gems to node packages, js frameworks or chrome extensions!
 
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress. Put an x between the brackets for a checkmark: [x] -->
 
-- [x] Create an account
-- [x] Create/distroy session
-- [x] Create, read, (edit, and delete) product
-- [x] View product list
-- [x] View product page
-- [ ] Vote/unvote for product (no downvote)
-- [ ] Comment on a product
-- [ ] Create, read, edit, destroy a profile
+
+## UX
+
+### Login/signup
+
+![Landing-signup](http://res.cloudinary.com/codehunt/image/upload/v1457727054/Login_signup_hbvzqj.png)
+
+Login and signup are made using BCrypt to handle the hashing and salting of passwords in a very secure way.
 
 
-## Design Docs
-* [View Wireframes][views]
-* [React Components][components]
-* [Flux Stores][stores]
-* [API endpoints][api-endpoints]
-* [DB schema][schema]
+### Index Page
 
-[views]: https://invis.io/7D64NUL6W
-[components]: ./docs/components.md
-[stores]: ./docs/stores.md
-[api-endpoints]: ./docs/api-endpoints.md
-[schema]: ./docs/schema.md
+![Index-page] (http://res.cloudinary.com/codehunt/image/upload/v1457727438/Index_page_pa2hla.png)
 
-## Implementation Timeline
-- styling, testing and refactoring are continuous tasks
+The index page displays the ranked list of products based on their upvotes count. Users can vote/unvote for any product (no downvotes) and add new products to the list. The rank is updated in real time when users take actions.
+Users can see if they already voted for a product (count in blue) and can directly jump to the author profile page or the external link.
+Codehunt uses acts_as_votable ruby gem to take benefit from methods brought by polymorphic associations setup.
 
-### Phase 1: Backend setup and User Authentication (0.5 days)
+### Product Page
 
-**Objective:** Functioning rails project with Authentication
+![Product-page] (http://res.cloudinary.com/codehunt/image/upload/v1457727699/Product_Page_ucvuoy.png)
 
-- [x] create new project
-- [x] create `User` model
-- [x] authentication
-- [x] user signup/signin modal
-- [x] simple header navbar (logo + sign in button)
+The product page displays all the product data as well as comments and the list of the people who voted for it. Users can still vote for the product on that page and get redirected to the product external link.
 
-### Phase 2: Products (2 days)
+Comments and voters list are updated in real time. It's easy to navigate through profiles by just clicking on the displayed pictures.
 
-**Objective:** Products can be created, read, edited and destroyed through
-the API.
+### Profile Page
 
-- [x] create `Product` model (require sign in)
-- [x] CRUD API for products (`ProductController`)
-- [x] jBuilder views for product
-- setup Webpack & Flux scaffold:
-  - [x] ProductActions
-  - [x] setup API and basic `APIUtil` to interact with it
-  - [x] Make the `ProcuctStore`
-  - [x] make `ProductList` and `ProductListItem` components
-- [x] seed the database with a small amount of test data
-- [x] test out API interaction in the console
-- [x] start setting up the router
-- [x] have `/products` & `/products/:id` working
-- [x] style product list
-- [x] style product page
-- [ ] Bonus: product modal on home page (cf wireframes)
+Users have a profile that displays all the products they've posted or upvoted. These product lists are still votable and can redirect to any of the relevant pages.
 
+![Profile-page] (http://res.cloudinary.com/codehunt/image/upload/v1457728126/Profile_Page_ackziu.png)
 
-### Phase 3: Vote up and ranked list (1.5 days)
+### Features under development
 
-**Objective:** Ability to vote up for a product and get a list of ranked product from the most upvoted to the least ones
-
-- Votes belongs to user and a Product has many votes:
-- [ ] create `Vote` model (require sign in)
-- Build out API, Flux loop, and component for:
-  - [ ] Vote CRUD
-  - [ ] Products are ranked by Votes on index (DESC order)
-  - [ ] Votes can be viewed on user profile
-- [ ] Make the ranked list the default list
-- [ ] Style & utilize the new components: vote button, voters picture on `ProductItemList`, display votes data on products page/modal
-
-### Phase 4: Profile (1.5 days)
-
-**Objective:** Make user profiles with basic infos and tabs that display the appropriate content
-
-- [ ] Make the router for the tabs displayed on profile page (products voted, products posted)
-- [ ] jBuilder views for profile
-- [ ] Display filtered products list under appropriate tabs (voted vs. posted)
-- [ ] Update the new user form and the user edit form
-- [ ] Seed database with fake profiles (or ask other students)
-- Style and utilize profile data:
-  - [ ] Make profile page sexy
-  - [ ] Display rounded profil pic of voters on `ProductListItem` and `ProductPage`
-- [ ] Bonus: popovers when overing on profile pictures (same components as above)
-
-
-### Phase 5: Comments (1.5 days)
-
-**Objective:** Allow users to make comments on product pages
-
-- Comments belongs to a product and a user and product has many comments:
-- [ ] create `Comment` model (require sign in)
-- Build out API, Flux loop, and components for comments:
-  - [ ] `Comment` CRUD
-  - [ ] Comments are seen on product page
-- Style and utilize comments data:
-  - [ ] Make comments sexy
-  - [ ] Display number of comments on `ProductListItem` and full `Comment` component on `ProductPage`
-
-
-
-### Bonus Features (TBD)
-- [ ] tags
-- [ ] follow
-- [ ] Infinite scroll
-- [ ] SubComments-replies
-- [ ] Collections
-- [ ] Bookmarklet
-
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+- [ ] Tags
+- [ ] Users follow
+- [ ] Real-time search
+- [ ] Chrome extension
