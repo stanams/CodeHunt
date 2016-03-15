@@ -32700,16 +32700,18 @@
 	        'Loading...'
 	      );
 	    } else {
-	
+	      debugger;
+	      var pic_id = "product-pic" + this.state.theProduct.id.toString();
 	      return React.createElement(
 	        'div',
 	        { className: 'big-div-product-page' },
 	        React.createElement(
 	          'div',
 	          { className: 'product-page-container' },
+	          React.createElement('div', { className: 'image-size' }),
 	          React.createElement(
 	            'section',
-	            { className: 'product-page-info' },
+	            { className: 'product-page-info', id: pic_id },
 	            React.createElement(
 	              Link,
 	              { to: '/' },

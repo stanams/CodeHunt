@@ -44,15 +44,16 @@ var ProductPage = React.createClass({
     if (!this.state.theProduct) {
       return <div>Loading...</div>;
     } else {
-
+      debugger
+    var pic_id = "product-pic" + this.state.theProduct.id.toString();
     return(
         <div className="big-div-product-page">
           <div className="product-page-container">
-            <section className="product-page-info">
-
+            <div className="image-size"></div>
+            <section className="product-page-info" id={pic_id}>
                 <Link to="/"><p className="leave-product-page-button">x</p></Link>
                 <div className="product-info-wrapper">
-                  <div className="product-name-product-page">
+                  <div className="product-name-product-page" >
                     {this.state.theProduct.name}
                   </div>
                   <div className="product-description-product-page">

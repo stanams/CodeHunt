@@ -696,18 +696,133 @@ input[type="submit"]:hover {
 }
 
 .product-page-info {
-  background-color: #eee;
+  background-color: #fff;
   height: 300px;
   text-align: center;
   margin: 0;
+  /*background-position: bottom;*/
 }
 
-img.product-picture {
+#product-pic1 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/pry_logo_ovgyks.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic2 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456958357/ruby_widl6n.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic3 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/binding_of_caller_uxwxxj.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic4 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/pesticide_izwoyi.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic5 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968338/css_viwer_dyxfuk.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic6 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/postman_hod4fv.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic7 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968338/atom_linter_k2c7uk.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic8 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/monokai_lurkm4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic9 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/ternjs_jdd4sf.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#product-pic10 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/knockoutjs_xjyvcj.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic11 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968339/underscore-js_eypqkz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic12 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968340/revealjs_zlquyt.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic13 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1458082268/CoffeeScript_qlepqz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic14 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968340/unminify_y30nh7.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic15 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1458081750/reactjs_ejnik4.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: white;
+}
+#product-pic16 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/c_crop,w_671/v1456968338/emberjs_g79evr.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic17 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968338/jquery_nmuq5k.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic18 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968338/ffmpeg-_bunixz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+#product-pic19 {
+  background-image: url(http://res.cloudinary.com/codehunt/image/upload/v1456968338/opus_cmdkbz.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.image-size {
+  position: absolute;
+  opacity: 0.8;
+  width: 100%;
+  height: 50%;
+  background-color: white;
+}
+
+/*img.product-picture {
   width: 100%;
   height: 100%;
+  position: absolute;
   background-color: rgba(255,255,255, 0.3);
-
-}
+}*/
 
 .product-info-wrapper {
   position: relative;
