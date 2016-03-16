@@ -16,6 +16,13 @@ module.exports = {
       actionType: UserConstants.USER_RECEIVED,
       user: user
     });
+  },
+
+  deleteUserSession: function(user){
+    Dispatcher.dispatch({
+      actionType: "SIGN_OUT",
+      user: user
+    })
   }
 
 }

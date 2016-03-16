@@ -116,7 +116,7 @@ fetchUsersByIds: function(idsArray){
       url: '/session',
       type: 'DELETE',
       success: function(result) {
-        // window.reload();
+        UserActions.deleteUserSession(user);
       }
     });
   },
