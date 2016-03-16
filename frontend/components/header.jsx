@@ -41,19 +41,19 @@ var Header = React.createClass({
       );
   },
 
-  handleClickOutside: function(e){
-    // e.preventDefault();
-    if (e.target != this.refs.profileBtn) {
-      this.setState({showProfileMenu: false});
-    }
-  },
-
   componentWillMount: function(){
     window.addEventListener("click", this.handleClickOutside, false);
   },
 
   componentWillUnmount: function(){
     window.removeEventListener();
+  },
+
+  handleClickOutside: function(e){
+    e.preventDefault();
+    if (e.target != this.refs.profileBtn) {
+      this.setState({showProfileMenu: false});
+    }
   },
 
   handleClickProfileMenu: function(){

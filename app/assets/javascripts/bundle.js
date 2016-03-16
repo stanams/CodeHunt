@@ -19783,19 +19783,19 @@
 	    );
 	  },
 	
-	  handleClickOutside: function (e) {
-	    // e.preventDefault();
-	    if (e.target != this.refs.profileBtn) {
-	      this.setState({ showProfileMenu: false });
-	    }
-	  },
-	
 	  componentWillMount: function () {
 	    window.addEventListener("click", this.handleClickOutside, false);
 	  },
 	
 	  componentWillUnmount: function () {
 	    window.removeEventListener();
+	  },
+	
+	  handleClickOutside: function (e) {
+	    e.preventDefault();
+	    if (e.target != this.refs.profileBtn) {
+	      this.setState({ showProfileMenu: false });
+	    }
 	  },
 	
 	  handleClickProfileMenu: function () {
@@ -33183,10 +33183,15 @@
 	  render: function () {
 	    var theUser = this.state.user;
 	    if (!this.state.user) {
+	      debugger;
 	      return React.createElement(
 	        'div',
-	        null,
-	        'Loading...'
+	        { className: 'progress' },
+	        React.createElement(
+	          'div',
+	          null,
+	          'Loading…'
+	        )
 	      );
 	    } else {
 	      return React.createElement(

@@ -14,7 +14,7 @@
       <h3 class="auth-header">Sign Up</h3>
       <form class="auth_form" action="/users" method="post">
         <%= auth_token %>
-        <input type="text" name="user[username]" id="Username" placeholder="Username" value="<%= @user.username.nil? ? '' : "#{@user.username}"%>">
+        <input type="text" name="user[username]" id="Username" placeholder="Username" value="<%= @user.nil? ? '' : "#{@user.username}"%>">
         <br>
         <br>
         <input type="password" name="user[password]" id="Password" value="" placeholder="Password">

@@ -7,6 +7,7 @@ var ProfileInfos = require('./profile_info');
 var ProfileTab = require('./profile_tab');
 var Header = require('../header');
 
+
 var ProfilePage = React.createClass({
 
   getInitialState: function(){
@@ -41,7 +42,8 @@ var ProfilePage = React.createClass({
   render: function(){
     var theUser = this.state.user;
     if (!this.state.user) {
-      return <div>Loading...</div>;
+      debugger
+      return <div className="progress"><div>Loading…</div></div>;
     } else {
       return(
         <div className="profile-container">

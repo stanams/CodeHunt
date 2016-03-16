@@ -113,9 +113,10 @@ fetchUsersByIds: function(idsArray){
 
   logoutUser: function() {
     $.ajax({
-      url: '/session/',
+      url: '/session',
       type: 'DELETE',
       success: function(result) {
+        // window.reload();
       }
     });
   },
