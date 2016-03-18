@@ -35,7 +35,7 @@ var ProductsListItem = React.createClass({
     } else {
       var profilePic = this.props.product.author.profile_pic;
     }
-    
+
     return(
         <li className="index-products-list-item">
 
@@ -50,9 +50,11 @@ var ProductsListItem = React.createClass({
               {this.props.product.category}
             </div>
             <div className="list-item-comments-nb">
-              <i className="fa fa-comments-o fa-lg icon-comment"></i>
-              <p className="comment-nb">{this.props.product.comments_count}</p>
-              <a className="external-link" target="_blank" href={this.props.product.link}><i className="fa fa-external-link"></i></a>
+              <div id="comments-area" onClick={this.handleClick}>
+                <i className="fa fa-comments-o fa-lg icon-comment"></i>
+                <p className="comment-nb">{this.props.product.comments_count}</p>
+              </div>
+            <a className="external-link" target="_blank" href={this.props.product.link}><i className="fa fa-external-link"></i></a>
             </div>
             <ul className="name-container">
               <li className="item-username small-cropper">

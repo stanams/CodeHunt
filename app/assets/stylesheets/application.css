@@ -446,11 +446,18 @@ a.external-link:hover {
   position: relative;
   bottom: 18px;
   left: 50px;
+  z-index: 3;
 }
 
 .icon-comment {
   position: relative;
   left: 20px;
+  z-index: 3;
+}
+
+
+#comments-area {
+  z-index: 10;
 }
 
 .list-item-ext-link {
@@ -1242,6 +1249,9 @@ img .profile-picture {
   -o-border-radius: 50%;
   border-radius: 50%;
   bottom: 5px;
+}
+.small-cropper:hover {
+  border: 2px #eee solid;
 }
 
 .header-profile-cropper {
