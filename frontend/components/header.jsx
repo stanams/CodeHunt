@@ -41,20 +41,20 @@ var Header = React.createClass({
       );
   },
 
-  componentWillMount: function(){
-    window.addEventListener("click", this.handleClickOutside, false);
-  },
+  // componentWillMount: function(){
+  //   window.addEventListener("click", this.handleClickOutside, false);
+  // },
+  //
+  // componentWillUnmount: function(){
+  //   window.removeEventListener();
+  // },
 
-  componentWillUnmount: function(){
-    window.removeEventListener();
-  },
-
-  handleClickOutside: function(e){
-    e.preventDefault();
-    if (e.target != this.refs.profileBtn) {
-      this.setState({showProfileMenu: false});
-    }
-  },
+  // handleClickOutside: function(e){
+  //   e.preventDefault();
+  //   if (e.target != this.refs.profileBtn) {
+  //     this.setState({showProfileMenu: false});
+  //   }
+  // },
 
   handleClickProfileMenu: function(){
     if (this.state.showProfileMenu) {
