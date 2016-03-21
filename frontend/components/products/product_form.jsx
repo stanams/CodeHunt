@@ -63,17 +63,6 @@ var ProductForm = React.createClass({
             </div>
 
             <br/>
-          <div className="form-box-item-line">
-            <label className="label-form">Product Type * </label>
-            <select name='product[tag]' form="product-form" className="select-tag">
-              <option value="JS-librairy">JS Librairy</option>
-              <option value="JS-framework">JS Framework</option>
-              <option value="NPM-package">NPM Package</option>
-              <option value="Ruby-gem">Ruby Gem</option>
-              <option value="Chrome-extension">Chrome Extension</option>
-              <option value="Atom-package">Atom Package</option>
-            </select>
-          </div>
           </div>
           <input className="btn btn-primary form-submit-button"
                  type="submit"

@@ -32649,50 +32649,7 @@
 	              placeholder: 'https://webpack.github.io/docs/',
 	              valueLink: this.linkState('link') })
 	          ),
-	          React.createElement('br', null),
-	          React.createElement(
-	            'div',
-	            { className: 'form-box-item-line' },
-	            React.createElement(
-	              'label',
-	              { className: 'label-form' },
-	              'Product Type * '
-	            ),
-	            React.createElement(
-	              'select',
-	              { name: 'product[tag]', form: 'product-form', className: 'select-tag' },
-	              React.createElement(
-	                'option',
-	                { value: 'JS-librairy' },
-	                'JS Librairy'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'JS-framework' },
-	                'JS Framework'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'NPM-package' },
-	                'NPM Package'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Ruby-gem' },
-	                'Ruby Gem'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Chrome-extension' },
-	                'Chrome Extension'
-	              ),
-	              React.createElement(
-	                'option',
-	                { value: 'Atom-package' },
-	                'Atom Package'
-	              )
-	            )
-	          )
+	          React.createElement('br', null)
 	        ),
 	        React.createElement('input', { className: 'btn btn-primary form-submit-button',
 	          type: 'submit',
