@@ -28,7 +28,7 @@ var ProductForm = React.createClass({
     return(
       <div className="new-product-form-box">
         <Link to="/"><p className="leave-form-button">x</p></Link>
-        <form className="form-container" onSubmit={this.handleSubmit}>
+        <form className="form-container" onSubmit={this.handleSubmit} id="product-form">
           <h2 className="form-title">Submit a new product</h2>
 
           <div className="form-box-container">
@@ -63,7 +63,17 @@ var ProductForm = React.createClass({
             </div>
 
             <br/>
-
+          <div className="form-box-item-line">
+            <label className="label-form">Product Type * </label>
+            <select name='product[tag]' form="product-form" className="select-tag">
+              <option value="JS-librairy">JS Librairy</option>
+              <option value="JS-framework">JS Framework</option>
+              <option value="NPM-package">NPM Package</option>
+              <option value="Ruby-gem">Ruby Gem</option>
+              <option value="Chrome-extension">Chrome Extension</option>
+              <option value="Atom-package">Atom Package</option>
+            </select>
+          </div>
           </div>
           <input className="btn btn-primary form-submit-button"
                  type="submit"

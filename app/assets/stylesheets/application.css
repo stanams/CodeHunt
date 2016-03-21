@@ -555,7 +555,7 @@ a.external-link:hover {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top: 15px;
+  top: -10px;
 }
 
 ::-webkit-input-placeholder {
@@ -591,12 +591,18 @@ a.external-link:hover {
       font-size: 16px;
     }
 
+  .select-tag {
+    position: relative;
+    right: 100px;
+    top: 2px;
+  }
+
   .form-submit-button {
     border: none;
     position: relative;
     margin-left: auto;
     margin-right: auto;
-    top: 50px;
+    /*top: 30px;*/
     width: 350px;
   }
 

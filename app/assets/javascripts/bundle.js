@@ -25215,9 +25215,11 @@
 	
 	  logoutUser: function () {
 	    $.ajax({
-	      url: '/session/',
+	      url: '/session',
 	      type: 'DELETE',
-	      success: function (result) {}
+	      success: function (result) {
+	        UserActions.deleteUserSession(user);
+	      }
 	    });
 	  },
 	
@@ -25687,6 +25689,13 @@
 	  receiveSingleUser: function (user) {
 	    Dispatcher.dispatch({
 	      actionType: UserConstants.USER_RECEIVED,
+	      user: user
+	    });
+	  },
+	
+	  deleteUserSession: function (user) {
+	    Dispatcher.dispatch({
+	      actionType: "SIGN_OUT",
 	      user: user
 	    });
 	  }
@@ -32301,11 +32310,15 @@
 	        React.createElement(
 	          'div',
 	          { className: 'list-item-comments-nb' },
-	          React.createElement('i', { className: 'fa fa-comments-o fa-lg icon-comment' }),
 	          React.createElement(
-	            'p',
-	            { className: 'comment-nb' },
-	            this.props.product.comments_count
+	            'div',
+	            { id: 'comments-area', onClick: this.handleClick },
+	            React.createElement('i', { className: 'fa fa-comments-o fa-lg icon-comment' }),
+	            React.createElement(
+	              'p',
+	              { className: 'comment-nb' },
+	              this.props.product.comments_count
+	            )
 	          ),
 	          React.createElement(
 	            'a',
@@ -32585,7 +32598,7 @@
 	      ),
 	      React.createElement(
 	        'form',
-	        { className: 'form-container', onSubmit: this.handleSubmit },
+	        { className: 'form-container', onSubmit: this.handleSubmit, id: 'product-form' },
 	        React.createElement(
 	          'h2',
 	          { className: 'form-title' },
@@ -32636,7 +32649,50 @@
 	              placeholder: 'https://webpack.github.io/docs/',
 	              valueLink: this.linkState('link') })
 	          ),
-	          React.createElement('br', null)
+	          React.createElement('br', null),
+	          React.createElement(
+	            'div',
+	            { className: 'form-box-item-line' },
+	            React.createElement(
+	              'label',
+	              { className: 'label-form' },
+	              'Product Type * '
+	            ),
+	            React.createElement(
+	              'select',
+	              { name: 'product[tag]', form: 'product-form', className: 'select-tag' },
+	              React.createElement(
+	                'option',
+	                { value: 'JS-librairy' },
+	                'JS Librairy'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'JS-framework' },
+	                'JS Framework'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'NPM-package' },
+	                'NPM Package'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'Ruby-gem' },
+	                'Ruby Gem'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'Chrome-extension' },
+	                'Chrome Extension'
+	              ),
+	              React.createElement(
+	                'option',
+	                { value: 'Atom-package' },
+	                'Atom Package'
+	              )
+	            )
+	          )
 	        ),
 	        React.createElement('input', { className: 'btn btn-primary form-submit-button',
 	          type: 'submit',
