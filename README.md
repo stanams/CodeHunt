@@ -43,10 +43,3 @@ Comments and voters list are updated in real time. It's easy to navigate through
 Users have a profile that displays all the products they've posted or upvoted. These product lists are still votable and can redirect to any of the relevant pages.
 
 ![Profile-page] (http://res.cloudinary.com/codehunt/image/upload/v1457728126/Profile_Page_ackziu.png)
-
-### Features under development
-
-- [ ] Tags
-- [ ] Users follow
-- [ ] Real-time search
-- [ ] Chrome extension
